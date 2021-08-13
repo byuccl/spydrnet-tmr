@@ -1,8 +1,8 @@
 .. _surface_pins_funct:
 
-=======================
-surface_pins()
-=======================
+==============
+surface_pins
+==============
 
 .. currentmodule:: spydrnet_tmr.transformation.surface_pins
 .. autofunction:: surface_pins

@@ -1,7 +1,7 @@
 .. _functions:
 
-Functions
-*********
+Other Functions
+***************
 
 The following functions are specific to SpyDrNet TMR and can be used in analyzing and transforming netlists.
 

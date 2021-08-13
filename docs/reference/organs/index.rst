@@ -8,8 +8,8 @@ SpyDrNet TMR has the following organs that can be used in transforming netlists 
 .. toctree::
     :maxdepth: 2
 
-    organs.rst
-    xilinx_tmr_voter.rst
-    xilinx_dwc_detector.rst
-    sticky_dwc_detector.rst
-    jtag.rst
+    organs
+    xilinx_tmr_voter
+    xilinx_dwc_detector
+    sticky_dwc_detector
+    jtag

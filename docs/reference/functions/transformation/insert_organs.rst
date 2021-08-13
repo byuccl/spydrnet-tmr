@@ -1,7 +1,7 @@
 .. _insert_organs:
 
 ===============
-insert_organs()
+insert_organs
 ===============
 
 .. currentmodule:: spydrnet_tmr

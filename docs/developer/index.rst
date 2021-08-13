@@ -6,3 +6,4 @@ Developer's Guide
     
     documentation
     release
+    other_resources

@@ -10,7 +10,6 @@ Reference
    :maxdepth: 2
 
    replication/index.rst
-   organs/index.rst
    functions/index.rst
-   voter_algorithms
+   organs/index.rst
    design_rule_check/index.rst

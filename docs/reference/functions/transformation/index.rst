@@ -10,4 +10,3 @@ Transformation/Replication
    insert_organs
    uniquify_nmr_property
    surface_pins
-   create_reduction_network
