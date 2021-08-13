@@ -1,6 +1,9 @@
+import os
+import unittest
 import spydrnet as sdn
 import spydrnet_tmr as sdn_sh
-import unittest
+from spydrnet_tmr.transformation.surface_pins import surface_pins
+from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
 
 
 class TestSurfacePins(unittest.TestCase):
@@ -45,12 +48,14 @@ class TestSurfacePins(unittest.TestCase):
         # filter
         detectorGroup1OutaPins = list(p for p in detectorGroup1OutaPins if p.inner_pin.port.direction is sdn.OUT)
 
-        from spydrnet_tmr.transformation.surface_pins import surface_pins
-
         surface_pins(detectorGroup0OutaPins, "DRail_0")
         surface_pins(detectorGroup1OutaPins, "DRail_1")
 
+        self.assertTrue(check_surfaced_pins(detectorGroup0OutaPins,"DRail_0"))
+        self.assertTrue(check_surfaced_pins(detectorGroup1OutaPins,"DRail_1"))
+
         netlist.compose('registered_detector_dwc2.edf')
+        os.remove('registered_detector_dwc2.edf')
 
 
     def test_surface_pins_and_wire_to_black_box(self):
@@ -93,10 +98,11 @@ class TestSurfacePins(unittest.TestCase):
         # filter
         detectorGroup1OutaPins = list(p for p in detectorGroup1OutaPins if p.inner_pin.port.direction is sdn.OUT)
 
-        from spydrnet_tmr.transformation.surface_pins import surface_pins
-
         dwcWiremap0 = surface_pins(detectorGroup0OutaPins, "DRail_0")
         dwcWiremap1 = surface_pins(detectorGroup1OutaPins, "DRail_1")
+
+        self.assertTrue(check_surfaced_pins(detectorGroup0OutaPins,"DRail_0"))
+        self.assertTrue(check_surfaced_pins(detectorGroup1OutaPins,"DRail_1"))
 
         # create library for jtag detector module
         jtagLibrary = sdn.Library()
@@ -134,6 +140,7 @@ class TestSurfacePins(unittest.TestCase):
             wire.connect_pin(jtagInstance.pins[portPin])
 
         netlist.compose('registered_detector_dwc2.edf')
+        os.remove('registered_detector_dwc2.edf')
 
     def test_reduction_tree(self):
 
@@ -176,10 +183,11 @@ class TestSurfacePins(unittest.TestCase):
         # filter
         detectorGroup1OutaPins = list(p for p in detectorGroup1OutaPins if p.inner_pin.port.direction is sdn.OUT)
 
-        from spydrnet_tmr.transformation.surface_pins import surface_pins
-
         dwcWiremap0 = surface_pins(detectorGroup0OutaPins, "DRail_0")
         dwcWiremap1 = surface_pins(detectorGroup1OutaPins, "DRail_1")
+
+        self.assertTrue(check_surfaced_pins(detectorGroup0OutaPins,"DRail_0"))
+        self.assertTrue(check_surfaced_pins(detectorGroup1OutaPins,"DRail_1"))
 
 
 
@@ -384,6 +392,7 @@ class TestSurfacePins(unittest.TestCase):
                 break
 
         netlist.compose('registered_detector_dwc2.edf')
+        os.remove('registered_detector_dwc2.edf')
 
     def test_register_detectors(self):
         # get example netlist
@@ -424,9 +433,6 @@ class TestSurfacePins(unittest.TestCase):
         detectorGroup1OutaPins = sdn.get_pins(detectorGroup1, selection=sdn.OUTSIDE)
         # filter
         detectorGroup1OutaPins = list(p for p in detectorGroup1OutaPins if p.inner_pin.port.direction is sdn.OUT)
-
-        from spydrnet_tmr.transformation.surface_pins import surface_pins
-        from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
 
         dwcWiremap0 = surface_pins(detectorGroup0OutaPins, "DRail_0")
         dwcWiremap1 = surface_pins(detectorGroup1OutaPins, "DRail_1")

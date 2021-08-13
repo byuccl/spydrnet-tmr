@@ -5,7 +5,7 @@ def check_uniquify_nmr_property(replicas,property_keys,suffix):
         :param replicas: A map from an original element to its replicas.
         :param property_keys: A set of property keys whose values should have been made unique.
         :param suffix: the suffix appended to the uniquified properties
-        :return True/False
+        :return: True/False
 
     """
     if isinstance(property_keys, str):

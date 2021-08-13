@@ -32,7 +32,7 @@ Replicate and insert detectors
 .. code-block::
 
     replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 2, name_suffix='DWC', rename_original=True)
-    voters = insert_organs(replicas, insertion_points, XilinxDWCDetector(), 'DETECTOR')
+    detectors = insert_organs(replicas, insertion_points, XilinxDWCDetector(), 'DETECTOR')
 
 As seen in the schematic below, the detector's output are not connected, and they are buried some levels down in hierarchy. The surface_pins functions provides an easy way to brings the detectors' output pins up to the top level.
 
@@ -41,14 +41,13 @@ As seen in the schematic below, the detector's output are not connected, and the
    :align: center
 
 
-Specify which pins to surface and call surface_pins to bring them to the top level module. Compose the resulting netlist.
+Specify which pins to surface and call surface_pins to bring them to the top level module. Do this by taking the return of insert_organs() and getting all output pins of the instances (which are the organs that were inserted). Compose the resulting netlist.
 
 .. code-block::
 
     pins_to_surface = []
-    for instance in netlist.get_instances():
-        if 'DETECTOR' in instance.name:
-            pins_to_surface.append(next(instance.get_pins(selection=selection.Selection.OUTSIDE,filter=lambda x: x.inner_pin.port.direction is sdn.OUT)))
+    for key in detectors.keys():
+        pins_to_surface += list((next(x.get_pins(selection=Selection.OUTSIDE,filter=lambda x:(x.inner_pin.port.direction is sdn.OUT)))) for x in voters[key])
     surface_pins(pins_to_surface)
 
     netlist.compose("hierarchical_luts_dwc_detectors.edf")
@@ -64,7 +63,7 @@ See the resulting schematic.
 """
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
-from spydrnet.util import selection
+from spydrnet.util.selection import Selection
 from spydrnet_tmr import apply_nmr, insert_organs
 from spydrnet_tmr.transformation.replication.organ import (
     XilinxDWCDetector,
@@ -87,7 +86,7 @@ def run():
         netlist.get_hports(filter=lambda x: (not "clk" in x.name) is True)
     )
     ports_to_replicate = list(x.item for x in hports_to_replicate)
-    print("hello")
+
     insertion_points = []
     for instance in netlist.get_instances():
         if "sub1" in instance.parent.name:
@@ -95,7 +94,7 @@ def run():
             insertion_points.append(
                 next(
                     instance.get_pins(
-                        selection=selection.Selection.OUTSIDE,
+                        selection=Selection.OUTSIDE,
                         filter=lambda x: x.inner_pin.port.direction is sdn.OUT,
                     )
                 )
@@ -107,21 +106,13 @@ def run():
         name_suffix="DWC",
         rename_original=True,
     )
-    voters = insert_organs(
+    detectors = insert_organs(
         replicas, insertion_points, XilinxDWCDetector(), "DETECTOR"
     )
 
     pins_to_surface = []
-    for instance in netlist.get_instances():
-        if "DETECTOR" in instance.name:
-            pins_to_surface.append(
-                next(
-                    instance.get_pins(
-                        selection=selection.Selection.OUTSIDE,
-                        filter=lambda x: x.inner_pin.port.direction is sdn.OUT,
-                    )
-                )
-            )
+    for key in detectors.keys():
+        pins_to_surface += list((next(x.get_pins(selection=Selection.OUTSIDE,filter=lambda x:(x.inner_pin.port.direction is sdn.OUT)))) for x in detectors[key])
     surface_pins(pins_to_surface)
 
     netlist.compose("hierarchical_luts_dwc.edf")

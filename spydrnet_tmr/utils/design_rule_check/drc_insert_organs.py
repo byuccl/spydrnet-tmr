@@ -5,7 +5,7 @@ def check_organs(insertion_points,organs,organ_names,suffix):
     '''
     Checks to see if organs were inserted (using :ref:`insert_organs`) correctly by checking:
        
-        * are organs found where they were intended to be inserted?
+        * if organs are found where they were intended to be inserted
         * if each organ outputs to elements in its own domain (e.g. VOTER_TMR_0 outputs to something else in TMR_0)
         * if each organ inputs from different domains (e.g. voter inputs from TMR_0, TMR_1, and TMR_2)
 

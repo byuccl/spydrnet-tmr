@@ -5,6 +5,7 @@ def check_surfaced_pins(pins_to_surface,name_prefix='surfaced_pin',write_enable=
     Go through the list of pins that were intended to be surfaced and see if each was surfaced to the top module.
     
     :param pins_to_surface: Pins that were intended to be surfaced
+    :type pins_to_surface: list
     :param name_prefix: Name for the ports and cables created when surfacing the pins
     :param write_enable: write output to a text file
     :type write_enable: bool

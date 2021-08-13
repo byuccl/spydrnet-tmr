@@ -36,7 +36,7 @@ Then we find the instances and ports to replicate. Note that in the following co
     hports_to_replicate = list(netlist.get_hports(filter = lambda x: (not "clk" in x.name)is True))
     ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-    insertion_points = find_voter_insertion_points_before_ff(netlist, [*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+    insertion_points = find_voter_insertion_points_before_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
 
 Next, we duplicate the design using apply_nmr(). The instances and ports we specified are passed as two of the parameters. We also pass '2' and 'DWC' as number of replications and the applicable suffix, respectively.
 

@@ -9,7 +9,7 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     For example, if the instance '**a_lut_3**' has a pin that drives the data_in port on the instance '**a_flip_flop**' in the original design, it will make sure that '**a_lut_3_TMR_0**' has a pin that drives the data_in port on '**a_flip_flop_TMR_0**' (it will check this for each TMR_1 and TMR_2 as well)
 
     :param original_netlist: original netlist
-    :param modified_netlist: the replicated netlist. Can contain voters/detectors
+    :param modified_netlist: the replicated netlist. Can contain organs (voters/detectors)
     :param suffix: string appended to the replicated instances' names (e.g. 'TMR' or 'DWC')
     :param organ_name: list of names of the organs inserted into the design (e.g. ['VOTER', 'DETECTOR'])
     :param write_enable: output results to text file

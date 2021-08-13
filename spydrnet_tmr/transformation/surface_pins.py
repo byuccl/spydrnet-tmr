@@ -42,8 +42,8 @@ def surface_pins(pins, name_prefix="surfaced_pin"):
             port_pin = port.create_pin()
             wire.connect_pin(port_pin)
             pin = parent_inst.pins[port_pin]
-    
+
     if not check_surfaced_pins(pins,name_prefix):
         print("WARNING: pins may not have been surfaced")
-        
+
     return wireMap

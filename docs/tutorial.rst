@@ -14,8 +14,6 @@ SpyDrNet TMR allows for easy replication of and organ insertion into designs.
 **Duplicate With Compare (DWC)**
     * DWC is used to detect errors in FPGA computing. A design is duplicated and comparators inserted. During operation, outputs are continually compared to the other. When a difference is detected, an error is reported.
 
-**Clock Domain Analysis**
-
 Doing Design Replication
 ------------------------
 
