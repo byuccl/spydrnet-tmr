@@ -21,14 +21,14 @@ def check_surfaced_pins(pins_to_surface,name_prefix='surfaced_pin',write_enable=
             f.write("No surfaced pins to check")
         return True
 
-    # netlist = next(pins_to_surface[0].get_netlists(),None)
-    # global TOP_INSTANCE
-    # TOP_INSTANCE = netlist.top_instance
+    netlist = next(pins_to_surface[0].get_netlists(),None)
+    global TOP_INSTANCE
+    TOP_INSTANCE = netlist.top_instance
 
     not_surfaced = []
     for pin in pins_to_surface:
         pin_was_surfaced = True
-        if pin.instance.is_top_instance:
+        if pin.instance.parent is TOP_INSTANCE.reference :
             continue
         elif pin.wire:
             next_pin = next(pin2 for pin2 in pin.wire.get_hpins(filter=lambda x: (x.item is not pin.inner_pin and x.item.port.direction is pin.inner_pin.port.direction)is True))
