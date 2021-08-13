@@ -17,11 +17,11 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     :return: bool (matched, not_matched)
     '''
     print("CHECKING CONNECTIONS")
-    global top_instances
-    top_instances = [original_netlist.top_instance,modified_netlist.top_instance]
-    global organs
-    organs = organ_names
-    organs.append('COMPLEX')
+    # global TOP_INSTANCES
+    # TOP_INSTANCES = [original_netlist.top_instance,modified_netlist.top_instance]
+    global ORGANS
+    ORGANS = organ_names
+    ORGANS.append('COMPLEX')
 
     uniquify(original_netlist)
 
@@ -30,6 +30,9 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     # original_instances_leafs = list(x for x in original_instances_all if x.item.is_leaf())
 
     modified_instances_all = list(x for x in modified_netlist.get_hinstances(recursive=True,filter = lambda x: (filter_instances(x.item)) is True))
+    # for instance in modified_instances_all:
+        # if 'btn_f2_reg_TMR_2' in instance.item.name:
+        #     print("RIGHT HERE")
     get_pin_connections(modified_instances_all,suffix)
     modified_instances_leafs = list(x for x in modified_instances_all if x.item.is_leaf())
 
@@ -43,6 +46,9 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
         return True
 
 def get_original_non_leafs(original_netlist):
+    '''
+    creates a map of non_leaf instances to their leaf children. This allows finding corresponding instances to be quicker.
+    '''
     original_non_leafs = {}
     for instance in original_netlist.get_hinstances(recursive = True,filter= lambda x: (not x.item.is_leaf()) is True):
         if instance.item.reference.name in original_non_leafs.keys():
@@ -57,15 +63,20 @@ def filter_instances(instance):
         return False
     elif 'GND' in instance.name:
         return False
+    elif 'VCC' in instance.name:
+        return False
     else:
         return True
 
 def is_organ(instance):
-    if any(organ in instance.name for organ in organs):
+    if any(organ in instance.name for organ in ORGANS):
         return True
     return False
 
 def fix_instance_connection_name(current_instance,suffix):
+    '''
+    returns the instance's name without the replica suffix appended to it
+    '''
     modified_name = None
     start_index = current_instance.name.find(suffix)
     stop_index = start_index + len(suffix) + 2
@@ -119,7 +130,7 @@ def get_pin_connections_helper(instance,pin,suffix,key):
         add_drivers(instance,pins,suffix,key)
     elif pin.inner_pin.port.direction is sdn.IN:
         get_previous = True
-        if pin.inner_pin.port.name in instance._data:
+        if pin.inner_pin.port.name in instance:
             if instance[pin.inner_pin.port.name]:
                 get_previous = False
         if get_previous:
@@ -138,7 +149,7 @@ def add_drivers(instance,pins,suffix,key):
 def add_info(current_instance,current_pin,info):
     if current_pin.__class__ is sdn.OuterPin:
         current_pin = current_pin.inner_pin
-    if current_pin.port.name in current_instance._data:
+    if current_pin.port.name in current_instance:
         current_instance[current_pin.port.name].update(set(info))
     else:
         current_instance[current_pin.port.name] = set(info)
@@ -172,7 +183,7 @@ def check_next_list(next_instances,key,suffix):
                 to_remove.append(instance)
         elif not instance.instance.is_leaf():
             wires = list(x for x in instance.inner_pin.port.get_wires(selection = Selection.OUTSIDE))
-            if not wires and instance.instance not in top_instances:
+            if (not wires and not instance.instance.is_top_instance):
                 to_remove.append(instance)
             else:
                 if key in instance.inner_pin.port.name:
@@ -219,7 +230,7 @@ def find_driver(instance_list,current_pin,key,suffix):
                 return instance
         elif not instance.instance.is_leaf():
             if key in instance.inner_pin.port.name or suffix not in instance.inner_pin.port.name:
-                if instance.instance not in top_instances:
+                if not instance.instance.is_top_instance:
                     if instance.instance.reference.name is current_pin.instance.parent.name:
                         if instance.inner_pin.port.direction is sdn.IN:
                             return instance
@@ -242,9 +253,9 @@ def compare_pin_connections(original,modified,suffix,name,write_enable):
         if instance_modified.parent.item.reference.name in original.keys():
             for instance_original in original[instance_modified.parent.item.reference.name]:
                 if modified_name == instance_original.name:
-                        matched = True
-                        not_matched += compare_a_match(instance_modified.item,instance_original,f)
-                        break
+                    matched = True
+                    not_matched += compare_a_match(instance_modified.item,instance_original,f)
+                    break
         if not matched:
             if f:
                 f.write(instance_modified.item.name + ' had no one to compare to\n')
@@ -267,5 +278,5 @@ def compare_a_match(instance_modified,instance_original,f):
             if f:
                 f.write("NOT MATCH: "+instance_modified.name+' '+str(instance_modified[port.name])+'---'+str(instance_original[port.name])+' '+instance_original.name+' Port:'+port.name+' Parent:'+instance_modified.parent.name+'\n')
             not_matched.append(instance_modified)
-        instance_modified._data.pop(port.name)
+        instance_modified.pop(port.name)
     return not_matched

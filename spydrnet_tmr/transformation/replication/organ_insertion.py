@@ -254,8 +254,6 @@ class OrganInsertion:
         if self._organ_has_no_primary_output():
             self.simple_insert_no_primary_output(primary)
         else:
-            if isinstance(primary, sdn.InnerPin):
-                self._simple_insert_input_pin(primary)
             if primary.inner_pin.port.direction is sdn.OUT:
                 self._simple_insert_output_pin(primary)
             else:
@@ -634,10 +632,7 @@ class OrganInsertion:
         """
         Checks to see if the current wire already has an organ on it
         """
-        # if isinstance(pin, sdn.InnerPin):
-        #     key = self.find_key(pin.instance)
-        # else:
-        key = self.find_key([x for x in pin.get_instances()][0])
+        key = self.find_key(pin.instance)
         wire = pin.wire
         has_organ_already = False
         if wire:

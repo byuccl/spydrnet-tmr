@@ -426,22 +426,26 @@ class TestSurfacePins(unittest.TestCase):
         detectorGroup1OutaPins = list(p for p in detectorGroup1OutaPins if p.inner_pin.port.direction is sdn.OUT)
 
         from spydrnet_tmr.transformation.surface_pins import surface_pins
+        from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
 
         dwcWiremap0 = surface_pins(detectorGroup0OutaPins, "DRail_0")
         dwcWiremap1 = surface_pins(detectorGroup1OutaPins, "DRail_1")
 
-        from spydrnet_tmr.transformation.reduction_network import create_reduction_network
-        from spydrnet_tmr.transformation.reduction_network import define_reg
-        from spydrnet_tmr.transformation.reduction_network import registerDWCWires, instance_JTAG_module
+        self.assertTrue(check_surfaced_pins(detectorGroup0OutaPins,"DRail_0"))
+        self.assertTrue(check_surfaced_pins(detectorGroup1OutaPins,"DRail_1"))
 
-        regDef = define_reg(netlist)
+        # from spydrnet_tmr.transformation.reduction_network import create_reduction_network
+        # from spydrnet_tmr.transformation.reduction_network import define_reg
+        # from spydrnet_tmr.transformation.reduction_network import registerDWCWires, instance_JTAG_module
 
-        dwcWiremap0 = registerDWCWires(netlist, dwcWiremap0, regDef, "Reg_Q_0")
-        dwcWiremap1 = registerDWCWires(netlist, dwcWiremap1, regDef, "Reg_Q_1")
+        # regDef = define_reg(netlist)
 
-        rail0Map = create_reduction_network(netlist, dwcWiremap0)
-        rail1Map = create_reduction_network(netlist, dwcWiremap1)
+        # dwcWiremap0 = registerDWCWires(netlist, dwcWiremap0, regDef, "Reg_Q_0")
+        # dwcWiremap1 = registerDWCWires(netlist, dwcWiremap1, regDef, "Reg_Q_1")
 
-        instance_JTAG_module(netlist, rail0Map, rail1Map)
+        # rail0Map = create_reduction_network(netlist, dwcWiremap0)
+        # rail1Map = create_reduction_network(netlist, dwcWiremap1)
 
-        netlist.compose('registered_detector_dwc2.edf')
+        # instance_JTAG_module(netlist, rail0Map, rail1Map)
+
+        # netlist.compose('registered_detector_dwc2.edf')

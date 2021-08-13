@@ -1,5 +1,5 @@
 import spydrnet as sdn
-import spydrnet_tmr as sdn_TMR
+from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
 
 
 def surface_pins(pins, name_prefix="surfaced_pin"):
@@ -9,8 +9,8 @@ def surface_pins(pins, name_prefix="surfaced_pin"):
     Example: when detectors are inserted several levels deep in hierarchy, this function can bring their output pins up to the top to be connected.
 
     :param pins: List of pins to surface to the top module.
-    :param name_prefix:
-    :return: void
+    :param name_prefix: Name for the ports and cables created when surfacing the pins
+    :return: list of dictionaries of {pin_to_surface : wire_connected_to_it} entries
     """
     wireMap = dict()
     for pin_index,pin in enumerate(pins):
@@ -42,4 +42,8 @@ def surface_pins(pins, name_prefix="surfaced_pin"):
             port_pin = port.create_pin()
             wire.connect_pin(port_pin)
             pin = parent_inst.pins[port_pin]
+    
+    if not check_surfaced_pins(pins,name_prefix):
+        print("WARNING: pins may not have been surfaced")
+        
     return wireMap

@@ -35,3 +35,4 @@ def _update_edif_properties(element, property_keys, property_keys_lower, suffix)
                         value = property['value']
                         if isinstance(value, str):
                             property['value'] = value + '_' + suffix
+

@@ -19,6 +19,9 @@ class Organ:
 
 
 class XilinxTMRVoter(Organ):
+    '''
+    A LUT3 with INIT value 8'hE8. Votes by majority.
+    '''
     def __init__(self):
         self._definition = None
         self._primary_input_pin = None
@@ -74,6 +77,9 @@ class XilinxTMRVoter(Organ):
 
 
 class XilinxDWCDetector(Organ):
+    '''
+    A LUT2 with INIT value 4'h6. Acts like an XOR gate.
+    '''
     def __init__(self):
         self._definition = None
         self._primary_input_pin = None

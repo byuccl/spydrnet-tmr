@@ -1,6 +1,6 @@
-import spydrnet_tmr as sdn_TMR
-
+import os
 import unittest
+import spydrnet_tmr as sdn_TMR
 
 
 class TestNMR(unittest.TestCase):
@@ -15,9 +15,14 @@ class TestNMR(unittest.TestCase):
         replicas = sdn_TMR.apply_nmr(chain(instances_to_replicate, ports_to_replicate), 3, 'TMR', True)
 
         self.netlist.compose('registered_inverter_tmr.edf')
+        self.remove_files()
 
-    def test_nmr_of_feeback_loop(self):
+    def test_nmr_of_feedback_loop(self):
         insts = list(self.netlist.get_instances(['DQ[1]_i_1', 'DQ_reg[1]']))
         replicas = sdn_TMR.apply_nmr(insts, 3, 'TMR', True)
 
         self.netlist.compose('registered_inverter_tmr.edf')
+        self.remove_files()
+
+    def remove_files(self):
+        os.remove("registered_inverter_tmr.edf")

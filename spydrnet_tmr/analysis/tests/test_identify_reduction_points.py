@@ -1,15 +1,12 @@
+import unittest
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
-from spydrnet_tmr.analysis.identify_reduction_points import (
-    identify_reduction_points,
-)
+from spydrnet_tmr.analysis.identify_reduction_points import identify_reduction_points
 from spydrnet_tmr import apply_nmr
 
 
-import unittest
-
-
 class TestIdentifyReductionPoints(unittest.TestCase):
+
     def setUp(self):
         self.netlist = sdn.load_example_netlist_by_name("b13")
         uniquify(self.netlist)
@@ -32,9 +29,16 @@ class TestIdentifyReductionPoints(unittest.TestCase):
         )
         self.insertion_points = identify_reduction_points(replicas, "TMR")
 
-    def test_points_are_pins(self):
+    def test_points_are_tuples(self):
         for pin in self.insertion_points:
-            self.assertIsInstance(pin, sdn.ir.Pin)
+            self.assertIsInstance(pin, tuple)
+
+    def test_tuples_are_pins(self):
+        for pin in self.insertion_points:
+            self.assertIsInstance(pin[0],sdn.OuterPin)
+            self.assertIsInstance(pin[1],frozenset)
+            for sink_pin in pin[1]:
+                self.assertIsInstance(sink_pin,sdn.Pin)
 
     def test_point_amount(self):
-        self.assertEqual(len(self.insertion_points), 10)
+        self.assertEqual(len(self.insertion_points),9)
