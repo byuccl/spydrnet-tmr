@@ -18,12 +18,12 @@ class TestDRCSurfacePins(unittest.TestCase):
         random_value = randint(0,len(examples_list)-1)
         example_to_test = examples_list[random_value]
 
-        netlist = sdn.load_example_netlist_by_name(example_to_test)
-        uniquify(netlist)
+        self.netlist = sdn.load_example_netlist_by_name(example_to_test)
+        uniquify(self.netlist)
 
-        hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))
+        hinstances_to_replicate = list(self.netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
-        hports_to_replicate = list(netlist.get_hports())
+        hports_to_replicate = list(self.netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
 
         insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
@@ -40,7 +40,8 @@ class TestDRCSurfacePins(unittest.TestCase):
         self.assertTrue(check_surfaced_pins(self.pins_to_surface))
 
     def test_drc_fail(self):
-        surface_pins(self.pins_to_surface[1:3])
+        some_pins_to_surface = list(x for x in self.pins_to_surface if x.instance.parent is self.netlist.top_instance)
+        surface_pins(some_pins_to_surface)
         self.assertFalse(check_surfaced_pins(self.pins_to_surface))
 
     def test_pass_no_pins(self):
