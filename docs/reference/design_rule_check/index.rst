@@ -13,3 +13,4 @@ The following functions are used in the design rule check (DRC) found under spyd
    drc_surface_pins
    drc_insert_organs
    drc_uniquify_nmr_property
+   drc_apply_nmr

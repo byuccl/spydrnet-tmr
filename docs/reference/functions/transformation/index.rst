@@ -10,3 +10,4 @@ Transformation/Replication
    insert_organs
    uniquify_nmr_property
    surface_pins
+   reorder_organ_pins

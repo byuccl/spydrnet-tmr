@@ -17,8 +17,8 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     :return: bool (matched, not_matched)
     '''
     print("CHECKING CONNECTIONS")
-    # global TOP_INSTANCES
-    # TOP_INSTANCES = [original_netlist.top_instance,modified_netlist.top_instance]
+    global TOP_INSTANCES
+    TOP_INSTANCES = [original_netlist.top_instance,modified_netlist.top_instance]
     global ORGANS
     ORGANS = organ_names
     ORGANS.append('COMPLEX')
@@ -183,7 +183,7 @@ def check_next_list(next_instances,key,suffix):
                 to_remove.append(instance)
         elif not instance.instance.is_leaf():
             wires = list(x for x in instance.inner_pin.port.get_wires(selection = Selection.OUTSIDE))
-            if (not wires and not instance.instance.is_top_instance):
+            if (not wires and not instance.instance in TOP_INSTANCES):
                 to_remove.append(instance)
             else:
                 if key in instance.inner_pin.port.name:
@@ -230,7 +230,7 @@ def find_driver(instance_list,current_pin,key,suffix):
                 return instance
         elif not instance.instance.is_leaf():
             if key in instance.inner_pin.port.name or suffix not in instance.inner_pin.port.name:
-                if not instance.instance.is_top_instance:
+                if not instance.instance in TOP_INSTANCES:
                     if instance.instance.reference.name is current_pin.instance.parent.name:
                         if instance.inner_pin.port.direction is sdn.IN:
                             return instance

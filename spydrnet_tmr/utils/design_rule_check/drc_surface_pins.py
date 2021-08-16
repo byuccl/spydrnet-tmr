@@ -54,7 +54,7 @@ def check_surfaced_pins(pins_to_surface,name_prefix='surfaced_pin',write_enable=
         return True
     
 def step_up(current_port,name):
-    if current_port.parent.parent.item.is_top_instance:
+    if current_port.parent.parent.item is TOP_INSTANCE:
         return True
     else:
         next_wire = next(current_port.item.get_wires(selection=Selection.OUTSIDE),None)

@@ -9,6 +9,10 @@ def identify_reduction_points(replicas,suffix):
     :param suffix: string appended to the replicated instances' names e.g. 'TMR' or 'DWC'
     :return: list of (source pin, sink pins) tuples where instances output to non_replicated elements
     '''
+
+    associated_netlist = next(list(netlist for netlist in replicas[x][0].get_netlists())[0] for x in replicas.keys())
+    global TOP_INSTANCE
+    TOP_INSTANCE = associated_netlist.top_instance
     insertion_points = []
     pinmap = _generate_pinmap(replicas)
     ignore_types = ['VCC','GND','CLK']
@@ -65,7 +69,7 @@ def compare_next_instances(current_output_pin,next_instances_original,next_insta
     # next_instances_orginal_names = list(fix_instance_name(x.instance,suffix) for x in next_instances_original)
     for pin in next_instances_original:
         if fix_instance_name(pin.instance,suffix) not in next_instances_replicated_names:
-            if pin.instance.is_top_instance or pin.instance.reference is current_output_pin.instance.parent:
+            if pin.instance is TOP_INSTANCE or pin.instance.reference is current_output_pin.instance.parent:
                 reduction_points.append((current_output_pin,frozenset([pin.inner_pin])))
             else:
                 reduction_points.append((current_output_pin,frozenset([pin])))

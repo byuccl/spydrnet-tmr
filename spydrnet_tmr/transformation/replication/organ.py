@@ -1,5 +1,5 @@
 import spydrnet as sdn
-
+from spydrnet.util.selection import Selection
 
 class Organ:
     def ensure_definition_in_netlist(self, netlist):
@@ -229,6 +229,118 @@ class JTAG(Organ):
 
         self._definition = primitive_definition
         self._primary_output_pin = next(self._definition.get_ports("O[31:0]")).pins[0]
+
+    def get_primary_input_pin(self):
+        return self._primary_input_pin
+
+    def get_other_input_pins(self):
+        return self._other_input_pins
+
+    def get_primary_output_pin(self):
+        return self._primary_output_pin
+
+    def create_instance(self):
+        instance = sdn.Instance()
+        instance.reference = self._definition
+        return instance
+
+class XilinxCombinedOrgan(Organ):
+    '''
+    Contains both a voter (:ref:`xilinx_tmr_voter`) and a detector (:ref:`xilinx_dwc_detector`). The voter votes like normal, and the detector signals if that TMR domain's signal is different from the majority vote (it's the odd man out)
+    
+    .. figure:: ../../figures/combined_organ.svg
+        :width: 800px
+        :align: center
+    '''
+    def __init__(self):
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+
+    def ensure_definition_in_netlist(self, netlist):
+        primitive_library = next(netlist.get_libraries("organs"), None)
+        if primitive_library is None:
+            primitive_library = sdn.Library()
+            netlist.add_library(primitive_library, 0)
+            primitive_library.name = "organs"
+            primitive_library["EDIF.identifier"] = primitive_library.name
+        primitive_definition = next(primitive_library.get_definitions("combined_organ"), None)
+        if primitive_definition is None:
+            def_combined_organ = primitive_library.create_definition(name='combined_organ')
+            port_a = def_combined_organ.create_port(name='Primary', direction=sdn.IN)
+            port_combined_organ_b = def_combined_organ.create_port(name='Other_1', direction=sdn.IN)
+            port_combined_organ_c = def_combined_organ.create_port(name='Other_2', direction=sdn.IN)
+            port_q1 = def_combined_organ.create_port(name='Q1', direction=sdn.OUT)
+            port_q2 = def_combined_organ.create_port(name='Q2', direction=sdn.OUT)
+
+            pin_combined_organ_a = port_a.create_pin()
+            pin_combined_organ_b = port_combined_organ_b.create_pin()
+            pin_combined_organ_c = port_combined_organ_c.create_pin()
+            pin_combined_organ_q1 = port_q1.create_pin()
+            pin_combined_organ_q2 = port_q2.create_pin()
+
+            cable_a = def_combined_organ.create_cable(name='Primary')
+            cable_b = def_combined_organ.create_cable(name='Other_1')
+            cable_c = def_combined_organ.create_cable(name='Other_2')
+            cable_q_1 = def_combined_organ.create_cable(name='Q1')
+            cable_q_2 = def_combined_organ.create_cable(name='Q2')
+
+            wire_a = cable_a.create_wire()
+            wire_b = cable_b.create_wire()
+            wire_c = cable_c.create_wire()
+            wire_q_1 = cable_q_1.create_wire()
+            wire_q_2 = cable_q_2.create_wire()
+
+            XilinxTMRVoter.ensure_definition_in_netlist(self,netlist)
+            voter = XilinxTMRVoter.create_instance(self)
+            voter.name = 'VOTER'
+
+            XilinxDWCDetector.ensure_definition_in_netlist(self,netlist)
+            detector = XilinxDWCDetector.create_instance(self)
+            detector.name = 'DETECTOR'
+
+            def_combined_organ.add_child(voter)
+            def_combined_organ.add_child(detector)
+
+            wire_a.connect_pin(pin_combined_organ_a)
+            port = next(voter.get_ports('I0'),None)
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is voter))
+            wire_a.connect_pin(pin)
+
+            wire_b.connect_pin(pin_combined_organ_b)
+            port = next(voter.get_ports('I1'),None)
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is voter))
+            wire_b.connect_pin(pin)
+
+            wire_c.connect_pin(pin_combined_organ_c)
+            port = next(voter.get_ports('I2'),None)
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is voter))
+            wire_c.connect_pin(pin)
+
+            wire_q_1.connect_pin(pin_combined_organ_q1)
+            port = next(voter.get_ports("O"),None)
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is voter))
+            wire_q_1.connect_pin(pin)
+
+            port = next(detector.get_ports('I0'))
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is detector))
+            wire_a.connect_pin(pin)
+
+            port = next(detector.get_ports('I1'))
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is detector))
+            wire_q_1.connect_pin(pin)
+
+            wire_q_2.connect_pin(pin_combined_organ_q2)
+            port = next(detector.get_ports('O'))
+            pin = next(port.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.instance is detector))
+            wire_q_2.connect_pin(pin)
+
+            self._definition = def_combined_organ
+            self._primary_input_pin = next(self._definition.get_ports("Primary")).pins[0]
+            self._other_input_pins = [next(self._definition.get_ports("Other_1")).pins[0]]
+            self._other_input_pins.append(next(self._definition.get_ports("Other_2")).pins[0])
+            self._primary_output_pin = pin_combined_organ_q1
 
     def get_primary_input_pin(self):
         return self._primary_input_pin
