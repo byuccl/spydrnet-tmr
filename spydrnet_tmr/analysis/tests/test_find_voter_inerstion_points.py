@@ -27,7 +27,6 @@ class TestVoterInsertionBeforeFF(unittest.TestCase):
         hports_to_replicate = list(port for port in self.netlist.get_hports())
         # ports_to_replicate = list(x.item for x in hports_to_replicate)
         self.insertion_points = find_voter_insertion_points_before_ff(
-            self.netlist,
             [*hinstances_to_replicate, *hports_to_replicate],
             {"FDRE", "FDSE", "FDPE", "FDCE"},
         )
@@ -61,7 +60,6 @@ class TestVoterInsertionAfterFF(unittest.TestCase):
         hports_to_replicate = list(port for port in self.netlist.get_hports())
         # ports_to_replicate = list(x.item for x in hports_to_replicate)
         self.insertion_points = find_voter_insertion_points_after_ff(
-            self.netlist,
             [*hinstances_to_replicate, *hports_to_replicate],
             {"FDRE", "FDSE", "FDPE", "FDCE"},
         )

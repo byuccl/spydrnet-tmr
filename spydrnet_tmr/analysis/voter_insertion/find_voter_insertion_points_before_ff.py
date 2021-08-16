@@ -61,24 +61,25 @@ def find_voter_insertion_points_before_ff(
                 for port in pin.get_ports()
                 if port.name is DATA_IN_PORT_NAME
             ]:
-                connected_pin = find_connected_pin(pin)
+                insertion_points.add(pin)
+                # connected_pin = find_connected_pin(pin)
 
-                if not any(
-                    x in endpoints_to_replicate
-                    for x in connected_pin.get_hinstances()
-                ):
-                    break
+                # if not any(
+                #     x in endpoints_to_replicate
+                #     for x in connected_pin.get_hinstances()
+                # ):
+                #     break
 
                 # For inner pins, confirm that associated port will be
                 # replicated by checking endpoints_to_replicate
-                if isinstance(
-                    pin, sdn.ir.innerpin.InnerPin
-                ) and pin.port.name in [
-                    endpoint.name for endpoint in endpoints_to_replicate
-                ]:
-                    insertion_points.add(pin)
-                else:
-                    insertion_points.add(pin)
+                # if isinstance(
+                #     pin, sdn.ir.innerpin.InnerPin
+                # ) and pin.port.name in [
+                #     endpoint.name for endpoint in endpoints_to_replicate
+                # ]:
+                #     insertion_points.add(pin)
+                # else:
+                #     insertion_points.add(pin)
 
     print(
         "Identified {} insertion points for feedback voters before flip-flops.".format(

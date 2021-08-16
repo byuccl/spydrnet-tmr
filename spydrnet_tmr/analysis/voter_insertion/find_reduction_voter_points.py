@@ -39,15 +39,11 @@ def find_reduction_voter_points(
         # pin associated with it
         if (
             isinstance(receiver_pin, sdn.InnerPin)
-            and any(
-                port.direction is sdn.IN
-                for port in [x for x in receiver_pin.get_ports()]
-            )
+            and
+                receiver_pin.port.direction is sdn.IN
             or isinstance(receiver_pin, sdn.OuterPin)
-            and any(
-                port.direction is sdn.OUT
-                for port in [x for x in receiver_pin.get_ports()]
-            )
+            and
+                receiver_pin.inner_pin.port.direction is sdn.OUT
         ):
             print(
                 "WARNING: Given pin for the receiver_pin was actually a driver pin"
@@ -55,15 +51,13 @@ def find_reduction_voter_points(
             return receiver_pin
 
         for immediate_driver_pin in receiver_pin.wire.pins:
-            if isinstance(immediate_driver_pin, sdn.InnerPin) and any(
-                port.direction is sdn.IN
-                for port in [x for x in immediate_driver_pin.get_ports()]
+            if isinstance(immediate_driver_pin, sdn.InnerPin) and (
+                immediate_driver_pin.port.direction is sdn.IN
             ):
                 return immediate_driver_pin
 
-            if isinstance(immediate_driver_pin, sdn.OuterPin) and any(
-                port.direction is sdn.OUT
-                for port in [x for x in immediate_driver_pin.get_ports()]
+            if isinstance(immediate_driver_pin, sdn.OuterPin) and (
+                immediate_driver_pin.inner_pin.port.direction is sdn.OUT
             ):
                 return immediate_driver_pin
 
@@ -89,12 +83,17 @@ def find_reduction_voter_points(
         # pin. For top-level ports, only output ports have receiving pins.
 
         if isinstance(endpoint.item, sdn.Instance):
-            for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
-                if any(
-                    hport.item.direction is sdn.IN
-                    for hport in pin.get_hports()
-                ):
-                    receiver_pins.add(pin)
+            if endpoint.item.is_leaf():
+                for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
+                    if pin.inner_pin.port.direction is sdn.IN:
+                        receiver_pins.add(pin)
+            else:
+                for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
+                    if pin.inner_pin.port.direction is sdn.IN:
+                        receiver_pins.add(pin)
+                    elif pin.inner_pin.port.direction is sdn.OUT:
+                        receiver_pins.add(pin.inner_pin)
+
         if (
             isinstance(endpoint.item, sdn.Port)
             and endpoint.item.direction is sdn.OUT
@@ -106,7 +105,7 @@ def find_reduction_voter_points(
         if receiver_pin.wire is None:
             receiver_pin = receiver_pin.inner_pin
         driver_pin = find_immediate_driver_pin(receiver_pin)
-        print(driver_pin)
+        # print(driver_pin)
         if any(
             inst == netlist.top_instance
             for inst in [inst for inst in receiver_pin.get_instances()]
@@ -120,7 +119,7 @@ def find_reduction_voter_points(
                     hinst for hinst in driver_pin.get_hinstances()
                 ]
             ):
-                insertion_points.add(receiver_pin)
+                insertion_points.add((driver_pin,receiver_pin))
         elif (
             any(
                 endpoint in endpoints_to_replicate
@@ -136,7 +135,19 @@ def find_reduction_voter_points(
                 ]
             )
         ):
-            insertion_points.add(receiver_pin)
+            insertion_points.add((driver_pin,receiver_pin))
+        elif (
+            any(
+                endpoint in endpoints_to_replicate
+                for endpoint in [
+                    *[hinst for hinst in driver_pin.get_hinstances()],
+                ]
+            )
+        ) and (
+            not all(hinst.item.is_leaf() for hinst in receiver_pin.get_hinstances()
+            )
+        ):
+            insertion_points.add((driver_pin,receiver_pin))
 
     print(
         "Identified {} insertion points for reduction voters.".format(
