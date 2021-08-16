@@ -14,7 +14,7 @@ class TestDRCSurfacePins(unittest.TestCase):
     Tests the DRC check for surface_pins()
     '''
     def setUp(self):
-        examples_list = ['b13','register_file']
+        examples_list = ['lfsr_zybo','register_file']
         random_value = randint(0,len(examples_list)-1)
         example_to_test = examples_list[random_value]
 
