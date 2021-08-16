@@ -7,9 +7,6 @@ python:
   - "3.8-dev"
   - "nightly"
   - "3.9"
-branches:
-  only: 
-    - master
 install:
   - pip install ply
   - pip install spydrnet
