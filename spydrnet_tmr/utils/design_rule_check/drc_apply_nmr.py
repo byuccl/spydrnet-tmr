@@ -21,8 +21,6 @@ def check_nmr(netlist,all_elements_to_replicate,degree,suffix):
         # print(name)
         if name in instance_dict.keys():
             instance_dict[name] += 1
-            if instance_dict[name] > 3:
-                print(instance.name,'just got added to',name, 'as ',instance_dict[name])
         else:
             instance_dict[name] = 1
     for port in netlist.get_hports():

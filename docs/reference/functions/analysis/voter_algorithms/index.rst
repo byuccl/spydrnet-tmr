@@ -3,7 +3,7 @@
 Voter Algorithms
 ================
 
-Currently, SpyDrNet SHREC employs the following voter insertion algorithms:
+Currently, SpyDrNet TMR employs the following voter insertion algorithms:
 
     * Place a feedback voter after every flip-flop. See :ref:`find_voter_insertion_after_ff`
     * Place a feedback voter before every flip-flop. See :ref:`find_voter_insertion_before_ff`

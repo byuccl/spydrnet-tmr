@@ -1,4 +1,5 @@
 import unittest
+import os
 from random import randint
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
@@ -37,12 +38,20 @@ class TestDRCSurfacePins(unittest.TestCase):
 
     def test_drc_pass(self):
         surface_pins(self.pins_to_surface)
-        self.assertTrue(check_surfaced_pins(self.pins_to_surface))
+        self.assertTrue(check_surfaced_pins(self.pins_to_surface,write_enable=True))
+        os.remove("drc_surface_pins_results.txt")
 
     def test_drc_fail(self):
         some_pins_to_surface = list(x for x in self.pins_to_surface if x.instance.parent is self.netlist.top_instance)
         surface_pins(some_pins_to_surface)
-        self.assertFalse(check_surfaced_pins(self.pins_to_surface))
+        self.assertFalse(check_surfaced_pins(self.pins_to_surface,write_enable=True))
+        os.remove("drc_surface_pins_results.txt")
+
+    def test_drc_fail_2(self):
+        surface_pins(self.pins_to_surface,'random_prefix')
+        self.assertFalse(check_surfaced_pins(self.pins_to_surface,write_enable=True))
+        os.remove("drc_surface_pins_results.txt")
 
     def test_pass_no_pins(self):
-        self.assertTrue(check_surfaced_pins([]))
+        self.assertTrue(check_surfaced_pins([],write_enable=True))
+        os.remove("drc_surface_pins_results.txt")

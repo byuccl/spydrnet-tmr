@@ -29,23 +29,23 @@ def find_voter_insertion_points_before_ff(
 
     insertion_points = set()
 
-    def find_connected_pin(primary_pin):
-        """
-        Find pin connected to the primary pin
+    # def find_connected_pin(primary_pin):
+    #     """
+    #     Find pin connected to the primary pin
 
-        If there are severaly pins connected to the primary pin, the first one
-        found will be returned.
+    #     If there are severaly pins connected to the primary pin, the first one
+    #     found will be returned.
 
-        :param primary_pin: Pin for which this function will find the
-            accompanying pin.
-        :param connected_pin: Pin that is connected to the primary_pin. If no
-            pin is found, the primary pin is returned.
-        """
-        # Identify the pins connected to the given primary_pin
-        for connected_pin in primary_pin.wire.pins:
-            if connected_pin is not primary_pin:
-                return connected_pin
-        return primary_pin
+    #     :param primary_pin: Pin for which this function will find the
+    #         accompanying pin.
+    #     :param connected_pin: Pin that is connected to the primary_pin. If no
+    #         pin is found, the primary pin is returned.
+    #     """
+    #     # Identify the pins connected to the given primary_pin
+    #     for connected_pin in primary_pin.wire.pins:
+    #         if connected_pin is not primary_pin:
+    #             return connected_pin
+    #     return primary_pin
 
     # Identify all flip-flop instances
     for endpoint in [

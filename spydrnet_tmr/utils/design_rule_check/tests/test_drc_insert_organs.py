@@ -55,3 +55,7 @@ class TestDRCCInsertOrgans(unittest.TestCase):
         self.assertFalse(check_if_organ_inputs_from_each_domain(self.voters,'TMR'))
 
         self.assertFalse(check_organs(self.insertion_points,self.voters,['VOTER'],'TMR'))
+
+    def test_drc_fail_2(self):
+        self.voters = insert_organs(self.replicas, self.insertion_points, XilinxTMRVoter(), 'VOTER')
+        self.assertFalse(check_organs(self.insertion_points,self.voters,['VOTER'],'suffix'))
