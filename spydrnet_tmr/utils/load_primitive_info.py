@@ -1,0 +1,168 @@
+import os
+
+
+def load_primitive_info(netlist, vendor):
+    from spydrnet_tmr import base_dir
+
+    primitive_info = dict()
+
+    import json
+
+    primitive_info_db = json.load(
+        open(
+            os.path.join(
+                base_dir,
+                "support_files",
+                "primitive_databases",
+                "xilinx_primitive_info_db.json",
+            )
+        )
+    )
+
+    primitive_library = next(
+        netlist.get_libraries(primitive_info_db["primitive_library_name"])
+    )
+    primitive_info["primitive_library"] = primitive_library
+
+    if "power_ground_cells" in primitive_info_db:
+        power_ground_cells = set()
+        primitive_info["power_ground_cells"] = power_ground_cells
+        for power_ground_cell_info in primitive_info_db["power_ground_cells"]:
+            # print(power_ground_cell_info["name"])
+            power_ground_cell = next(
+                primitive_library.get_definitions(
+                    power_ground_cell_info["name"]
+                ),
+                None,
+            )
+            if power_ground_cell is None:
+                continue
+            power_ground_cells.add(power_ground_cell)
+
+    if "clock_buffers" in primitive_info_db:
+        clock_buffers = set()
+        primitive_info["clock_buffers"] = clock_buffers
+        for clock_buffer_info in primitive_info_db["clock_buffers"]:
+            # print(clock_buffer_info["name"])
+            clock_buffer = next(
+                primitive_library.get_definitions(clock_buffer_info["name"]),
+                None,
+            )
+            if clock_buffer is None:
+                continue
+            clock_buffers.add(clock_buffer)
+
+    if "combinational_cells" in primitive_info_db:
+        combinational_cells = set()
+        primitive_info["combinational_cells"] = combinational_cells
+        for combinational_cell_info in primitive_info_db[
+            "combinational_cells"
+        ]:
+            # print(combinational_cell_info["name"])
+            combinational_cell = next(
+                primitive_library.get_definitions(
+                    combinational_cell_info["name"]
+                ),
+                None,
+            )
+            if combinational_cell is None:
+                continue
+            combinational_cells.add(combinational_cell)
+
+    if "sequential_cells" in primitive_info_db:
+        sequential_cells = dict()
+        primitive_info["sequential_cells"] = sequential_cells
+        for seq_cell_info in primitive_info_db["sequential_cells"]:
+            sequential_cell = next(
+                primitive_library.get_definitions(seq_cell_info["name"]), None
+            )
+            if sequential_cell is None:
+                continue
+            sequential_cell_dict = dict()
+            sequential_cells[sequential_cell] = sequential_cell_dict
+
+            if "description" in seq_cell_info:
+                sequential_cell_dict["description"] = seq_cell_info[
+                    "description"
+                ]
+
+            if "clk_ports" in seq_cell_info:
+                clock_pins = dict()
+                sequential_cell_dict["clk_ports"] = clock_pins
+                for clock_pin_info in seq_cell_info["clk_ports"]:
+                    clock_pin = next(
+                        sequential_cell.get_ports(clock_pin_info["name"])
+                    )
+                    clock_pin_dict = dict()
+                    clock_pins[clock_pin] = clock_pin_dict
+
+                    if "sync_ports" in clock_pin_info:
+                        sync_ports = set()
+                        clock_pin_dict["sync_ports"] = sync_ports
+                        for sync_port_name in clock_pin_info["sync_ports"]:
+                            sync_port = next(
+                                sequential_cell.get_ports(
+                                    sync_port_name + r"(?:\[[^\]]+\])?$",
+                                    is_re=True,
+                                )
+                            )
+                            sync_ports.add(sync_port)
+
+            if "async_ports" in seq_cell_info:
+                async_ports = set()
+                sequential_cell_dict["async_ports"] = async_ports
+                for async_port_name in seq_cell_info["async_ports"]:
+                    async_port = next(
+                        sequential_cell.get_ports(
+                            async_port_name + r"(?:\[[^\]]+\])?$", is_re=True
+                        )
+                    )
+                    async_ports.add(async_port)
+
+    if "ff_cells" in primitive_info_db:
+        ff_cells = dict()
+        primitive_info["ff_cells"] = ff_cells
+        for seq_cell_info in primitive_info_db["ff_cells"]:
+            ff_cell = next(
+                primitive_library.get_definitions(seq_cell_info["name"]), None
+            )
+            if ff_cell is None:
+                continue
+            ff_cell_dict = dict()
+            ff_cells[ff_cell] = ff_cell_dict
+
+            if "description" in seq_cell_info:
+                ff_cell_dict["description"] = seq_cell_info["description"]
+
+            if "clk_ports" in seq_cell_info:
+                clock_pins = dict()
+                ff_cell_dict["clk_ports"] = clock_pins
+                for clock_pin_info in seq_cell_info["clk_ports"]:
+                    clock_pin = next(ff_cell.get_ports(clock_pin_info["name"]))
+                    clock_pin_dict = dict()
+                    clock_pins[clock_pin] = clock_pin_dict
+
+                    if "sync_ports" in clock_pin_info:
+                        sync_ports = set()
+                        clock_pin_dict["sync_ports"] = sync_ports
+                        for sync_port_name in clock_pin_info["sync_ports"]:
+                            sync_port = next(
+                                ff_cell.get_ports(
+                                    sync_port_name + r"(?:\[[^\]]+\])?$",
+                                    is_re=True,
+                                )
+                            )
+                            sync_ports.add(sync_port)
+
+            if "async_ports" in seq_cell_info:
+                async_ports = set()
+                ff_cell_dict["async_ports"] = async_ports
+                for async_port_name in seq_cell_info["async_ports"]:
+                    async_port = next(
+                        ff_cell.get_ports(
+                            async_port_name + r"(?:\[[^\]]+\])?$", is_re=True
+                        )
+                    )
+                    async_ports.add(async_port)
+
+    return primitive_info
