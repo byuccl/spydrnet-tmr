@@ -136,7 +136,7 @@ Voter/Detector Insertion Point Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Voters and detectors can be inserted in many different ways throughout a design. Previous work has explored various
-voter insertion algorithms [Johnson2010]_.
+voter insertion algorithms [Johnson2010]_ .
 
 Detectors tap into a signal. Voters cut signal paths (are inserted into signal paths). Therefore, detector and voter
 insertion points may be specified by instance, port, or pin, but only voter insertion points can be customized to 
@@ -160,10 +160,10 @@ Partial circuit replication is applied in two or three stages depending on the t
 In this stage, the selected instances and ports are replicated to the n-th degree and a map is returned from the 
 selected components to their replicated counterparts. Other than the degree of replication, this stage is the same for
 all replication types. The second stage is called *OrganInsertion*. This name stems from the orignal paper by John
-Von Neumann where TMR was first proposed [VonNeumann1956]_. This stage inserts voters or detector at the desired 
+Von Neumann where TMR was first proposed [VonNeumann1956]_ . This stage inserts voters or detector at the desired 
 insertion points. The final stage is called *NetworkInsertion*. NetworkInsertion inserts a network used to collect 
 error detection signals. There is enormous flexible in the manner in which error detection signals signals can be 
-collected. The final stage is only used for error signal collection [#f1]_.
+collected. The final stage is only used for error signal collection [#f1]_ .
 
 NMR
 ^^^
