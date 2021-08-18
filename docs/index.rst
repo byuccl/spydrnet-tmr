@@ -12,8 +12,7 @@ Welcome to SpyDrNet TMR!
 ==========================
 
 SpyDrNet TMR is a package of netlist analysis and transformation 
-applications for space, high-performance, and resilient computing. Here are
-some of the capabilities of SpyDrNet TMR's current state:
+applications. Here are some of the capabilities of SpyDrNet TMR's current state:
 
  * Triple Modular Redundancy and Duplication With Compare for netlists across hierarchy
 
