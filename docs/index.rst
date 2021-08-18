@@ -1,6 +1,6 @@
 .. _contents:
 
-.. figure:: figures/spydrnet_tmr_logo.*
+.. figure:: figures/spydrnet_logo.*
     :align: center
 
 .. only:: html
@@ -23,7 +23,7 @@ History
 -------
 Previous tools could not handle doing TMR and DWC on netlists with hierarchy. They required the netlists to be flatten before triplicaiton. SpyDrNet TMR addresses this issue, and can perform TMR and DWC on netlists without flattening.
 
-Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNet TMR tools use an algorithm puts voters on high fanout flip-flops.
+Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNet TMR tools uses algorithms that put voters on flip flops.
 
 The application of DWC also follows the findings from a paper by Daniel McMurtrey, [McMurtrey01]_.
 
