@@ -27,8 +27,10 @@ Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNe
 
 The application of DWC also follows the findings from a paper by Daniel McMurtrey, [McMurtrey01]_.
 
-Licence
+License
 -------
+
+Please see :ref:`LICENSE`
 
 Bibliography
 ------------
@@ -47,5 +49,6 @@ Bibliography
    install
    tutorial
    reference/index.rst
-   developer/index.rst
    auto_examples/index
+   developer/index.rst
+   license
