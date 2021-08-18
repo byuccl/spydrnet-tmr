@@ -11,7 +11,7 @@ def find_reduction_voter_points(
     """
     find_reduction_voter_points(netlist, endpoints_to_replicate)
 
-    Find reduction voter points for a netlist.
+    Find reduction voter points for a netlist *before replicating*
 
     When a TMR boundary consists of replicated logic going to non-replicated
     logic, a reduction voter can be placed so that the separate TMR domains from
@@ -20,20 +20,15 @@ def find_reduction_voter_points(
     domain would be passed to the non-replicated logic, which would make the
     other TMR domains disconnected to any other logic, and useless.
 
-    Parameters
-    ----------
-    netlist : netlist - required
+
+    :param netlist: required.
         The netlist for which reduction voter points will be found.
-    endpoints_to_replicate : href, Iterable - required
+    :param endpoints_to_replicate: href, Iterable - required.
         Hierarchical references to top-level ports and leaf instances that are
         to be replicated in the design.
 
-    Returns
-    -------
-    insertion_points : Pin, Iterable
-        Points at which voters will be placed. See insertion_points parameter
-        in `spydrnet_tmr/transformation/replication/organ_insertion.py` for
-        more details.
+    :return: * **insertion_points** - Pin, Iterable. Points at which voters will be placed. See insertion_points parameter in :ref:`insert_organs` for more details.
+
     """
 
     endpoints_to_replicate = set(endpoints_to_replicate)

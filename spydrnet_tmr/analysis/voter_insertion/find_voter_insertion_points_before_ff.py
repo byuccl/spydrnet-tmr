@@ -29,24 +29,6 @@ def find_voter_insertion_points_before_ff(
 
     insertion_points = set()
 
-    # def find_connected_pin(primary_pin):
-    #     """
-    #     Find pin connected to the primary pin
-
-    #     If there are severaly pins connected to the primary pin, the first one
-    #     found will be returned.
-
-    #     :param primary_pin: Pin for which this function will find the
-    #         accompanying pin.
-    #     :param connected_pin: Pin that is connected to the primary_pin. If no
-    #         pin is found, the primary pin is returned.
-    #     """
-    #     # Identify the pins connected to the given primary_pin
-    #     for connected_pin in primary_pin.wire.pins:
-    #         if connected_pin is not primary_pin:
-    #             return connected_pin
-    #     return primary_pin
-
     # Identify all flip-flop instances
     for endpoint in [
         endpoint
@@ -62,24 +44,6 @@ def find_voter_insertion_points_before_ff(
                 if port.name is DATA_IN_PORT_NAME
             ]:
                 insertion_points.add(pin)
-                # connected_pin = find_connected_pin(pin)
-
-                # if not any(
-                #     x in endpoints_to_replicate
-                #     for x in connected_pin.get_hinstances()
-                # ):
-                #     break
-
-                # For inner pins, confirm that associated port will be
-                # replicated by checking endpoints_to_replicate
-                # if isinstance(
-                #     pin, sdn.ir.innerpin.InnerPin
-                # ) and pin.port.name in [
-                #     endpoint.name for endpoint in endpoints_to_replicate
-                # ]:
-                #     insertion_points.add(pin)
-                # else:
-                #     insertion_points.add(pin)
 
     print(
         "Identified {} insertion points for feedback voters before flip-flops.".format(
