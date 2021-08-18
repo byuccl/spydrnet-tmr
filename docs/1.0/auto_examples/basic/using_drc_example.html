@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Design Rule Check Example &mdash; SpyDrNet TMR UNSPECIFIED documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Voter Before/After Every Flip-Flop Algorithms" href="plot_voters_for_every_ff_tmr.html" />
+    <link rel="prev" title="Xilinx TMR" href="plot_xilinx_generic_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                UNSPECIFIED
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#basic">Basic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Design Rule Check Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+        
+      <li>Design Rule Check Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/auto_examples/basic/using_drc_example.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-using-drc-example-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="design-rule-check-example">
+<span id="sphx-glr-auto-examples-basic-using-drc-example-py"></span><h1>Design Rule Check Example<a class="headerlink" href="#design-rule-check-example" title="Permalink to this headline">¶</a></h1>
+<p>This is an example of using <a class="reference internal" href="../../reference/design_rule_check/drc_connections_after_replication_and_insertion.html#drc-connections-after-replication-and-insertion"><span class="std std-ref">check_connections</span></a> and <a class="reference internal" href="../../reference/design_rule_check/drc_properties_after_replication.html#drc-properties-after-replication"><span class="std std-ref">check_properties_after_replication</span></a> found under <em>spydrnet_tmr.utils.design_rule_check</em></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Setup</strong>:</dt><dd><ol class="arabic simple">
+<li><p>Do TMR with the example netlist ‘b13’. Compose the resulting netlist as ‘b13_modified.edf’.</p></li>
+<li><p>Parse the netlists</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>check_connections</strong>:</dt><dd><ol class="arabic simple">
+<li><p>Call check_connections(). The design will pass the check</p></li>
+<li><p>Disconnect the output pin of the instance ‘tx_conta_reg_TMR_1[6]’</p></li>
+<li><p>Call check_connections() again. Now the design will fail the check. View the comparison results in ‘drc_connection_results_b13.txt’. See that the output of the instance ‘tx_conta_reg_TMR_1[6]’ is why it failed</p></li>
+<li><p>Reconnect the disconnected pin</p></li>
+<li><p>Call check_connections() again. Now the design will pass the check</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>check_properties_after_replication</strong>:</dt><dd><ol class="arabic simple">
+<li><p>Run check_properties_after_replication(). It will pass</p></li>
+<li><p>Change the properties of the instance ‘tx_conta_reg_TMR_1[6]’</p></li>
+<li><p>Run check_properties_after_replication() again. It will fail. View the comparison results in ‘drc_property_results_b13.txt’. See that the properties of the instance ‘tx_conta_reg_TMR_1[6]’ are why it failed</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Identified 56 insertion points for feedback voters after flip-flop.
+CHECKING CONNECTIONS
+PASSED
+CHECKING CONNECTIONS
+FAILED
+CHECKING CONNECTIONS
+PASSED
+CHECKING PROPERTIES
+PASSED
+CHECKING PROPERTIES
+FAILED
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
+<span class="kn">from</span> <span class="nn">spydrnet.util.selection</span> <span class="kn">import</span> <span class="n">Selection</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">insert_organs</span><span class="p">,</span> <span class="n">apply_nmr</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff</span> <span class="kn">import</span> <span class="n">find_voter_insertion_points_after_ff</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.organ</span> <span class="kn">import</span> <span class="n">XilinxTMRVoter</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.uniquify_nmr_property</span> <span class="kn">import</span> <span class="n">uniquify_nmr_property</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion</span> <span class="kn">import</span> <span class="n">check_connections</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.utils.design_rule_check.drc_properties_after_replication</span> <span class="kn">import</span> <span class="n">check_properties_after_replication</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="c1">#setup</span>
+    <span class="n">get_modified_netlists</span><span class="p">(</span><span class="s1">&#39;b13&#39;</span><span class="p">)</span>
+
+    <span class="c1">#check_connections</span>
+    <span class="n">netlist1</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;b13.edf&quot;</span><span class="p">)</span>
+    <span class="n">netlist2</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;b13_modified.edf&quot;</span><span class="p">)</span>
+    <span class="n">check_connections</span><span class="p">(</span><span class="n">netlist1</span><span class="p">,</span><span class="n">netlist2</span><span class="p">,</span><span class="s1">&#39;TMR&#39;</span><span class="p">,[</span><span class="s1">&#39;VOTER&#39;</span><span class="p">],</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">instance</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">netlist2</span><span class="o">.</span><span class="n">get_instances</span><span class="p">(</span><span class="s1">&#39;tx_conta_reg_TMR_1[6]&#39;</span><span class="p">),</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">pin_to_disconnect</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
+    <span class="n">wire</span> <span class="o">=</span> <span class="n">pin_to_disconnect</span><span class="o">.</span><span class="n">wire</span>
+    <span class="n">wire</span><span class="o">.</span><span class="n">disconnect_pin</span><span class="p">(</span><span class="n">pin_to_disconnect</span><span class="p">)</span>
+    <span class="n">check_connections</span><span class="p">(</span><span class="n">netlist1</span><span class="p">,</span><span class="n">netlist2</span><span class="p">,</span><span class="s1">&#39;TMR&#39;</span><span class="p">,[</span><span class="s1">&#39;VOTER&#39;</span><span class="p">],</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">wire</span><span class="o">.</span><span class="n">connect_pin</span><span class="p">(</span><span class="n">pin_to_disconnect</span><span class="p">)</span>
+    <span class="n">check_connections</span><span class="p">(</span><span class="n">netlist1</span><span class="p">,</span><span class="n">netlist2</span><span class="p">,</span><span class="s1">&#39;TMR&#39;</span><span class="p">,[</span><span class="s1">&#39;VOTER&#39;</span><span class="p">],</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">#check_properties_after_replication</span>
+    <span class="n">check_properties_after_replication</span><span class="p">(</span><span class="n">netlist1</span><span class="p">,</span><span class="n">netlist2</span><span class="p">,</span><span class="s1">&#39;TMR&#39;</span><span class="p">,[</span><span class="s1">&#39;VOTER&#39;</span><span class="p">],</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">instance</span><span class="p">[</span><span class="s1">&#39;EDIF.properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;random properties&#39;</span><span class="p">:</span><span class="mi">0000</span><span class="p">}]</span>
+    <span class="n">check_properties_after_replication</span><span class="p">(</span><span class="n">netlist1</span><span class="p">,</span><span class="n">netlist2</span><span class="p">,</span><span class="s1">&#39;TMR&#39;</span><span class="p">,[</span><span class="s1">&#39;VOTER&#39;</span><span class="p">],</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_modified_netlists</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">):</span>
+
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">)</span>
+    <span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+    <span class="n">sdn</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span><span class="n">netlist_name</span><span class="o">+</span><span class="s2">&quot;.edf&quot;</span><span class="p">)</span>
+
+    <span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">instances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances_to_replicate</span><span class="p">)</span>
+    <span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">())</span>
+    <span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
+    <span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_voter_insertion_points_after_ff</span><span class="p">([</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;FDRE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDSE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDPE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDCE&#39;</span><span class="p">})</span>
+    <span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">([</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s1">&#39;TMR&#39;</span><span class="p">,</span> <span class="n">rename_original</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">voters</span> <span class="o">=</span> <span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="n">insertion_points</span><span class="p">,</span> <span class="n">XilinxTMRVoter</span><span class="p">(),</span> <span class="s1">&#39;VOTER&#39;</span><span class="p">)</span>
+    <span class="n">uniquify_nmr_property</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;HBLKNM&#39;</span><span class="p">,</span> <span class="s1">&#39;HLUTNM&#39;</span><span class="p">,</span> <span class="s1">&#39;SOFT_HLUTNM&#39;</span><span class="p">},</span> <span class="s2">&quot;TMR&quot;</span><span class="p">)</span>
+
+    <span class="n">netlist</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">netlist_name</span><span class="o">+</span><span class="s2">&quot;_modified.edf&quot;</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-using-drc-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/730f14ecb8340a39b6807917c1352542/using_drc_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">using_drc_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2da9de6e32d89b82a9e06e64a6e1cd26/using_drc_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">using_drc_example.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="plot_voters_for_every_ff_tmr.html" class="btn btn-neutral float-right" title="Voter Before/After Every Flip-Flop Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_xilinx_generic_tmr.html" class="btn btn-neutral float-left" title="Xilinx TMR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, BYU Configurable Computing Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

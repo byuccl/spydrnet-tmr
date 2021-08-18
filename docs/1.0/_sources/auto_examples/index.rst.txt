@@ -1,0 +1,262 @@
+:orphan:
+
+
+
+.. _sphx_glr_auto_examples:
+
+.. _sec:examples:
+
+Examples
+========
+
+A collection of examples to introduce the functionality, features, and uses of SpyDrNet-TMR.
+
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. _sphx_glr_auto_examples_basic:
+
+Basic
+-----
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A bare minimum use case for SpyDrNet-TMR. ">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_plot_generic_tmr_thumb.png
+     :alt: Basic TMR
+
+     :ref:`sphx_glr_auto_examples_basic_plot_generic_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/plot_generic_tmr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Loads in the example netlist &#x27;b13&#x27;, triplicates it, and uniquifies the value of any instance wi...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_uniquify_nmr_property_example_thumb.png
+     :alt: Uniquify NMR Property Example
+
+     :ref:`sphx_glr_auto_examples_basic_uniquify_nmr_property_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/uniquify_nmr_property_example
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of doing TMR on a basic design using SpyDrNet TMR.">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_toggle_tmr_thumb.png
+     :alt: Toggle TMR Example
+
+     :ref:`sphx_glr_auto_examples_basic_toggle_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/toggle_tmr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, there is a global clock buffer that is triplicated. This allows  for a global ...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_plot_registered_inverter_tmr_thumb.png
+     :alt: Registered Inverter TMR Example
+
+     :ref:`sphx_glr_auto_examples_basic_plot_registered_inverter_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/plot_registered_inverter_tmr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of using surface_pins to bring pins to the top module. Although this example...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_surface_pins_example_thumb.png
+     :alt: Surface Pins Example
+
+     :ref:`sphx_glr_auto_examples_basic_surface_pins_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/surface_pins_example
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of doing DWC on a basic design using SpyDrNet TMR.">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_toggle_dwc_thumb.png
+     :alt: Toggle DWC Example
+
+     :ref:`sphx_glr_auto_examples_basic_toggle_dwc.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/toggle_dwc
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The number of times each primitive is instanced before and after triplicating will be printed. ">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_plot_xilinx_generic_tmr_thumb.png
+     :alt: Xilinx TMR
+
+     :ref:`sphx_glr_auto_examples_basic_plot_xilinx_generic_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/plot_xilinx_generic_tmr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of using drc_connections_after_replication_and_insertion and drc_properties_...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_using_drc_example_thumb.png
+     :alt: Design Rule Check Example
+
+     :ref:`sphx_glr_auto_examples_basic_using_drc_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/using_drc_example
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="There are several ways to place voters in a TMR netlist. This example covers the two simplest w...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_plot_voters_for_every_ff_tmr_thumb.png
+     :alt: Voter Before/After Every Flip-Flop Algorithms
+
+     :ref:`sphx_glr_auto_examples_basic_plot_voters_for_every_ff_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/plot_voters_for_every_ff_tmr
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, a simple design with a two-bit counter with a one-shot detector for a Digilent...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/basic/images/thumb/sphx_glr_plot_counter_bitstream_tmr_thumb.png
+     :alt: Two-Bit Counter Bitstream TMR
+
+     :ref:`sphx_glr_auto_examples_basic_plot_counter_bitstream_tmr.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/basic/plot_counter_bitstream_tmr
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
+
+
+  .. container:: sphx-glr-download sphx-glr-download-python
+
+    :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+
+
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_
