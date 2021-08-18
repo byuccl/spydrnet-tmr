@@ -15,7 +15,7 @@ def apply_nmr(ports_and_instances_to_replicate, degree, name_suffix='NMR', renam
     :param name_suffix: string to append to each replicated element (e.g. 'TMR' or 'DWC')
     :param rename_original: rename orginal domain
     :type rename_original: bool
-    :return: replicas: A map from an original element to its replicas.
+    :return: A map from an original element to its replicas
     """
     nmr_agent = NMR.from_originals_degree_suffix_and_rename(ports_and_instances_to_replicate, degree, name_suffix,
                                                             rename_original)
