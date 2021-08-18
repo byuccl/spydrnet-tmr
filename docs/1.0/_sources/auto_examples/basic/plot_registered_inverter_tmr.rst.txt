@@ -31,7 +31,7 @@ synchronous element just receives its clock signal from the primary TMR domain.
 If a voter is placed in its path, this could result in large hold time 
 violations
 
-This is a good example of how to SpyDrNet TMR to selectively replicate a 
+This is a good example of how to use SpyDrNet TMR to selectively replicate a 
 design and still maintain performance by controlling the placement of voters.
 
 
@@ -118,7 +118,7 @@ design and still maintain performance by controlling the placement of voters.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.066 seconds)
+   **Total running time of the script:** ( 0 minutes  0.092 seconds)
 
 
 .. _sphx_glr_download_auto_examples_basic_plot_registered_inverter_tmr.py:

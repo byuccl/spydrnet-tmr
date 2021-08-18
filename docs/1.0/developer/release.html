@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Creating a Release &mdash; SpyDrNet TMR UNSPECIFIED documentation</title>
+  <title>Creating a Release &mdash; SpyDrNet TMR 1.0.0 documentation</title>
   
 
   
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                UNSPECIFIED
+                1.0
               </div>
             
           
@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer’s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Creating a Release</a><ul>
@@ -114,7 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="other_resources.html">Other Resources</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
 
             
@@ -190,10 +191,10 @@
 <ol class="arabic simple">
 <li><p>Merge each contributors’ branches into one branch (the ‘next_release’ branch)</p></li>
 <li><p>Run <cite>git merge main</cite> while the next_release branch is checked out.</p></li>
-<li><p>On Github, create a pull request with the updated code in the next_release branch.</p></li>
 <li><p><a class="reference internal" href="#update-release-notes"><span class="std std-ref">Update the Release Notes</span></a></p></li>
 <li><p><a class="reference internal" href="#update-documentation"><span class="std std-ref">Update the Documentation</span></a> and ensure it can build properly</p></li>
-<li><p>Commit and push those changes to the open pull request. Accept and merge the pull request when the checks have finished.</p></li>
+<li><p>On Github, create a pull request with the updated code in the next_release branch.</p></li>
+<li><p>Accept and merge the pull request when the checks have finished.</p></li>
 <li><p>Move to the main branch using <cite>git checkout main</cite></p></li>
 <li><p><a class="reference internal" href="#update-tag"><span class="std std-ref">Update the tag</span></a></p></li>
 <li><p><a class="reference internal" href="#build-package"><span class="std std-ref">Build the Python Package</span></a> (this will update the documentation’s version number)</p></li>

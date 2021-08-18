@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>SpyDrNet TMR &mdash; SpyDrNet TMR UNSPECIFIED documentation</title>
+  <title>SpyDrNet TMR &mdash; SpyDrNet TMR 1.0.0 documentation</title>
   
 
   
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                UNSPECIFIED
+                1.0
               </div>
             
           
@@ -120,8 +120,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../design_rule_check/index.html">Design Rule Check</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
 
             
@@ -306,7 +307,7 @@ reference invalid. When this happens an original to updated reference map is pro
 <div class="section" id="voter-detector-insertion-point-selection">
 <h3>Voter/Detector Insertion Point Selection<a class="headerlink" href="#voter-detector-insertion-point-selection" title="Permalink to this headline">¶</a></h3>
 <p>Voters and detectors can be inserted in many different ways throughout a design. Previous work has explored various
-voter insertion algorithms <a class="reference internal" href="#johnson2010" id="id3"><span>[Johnson2010]</span></a>.</p>
+voter insertion algorithms <a class="reference internal" href="#johnson2010" id="id3"><span>[Johnson2010]</span></a> .</p>
 <p>Detectors tap into a signal. Voters cut signal paths (are inserted into signal paths). Therefore, detector and voter
 insertion points may be specified by instance, port, or pin, but only voter insertion points can be customized to
 include only a subset of the end points. This customization comes in handy when a voter is desired to break a feedback
@@ -333,10 +334,10 @@ on the end agree, have them use their own signal, if they disagree, use the midd
 In this stage, the selected instances and ports are replicated to the n-th degree and a map is returned from the
 selected components to their replicated counterparts. Other than the degree of replication, this stage is the same for
 all replication types. The second stage is called <em>OrganInsertion</em>. This name stems from the orignal paper by John
-Von Neumann where TMR was first proposed <a class="reference internal" href="#vonneumann1956" id="id6"><span>[VonNeumann1956]</span></a>. This stage inserts voters or detector at the desired
+Von Neumann where TMR was first proposed <a class="reference internal" href="#vonneumann1956" id="id6"><span>[VonNeumann1956]</span></a> . This stage inserts voters or detector at the desired
 insertion points. The final stage is called <em>NetworkInsertion</em>. NetworkInsertion inserts a network used to collect
 error detection signals. There is enormous flexible in the manner in which error detection signals signals can be
-collected. The final stage is only used for error signal collection <a class="footnote-reference brackets" href="#f1" id="id7">1</a>.</p>
+collected. The final stage is only used for error signal collection <a class="footnote-reference brackets" href="#f1" id="id7">1</a> .</p>
 <div class="section" id="nmr">
 <h3>NMR<a class="headerlink" href="#nmr" title="Permalink to this headline">¶</a></h3>
 <p>inputs - netlist, ports to replicate (direct or hierarchical reference), instances to replicate (direct or

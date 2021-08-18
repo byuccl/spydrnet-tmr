@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Toggle DWC Example &mdash; SpyDrNet TMR UNSPECIFIED documentation</title>
+  <title>Toggle DWC Example &mdash; SpyDrNet TMR 1.0.0 documentation</title>
   
 
   
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                UNSPECIFIED
+                1.0
               </div>
             
           
@@ -99,7 +99,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#basic">Basic</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
@@ -116,6 +115,8 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
 </ul>
 
             
@@ -218,7 +219,7 @@ to download the full example code</p>
 <span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;clk&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
 <span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
 
-<span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_voter_insertion_points_before_ff</span><span class="p">([</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;FDRE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDSE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDPE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDCE&#39;</span><span class="p">})</span>
+<span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_voter_insertion_points_after_ff</span><span class="p">([</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;FDRE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDSE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDPE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDCE&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>Next, we duplicate the design using apply_nmr(). The instances and ports we specified are passed as two of the parameters. We also pass ‘2’ and ‘DWC’ as number of replications and the applicable suffix, respectively.</p>
@@ -262,8 +263,8 @@ to download the full example code</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
 <span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
 <span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">apply_nmr</span><span class="p">,</span> <span class="n">insert_organs</span>
-<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_before_ff</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">find_voter_insertion_points_before_ff</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">find_voter_insertion_points_after_ff</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.organ</span> <span class="kn">import</span> <span class="n">XilinxDWCDetector</span>
 <span class="kn">from</span> <span class="nn">spydrnet.util.selection</span> <span class="kn">import</span> <span class="n">Selection</span>
@@ -285,7 +286,7 @@ to download the full example code</p>
 <span class="p">)</span>
 <span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
 
-<span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_voter_insertion_points_before_ff</span><span class="p">(</span>
+<span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_voter_insertion_points_after_ff</span><span class="p">(</span>
     <span class="p">[</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span>
     <span class="p">{</span><span class="s2">&quot;FDRE&quot;</span><span class="p">,</span> <span class="s2">&quot;FDSE&quot;</span><span class="p">,</span> <span class="s2">&quot;FDPE&quot;</span><span class="p">,</span> <span class="s2">&quot;FDCE&quot;</span><span class="p">},</span>
 <span class="p">)</span>

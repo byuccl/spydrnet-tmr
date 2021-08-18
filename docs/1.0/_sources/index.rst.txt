@@ -1,6 +1,6 @@
 .. _contents:
 
-.. figure:: figures/spydrnet_logo.*
+.. figure:: figures/spydrnet_tmr_logo.*
     :align: center
 
 .. only:: html
@@ -12,8 +12,7 @@ Welcome to SpyDrNet TMR!
 ==========================
 
 SpyDrNet TMR is a package of netlist analysis and transformation 
-applications for space, high-performance, and resilient computing. Here are
-some of the capabilities of SpyDrNet TMR's current state:
+applications. Here are some of the capabilities of SpyDrNet TMR's current state:
 
  * Triple Modular Redundancy and Duplication With Compare for netlists across hierarchy
 
@@ -27,8 +26,10 @@ Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNe
 
 The application of DWC also follows the findings from a paper by Daniel McMurtrey, [McMurtrey01]_.
 
-Licence
+License
 -------
+
+Please see :ref:`LICENSE`
 
 Bibliography
 ------------
@@ -47,5 +48,6 @@ Bibliography
    install
    tutorial
    reference/index.rst
-   developer/index.rst
    auto_examples/index
+   developer/index.rst
+   license
