@@ -1,6 +1,6 @@
 .. _contents:
 
-.. figure:: figures/spydrnet_logo.*
+.. figure:: figures/spydrnet_tmr_logo.*
     :align: center
 
 .. only:: html
