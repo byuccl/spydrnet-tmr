@@ -23,8 +23,9 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
         self.generate_netlists(self.example,3,"TMR",XilinxTMRVoter(),"VOTER",True)
         netlist1 = sdn.parse(self.example+".edf")
         netlist2 = sdn.parse(self.example+"_modified.edf")
-        self.assertTrue(check_properties_after_replication(netlist1,netlist2,'TMR',["VOTER"]))
+        self.assertTrue(check_properties_after_replication(netlist1,netlist2,'TMR',["VOTER"],True))
         self.remove_generated_netlists(self.example)
+        os.remove('drc_property_results_'+netlist1.name+'.txt')
 
     def test_drc_fail(self):
         self.generate_netlists(self.example,3,"TMR",XilinxTMRVoter(),"VOTER",True)
@@ -32,8 +33,9 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
         netlist2 = sdn.parse(self.example+"_modified.edf")
         random_instance = next(x for x in netlist2.get_instances() if 'EDIF.properties' in x)
         random_instance['EDIF.properties'] = [{'random properties':0000}]
-        self.assertFalse(check_properties_after_replication(netlist1,netlist2,'TMR',["VOTER"]))
+        self.assertFalse(check_properties_after_replication(netlist1,netlist2,'TMR',["VOTER"],True))
         self.remove_generated_netlists(self.example)
+        os.remove('drc_property_results_'+netlist1.name+'.txt')
 
     def test_drc_fail_2(self):
         self.example = 'b13'
@@ -46,6 +48,14 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
         print(random_instance_in_modified['EDIF.properties'])
         self.assertFalse(check_properties_after_replication(netlist1,netlist2,'TMR',["VOTER"]))
         self.remove_generated_netlists(self.example)
+
+    def test_drc_fail_3(self):
+        self.generate_netlists(self.example,3,"TMR",XilinxTMRVoter(),"VOTER",True)
+        netlist1 = sdn.parse(self.example+".edf")
+        netlist2 = sdn.parse(self.example+"_modified.edf")
+        self.assertFalse(check_properties_after_replication(netlist1,netlist2,'TMR',["organ_name"],True))
+        self.remove_generated_netlists(self.example)
+        os.remove('drc_property_results_'+netlist1.name+'.txt')
 
     def generate_netlists(self,example_to_test,copy_amount,suffix,organ=None,organ_name=None,unique=False):
         '''
