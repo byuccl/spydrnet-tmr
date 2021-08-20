@@ -1,5 +1,4 @@
 import spydrnet as sdn
-from spydrnet.util.selection import Selection
 from spydrnet_tmr.utils.design_rule_check.util import find_key
 
 def check_nmr(netlist,all_elements_to_replicate,degree,suffix):
