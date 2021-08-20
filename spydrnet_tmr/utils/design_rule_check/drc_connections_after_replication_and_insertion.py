@@ -1,6 +1,7 @@
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util.selection import Selection
+from spydrnet_tmr.utils.design_rule_check.util import find_key
 
 def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],write_enable=False):
     '''
@@ -85,15 +86,6 @@ def fix_instance_connection_name(current_instance,suffix):
     else :
         modified_name = current_instance.name[:start_index-1] + current_instance.name[stop_index:]
     return modified_name
-
-def find_key(instance,suffix):
-    start_index = instance.name.find(suffix)
-    stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
-        key = ''
-    else:
-        key = instance.name[start_index:stop_index]
-    return key
 
 def get_pin_connections(instance_list,suffix):
     in_pins_todo_later = []
