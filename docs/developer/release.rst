@@ -1,15 +1,15 @@
 Creating a Release
 ==================
 
-This section aims to help you do a spydrnet_tmr release, meaning you make the latest code and documentation available. The steps are listed in what seems to be the best order of operation. Steps which need more explanation are highlighted below.
+This section aims to help you do a SpyDrNet-TMR release, meaning you make the latest code and documentation available. The steps are listed in what seems to be the best order of operation. Steps which need more explanation are highlighted below.
 
 1. Merge each contributors' branches into one branch (the 'next_release' branch)
-2. Run `git merge master` while the next_release branch is checked out.
+2. Run `git merge main` while the next_release branch is checked out.
 3. On Github, create a pull request with the updated code in the next_release branch.
 4. :ref:`update_release_notes`
 5. :ref:`update_documentation` and ensure it can build properly
 6. Commit and push those changes to the open pull request. Accept and merge the pull request when the checks have finished.
-7. Move to the master branch using `git checkout master`
+7. Move to the main branch using `git checkout main`
 8. :ref:`update_tag`
 9. :ref:`build_package` (this will update the documentation’s version number)
 10. :ref:`build_documentation`
@@ -23,7 +23,7 @@ Update the Release Notes
 
 The release notes file called RELEASE.rst should be updated to outline what changes/fixes are in the new release. The date, version number, and other information should all be included.
 
-spydrnet_tmr uses a Major.Minor.Bug versioning scheme where minor version updates do not break the existing API and major version updates may break it. Bug fixes do not add substantial new functionality, but rather fix broken functionality.
+SpyDrNet-TMR uses a Major.Minor.Bug versioning scheme where minor version updates do not break the existing API and major version updates may break it. Bug fixes do not add substantial new functionality, but rather fix broken functionality.
 
 .. _update_documentation:
 
@@ -34,7 +34,7 @@ Sphinx pulls from doc strings as well as .rst files to build documentation. The 
 
 Before building the documentation run `make clean` to clear away the old files.
 
-Before proceeding, ensure that both of the following are successful (make they execute without errors. Try to minimize the warnings as well):
+**Before proceeding, ensure that both of the following are successful** (make sure they execute without errors. Try to minimize the warnings as well):
 
 >>> make html
 
@@ -55,9 +55,9 @@ The generated files can be found in the build folder. Take a look at them and ma
 Update the tag
 --------------
 
-Be sure you are on the master branch.
+Be sure you are on the main branch.
 
-Tags are used to label the release. When all changes are merged into the master branch, create a new tag.
+Tags are used to label the release. When all changes are merged into the main branch, create a new tag.
 In the examples below, replace 1.0.0 with the version number you are releasing.
 
 **To see the current version number**
@@ -66,7 +66,7 @@ In the examples below, replace 1.0.0 with the version number you are releasing.
 
 **Creation**
 
->>> git tag -a v1.0.0 -m "spydrnet_tmr 1.0.0"
+>>> git tag -a v1.0.0 -m "SpyDrNet-TMR 1.0.0"
 
 **Push your changes to the tags**
 
@@ -76,7 +76,7 @@ A tag may need to be updated if a new commit is pushed to the branch (because th
 
 **Updating**
 
->>> git tag -a v1.0.0 -m "spydrnet_tmr 1.0.0" -f
+>>> git tag -a v1.0.0 -m "SpyDrNet-TMR 1.0.0" -f
 
 >>> git push --tags -f
 
@@ -99,7 +99,7 @@ Make the python archive package:
 
 The build files will be stored in the following directories 
 
-spydrnet/build and spydrnet/dist
+spydrnet-tmr/build and spydrnet-tmr/dist
 
 .. _build_documentation:
 
@@ -125,7 +125,7 @@ Create a Github Release
 
 Releases can be created on Github. On the releases tab, draft a new release. Select the new tag you just created (it should have the release number).
 
-The release should be named `spydrnet_tmr 1.0.0` where 1.0.0 is replaced with the
+The release should be named `SpyDrNet-TMR 1.0.0` where 1.0.0 is replaced with the
 proper release number.
 
 Enter a description--it could just be a reiteration of the release notes or other relevant information.
@@ -137,18 +137,29 @@ Three files need to be added as assets to the new release:
 
 .. _publish_documentation:
 
-Publish the Documentation
---------------------------
+Publishing the documentation
+----------------------------
 
-Currently, the source for the documentation online is found at `//<CAEDM_DRIVE>/<USERNAME>/groups/ccl/www/spydrnet-TMR/docs`. 
+This is easiest on Linux (or at least not Windows, MacOS works fine as well)
 
-Make a new folder inside this directory named after the version number (e.g. 1.0.0). `latest` is a softlink that points to the latest version of the documentation. Update the softlink to point to the new folder you just created with the most recent documentation.
+Make sure you are still on the main branch and that everything in the html folder is up-to-date.
+If not, re-run the instructions in :ref:`build_documentation`.
+
+Checkout the gh-pages branch create a new folder with the release number as the
+name. Move the `docs/build/html` folder into the newly created folder. 
+Make sure to delete the html folder after you are finished.
+
+(If html folder doesn't contain the latest pages, it could be that the html folder wasn't deleted from the previous release,
+delete the folder, commit the changes and repeat the steps above)
+
+The documentation is built from the stable link so the stable link will need to
+be updated to point to the newly updated documentation.
 
 Check which version of the documentation the stable link points to
 
 >>> ls -lha
 
-to update the stable link remove it first (watch syntax here very carefully, a
+to update the stable link, remove it first (watch syntax here very carefully, a
 terminating \ could make the command delete the folder's contents instead of the
 link)
 
@@ -158,4 +169,8 @@ then create a link to the new folder
 
 >>> ln -s version.number stable
 
-The `latest` folder should now point to the folder you just created, and the online documentation should show up as updated.
+run git add to add the newly created folder and the stable link
+
+push your changes to the git repository, just to the ghpages branch.
+
+The new documentation should show up online now.
