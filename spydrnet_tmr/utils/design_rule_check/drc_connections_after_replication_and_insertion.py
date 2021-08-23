@@ -1,7 +1,7 @@
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util.selection import Selection
-from spydrnet_tmr.utils.design_rule_check.util import find_key
+from spydrnet_tmr.utils.design_rule_check.util import find_key, get_original_name
 
 def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],write_enable=False):
     '''
@@ -74,19 +74,6 @@ def is_organ(instance):
         return True
     return False
 
-def fix_instance_connection_name(current_instance,suffix):
-    '''
-    returns the instance's name without the replica suffix appended to it
-    '''
-    modified_name = None
-    start_index = current_instance.name.find(suffix)
-    stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
-        modified_name = current_instance.name
-    else :
-        modified_name = current_instance.name[:start_index-1] + current_instance.name[stop_index:]
-    return modified_name
-
 def get_pin_connections(instance_list,suffix):
     in_pins_todo_later = []
     for instance in instance_list:
@@ -117,7 +104,7 @@ def get_pin_connections_helper(instance,pin,suffix,key):
     if pin.inner_pin.port.direction is sdn.OUT:
         pins = list(x for x in get_next_instances(pin,key,suffix))
         pins_to_add = set(x.instance for x in pins)
-        neighbor_pins = sorted(list(x for x in set(fix_instance_connection_name(x,suffix) for x in pins_to_add)))
+        neighbor_pins = sorted(list(x for x in set(get_original_name(x,suffix) for x in pins_to_add)))
         add_info(instance,pin,neighbor_pins)
         add_drivers(instance,pins,suffix,key)
     elif pin.inner_pin.port.direction is sdn.IN:
@@ -130,13 +117,13 @@ def get_pin_connections_helper(instance,pin,suffix,key):
             if previous_pin is None:
                 neighbor_pins = []
             else:
-                neighbor_pins = [fix_instance_connection_name(previous_pin.instance,suffix)]
+                neighbor_pins = [get_original_name(previous_pin.instance,suffix)]
             add_info(instance,pin,neighbor_pins)
 
 def add_drivers(instance,pins,suffix,key):
     for pin in pins:
         if key in pin.instance.name or suffix not in pin.instance.name:
-            add_info(pin.instance,pin,[fix_instance_connection_name(instance,suffix)])
+            add_info(pin.instance,pin,[get_original_name(instance,suffix)])
 
 def add_info(current_instance,current_pin,info):
     if current_pin.__class__ is sdn.OuterPin:
@@ -240,7 +227,7 @@ def compare_pin_connections(original,modified,suffix,name,write_enable):
         f = open('drc_connection_results_'+name+'.txt','w')
     not_matched = []
     for instance_modified in modified:
-        modified_name = fix_instance_connection_name(instance_modified.item,suffix)
+        modified_name = get_original_name(instance_modified.item,suffix)
         matched = False
         if instance_modified.parent.item.reference.name in original.keys():
             for instance_original in original[instance_modified.parent.item.reference.name]:
