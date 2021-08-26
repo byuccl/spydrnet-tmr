@@ -2,7 +2,6 @@ import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util.selection import Selection
 from spydrnet_tmr.utils.design_rule_check.util import find_key, get_original_name
-from time import time
 
 def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],write_enable=False):
     '''
@@ -18,264 +17,265 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     :type write_enable: bool
     :return: bool (matched, not_matched)
     '''
-    print("CHECKING CONNECTIONS")
-    global TOP_INSTANCES
-    TOP_INSTANCES = [original_netlist.top_instance,modified_netlist.top_instance]
-    global ORGANS
-    ORGANS = organ_names
-    global next_
-    next_ = 0
-    global previous
-    previous = 0
-    global compare
-    compare = 0
-    ORGANS.append('COMPLEX')
 
-    uniquify(original_netlist)
+    class_object = DRCConnections(original_netlist,modified_netlist,suffix,organ_names,write_enable)
+    print("NEW CHECKING CONNECTIONS")
+    return class_object._check_connections()
 
-    original_instances_all = list(x for x in original_netlist.get_hinstances(recursive=True,filter = lambda x: (filter_instances(x.item)) is True))
-    get_pin_connections(original_instances_all,suffix)
-    # original_instances_leafs = list(x for x in original_instances_all if x.item.is_leaf())
 
-    modified_instances_all = list(x for x in modified_netlist.get_hinstances(recursive=True,filter = lambda x: (filter_instances(x.item)) is True))
-    get_pin_connections(modified_instances_all,suffix)
-    modified_instances_leafs = list(x for x in modified_instances_all if x.item.is_leaf())
+class DRCConnections():
+    def __init__(self,original_netlist,modified_netlist,suffix,organ_names,write_enable):
+        self.original_netlist = original_netlist
+        self.modified_netlist = modified_netlist
+        self.suffix = suffix
+        self.write_enable =write_enable
+        self.output_txt_file_name = 'drc_connection_results_'+original_netlist.name+'.txt'
+        self.top_instances = [original_netlist.top_instance,modified_netlist.top_instance]
+        self.organs = organ_names
+        self.input_pins_todo_later = []
+        self.original_instances_all = []
+        self.modified_instances_all = []
+        self.original_port_dict = {}
+        self.modified_port_dict = {}
+        self.not_matched = []
+        self.organs.append('COMPLEX')
 
-    original_non_leafs = get_original_non_leafs(original_netlist)
-    not_matched = compare_pin_connections(original_non_leafs,modified_instances_leafs,suffix,original_netlist.name,write_enable)
-    print("TIME NEXT: ",next_)
-    print("TIME PREVIOUS: ",previous)
-    print("TIME COMPARE: ",compare)
-    if not_matched:
-        print('FAILED')
-        return False
-    else:
-        print('PASSED')
-        return True
-
-def get_original_non_leafs(original_netlist):
-    '''
-    creates a map of non_leaf instances to their leaf children. This allows finding corresponding instances to be quicker.
-    '''
-    original_non_leafs = {}
-    for instance in original_netlist.get_hinstances(recursive = True,filter= lambda x: (not x.item.is_leaf()) is True):
-        if instance.item.reference.name in original_non_leafs.keys():
-            original_non_leafs[instance.item.reference.name] += list(x for x in instance.item.reference.children if not is_organ(x))
+    def _check_connections(self):
+        uniquify(self.original_netlist)
+        self.get_instance_lists()
+        self.get_pin_connections(self.original_instances_all,self.original_port_dict,self.original_netlist)
+        self.get_pin_connections(self.modified_instances_all,self.modified_port_dict,self.modified_netlist)
+        #self.check_pin_connections() make sure we connect to only our domain??
+        self.compare_pin_connections()
+        if self.not_matched:
+            print("FAILED")
+            return False
         else:
-            original_non_leafs.update({instance.item.reference.name:list(x for x in instance.item.reference.children if not is_organ(x))})
-    original_non_leafs.update({original_netlist.top_instance.reference.name:list(x for x in original_netlist.top_instance.reference.children if not is_organ(x))})
-    return original_non_leafs
+            print("PASSED")
+            return True
 
-def filter_instances(instance):
-    if is_organ(instance):
+    def get_instance_lists(self):
+        self.original_instances_all = list(x for x in self.original_netlist.get_instances(
+                                                    filter = lambda x: (
+                                                    self.filter_instances(x)) is True))
+        self.modified_instances_all = list(x for x in self.modified_netlist.get_instances(
+                                                    filter = lambda x: (
+                                                    self.filter_instances(x)) is True))
+
+    def is_organ(self,instance):
+        if any(organ in instance.name for organ in self.organs):
+            return True
         return False
-    elif 'GND' in instance.name:
-        return False
-    elif 'VCC' in instance.name:
-        return False
-    else:
-        return True
 
-def is_organ(instance):
-    if any(organ in instance.name for organ in ORGANS):
-        return True
-    return False
-
-def get_pin_connections(instance_list,suffix):
-    in_pins_todo_later = []
-    for instance in instance_list:
-        instance = instance.item
-        if instance.is_leaf():
-            key = find_key(instance,suffix)
-            for pin in instance.get_pins(selection = Selection.OUTSIDE):
-                if pin.wire:
-                    if pin.inner_pin.port.direction is sdn.OUT:
-                        get_pin_connections_helper(instance,pin,suffix,key)
-                    elif pin.inner_pin.port.direction is sdn.IN:
-                        in_pins_todo_later.append(pin)
-                    else:
-                        add_info(pin.instance,pin,['INOUT_PORT'])
-                else:
-                    add_info(pin.instance,pin,[])
-        elif not instance.is_leaf():
-            for port in instance.get_hports(filter=lambda x: (x.item.direction is sdn.IN)is True):
-                key = find_key(port,suffix)
-                for pin in port.item.get_pins(selection = Selection.INSIDE):
-                    if pin.wire:
-                        pins = list(x for x in get_next_instances(pin,key,suffix))
-                        add_drivers(instance,pins,suffix,key)
-    for pin in in_pins_todo_later:
-        get_pin_connections_helper(pin.instance,pin,suffix,find_key(pin.instance,suffix))
-
-def get_pin_connections_helper(instance,pin,suffix,key):
-    if pin.inner_pin.port.direction is sdn.OUT:
-        pins = list(x for x in get_next_instances(pin,key,suffix))
-        pins_to_add = set(x.instance for x in pins)
-        neighbor_pins = sorted(list(x for x in set(get_original_name(x,suffix) for x in pins_to_add)))
-        add_info(instance,pin,neighbor_pins)
-        add_drivers(instance,pins,suffix,key)
-    elif pin.inner_pin.port.direction is sdn.IN:
-        get_previous = True
-        if pin.inner_pin.port.name in instance:
-            if instance[pin.inner_pin.port.name]:
-                get_previous = False
-        if get_previous:
-            previous_pin = get_previous_instance(pin,key,suffix)
-            if previous_pin is None:
-                neighbor_pins = []
-            else:
-                neighbor_pins = [get_original_name(previous_pin.instance,suffix)]
-            add_info(instance,pin,neighbor_pins)
-
-def add_drivers(instance,pins,suffix,key):
-    for pin in pins:
-        if key in pin.instance.name or suffix not in pin.instance.name:
-            add_info(pin.instance,pin,[get_original_name(instance,suffix)])
-
-def add_info(current_instance,current_pin,info):
-    if current_pin.__class__ is sdn.OuterPin:
-        current_pin = current_pin.inner_pin
-    if current_pin.port.name in current_instance:
-        current_instance[current_pin.port.name].update(set(info))
-    else:
-        current_instance[current_pin.port.name] = set(info)
-
-def get_next_instances(current_pin,key,suffix):
-    global next_
-    t0 = time()
-    next_instances = []
-    next_instances = list(pin2 for pin2 in current_pin.wire.get_pins(selection = Selection.OUTSIDE, filter = lambda x: (x is not current_pin)))
-    next_instances = check_next_list(next_instances,key,suffix)
-    t1 = time()
-    next_ += (t1-t0)
-    return next_instances
-
-def check_next_list(next_instances,key,suffix):
-    to_remove = []
-    to_add = []
-    for i in range(len(next_instances)):
-        if is_organ(next_instances[i].instance):
-            output_pins = list(next_instances[i].instance.get_pins(selection = Selection.OUTSIDE,filter=lambda x:x.inner_pin.port.direction is sdn.OUT))
-            if output_pins:
-                for pin in output_pins:
-                    if pin.wire:
-                        possible_next = get_next_instances(pin,key,suffix)
-                        to_add = to_add + possible_next
-            to_remove.append(next_instances[i])
-    next_instances = next_instances + to_add
-    for instance in next_instances:
-        if instance.instance.is_leaf():
-            if key in instance.instance.name:
-                None
-            elif suffix not in instance.instance.name:
-                None
-            else:
-                to_remove.append(instance)
-        elif not instance.instance.is_leaf():
-            wires = list(x for x in instance.inner_pin.port.get_wires(selection = Selection.OUTSIDE))
-            if (not wires and not instance.instance in TOP_INSTANCES):
-                to_remove.append(instance)
-            else:
-                if key in instance.inner_pin.port.name:
-                    None
-                elif suffix not in instance.inner_pin.port.name:
-                    None
-                elif 'COMPLEX' in instance.inner_pin.port.name:
-                    None
-                else:
-                    to_remove.append(instance)
+    def filter_instances(self,instance):
+        if self.is_organ(instance):
+            return False
+        # elif 'GND' in instance.name:
+        #     return False
+        # elif 'VCC' in instance.name:
+        #     return False
         else:
-            to_remove.append(instance)
-    next_instances = list(x for x in next_instances if not x in to_remove)
-    return next_instances
+            return True
 
-def get_organ_previous(current_pin):
-    previous_instances = []
-    previous_instances = list(pin2 for pin2 in current_pin.wire.get_pins(selection = Selection.OUTSIDE, filter = lambda x: (x is not current_pin and not is_organ(x.instance))is True))
-    return previous_instances
+    def get_pin_connections(self,instance_list,current_dict,netlist):
+        self.input_pins_todo_later = []
+        for instance in instance_list:
+            if instance.is_leaf():
+                self.get_leaf_pin_connections(instance,current_dict)
+            else:
+                self.get_non_leaf_pin_connections(instance,current_dict)
+        self.get_netlist_hport_connections(netlist,current_dict)
+        self.do_pins_todo_later(current_dict)
 
-def get_previous_instance(current_pin,key,suffix):
-    global previous
-    t0 = time()
-    previous_instances = []
-    to_remove = []
-    to_add = []
-    previous_instances = list(pin2 for pin2 in current_pin.wire.get_pins(selection = Selection.OUTSIDE, filter = lambda x: (x is not current_pin and not (x.instance.is_leaf() and x.inner_pin.port.direction is sdn.IN))is True))
-    for i in range(len(previous_instances)):
-        if is_organ(previous_instances[i].instance):
-            input_pins = list(pin for pin in previous_instances[i].instance.get_pins(selection = Selection.OUTSIDE,filter=lambda x:x.inner_pin.port.direction is sdn.IN))
-            possible_next = []
-            for pin in input_pins:
-                possible_next = possible_next + get_organ_previous(pin)
-            to_add = to_add + possible_next
-            to_remove.append(previous_instances[i])
-    previous_instances = previous_instances + to_add
-    previous_instances = list(x for x in previous_instances if x not in to_remove)
-    driver = find_driver(previous_instances,current_pin,key,suffix)
-    t1 = time()
-    previous += (t1-t0)
-    return driver
-
-def find_driver(instance_list,current_pin,key,suffix):
-    for instance in instance_list:
-        if instance.instance.is_leaf() and instance.inner_pin.port.direction is sdn.OUT:
-            if key in instance.instance.name:
-                return instance
-            elif suffix not in instance.instance.name:
-                return instance
-        elif not instance.instance.is_leaf():
-            if key in instance.inner_pin.port.name or suffix not in instance.inner_pin.port.name:
-                if not instance.instance in TOP_INSTANCES:
-                    if instance.instance.reference.name is current_pin.instance.parent.name:
-                        if instance.inner_pin.port.direction is sdn.IN:
-                            return instance
-                    else:
-                        if instance.inner_pin.port.direction is sdn.OUT:
-                            return instance
+    def get_leaf_pin_connections(self,instance,current_dict):
+        key = find_key(instance,self.suffix)
+        for pin in instance.get_pins(selection=Selection.OUTSIDE):
+            port = pin.inner_pin.port
+            if pin.wire:
+                if port.direction is sdn.OUT:
+                    self.get_pin_connections_helper(instance,pin,key,current_dict)
+                elif port.direction is sdn.IN:
+                    self.input_pins_todo_later.append((pin,key))
                 else:
-                    if instance.inner_pin.port.direction is sdn.IN:
-                        return instance
-    return None
+                    self.add_info_to_dict(pin,set('INOUT_PORT'),current_dict)
+            else:
+                self.add_info_to_dict(pin,set(),current_dict)
 
-def compare_pin_connections(original,modified,suffix,name,write_enable):
-    global compare
-    t0 = time()
-    f = None
-    if write_enable:
-        f = open('drc_connection_results_'+name+'.txt','w')
-    not_matched = []
-    for instance_modified in modified:
-        modified_name = get_original_name(instance_modified.item,suffix)
-        matched = False
-        if instance_modified.parent.item.reference.name in original.keys():
-            for instance_original in original[instance_modified.parent.item.reference.name]:
-                if modified_name == instance_original.name:
-                    matched = True
-                    not_matched += compare_a_match(instance_modified.item,instance_original,f)
-                    break
-        if not matched:
-            if f:
-                f.write(instance_modified.item.name + ' had no one to compare to\n')
-            not_matched.append(instance_modified.item)
-    if f:
-        f.close()
-    t1 = time()
-    compare += (t1-t0)
-    return not_matched
+    def get_non_leaf_pin_connections(self,instance,current_dict):
+        instance_item = instance
+        if instance.__class__ is sdn.HRef:
+            instance_item = instance.item
+        for outside_pin in instance_item.get_pins(selection=Selection.OUTSIDE):
+            port = outside_pin.inner_pin.port
+            inner_pin = outside_pin.inner_pin
+            key = find_key(port,self.suffix)
+            if port.direction is sdn.IN:
+                if outside_pin.inner_pin.wire:
+                    pins = set(x for x in self.get_next_instances(inner_pin,key,outside_pin))
+                    self.add_driver_information(instance_item,port,pins,current_dict)
+            elif port.direction is sdn.OUT:
+                if outside_pin.wire:
+                    pins = set(x for x in self.get_next_instances(outside_pin,key,inner_pin))
+                    self.add_driver_information(instance_item,port,pins,current_dict)
 
-def compare_a_match(instance_modified,instance_original,f):
-    not_matched = []
-    for port in instance_modified.get_ports():
-        try:
-            instance_original[port.name]
-        except KeyError:
-            instance_original[port.name] = None
-        if instance_modified[port.name] == instance_original[port.name]:
-            if f:
-                f.write("MATCH: "+instance_modified.name+' '+str(instance_modified[port.name])+'---'+str(instance_original[port.name])+' '+instance_original.name+' Port:'+port.name+' Parent:'+instance_modified.parent.name+'\n')
+    def get_netlist_hport_connections(self,netlist,current_dict):
+        for port in netlist.get_hports():
+            if port.item.direction is sdn.IN:
+                key = find_key(port.item,self.suffix)
+                for pin in port.item.get_hpins():
+                    if pin.item.wire:
+                        pins = set(x for x in self.get_next_instances(pin.item,key))
+                        self.add_driver_information(netlist.top_instance,port.item,pins,current_dict)
+
+    def do_pins_todo_later(self,current_dict):
+        for pin in self.input_pins_todo_later:
+            instance = pin[0].instance
+            key = pin[1]
+            self.get_pin_connections_helper(instance,pin[0],key,current_dict)
+
+    def get_pin_connections_helper(self,instance,current_pin,key,current_dict):
+        port =current_pin.inner_pin.port
+        if port.direction is sdn.OUT:
+            pins = set(x for x in self.get_next_instances(current_pin,key))
+            neighbor_pin_info = set(x.instance.name+'/'+x.inner_pin.port.name+'/'+str(x.inner_pin.port.pins.index(x.inner_pin)) for x in pins)
+            self.add_info_to_dict(current_pin,neighbor_pin_info,current_dict)
+            self.add_driver_information(instance,port,pins,current_dict)
+        elif port.direction is sdn.IN:
+            key_to_look_for = current_pin.instance.name+'/'+current_pin.inner_pin.port.name+'/'+str(current_pin.inner_pin.port.pins.index(current_pin.inner_pin))
+            if current_pin.instance.parent:
+                key_to_look_for = current_pin.instance.parent.name+'/'+key_to_look_for
+            if key_to_look_for not in current_dict.keys():
+                previous_pin_info = set(x.instance.name+'/'+x.inner_pin.port.name+'/'+str(x.inner_pin.port.pins.index(x.inner_pin)) for x in self.get_previous_instances(current_pin))
+                self.add_info_to_dict(current_pin,previous_pin_info,current_dict)
+
+    def add_driver_information(self,instance,instance_port,pins,current_dict):
+        for pin in pins:
+            self.add_info_to_dict(pin,[instance.name+'/'+instance_port.name+'/'+str(pin.inner_pin.port.pins.index(pin.inner_pin))],current_dict)
+
+    def add_info_to_dict(self,pin,info,current_dict):
+        dict_key = pin.instance.name+'/'+pin.inner_pin.port.name+'/'+str(pin.inner_pin.port.pins.index(pin.inner_pin))
+        if pin.instance.parent:
+            dict_key = pin.instance.parent.name+'/'+dict_key
+        if dict_key in current_dict.keys():
+            current_dict[dict_key].update(set(info))
         else:
-            if f:
-                f.write("NOT MATCH: "+instance_modified.name+' '+str(instance_modified[port.name])+'---'+str(instance_original[port.name])+' '+instance_original.name+' Port:'+port.name+' Parent:'+instance_modified.parent.name+'\n')
-            not_matched.append(instance_modified)
-        instance_modified.pop(port.name)
-    return not_matched
+            current_dict[dict_key] = set(info)
+
+    def get_next_instances(self,current_pin,key,other_pin=None):
+        next_instances = list(pin for pin in current_pin.wire.get_pins(selection=Selection.OUTSIDE) if (pin is not current_pin and pin.inner_pin is not other_pin))
+        next_instances = self.check_next_instances(next_instances,key)
+        return next_instances
+
+    def check_next_instances(self,next_instances,key):
+        to_remove = []
+        to_add = []
+        for i,instance_pin in enumerate(next_instances):
+            instance_of_pin = instance_pin.instance
+            if self.is_organ(instance_of_pin):
+                organ_output_pins = list(x for x in instance_of_pin.get_pins(selection=Selection.OUTSIDE) if x.inner_pin.port.direction is sdn.OUT)
+                if organ_output_pins:
+                    for pin in organ_output_pins:
+                        if pin.wire:
+                            possible_next = self.get_organ_next(pin,key)
+                            to_add = to_add + possible_next
+                to_remove.append(instance_pin)
+        next_instances += to_add
+        next_instances = list(x for x in next_instances if not x in to_remove)
+        return next_instances
+
+    def get_organ_next(self,organ_current_pin,key):
+        to_remove = []
+        to_add = []
+        next_instances = list(pin for pin in organ_current_pin.wire.get_pins(selection=Selection.OUTSIDE) if pin is not organ_current_pin)
+        for i,instance_pin in enumerate(next_instances):
+            instance_of_pin = instance_pin.instance
+            if self.is_organ(instance_of_pin):
+                organ_output_pins = list(x for x in instance_of_pin.get_pins(selection=Selection.OUTSIDE) if x.inner_pin.port.direction is sdn.OUT)
+                if organ_output_pins:
+                    for pin in organ_output_pins:
+                        if pin.wire:
+                            to_add += self.get_organ_next(pin,key)
+                to_remove.append(instance_pin)
+        next_instances += to_add
+        for instance_pin in next_instances:
+            instance_of_pin = instance_pin.instance
+            if instance_of_pin.is_leaf():
+                if key not in instance_of_pin.name and self.suffix in instance_of_pin.name:
+                    to_remove.append(instance_pin)
+            else:
+                port = instance_pin.inner_pin.port
+                wires = list(x for x in port.get_wires(selection = Selection.OUTSIDE))
+                if not wires and not instance_of_pin in self.top_instances:
+                    to_remove.append(instance_pin)
+                else:
+                    if key not in port.name and self.suffix in port.name:
+                        if 'COMPLEX' not in port.name:
+                            to_remove.append(instance_pin)
+
+        next_instances = list(x for x in next_instances if not x in to_remove)
+        return next_instances
+
+    def get_previous_instances(self,current_pin):
+        previous_instances = []
+        to_remove = []
+        to_add = []
+        previous_instances = list(pin for pin in current_pin.wire.get_pins(selection=Selection.OUTSIDE) if not (pin.instance.is_leaf() and pin.inner_pin.port.direction is sdn.IN))
+        for i,instance_pin in enumerate(previous_instances):
+            instance_of_pin = instance_pin.instance
+            if self.is_organ(instance_of_pin):
+                input_pins = list(pin for pin in instance_of_pin.get_pins(selection=Selection.OUTSIDE) if pin.inner_pin.port.direction is sdn.IN)
+                possible_next = []
+                for pin in input_pins:
+                    possible_next += self.get_organ_previous(pin)
+                to_add = to_add + possible_next
+                to_remove.append(instance_pin)
+        previous_instances = previous_instances + to_add
+        previous_instances = list(x for x in previous_instances if x not in to_remove)
+        driver = self.find_driver(previous_instances,current_pin)
+        return driver
+
+    def get_organ_previous(self,current_pin):
+        previous_instances = []
+        previous_instances = list(pin for pin in current_pin.wire.get_pins(selection=Selection.OUTSIDE) if (pin is not current_pin and not self.is_organ(pin.instance))is True)
+        return previous_instances
+
+    def find_driver(self,instance_list,current_pin):
+        driver = []
+        for instance_pin in instance_list:
+            instance_of_pin = instance_pin.instance
+            port = instance_pin.inner_pin.port
+            if instance_of_pin.is_leaf() and port.direction is sdn.OUT:
+                driver.append(instance_pin)
+            else:
+                if instance_of_pin.reference is current_pin.instance.parent:
+                    if port.direction is sdn.IN:
+                        driver.append(instance_pin)
+                else:
+                    if port.direction is sdn.OUT:
+                        driver.append(instance_pin)
+        return driver
+
+    def compare_pin_connections(self):
+        f = None
+        if self.write_enable:
+            f = open(self.output_txt_file_name,'w')
+        for key in self.modified_port_dict.keys():
+            if 'GND' not in key and 'VCC' not in key:
+                key_without_suffixes = get_original_name(key,self.suffix)
+                try:
+                    self.original_port_dict[key_without_suffixes]
+                except KeyError:
+                    if f:
+                        f.write(key+ ' had no one to compare to\n')
+                        self.not_matched.append(key)
+                    continue
+
+                list_without_suffixes = set(get_original_name(x,self.suffix) for x in self.modified_port_dict[key])
+                info_to_write = key+' '+str(self.modified_port_dict[key])+'---'+str(self.original_port_dict[key_without_suffixes])+' '+key_without_suffixes+'\n'
+                if list_without_suffixes == self.original_port_dict[key_without_suffixes]:
+                    if f:
+                        f.write("MATCH: "+info_to_write)
+                else:
+                    if f:
+                        f.write("NOT MATCH: "+info_to_write)
+                    self.not_matched.append(key)
