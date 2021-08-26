@@ -2,6 +2,7 @@ import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util.selection import Selection
 from spydrnet_tmr.utils.design_rule_check.util import find_key, get_original_name
+from time import time
 
 def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],write_enable=False):
     '''
@@ -22,6 +23,12 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     TOP_INSTANCES = [original_netlist.top_instance,modified_netlist.top_instance]
     global ORGANS
     ORGANS = organ_names
+    global next_
+    next_ = 0
+    global previous
+    previous = 0
+    global compare
+    compare = 0
     ORGANS.append('COMPLEX')
 
     uniquify(original_netlist)
@@ -31,14 +38,14 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     # original_instances_leafs = list(x for x in original_instances_all if x.item.is_leaf())
 
     modified_instances_all = list(x for x in modified_netlist.get_hinstances(recursive=True,filter = lambda x: (filter_instances(x.item)) is True))
-    # for instance in modified_instances_all:
-        # if 'btn_f2_reg_TMR_2' in instance.item.name:
-        #     print("RIGHT HERE")
     get_pin_connections(modified_instances_all,suffix)
     modified_instances_leafs = list(x for x in modified_instances_all if x.item.is_leaf())
 
     original_non_leafs = get_original_non_leafs(original_netlist)
     not_matched = compare_pin_connections(original_non_leafs,modified_instances_leafs,suffix,original_netlist.name,write_enable)
+    print("TIME NEXT: ",next_)
+    print("TIME PREVIOUS: ",previous)
+    print("TIME COMPARE: ",compare)
     if not_matched:
         print('FAILED')
         return False
@@ -134,9 +141,13 @@ def add_info(current_instance,current_pin,info):
         current_instance[current_pin.port.name] = set(info)
 
 def get_next_instances(current_pin,key,suffix):
+    global next_
+    t0 = time()
     next_instances = []
     next_instances = list(pin2 for pin2 in current_pin.wire.get_pins(selection = Selection.OUTSIDE, filter = lambda x: (x is not current_pin)))
     next_instances = check_next_list(next_instances,key,suffix)
+    t1 = time()
+    next_ += (t1-t0)
     return next_instances
 
 def check_next_list(next_instances,key,suffix):
@@ -184,6 +195,8 @@ def get_organ_previous(current_pin):
     return previous_instances
 
 def get_previous_instance(current_pin,key,suffix):
+    global previous
+    t0 = time()
     previous_instances = []
     to_remove = []
     to_add = []
@@ -198,7 +211,10 @@ def get_previous_instance(current_pin,key,suffix):
             to_remove.append(previous_instances[i])
     previous_instances = previous_instances + to_add
     previous_instances = list(x for x in previous_instances if x not in to_remove)
-    return find_driver(previous_instances,current_pin,key,suffix)
+    driver = find_driver(previous_instances,current_pin,key,suffix)
+    t1 = time()
+    previous += (t1-t0)
+    return driver
 
 def find_driver(instance_list,current_pin,key,suffix):
     for instance in instance_list:
@@ -222,6 +238,8 @@ def find_driver(instance_list,current_pin,key,suffix):
     return None
 
 def compare_pin_connections(original,modified,suffix,name,write_enable):
+    global compare
+    t0 = time()
     f = None
     if write_enable:
         f = open('drc_connection_results_'+name+'.txt','w')
@@ -241,6 +259,8 @@ def compare_pin_connections(original,modified,suffix,name,write_enable):
             not_matched.append(instance_modified.item)
     if f:
         f.close()
+    t1 = time()
+    compare += (t1-t0)
     return not_matched
 
 def compare_a_match(instance_modified,instance_original,f):
