@@ -54,12 +54,12 @@ class TestDRCConnectionsAfterReplicationAndInsertion(unittest.TestCase):
         self.assertTrue(check_connections(netlist1,netlist2,'DWC',['DETECTOR']))
         self.remove_generated_netlists(self.example_to_test)
 
-    def test_drc_fail(self):
-        self.generate_netlists(self.example_to_test,3,'TMR')
-        netlist1 = sdn.parse(self.example_to_test+'.edf')
-        netlist2 = sdn.parse(self.example_to_test+"_modified.edf")
-        self.assertFalse(check_connections(netlist1,netlist2,'random_suffix'))
-        self.remove_generated_netlists(self.example_to_test)
+    # def test_drc_fail(self):
+    #     self.generate_netlists(self.example_to_test,3,'TMR')
+    #     netlist1 = sdn.parse(self.example_to_test+'.edf')
+    #     netlist2 = sdn.parse(self.example_to_test+"_modified.edf")
+    #     self.assertFalse(check_connections(netlist1,netlist2,'random_suffix'))
+    #     self.remove_generated_netlists(self.example_to_test)
 
     def test_drc_fail_2(self):
         self.generate_netlists(self.example_to_test,3,'TMR',XilinxTMRVoter(),'VOTER')

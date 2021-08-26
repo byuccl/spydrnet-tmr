@@ -14,11 +14,14 @@ def check_nmr(netlist,all_elements_to_replicate,degree,suffix):
     :param suffix: suffix appended to replicas (e.g. 'TMR')
     :return: True/False
     """
-
+    okay = True
     if not check_domains(all_elements_to_replicate,suffix):
         print("Warning: Incorrect connections in a domain")
+        okay = False
     if not check_replicas_amount(netlist,all_elements_to_replicate,degree,suffix):
         print("Warning: Incorrect amount of replicas")
+        okay = False
+    return okay
 
 def check_replicas_amount(netlist,all_elements_to_replicate,degree,suffix):
 
