@@ -12,4 +12,3 @@ install:
   - pip install pylint
 script:
   - pytest
-  - pylint spydrnet_tmr > output.txt
