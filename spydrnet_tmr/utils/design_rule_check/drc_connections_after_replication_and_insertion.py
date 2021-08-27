@@ -7,8 +7,6 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     '''
     Looks at each leaf instance's pins in both netlists and finds what it drives/what drives it and makes sure corresponding instance pins between the netlists match up.
 
-    For example, if the instance '**a_lut_3**' has a pin that drives the data_in port on the instance '**a_flip_flop**' in the original design, it will make sure that '**a_lut_3_TMR_0**' has a pin that drives the data_in port on '**a_flip_flop_TMR_0**' (it will check this for each TMR_1 and TMR_2 as well)
-
     :param original_netlist: original netlist
     :param modified_netlist: the replicated netlist. Can contain organs (voters/detectors)
     :param suffix: string appended to the replicated instances' names (e.g. 'TMR' or 'DWC')
@@ -16,10 +14,17 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     :param write_enable: output results to text file
     :type write_enable: bool
     :return: bool (matched, not_matched)
+
+    For example, if the instance '**a_lut_3**' has a pin that drives the data_in port on the instance '**a_flip_flop**' in the original design, it will make sure that '**a_lut_3_TMR_0**' has a pin that drives the data_in port on '**a_flip_flop_TMR_0**' (it will check this for both TMR_1 and TMR_2 as well). **See figure below.**
+
+
+    .. figure:: ../../figures/check_connections.svg
+        :width: 700px
+        :align: center
     '''
 
     class_object = DRCConnections(original_netlist,modified_netlist,suffix,organ_names,write_enable)
-    print("NEW CHECKING CONNECTIONS")
+    print("CHECKING CONNECTIONS")
     return class_object._check_connections()
 
 
