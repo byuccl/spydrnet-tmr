@@ -12,4 +12,4 @@ install:
   - pip install pylint
 script:
   - pytest
-  - pylint spydrnet_shrec
+  - pylint spydrnet_tmr
