@@ -272,7 +272,7 @@ class DRCConnections():
                 except KeyError:
                     if f:
                         f.write(key+ ' had no one to compare to\n')
-                        self.not_matched.append(key)
+                    self.not_matched.append(key)
                     continue
 
                 list_without_suffixes = set(get_original_name(x,self.suffix) for x in self.modified_port_dict[key])

@@ -78,8 +78,8 @@ def check_if_organ_inputs_from_each_domain(organs,suffix):
                 else:
                     key = find_key(instance.inner_pin.port,suffix)
                 if key in keys:
-                    print(key)
-                    print(keys)
+                    # print(key)
+                    # print(keys)
                     print("WARNING:",organ.name,'inputs from the same domain more than once',organ.parent.name)
                     okay = False
                     break
