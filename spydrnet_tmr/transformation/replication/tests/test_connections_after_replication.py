@@ -14,7 +14,7 @@ class TestReplicationUsingDRC(unittest.TestCase):
     Tests full TMR and DWC by replicating some small netlists and making sure each passes check_connections() in the module drc_connections_after_replication_and_insertion.
     '''
     def setUp(self):
-        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing']
+        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing','lc2','lc3']
         random_value = randint(0,len(examples_list)-1)
         self.example_to_test = examples_list[random_value]
 
@@ -52,6 +52,13 @@ class TestReplicationUsingDRC(unittest.TestCase):
         netlist2 = sdn.parse(self.example_to_test+"_modified.edf")
         self.assertTrue(check_connections(netlist1,netlist2,'DWC',['DETECTOR']))
         self.remove_generated_netlists(self.example_to_test)
+
+    # def test_tmr_with_riscv_multi_core(self):
+    #     self.generate_netlists('riscv_multi_core',3,"TMR",XilinxTMRVoter(),'VOTER')
+    #     netlist1 = sdn.parse('riscv_multi_core.edf')
+    #     netlist2 = sdn.parse('riscv_multi_core_modified.edf')
+    #     self.assertTrue(check_connections(netlist1,netlist2,'TMR',['VOTER']))
+    #     self.remove_generated_netlists('riscv_multi_core')
 
     def generate_netlists(self,example_to_test,copy_amount,suffix,organ=None,organ_name=None):
         '''

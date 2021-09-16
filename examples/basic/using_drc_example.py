@@ -47,8 +47,8 @@ from spydrnet_tmr import insert_organs, apply_nmr
 from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 from spydrnet_tmr.transformation.replication.uniquify_nmr_property import uniquify_nmr_property
-from spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion import check_connections
-from spydrnet_tmr.utils.design_rule_check.drc_properties_after_replication import check_properties_after_replication
+from spydrnet_tmr.utils.design_rule_check import check_connections
+from spydrnet_tmr.utils.design_rule_check import check_properties_after_replication
 
 def run():
 
