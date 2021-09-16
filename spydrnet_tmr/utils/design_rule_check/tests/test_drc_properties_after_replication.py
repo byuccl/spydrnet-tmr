@@ -80,4 +80,3 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
     def remove_generated_netlists(self,example_name):
         os.remove(example_name+".edf")
         os.remove(example_name+"_modified.edf")
-    
