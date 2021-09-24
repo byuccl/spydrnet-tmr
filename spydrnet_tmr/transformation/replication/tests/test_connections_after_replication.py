@@ -14,7 +14,7 @@ class TestReplicationUsingDRC(unittest.TestCase):
     Tests full TMR and DWC by replicating some small netlists and making sure each passes check_connections() in the module drc_connections_after_replication_and_insertion.
     '''
     def setUp(self):
-        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing','lc2','lc3']
+        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing']
         random_value = randint(0,len(examples_list)-1)
         self.example_to_test = examples_list[random_value]
 
