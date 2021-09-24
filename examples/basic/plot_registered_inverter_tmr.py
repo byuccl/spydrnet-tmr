@@ -12,7 +12,7 @@ synchronous element just receives its clock signal from the primary TMR domain.
 If a voter is placed in its path, this could result in large hold time 
 violations
 
-This is a good example of how to SpyDrNet TMR to selectively replicate a 
+This is a good example of how to use SpyDrNet TMR to selectively replicate a 
 design and still maintain performance by controlling the placement of voters.
 
 """

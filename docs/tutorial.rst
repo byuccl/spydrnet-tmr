@@ -57,15 +57,21 @@ Determine What To Replicate
 
 Determine Organ Insertion Points
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    We call find_voter_insertion_points() to determine where organs will be inserted. We pass our netlist, the ports and instances to replicate, and the flip flop types as parameters. A list of outer pins is returned. Each pin in the list corresponds to an instance's output at which an organ will be placed. Note: one does not have to use find_voter_insertion_points() but can instead specify the outer pins themselves (one would probably not want to use this function when finding detector insertion points, as it will most likely find more places to put detectors than is desired).
+    We call find_voter_insertion_points_after_ff() to determine where organs will be inserted. We pass the ports and instances to replicate and the flip flop types as parameters. A list of outer pins is returned. Each pin in the list corresponds to an instance's output at which an organ will be placed.
+    
+    Note: one does not have to use find_voter_insertion_points_after_ff() but can instead specify the outer pins themselves (one would probably not want to use this function when finding detector insertion points, as it will most likely find more places to put detectors than is desired).
+    
+    Other voter insertion point algorithms are available. See :ref:`voter_algorithms`
     
     .. code-block::
 
-        insertion_points = find_voter_insertion_points(netlist, [*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+        insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
 
 Replicate the Design
 ^^^^^^^^^^^^^^^^^^^^^
-    apply_nmr() will replicate the design 'n' amount of times. A list of the ports and instances replicated is returned. In this example it is replicated 3 times (triplicated). (If we were doing DWC, '3' would be replaced by '2' and 'TMR' replaced by 'DWC').
+    apply_nmr() will replicate the design until there are 'n' amount of them. A map of each element replicated to its replicas is returned. In this example it is replicated 3 times (triplicated).
+    
+    If we were doing DWC, '3' would be replaced by '2' and 'TMR' replaced by 'DWC'.
     
     .. code-block::
 
@@ -73,7 +79,9 @@ Replicate the Design
 
 Insert Organs
 ^^^^^^^^^^^^^
-    insert_organs() will then insert the voters into the triplicated design (or detectors into the duplicated design). A list of outer pins is returned. Each pin in the list corresponds to an instance's output at which a voter was placed. (If we were doing DWC, 'XilinxTMRVoter' would be replaced by 'XilinxDWCDetector' and 'VOTER' replaced by 'DETECTOR').
+    insert_organs() will then insert the voters into the triplicated design (or detectors into the duplicated design). A map from each insertion point to the organs inserted there is returned.
+    
+    If we were doing DWC, 'XilinxTMRVoter' would be replaced by 'XilinxDWCDetector' and 'VOTER' replaced by 'DETECTOR'.
     
     .. code-block::
 
