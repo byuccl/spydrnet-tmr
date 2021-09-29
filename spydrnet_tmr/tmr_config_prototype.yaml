@@ -1,0 +1,64 @@
+default_tmr_settings:
+  replication:
+    instances_to_replicate:
+      all: True 
+    ports_to_replicate:
+      all: True
+  voter_insertion:
+    insert_reduction_voters:
+      all_instances: True
+      all_ports: True
+
+
+my_project_settings:
+  replication:
+    instances_to_replicate:
+      all_instances: True
+      include_prim: ["BUFG", "LUT3"]
+      exclude_prim: ["FDCE", "FDRE"]
+      include_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      exclude_hinst: ["count[0]_i_1", "count[1]_i_1"]
+    ports_to_replicate:
+      all_ports: True
+      include_input_ports: True
+      include_inout_ports: True
+      include_output_ports: True
+      include_port: ["btnU", "clk"]
+      exclude_port: ["btnU", "clk"]
+  voter_insertion:
+    reduction:
+      all_instances: True
+      all_ports: True
+      include_prim: ["clk", "data_in"]
+      exclude_prim: ["led[1:0]"]
+      include_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      exclude_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      include_input_ports: True
+      include_inout_ports: True
+      include_output_ports: True
+      include_port: ["btnU", "clk"]
+      exclude_port: ["btnU", "clk"]
+    before_ff:
+      all_instances: True
+      all_ports: True
+      include_prim: ["clk", "data_in"]
+      exclude_prim: ["led[1:0]"]
+      include_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      exclude_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      include_input_ports: True
+      include_inout_ports: True
+      include_output_ports: True
+      include_port: ["btnU", "clk"]
+      exclude_port: ["btnU", "clk"]
+    after_ff:
+      all_instances: True
+      all_ports: True
+      include_prim: ["clk", "data_in"]
+      exclude_prim: ["led[1:0]"]
+      include_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      exclude_hinst: ["count[0]_i_1", "count[1]_i_1"]
+      include_input_ports: True
+      include_inout_ports: True
+      include_output_ports: True
+      include_port: ["btnU", "clk"]
+      exclude_port: ["btnU", "clk"]
