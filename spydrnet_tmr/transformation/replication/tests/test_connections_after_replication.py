@@ -60,6 +60,27 @@ class TestReplicationUsingDRC(unittest.TestCase):
     #     self.assertTrue(check_connections(netlist1,netlist2,'TMR',['VOTER']))
     #     self.remove_generated_netlists('riscv_multi_core')
 
+    def test_tmr_with_larger_netlist(self):
+        self.generate_netlists('lc2',3,"TMR",XilinxTMRVoter(),'VOTER')
+        netlist1 = sdn.parse('lc2.edf')
+        netlist2 = sdn.parse('lc2_modified.edf')
+        self.assertTrue(check_connections(netlist1,netlist2,'TMR',['VOTER']))
+        self.remove_generated_netlists('lc2')
+
+    def test_tmr_with_larger_netlist_2(self):
+        self.generate_netlists('lc3',3,"TMR",XilinxTMRVoter(),'VOTER')
+        netlist1 = sdn.parse('lc3.edf')
+        netlist2 = sdn.parse('lc3_modified.edf')
+        self.assertTrue(check_connections(netlist1,netlist2,'TMR',['VOTER']))
+        self.remove_generated_netlists('lc3')
+
+    def test_tmr_with_larger_netlist_2(self):
+        self.generate_netlists('counters128',3,"TMR",XilinxTMRVoter(),'VOTER')
+        netlist1 = sdn.parse('counters128.edf')
+        netlist2 = sdn.parse('counters128_modified.edf')
+        self.assertTrue(check_connections(netlist1,netlist2,'TMR',['VOTER']))
+        self.remove_generated_netlists('counters128')
+
     def generate_netlists(self,example_to_test,copy_amount,suffix,organ=None,organ_name=None):
         '''
         Generates netlists needed for testing by selecting a random example from a list of small netlists, replicating the design, and composing the netlist.
