@@ -14,7 +14,7 @@ class TestPropertiesAfterReplication(unittest.TestCase):
     Test to make sure properties of corresponding instances are the same using 'check_properties_after_replication()' in the module drc_properties_after_replication.
     '''
     def setUp(self):
-        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing','lc2','lc3']
+        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','lfsr_kc705','lfsr_zybo','fourBitCounter','basic_clock_crossing']#,'lc2','lc3']
         random_value = randint(0,len(examples_list)-1)
         self.example_to_test = examples_list[random_value]
 
