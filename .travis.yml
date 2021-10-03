@@ -7,7 +7,7 @@ python:
   - "3.9"
 install:
   - pip install ply
-  - pip install git+https://github.com/byuccl/spydrnet.git
+  - pip install -e git+https://github.com/byuccl/spydrnet.git
   - pip install pylint
 script:
   - pytest
