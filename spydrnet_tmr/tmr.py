@@ -3,7 +3,11 @@ TMR.py
 """
 import argparse
 import os.path
-from spydrnet_tmr.tmr_config_constants import (
+import spydrnet as sdn
+import yaml
+from yaml.loader import FullLoader
+
+from spydrnet_tmr.config_constants import (
     ALL,
     INSTANCES_AT_VALID_POINTS,
     INSTANCES_TO_REPLICATE,
@@ -15,9 +19,6 @@ from spydrnet_tmr.tmr_config_constants import (
     TOP_LEVEL_INOUTPUT_PORTS,
     VOTER_INSERTION,
 )
-import spydrnet as sdn
-import yaml
-from yaml.loader import FullLoader
 
 # import spydrnet_tmr as sdn_tmr
 # import tmr_config
@@ -168,10 +169,11 @@ def create_replication_list(netlist, section):
 def create_valid_voter_point_dict(
     netlist, voter_insertion_section, hinstances_and_hports_to_replicate
 ):
-    valid_voters_at_instances_set = set()
-    valid_voters_at_ports_set = set()
+
     valid_voter_point_dict = dict()
     for voter_algorithm in voter_insertion_section[1].items():
+        valid_voters_at_instances_set = set()
+        valid_voters_at_ports_set = set()
         for valid_voter_list in voter_algorithm[1].items():
             if valid_voter_list[0] == INSTANCES_AT_VALID_POINTS:
                 for value in valid_voter_list:
@@ -189,13 +191,14 @@ def create_valid_voter_point_dict(
                 for value in valid_voter_list:
                     if value == ALL:
                         valid_voters_at_ports_set.add(netlist.get_hports())
-
-        valid_voters_at_instances_set = [
-            list(x) for x in valid_voters_at_instances_set
-        ][0]
-        valid_voters_at_ports_set = [
-            list(x) for x in valid_voters_at_ports_set
-        ][0]
+        if(valid_voters_at_instances_set):
+            valid_voters_at_instances_set = [
+                list(x) for x in valid_voters_at_instances_set
+            ][0]
+        if(valid_voters_at_ports_set):
+            valid_voters_at_ports_set = [
+                list(x) for x in valid_voters_at_ports_set
+            ][0]
         valid_voter_point_set = set()
         valid_voter_point_set.update(valid_voters_at_instances_set)
         valid_voter_point_set.update(valid_voters_at_ports_set)

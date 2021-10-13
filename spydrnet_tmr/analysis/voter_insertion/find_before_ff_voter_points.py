@@ -3,6 +3,10 @@ Find voter insertion points before every flip-flip
 """
 import spydrnet as sdn
 
+from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet_tmr.support_files.xilinx_primitive_tokens import FF_CELLS
+from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
+
 DATA_IN_PORT_NAME = "D"
 
 
@@ -26,9 +30,14 @@ def find_before_ff_voter_points(
         where voters will be inserted.
     """
     endpoints_to_replicate = set(endpoints_to_replicate)
-    primitive_names = set(primitive_names)
-
+    primitive_names = set()
     insertion_points = set()
+
+    # Load primitive info for finding flip-flops
+    primitive_info = load_primitive_info(netlist, vendor_name)
+    if vendor_name is XILINX:
+        for definition in primitive_info[FF_CELLS]:
+            primitive_names.add(definition.name)
 
     # Identify all flip-flop instances
     for endpoint in [

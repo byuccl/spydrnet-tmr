@@ -121,6 +121,9 @@ def load_primitive_info(netlist, vendor):
             ff_cell_dict = dict()
             ff_cells[ff_cell] = ff_cell_dict
 
+            if "name" in seq_cell_info:
+                ff_cell_dict["name"] = seq_cell_info["name"]
+
             if "description" in seq_cell_info:
                 ff_cell_dict["description"] = seq_cell_info["description"]
 

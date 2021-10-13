@@ -5,6 +5,16 @@ my_project_settings:
     ports_to_replicate:
       top_level_input_ports
   voter_insertion:
+    after_ff:
+      instances_at_valid_points:
+        all
+      ports_at_valid_points:
+        all
+    before_ff:
+      instances_at_valid_points:
+        all
+      ports_at_valid_points:
+        all
     reduction:
       instances_at_valid_points:
         all

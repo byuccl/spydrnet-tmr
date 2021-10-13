@@ -3,10 +3,14 @@ Find voter insertion points after every flip-flip
 """
 import spydrnet as sdn
 
+from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet_tmr.support_files.xilinx_primitive_tokens import FF_CELLS
+from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
 
 def find_after_ff_voter_points(
+    netlist,
     endpoints_to_replicate,
-    ff_primitive_names,
+    vendor_name,
 ):
     """
     Find voter insertion points after every flip-flip
@@ -18,21 +22,27 @@ def find_after_ff_voter_points(
     the insertion points set.
 
     :param endpoints_to_replicate: List of all hierarchical instances and ports to be replicated. This list determines the places that voters will need to be inserted.
-    :param ff_primitive_names: List of strings for flip-flop primitve names found in the design so that the algorithm can locate each of them.
+    :param primitive_names: List of strings for flip-flop primitve names found in the design so that the algorithm can locate each of them.
 
     :return insertion_points: Set of pins at each point in the netlist where voters will be inserted.
 
     """
     endpoints_to_replicate = set(endpoints_to_replicate)
-    ff_primitive_names = set(ff_primitive_names)
+    primitive_names = set()
 
     insertion_points = set()
+
+        # Load primitive info for finding flip-flops
+    primitive_info = load_primitive_info(netlist, vendor_name)
+    if vendor_name is XILINX:
+        for definition in primitive_info[FF_CELLS]:
+            primitive_names.add(definition.name)
 
     # Identify all flip-flop instances
     for endpoint in endpoints_to_replicate:
         if (
             isinstance(endpoint.item, sdn.ir.instance.Instance)
-            and endpoint.item.reference.name in ff_primitive_names
+            and endpoint.item.reference.name in primitive_names
         ):
             # Identify OuterPin for output of each flip-flip
             for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
