@@ -83,7 +83,7 @@ Below is are the SystemVerilog modules used to create the design, as well as an 
     set_property CONFIG_VOLTAGE 3.3 [current_design]
     set_property CFGBVS VCCO [current_design]
 
-Note that this example does not use the `apply_tmr_to_netlist`, but rather shows how TMR can be applied without using that function in the case that customization is required. 
+Note that this example does not use the `apply_tmr_to_netlist`, but rather shows how TMR can be applied without using that function in the case that customization is required.
 
 SpyDrNet TMR allows for some flexibility when it comes to replicating instances and ports, and this is shown here in this example. Only the two LED ports ('led[1:0]') will be replicated from all of the top ports, which means the total LEDs used in the final netlist will be 6 (2 LEDs x 3 = 6 LEDs). All instances inside the netlist will be replicated.
 
@@ -130,18 +130,13 @@ Here is the constraints file for the design after triplication. The only differe
 This script will also build a bitstream if desired. To build it, simple set the `build_bitstream_flag` boolean to 'True' at the top of the script. A TCL script for Vivado's batch mode will be created that will load in the TMR netlist and build a bitstream for the correct part for the FPGA on the BASYS3 board. If Vivado is installed correctly, the script will then execute the commands in the auto-generated TCL script, and if successful, will output a bitstream (.bit) file ready to be downloaded to a board.
 
 """
-from spydrnet.uniquify import uniquify
-from spydrnet_tmr import apply_nmr, insert_organs
-import spydrnet_tmr
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import (
-    find_voter_insertion_points_after_ff,
-)
-from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 import pathlib
+import subprocess
 
-from spydrnet_tmr.support_files.xilinx_primitive_tokens import FF_CELLS
+from spydrnet.uniquify import uniquify
+import spydrnet_tmr
+from spydrnet_tmr.apply_tmr_to_netlist import apply_tmr_to_netlist
 from spydrnet_tmr.support_files.vendor_names import XILINX
-from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
 
 # Set this flag to 'True' to build the bitstream, and 'False' to skip it
 build_bitstream_flag = False
@@ -160,32 +155,31 @@ def run():
             recursive=True, filter=lambda x: x.item.reference.is_leaf() is True
         )
     )
-    instances_to_replicate = list(x.item for x in hinstances_to_replicate)
 
     # set ports_to_replicate [get_ports]
-    hports_to_replicate = list(netlist.get_hports())
-    ports_to_replicate = list(
-        x.item for x in hports_to_replicate if x.name == str("led[1:0]")
+    hports_to_replicate = list(
+        netlist.get_hports(filter=lambda x: x.item.name == str("led[1:0]"))
     )
 
-    primitive_info = load_primitive_info(netlist, XILINX)
+    valid_voter_point_dict = dict()
+    valid_voter_point_dict["reduction"] = [
+        *hinstances_to_replicate,
+        *hports_to_replicate,
+    ]
+    valid_voter_point_dict["after_ff"] = [
+        *hinstances_to_replicate,
+        *hports_to_replicate,
+    ]
 
-    # find out where to insert reduction and feedback voters
-    insertion_points = find_voter_insertion_points_after_ff(
-        [*hinstances_to_replicate, *hports_to_replicate],
-        [cell.name for cell in primitive_info[FF_CELLS]],
+    apply_tmr_to_netlist(
+        netlist,
+        XILINX,
+        hinstances_and_hports_to_replicate=[
+            *hinstances_to_replicate,
+            *hports_to_replicate,
+        ],
+        valid_voter_point_dict=valid_voter_point_dict,
     )
-
-    # replicate instances and ports
-    replicas = apply_nmr(
-        [*instances_to_replicate, *ports_to_replicate],
-        3,
-        name_suffix="TMR",
-        rename_original=True,
-    )
-
-    # insert voters on the selected drivers
-    insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
 
     netlist_tmr_name = netlist_name + "_tmr"
 
@@ -201,7 +195,6 @@ def run():
 
 
 def build_bitstream_from_netlist(extract_path, netlist_name, part):
-    import subprocess
 
     # build_set = ["datapath", ["xdc"], [ "constants", "alu", "regfile", "datapath" ] ]
 

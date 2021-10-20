@@ -9,10 +9,8 @@ The number of times each primitive is instanced before and after triplicating wi
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import (
-    find_voter_insertion_points_after_ff,
-)
-from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
+from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet_tmr.apply_tmr_to_netlist import apply_tmr_to_netlist
 
 # set_property design_mode GateLvl [current_fileset]
 # set_property edif_top_file <path_to_file> [current_fileset]
@@ -30,28 +28,28 @@ hinstances_to_replicate = list(
         recursive=True, filter=lambda x: x.item.reference.is_leaf() is True
     )
 )
-instances_to_replicate = list(x.item for x in hinstances_to_replicate)
 
 # set ports_to_replicate [get_ports]
-hports_to_replicate = list(netlist.get_hports())
-ports_to_replicate = list(x.item for x in hports_to_replicate)
-
-# find out where to insert reduction and feedback voters
-insertion_points = find_voter_insertion_points_after_ff(
-    [*hinstances_to_replicate, *hports_to_replicate],
-    {"FDRE", "FDSE", "FDPE", "FDCE"},
+hports_to_replicate = list(
+    netlist.get_hports(filter=lambda x: x.item.direction is sdn.IN)
 )
 
-# replicate instances and ports
-replicas = apply_nmr(
-    [*instances_to_replicate, *ports_to_replicate],
-    3,
-    name_suffix="TMR",
-    rename_original=True,
-)
+valid_voter_point_dict = dict()
+valid_voter_point_dict["reduction"] = [
+    *netlist.get_hports(),
+    *hinstances_to_replicate,
+]
 
-# insert voters on the selected drivers
-voters = insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
+# find out where to insert reduction voters
+netlist = apply_tmr_to_netlist(
+    netlist,
+    XILINX,
+    hinstances_and_hports_to_replicate=[
+        *hports_to_replicate,
+        *hinstances_to_replicate,
+    ],
+    valid_voter_point_dict=valid_voter_point_dict,
+)
 
 # print the number of times each primitive is instanced
 def instance_count(original_netlist, new_netlist):
