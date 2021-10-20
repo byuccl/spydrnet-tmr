@@ -15,8 +15,8 @@ from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 def apply_tmr_to_netlist(
     netlist,
     vendor_name,
-    hinstances_and_hports_to_replicate,
-    valid_voter_point_dict,
+    hinstances_and_hports_to_replicate=None,
+    valid_voter_point_dict=None,
 ):
     """
     apply_tmr_to_netlist(netlist, vendor_name, ...)
@@ -50,6 +50,25 @@ def apply_tmr_to_netlist(
     # once, prevents unintended transformations.
     uniquify(netlist)
 
+    # If nothing was given for repliaction, select all instances and ports by default
+    if hinstances_and_hports_to_replicate is None:
+        hinstances_and_hports_to_replicate = [
+            *list(
+                netlist.get_hinstances(
+                    recursive=True,
+                    filter=lambda x: x.item.reference.is_leaf() is True,
+                )
+            ),
+            *list(netlist.get_hports()),
+        ]
+
+    if valid_voter_point_dict is None:
+        valid_voter_point_dict = dict()
+
+        valid_voter_point_dict[
+            "reduction"
+        ] = hinstances_and_hports_to_replicate
+
     # Triplicate specified instances and top-level ports.
     replicas = apply_nmr(
         [x.item for x in hinstances_and_hports_to_replicate],
@@ -67,7 +86,7 @@ def apply_tmr_to_netlist(
         # Finds the method in `spydrnet_tmr/analysis/voter_insertion`
         # String must exactly match the method name as found in voter_insertion directory.
         find_voters_method_name = "find_" + algorithm_name + "_voter_points"
-        
+
         find_voters_module = getattr(
             spydrnet_tmr.analysis.voter_insertion, find_voters_method_name
         )
@@ -75,7 +94,13 @@ def apply_tmr_to_netlist(
             find_voters_module, find_voters_method_name
         )
 
-        insertion_points.update(find_voters_method(netlist, valid_voter_points, vendor_name))
+        valid_voter_points = set(valid_voter_points).intersection(
+            set(hinstances_and_hports_to_replicate)
+        )
+
+        insertion_points.update(
+            find_voters_method(netlist, valid_voter_points, vendor_name)
+        )
 
     # Voters are inserted into the netlist
     insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
