@@ -1,7 +1,7 @@
 my_project_settings:
   replication:
     instances_to_replicate:
-      all
+      exclude_hinst: ["PURPOSEFUL_GENERATE[8].SEQUENTIAL_LOGIC/DQ_reg[1]"]
     ports_to_replicate:
       top_level_input_ports
   voter_insertion:
@@ -17,6 +17,6 @@ my_project_settings:
         all
     reduction:
       instances_at_valid_points:
-        all
+        exclude_prim: ["BUFG"]
       ports_at_valid_points:
         all

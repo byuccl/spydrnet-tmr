@@ -43,7 +43,10 @@ def apply_tmr_to_netlist(
     valid_voter_point_dict : dict, Iterable - optional, default: dict()
         Each key in the dictionary is a keyword that corresponds to a certain
         voter insertion algorithm, and the value is a list of valid voter points
-        for that algorithm.
+        for that algorithm. The voter placement algorithms will only consider
+        the points included in the valid voter points list, rather than every
+        replicated instance/port in the netlist, but that does not mean that the
+        voter placement algorithm will guarantee a voter at that position.
 
     """
     # uniquify is called to insure that non-leaf definitions are instanced only
