@@ -1,21 +1,11 @@
 replication:
   instances_to_replicate:
-    exclude_hinst: ["PURPOSEFUL_GENERATE[8].SEQUENTIAL_LOGIC/DQ_reg[1]"]
+    all
   ports_to_replicate:
     top_level_input_ports
 voter_insertion:
-  after_ff:
-    instances_at_valid_points:
-      all
-    ports_at_valid_points:
-      all
-  before_ff:
-    instances_at_valid_points:
-      all
-    ports_at_valid_points:
-      all
   reduction:
     instances_at_valid_points:
-      exclude_prim: ["BUFG"]
+      all
     ports_at_valid_points:
       all

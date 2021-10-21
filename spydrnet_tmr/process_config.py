@@ -9,6 +9,7 @@ from yaml.loader import FullLoader
 
 from spydrnet_tmr.config_constants import (
     ALL,
+    NONE,
     EXCLUDE_PRIM,
     EXCLUDE_PORTS,
     EXCLUDE_HINST,
@@ -43,8 +44,6 @@ def process_config(netlist, tmr_config):
     # Check if there is both a voter_insertion and replication section
     if sorted(tmr_config.keys()) == sorted([VOTER_INSERTION, REPLICATION]):
         for section in tmr_config.items():
-            print(section)
-
             if section[0] == REPLICATION:
                 hinstances_and_hports_to_replicate = create_replication_list(
                     netlist, section
@@ -115,7 +114,12 @@ def create_replication_list(netlist, section):
                         ):
                             if hinst.name not in value[EXCLUDE_HINST]:
                                 hinstances_to_replicate.append(hinst)
-
+                    elif value == NONE:
+                        pass
+                    elif value == INSTANCES_TO_REPLICATE:
+                        pass
+                    else:
+                        print("Unrecognized option for instance replication")
             if replication_list[0] == PORTS_TO_REPLICATE:
                 if len(replication_list) > 2:
                     print(
@@ -125,28 +129,34 @@ def create_replication_list(netlist, section):
                     if value == ALL:
                         for hport in netlist.get_hports():
                             hports_to_replicate.append(hport)
-                    if value == TOP_LEVEL_INPUT_PORTS:
+                    elif value == TOP_LEVEL_INPUT_PORTS:
                         for hport in netlist.get_hports(
                             filter=lambda x: x.item.direction is sdn.IN
                         ):
                             hports_to_replicate.append(hport)
-                    if value == TOP_LEVEL_OUTPUT_PORTS:
+                    elif value == TOP_LEVEL_OUTPUT_PORTS:
                         for hport in netlist.get_hports(
                             filter=lambda x: x.item.direction is sdn.OUT
                         ):
                             hports_to_replicate.append(hport)
-                    if value == TOP_LEVEL_INOUTPUT_PORTS:
+                    elif value == TOP_LEVEL_INOUTPUT_PORTS:
                         for hport in netlist.get_hports(
                             filter=lambda x: x.item.direction is sdn.INOUT
                         ):
                             hports_to_replicate.append(hport)
-                    if (
+                    elif (
                         isinstance(value, dict)
                         and EXCLUDE_PORTS in value.keys()
                     ):
                         for hport in netlist.get_hports():
                             if hport.item.name not in value[EXCLUDE_PORTS]:
                                 hports_to_replicate.append(hport)
+                    elif value == NONE:
+                        pass
+                    elif value == PORTS_TO_REPLICATE:
+                        pass
+                    else:
+                        print("Unrecognized option for port replication")
 
     # Get rid of potential duplicates
     hinstances_to_replicate = set(hinstances_to_replicate)
@@ -173,7 +183,7 @@ def create_valid_voter_point_dict(
                             is True,
                         ):
                             valid_voters_at_instances.append(hinst)
-                    if (
+                    elif (
                         isinstance(value, dict)
                         and EXCLUDE_PRIM in value.keys()
                     ):
@@ -187,18 +197,38 @@ def create_valid_voter_point_dict(
                                 not in value[EXCLUDE_PRIM]
                             ):
                                 valid_voters_at_instances.append(hinst)
+                    elif value == NONE:
+                        pass
+                    elif value == INSTANCES_AT_VALID_POINTS:
+                        pass
+                    else:
+                        print(
+                            'Unrecognized option for instances at valid points for "'
+                            + voter_algorithm[0]
+                            + '" algorithm'
+                        )
             if valid_voter_list[0] == PORTS_AT_VALID_POINTS:
                 for value in valid_voter_list:
                     if value == ALL:
                         for hport in netlist.get_hports():
                             valid_voters_at_ports.append(hport)
-                    if (
+                    elif (
                         isinstance(value, dict)
                         and EXCLUDE_PORTS in value.keys()
                     ):
                         for hport in netlist.get_hports():
                             if hport.item.name not in value[EXCLUDE_PORTS]:
                                 valid_voters_at_ports.append(hport)
+                    elif value == NONE:
+                        pass
+                    elif value == PORTS_AT_VALID_POINTS:
+                        pass
+                    else:
+                        print(
+                            'Unrecognized option for ports at valid points for "'
+                            + voter_algorithm[0]
+                            + '" algorithm'
+                        )
 
         valid_voters_at_instances = set(valid_voters_at_instances)
         valid_voters_at_ports = set(valid_voters_at_ports)

@@ -106,6 +106,7 @@ def apply_tmr_to_netlist(
         )
 
     # Voters are inserted into the netlist
-    insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
+    if replicas and insertion_points:
+        insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
 
     return netlist

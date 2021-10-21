@@ -21,13 +21,14 @@ PORTS_AT_VALID_POINTS = "ports_at_valid_points"
 
 # Options applicable to both instances and ports
 ALL = "all"
+NONE = "none"
 
 # Options applicable to instances
 EXCLUDE_PRIM = "exclude_prim"
 EXCLUDE_HINST = "exclude_hinst"
 
 # Options applicable to ports
-EXCLUDE_PORTS = "exclude_ports"
 TOP_LEVEL_INPUT_PORTS = "top_level_input_ports"
 TOP_LEVEL_OUTPUT_PORTS = "top_level_output_ports"
 TOP_LEVEL_INOUTPUT_PORTS = "top_level_inoutput_ports"
+EXCLUDE_PORTS = "exclude_ports"
