@@ -1,34 +1,35 @@
+
+import unittest
+
 from spydrnet.uniquify import uniquify
-from spydrnet_tmr import apply_nmr, insert_organs
-import spydrnet_tmr
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_before_ff import (
-    find_voter_insertion_points_before_ff,
+from spydrnet_tmr.analysis.voter_insertion.find_before_ff_voter_points import (
+    find_before_ff_voter_points,
 )
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import (
-    find_voter_insertion_points_after_ff,
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
+    find_after_ff_voter_points,
 )
 
 import spydrnet as sdn
 
-import unittest
+
+from spydrnet_tmr.support_files.vendor_names import XILINX
 
 
 class TestVoterInsertionBeforeFF(unittest.TestCase):
     def setUp(self):
         self.netlist = sdn.load_example_netlist_by_name("b13")
         uniquify(self.netlist)
-        hinstances_to_replicate = list(
-            self.netlist.get_hinstances(
-                recursive=True,
-                filter=lambda x: x.item.reference.is_leaf() is True,
-            )
+        hinstances_to_replicate = self.netlist.get_hinstances(
+            recursive=True,
+            filter=lambda x: x.item.reference.is_leaf() is True,
         )
-        # instances_to_replicate = list(x.item for x in hinstances_to_replicate)
-        hports_to_replicate = list(port for port in self.netlist.get_hports())
-        # ports_to_replicate = list(x.item for x in hports_to_replicate)
-        self.insertion_points = find_voter_insertion_points_before_ff(
+
+        hports_to_replicate = self.netlist.get_hports()
+
+        self.insertion_points = find_before_ff_voter_points(
+            self.netlist,
             [*hinstances_to_replicate, *hports_to_replicate],
-            {"FDRE", "FDSE", "FDPE", "FDCE"},
+            XILINX,
         )
 
     def test_insertion_points_are_pins(self):
@@ -50,18 +51,18 @@ class TestVoterInsertionAfterFF(unittest.TestCase):
     def setUp(self):
         self.netlist = sdn.load_example_netlist_by_name("b13")
         uniquify(self.netlist)
-        hinstances_to_replicate = list(
-            self.netlist.get_hinstances(
-                recursive=True,
-                filter=lambda x: x.item.reference.is_leaf() is True,
-            )
+        hinstances_to_replicate = self.netlist.get_hinstances(
+            recursive=True,
+            filter=lambda x: x.item.reference.is_leaf() is True,
         )
+
         # instances_to_replicate = list(x.item for x in hinstances_to_replicate)
-        hports_to_replicate = list(port for port in self.netlist.get_hports())
-        # ports_to_replicate = list(x.item for x in hports_to_replicate)
-        self.insertion_points = find_voter_insertion_points_after_ff(
+        hports_to_replicate = self.netlist.get_hports()
+
+        self.insertion_points = find_after_ff_voter_points(
+            self.netlist,
             [*hinstances_to_replicate, *hports_to_replicate],
-            {"FDRE", "FDSE", "FDPE", "FDCE"},
+            XILINX,
         )
 
     def test_insertion_points_are_pins(self):
