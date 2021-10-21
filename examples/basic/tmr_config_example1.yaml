@@ -1,0 +1,37 @@
+replication:
+  # All leaf instances will be replicated within the design.
+  instances_to_replicate:
+    all  
+  # Only the top-level input ports will be replicated, which leaves any output
+  # ports or inoutput ports not replicated.
+  ports_to_replicate:
+    top_level_input_ports
+
+# Here in the voter_insertion section, we have two algorithms that will be
+# applied to the netlist. 
+#
+# First, place a voter before every flip-flop in the design denoted by the 
+# name "before_ff" which comes from the function/module name in the 
+# 'spydrnet_tmr/analysis/voter_insertion/' directory. This needs to match exact!
+
+# Second, place reduction voters for replicated to non-replicated TMR boundaries
+# again denoted by the name "reduction" which comes from the corresponding
+# function/module name. 
+#
+# For both of these algorithms, all points will be considered for voter 
+# insertion, but that does not mean a voter will be placed at every point.
+# For example, the "before_ff" algorithm will consider LUTs for voter insertion,
+# but will ultimately decide not to place a voter before it because it isn't a
+# flip-flop. If you don't want a voter at a certain instance/port, use 
+# 'exclude_prim', 'exclude_ports', or 'exclude_hinst'.
+voter_insertion:
+  before_ff:
+    instances_at_valid_points:
+      all
+    ports_at_valid_points:
+      all
+  reduction:
+    instances_at_valid_points:
+      all
+    ports_at_valid_points:
+      all
