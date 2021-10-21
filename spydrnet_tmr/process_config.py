@@ -40,7 +40,6 @@ def process_config(netlist, tmr_config):
     hinstances_and_hports_to_replicate = set()
     valid_voter_point_dict = dict()
 
-    print(tmr_config)
     # Check if there is both a voter_insertion and replication section
     if sorted(tmr_config.keys()) == sorted([VOTER_INSERTION, REPLICATION]):
         for section in tmr_config.items():

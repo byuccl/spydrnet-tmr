@@ -37,9 +37,7 @@ def main():
     # Check if the config file exists
     if os.path.isfile(config_file_path_name):
         with open(config_file_path_name) as file:
-            tmr_config_content = yaml.load(file, Loader=FullLoader)
-            tmr_config = list(tmr_config_content.values())[0]
-
+            tmr_config = yaml.load(file, Loader=FullLoader)
             (
                 hinstances_and_hports_to_replicate,
                 valid_voter_point_dict,
