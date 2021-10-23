@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surface Pins Example &mdash; SpyDrNet TMR 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Voter Before/After Every Flip-Flop Algorithms" href="plot_voters_for_every_ff_tmr.html" />
+    <link rel="prev" title="Registered Inverter TMR Example" href="plot_registered_inverter_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#basic">Basic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Surface Pins Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_drc_example.html">Design Rule Check Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_config_tmr.html">YAML Configuration Mode for Triplication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+      <li>Surface Pins Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/surface_pins_example.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-surface-pins-example-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="surface-pins-example">
+<span id="sphx-glr-auto-examples-basic-surface-pins-example-py"></span><h1>Surface Pins Example<a class="headerlink" href="#surface-pins-example" title="Permalink to this headline"></a></h1>
+<p>This is an example of using surface_pins to bring pins to the top module. Although this example surfaces detector’s pins in DWC, other pins can be surfaced as well (e.g. a flipflop’s reset pin)</p>
+<p>First, parse the original netlist and specify what to replicate.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s1">&#39;hierarchical_luts&#39;</span><span class="p">)</span>
+
+<span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+
+<span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+<span class="n">instances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances_to_replicate</span><span class="p">)</span>
+
+<span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;clk&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+<span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then find the detector insertion points. This is done manually in this example by going to the bottom hierarchical level and getting the instance’s output pins.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insertion_points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;sub1&#39;</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+        <span class="n">insertion_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">selection</span><span class="o">.</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Replicate and insert detectors</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">([</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s1">&#39;DWC&#39;</span><span class="p">,</span> <span class="n">rename_original</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">detectors</span> <span class="o">=</span> <span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="n">insertion_points</span><span class="p">,</span> <span class="n">XilinxDWCDetector</span><span class="p">(),</span> <span class="s1">&#39;DETECTOR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As seen in the schematic below, the detector’s output are not connected, and they are buried some levels down in hierarchy. The surface_pins functions provides an easy way to brings the detectors’ output pins up to the top level.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/hluts_detectors_beneath.png"><img alt="../../_images/hluts_detectors_beneath.png" src="../../_images/hluts_detectors_beneath.png" style="width: 600px;" /></a>
+</figure>
+<p>Specify which pins to surface and call surface_pins to bring them to the top level module. Do this by taking the return of insert_organs() and getting all output pins of the instances (which are the organs that were inserted). Compose the resulting netlist.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pins_to_surface</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">detectors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">pins_to_surface</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">((</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">))))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">voters</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="n">surface_pins</span><span class="p">(</span><span class="n">pins_to_surface</span><span class="p">)</span>
+
+<span class="n">netlist</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="s2">&quot;hierarchical_luts_dwc_detectors.edf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See the resulting schematic.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/hluts_detectors_surfaced.png"><img alt="../../_images/hluts_detectors_surfaced.png" src="../../_images/hluts_detectors_surfaced.png" style="width: 600px;" /></a>
+</figure>
+<p><strong>See the full code below</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
+<span class="kn">from</span> <span class="nn">spydrnet.util.selection</span> <span class="kn">import</span> <span class="n">Selection</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">apply_nmr</span><span class="p">,</span> <span class="n">insert_organs</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.organ</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">XilinxDWCDetector</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.surface_pins</span> <span class="kn">import</span> <span class="n">surface_pins</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;hierarchical_luts&quot;</span><span class="p">)</span>
+    <span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+
+    <span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span>
+            <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">instances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances_to_replicate</span><span class="p">)</span>
+
+    <span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;clk&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
+
+    <span class="n">insertion_points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s2">&quot;sub1&quot;</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;of&quot;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">insertion_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">next</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span>
+                        <span class="n">selection</span><span class="o">=</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span>
+                        <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">(</span>
+        <span class="p">[</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span>
+        <span class="mi">2</span><span class="p">,</span>
+        <span class="n">name_suffix</span><span class="o">=</span><span class="s2">&quot;DWC&quot;</span><span class="p">,</span>
+        <span class="n">rename_original</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">detectors</span> <span class="o">=</span> <span class="n">insert_organs</span><span class="p">(</span>
+        <span class="n">replicas</span><span class="p">,</span> <span class="n">insertion_points</span><span class="p">,</span> <span class="n">XilinxDWCDetector</span><span class="p">(),</span> <span class="s2">&quot;DETECTOR&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">pins_to_surface</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">detectors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">pins_to_surface</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">((</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">))))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">detectors</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="n">surface_pins</span><span class="p">(</span><span class="n">pins_to_surface</span><span class="p">)</span>
+
+    <span class="n">netlist</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="s2">&quot;hierarchical_luts_dwc.edf&quot;</span><span class="p">)</span>
+
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-surface-pins-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/497b8f24d06faf5e13b7d0edb3ac90f3/surface_pins_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">surface_pins_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/9f5968135a51cc263fb93f11cf7b70ab/surface_pins_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">surface_pins_example.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_registered_inverter_tmr.html" class="btn btn-neutral float-left" title="Registered Inverter TMR Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_voters_for_every_ff_tmr.html" class="btn btn-neutral float-right" title="Voter Before/After Every Flip-Flop Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

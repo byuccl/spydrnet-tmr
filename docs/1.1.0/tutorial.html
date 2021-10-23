@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial &mdash; SpyDrNet TMR 1.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reference" href="reference/index.html" />
+    <link rel="prev" title="Install" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#spydrnet-tmr-features">SpyDrNet TMR Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doing-design-replication">Doing Design Replication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parse">Parse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uniquify">Uniquify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#determine-what-to-replicate">Determine What To Replicate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#determine-organ-insertion-points">Determine Organ Insertion Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replicate-the-design">Replicate the Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insert-organs">Insert Organs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compose">Compose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline"></a></h1>
+<p>It is highly recommended that one spends time learning and going through the tutorial and examples for SpyDrNet, as a good understanding of it is the foundation to using SpyDrNet TMR. See <a class="reference external" href="https://byuccl.github.io/spydrnet/docs/stable/tutorial.html">SpyDrNet Tutorial</a>.</p>
+<section id="spydrnet-tmr-features">
+<h2>SpyDrNet TMR Features<a class="headerlink" href="#spydrnet-tmr-features" title="Permalink to this headline"></a></h2>
+<p>SpyDrNet TMR allows for easy replication of and organ insertion into designs.</p>
+<dl class="simple">
+<dt><strong>Triple Modular Redundancy (TMR)</strong></dt><dd><ul class="simple">
+<li><p>TMR is used to mask errors in FPGA computing. A design is triplicated and voters are inserted. If one of the domains becomes corrupted, the other two domains will override the output with a majority vote. TMR has proven to be effective in reducing errors in output.</p></li>
+</ul>
+</dd>
+<dt><strong>Duplicate With Compare (DWC)</strong></dt><dd><ul class="simple">
+<li><p>DWC is used to detect errors in FPGA computing. A design is duplicated and comparators inserted. During operation, outputs are continually compared to the other. When a difference is detected, an error is reported.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="doing-design-replication">
+<h2>Doing Design Replication<a class="headerlink" href="#doing-design-replication" title="Permalink to this headline"></a></h2>
+<section id="parse">
+<h3>Parse<a class="headerlink" href="#parse" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>Parse a netlist file using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;netlist_filename&gt;.edf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or the following for a Verilog file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;netlist_filename&gt;.v&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="uniquify">
+<h3>Uniquify<a class="headerlink" href="#uniquify" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>Calling uniquify() will ensure that non-leaf definitions are instanced only once to prevent unintended transformations. In other words, each non-leaf instance is made into its own definition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="determine-what-to-replicate">
+<h3>Determine What To Replicate<a class="headerlink" href="#determine-what-to-replicate" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p><strong>Ports</strong> - what top-level input and output ports should be replicated? It is up to the user. Users may want to replicate all of the ports, just input ports, just output ports, or no ports at all.</p>
+<p><strong>Instances</strong> - to replicate the full design, this is all of the instances.</p>
+<p>Example Code for Finding Ports and Instances to Replicate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+<span class="n">instances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances_to_replicate</span><span class="p">)</span>
+
+<span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">IN</span><span class="p">))</span>
+<span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="determine-organ-insertion-points">
+<h3>Determine Organ Insertion Points<a class="headerlink" href="#determine-organ-insertion-points" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>We call find_after_ff_voter_points() to determine where organs will be inserted. We pass the ports and instances to replicate and the flip flop types as parameters. A list of outer pins is returned. Each pin in the list corresponds to an instance’s output at which an organ will be placed.</p>
+<p>Note: one does not have to use find_after_ff_voter_points() but can instead specify the outer pins themselves (one would probably not want to use this function when finding detector insertion points, as it will most likely find more places to put detectors than is desired).</p>
+<p>Other voter insertion point algorithms are available. See <a class="reference internal" href="reference/functions/analysis/voter_algorithms/index.html#voter-algorithms"><span class="std std-ref">Voter Algorithms</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_after_ff_voter_points</span><span class="p">([</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;FDRE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDSE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDPE&#39;</span><span class="p">,</span> <span class="s1">&#39;FDCE&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="replicate-the-design">
+<h3>Replicate the Design<a class="headerlink" href="#replicate-the-design" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>apply_nmr() will replicate the design until there are ‘n’ amount of them. A map of each element replicated to its replicas is returned. In this example it is replicated 3 times (triplicated).</p>
+<p>If we were doing DWC, ‘3’ would be replaced by ‘2’ and ‘TMR’ replaced by ‘DWC’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">([</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s1">&#39;TMR&#39;</span><span class="p">,</span> <span class="n">rename_original</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="insert-organs">
+<h3>Insert Organs<a class="headerlink" href="#insert-organs" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>insert_organs() will then insert the voters into the triplicated design (or detectors into the duplicated design). A map from each insertion point to the organs inserted there is returned.</p>
+<p>If we were doing DWC, ‘XilinxTMRVoter’ would be replaced by ‘XilinxDWCDetector’ and ‘VOTER’ replaced by ‘DETECTOR’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">voters</span> <span class="o">=</span> <span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="n">insertion_points</span><span class="p">,</span> <span class="n">XilinxTMRVoter</span><span class="p">(),</span> <span class="s1">&#39;VOTER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="compose">
+<h3>Compose<a class="headerlink" href="#compose" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><p>Finally, compose an EDIF or Verilog netlist file from the modified netlist.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sdn</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span><span class="s2">&quot;&lt;file_name&gt;.edf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reference/index.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>check_connections &mdash; SpyDrNet TMR 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="check_properties_after_replication" href="drc_properties_after_replication.html" />
+    <link rel="prev" title="Design Rule Check" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../replication/index.html">Circuit Replication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">Other Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organs/index.html">Organs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Design Rule Check</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">check_connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drc_properties_after_replication.html">check_properties_after_replication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drc_surface_pins.html">check_surfaced_pins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drc_insert_organs.html">check_organs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drc_uniquify_nmr_property.html">check_uniquify_nmr_property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drc_apply_nmr.html">check_nmr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Reference</a> &raquo;</li>
+          <li><a href="index.html">Design Rule Check</a> &raquo;</li>
+      <li>check_connections</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/reference/design_rule_check/drc_connections_after_replication_and_insertion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="check-connections">
+<span id="drc-connections-after-replication-and-insertion"></span><h1>check_connections<a class="headerlink" href="#check-connections" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion.check_connections">
+<span class="sig-prename descclassname"><span class="pre">spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion.</span></span><span class="sig-name descname"><span class="pre">check_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original_netlist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modified_netlist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organ_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_enable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion.check_connections" title="Permalink to this definition"></a></dt>
+<dd><p>Looks at each leaf instance’s pins in both netlists and finds what it drives/what drives it and makes sure corresponding instance pins between the netlists match up.</p>
+<p>For example, if the instance ‘<strong>a_lut_3</strong>’ has a pin that drives the data_in port on the instance ‘<strong>a_flip_flop</strong>’ in the original design, it will make sure that ‘<strong>a_lut_3_TMR_0</strong>’ has a pin that drives the data_in port on ‘<strong>a_flip_flop_TMR_0</strong>’ (it will check this for each TMR_1 and TMR_2 as well)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>original_netlist</strong> – original netlist</p></li>
+<li><p><strong>modified_netlist</strong> – the replicated netlist. Can contain organs (voters/detectors)</p></li>
+<li><p><strong>suffix</strong> – string appended to the replicated instances’ names (e.g. ‘TMR’ or ‘DWC’)</p></li>
+<li><p><strong>organ_name</strong> – list of names of the organs inserted into the design (e.g. [‘VOTER’, ‘DETECTOR’])</p></li>
+<li><p><strong>write_enable</strong> (<em>bool</em>) – output results to text file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool (matched, not_matched)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Design Rule Check" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="drc_properties_after_replication.html" class="btn btn-neutral float-right" title="check_properties_after_replication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

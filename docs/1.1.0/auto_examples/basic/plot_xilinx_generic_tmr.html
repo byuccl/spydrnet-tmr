@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xilinx TMR &mdash; SpyDrNet TMR 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Toggle DWC Example" href="toggle_dwc.html" />
+    <link rel="prev" title="Voter Before/After Every Flip-Flop Algorithms" href="plot_voters_for_every_ff_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#basic">Basic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Xilinx TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_drc_example.html">Design Rule Check Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_config_tmr.html">YAML Configuration Mode for Triplication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+      <li>Xilinx TMR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/plot_xilinx_generic_tmr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-plot-xilinx-generic-tmr-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="xilinx-tmr">
+<span id="sphx-glr-auto-examples-basic-plot-xilinx-generic-tmr-py"></span><h1>Xilinx TMR<a class="headerlink" href="#xilinx-tmr" title="Permalink to this headline"></a></h1>
+<p>This is a xilinx TMR example using SpyDrNet TMR</p>
+<p>The number of times each primitive is instanced before and after triplicating will be printed.</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Identified 4 insertion points for reduction voters.
+
+Primitive count before and after TMR:
+         BUFG :  1  --&gt;  3
+         IBUF :  4  --&gt;  12
+         LUT1 :  1  --&gt;  3
+         LUT3 :  1  --&gt;  7
+         LUT4 :  1  --&gt;  3
+         LUT5 :  1  --&gt;  3
+         OBUF :  4  --&gt;  12
+         FDCE :  4  --&gt;  12
+         INV :  0  --&gt;  0
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">apply_nmr</span><span class="p">,</span> <span class="n">insert_organs</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.support_files.vendor_names</span> <span class="kn">import</span> <span class="n">XILINX</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.apply_tmr_to_netlist</span> <span class="kn">import</span> <span class="n">apply_tmr_to_netlist</span>
+
+<span class="c1"># set_property design_mode GateLvl [current_fileset]</span>
+<span class="c1"># set_property edif_top_file &lt;path_to_file&gt; [current_fileset]</span>
+<span class="c1"># link_design -part &lt;part_number&gt; -mode out_of_context</span>
+<span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span>
+    <span class="s2">&quot;fourBitCounter&quot;</span>
+<span class="p">)</span>  <span class="c1"># loading an example, use `sdn.parse(&lt;netlist filename&gt;)` otherwise</span>
+
+<span class="c1"># uniquify is called to insure that non-leaf definitions are instanced only once, prevents unintended transformations.</span>
+<span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+
+<span class="c1"># set instances_to_replicate [get_cells -hierarchical -filter {PRIMITIVE_LEVEL==LEAF||PRIMITIVE_LEVEL==MACRO}]</span>
+<span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span>
+        <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># set ports_to_replicate [get_ports]</span>
+<span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">valid_voter_point_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">valid_voter_point_dict</span><span class="p">[</span><span class="s2">&quot;reduction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">*</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(),</span>
+    <span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># find out where to insert reduction voters</span>
+<span class="n">netlist</span> <span class="o">=</span> <span class="n">apply_tmr_to_netlist</span><span class="p">(</span>
+    <span class="n">netlist</span><span class="p">,</span>
+    <span class="n">XILINX</span><span class="p">,</span>
+    <span class="n">hinstances_and_hports_to_replicate</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">valid_voter_point_dict</span><span class="o">=</span><span class="n">valid_voter_point_dict</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># print the number of times each primitive is instanced</span>
+<span class="k">def</span> <span class="nf">instance_count</span><span class="p">(</span><span class="n">original_netlist</span><span class="p">,</span> <span class="n">new_netlist</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Primitive count before and after TMR:&quot;</span><span class="p">)</span>
+    <span class="n">primitives_library</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+        <span class="n">new_netlist</span><span class="o">.</span><span class="n">get_libraries</span><span class="p">(</span><span class="s2">&quot;hdi_primitives&quot;</span><span class="p">),</span> <span class="kc">None</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">primitive</span> <span class="ow">in</span> <span class="n">primitives_library</span><span class="o">.</span><span class="n">get_definitions</span><span class="p">():</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">original_netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">primitive</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">instance</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">new_netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">primitive</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">instance</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">primitive</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot; --&gt; &quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+
+
+<span class="n">instance_count</span><span class="p">(</span><span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;fourBitCounter&quot;</span><span class="p">),</span> <span class="n">netlist</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.093 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-plot-xilinx-generic-tmr-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/9efae9002c4602ebab7bf2dd2e769a46/plot_xilinx_generic_tmr.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_xilinx_generic_tmr.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/2f1630e174d389178be9db47cd1a08a1/plot_xilinx_generic_tmr.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_xilinx_generic_tmr.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_voters_for_every_ff_tmr.html" class="btn btn-neutral float-left" title="Voter Before/After Every Flip-Flop Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="toggle_dwc.html" class="btn btn-neutral float-right" title="Toggle DWC Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
