@@ -4,7 +4,8 @@ import spydrnet as sdn
 from spydrnet.util.selection import Selection
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
+from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.switch_organ_pins import reorder_organ_pins
 from spydrnet_tmr.transformation.replication.organ import XilinxCombinedOrgan
 from spydrnet_tmr.utils.design_rule_check.drc_insert_organs import check_organs
@@ -45,8 +46,7 @@ class TestSwitchOrganPins(unittest.TestCase):
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
         hports_to_replicate = list(netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
-        ff_names = {'FDRE', 'FDSE', 'FDPE', 'FDCE'}
-        self.insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], ff_names)
+        self.insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate],XILINX)
         self.assertTrue(len(self.insertion_points) > 0,example_name)
         self.replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 3, name_suffix='TMR', rename_original=True)
         self.voters = insert_organs(self.replicas,self.insertion_points,XilinxCombinedOrgan(),'COMBINED_ORGAN')
