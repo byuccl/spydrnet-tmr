@@ -1,3 +1,9 @@
+SpyDrNet-TMR 1.1.0
+------------------
+October 23rd, 2021
+
+- Added option for YAML configuration file to apply TMR to netlists
+
 SpyDrNet-TMR 1.0.0
 ------------------
 August 18th, 2021

@@ -57,15 +57,15 @@ Determine What To Replicate
 
 Determine Organ Insertion Points
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    We call find_voter_insertion_points_after_ff() to determine where organs will be inserted. We pass the ports and instances to replicate and the flip flop types as parameters. A list of outer pins is returned. Each pin in the list corresponds to an instance's output at which an organ will be placed.
+    We call find_after_ff_voter_points() to determine where organs will be inserted. We pass the ports and instances to replicate and the flip flop types as parameters. A list of outer pins is returned. Each pin in the list corresponds to an instance's output at which an organ will be placed.
     
-    Note: one does not have to use find_voter_insertion_points_after_ff() but can instead specify the outer pins themselves (one would probably not want to use this function when finding detector insertion points, as it will most likely find more places to put detectors than is desired).
+    Note: one does not have to use find_after_ff_voter_points() but can instead specify the outer pins themselves (one would probably not want to use this function when finding detector insertion points, as it will most likely find more places to put detectors than is desired).
     
     Other voter insertion point algorithms are available. See :ref:`voter_algorithms`
     
     .. code-block::
 
-        insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+        insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
 
 Replicate the Design
 ^^^^^^^^^^^^^^^^^^^^^

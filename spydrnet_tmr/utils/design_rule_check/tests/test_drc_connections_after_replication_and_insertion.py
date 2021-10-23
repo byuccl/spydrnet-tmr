@@ -5,9 +5,9 @@ import spydrnet as sdn
 from spydrnet.util.selection import Selection
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr,insert_organs
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
+from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter,XilinxDWCDetector
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_before_ff import find_voter_insertion_points_before_ff
 from spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion import check_connections
 
 class TestDRCConnectionsAfterReplicationAndInsertion(unittest.TestCase):
@@ -108,9 +108,9 @@ class TestDRCConnectionsAfterReplicationAndInsertion(unittest.TestCase):
         hports_to_replicate = list(netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
         if which_side is 'after':
-            insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+            insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)
         else:
-            insertion_points = find_voter_insertion_points_before_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+            insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)
         replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], copy_amount, name_suffix=suffix, rename_original=True)
         if organ:
             organs = insert_organs(replicas, insertion_points, organ, organ_name)
