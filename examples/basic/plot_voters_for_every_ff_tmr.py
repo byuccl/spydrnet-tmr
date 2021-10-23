@@ -9,8 +9,8 @@ after every flip-flop.
 The only difference in the process between these algorithms and other algorithms
 that SpyDrNet TMR implements occurs when finding the insertion points for the
 voters. In this example, two netlists are composed. One that uses the
-`find_voter_insertion_points_before_ff` function to find insertion points for
-voters, and one that uses the `find_voter_insertion_points_after_ff` function.
+`find_before_ff_voter_points` function to find insertion points for
+voters, and one that uses the `find_after_ff_voter_points` function.
 
 """
 import spydrnet as sdn
