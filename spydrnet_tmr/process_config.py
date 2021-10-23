@@ -1,11 +1,7 @@
 """
-apply_.py
+Process TMR Config
 """
-import argparse
-import os.path
 import spydrnet as sdn
-import yaml
-from yaml.loader import FullLoader
 
 from spydrnet_tmr.config_constants import (
     ALL,
@@ -26,18 +22,31 @@ from spydrnet_tmr.config_constants import (
 
 
 def process_config(netlist, tmr_config):
-    """
-    apply_tmr_to_netlist_from_config
+    """Process TMR Config
 
-    :param netlist: [description]
-    :type netlist: [type]
-    :param tmr_config: [description]
-    :type tmr_config: [type]
-    :raises TMRConfigError: [description]
-    :return: [description]
-    :rtype: [type]
-    """
+    This function process config information for a given netlist. It will
+    determine which hinstances and hports will be replicated, as well as what
+    voting algorithms will be used.
 
+    A special dictionary is returned for which points are at valid voter
+    locations. Many times, it is not desirable that a voter be placed at a
+    certain location for critical paths or other circumstances, so it can be
+    excluded from being considered by voter algorithms. "Valid voter points"
+    in this case are defined as hinstances or hports. It is organized in the
+    following manner:
+
+    - `<voter_algorithm_name>`
+        - `<list_of_valid_voter_points>`
+
+    Each key is a string for a voter algorithm name, and the value is a list
+    of hinstances and hports that will be considered for voter insertion.
+
+    :param netlist: netlist for which the config will be processed
+    :type netlist: netlist
+    :param tmr_config: contains all the config info from a YAML config file
+    :type tmr_config: dict
+    :return: list of hinstances and hports that will be replicated, and valid voter point dictionary as described above
+    """
     hinstances_and_hports_to_replicate = set()
     valid_voter_point_dict = dict()
 
@@ -70,8 +79,20 @@ def process_config(netlist, tmr_config):
 
 
 def create_replication_list(netlist, section):
-    hports_to_replicate = list()
-    hinstances_to_replicate = list()
+    """Create Replication List
+
+    This function generates a list of hinstances and hports that will be
+    replicated.
+
+    :param netlist: netlist for which replication list will be generated
+    :type netlist: netlist
+    :param section: config info for replication
+    :type section: dict
+    :return: hinstances and hports to be replicated
+    :rtype: list
+    """
+    hports_to_replicate = []
+    hinstances_to_replicate = []
     if sorted(section[1].keys()) == sorted(
         [INSTANCES_TO_REPLICATE, PORTS_TO_REPLICATE]
     ):
@@ -168,7 +189,22 @@ def create_replication_list(netlist, section):
 def create_valid_voter_point_dict(
     netlist, voter_insertion_section, hinstances_and_hports_to_replicate
 ):
+    """Create Valid Voter Point Dictionary
 
+    For each voter algorithm provided in the config, create a list of all the
+    valid hinstances and hports at which voters could be placed. This does not
+    necessarily mean that voters will be placed at these locations, but they
+    will at least be considered.
+
+    :param netlist: netlist for which valid voter point dictionary will be generated
+    :type netlist: netlist
+    :param voter_insertion_section: section from config file with info for generated valid voter point dictionary
+    :type voter_insertion_section: dict
+    :param hinstances_and_hports_to_replicate: list of elements that will be replicated
+    :type hinstances_and_hports_to_replicate: list
+    :return: valid voter point dictionary
+    :rtype: dict
+    """
     valid_voter_point_dict = dict()
     for voter_algorithm in voter_insertion_section[1].items():
         valid_voters_at_instances = list()

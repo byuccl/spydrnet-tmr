@@ -1,3 +1,10 @@
+"""
+TMR Main Function
+
+Parses arguments from the command line to apply TMR. Currently only takes in
+configuration settings from YAML files processed by `process_config.py`
+"""
+
 import argparse
 import os.path
 import spydrnet as sdn
@@ -10,6 +17,11 @@ from spydrnet_tmr.support_files.vendor_names import XILINX
 
 
 def main():
+    """
+    main
+
+    Get netlist name from commandline. Option to pass in custom YAML config file
+    """
 
     parser = argparse.ArgumentParser(description="compose netlist with TMR")
 
@@ -36,7 +48,7 @@ def main():
 
     # Check if the config file exists
     if os.path.isfile(config_file_path_name):
-        with open(config_file_path_name) as file:
+        with open(config_file_path_name, encoding="utf8") as file:
             tmr_config = yaml.load(file, Loader=FullLoader)
             (
                 hinstances_and_hports_to_replicate,
