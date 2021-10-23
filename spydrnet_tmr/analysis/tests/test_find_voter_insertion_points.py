@@ -1,5 +1,5 @@
-
 import unittest
+import spydrnet as sdn
 
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr.analysis.voter_insertion.find_before_ff_voter_points import (
@@ -8,10 +8,6 @@ from spydrnet_tmr.analysis.voter_insertion.find_before_ff_voter_points import (
 from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
     find_after_ff_voter_points,
 )
-
-import spydrnet as sdn
-
-
 from spydrnet_tmr.support_files.vendor_names import XILINX
 
 

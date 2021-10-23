@@ -15,19 +15,22 @@ def find_before_ff_voter_points(
     endpoints_to_replicate,
     vendor_name,
 ):
-    """
-    Find voter insertion points before every flip-flip
+    """Find Voter Points Before Every Flip-Flop
 
     Search for every flip-flip in the design wisthin the endpoints to be
     replicated list that match the given flip-flip primitive names, and for
     each flip-flop find the pin connected to the data-in pin and
     add it to the insertion points set.
 
-    :param endpoints_to_replicate: All hierarchical instances and ports to be replicated. This list determines the places that voters will need to be inserted.
-    :param ff_primitive_names: Strings for flip-flop primitve names found in the design so that the algorithm can locate each of them.
+    :param netlist: netlist for which voter points will be found
+    :type netlist: netlist
+    :param endpoints_to_replicate: List of all hierarchical instances and ports to be replicated. This list determines the places that voters will need to be inserted.
+    :type endpoints_to_replicate: list
+    :param vendor_name: name of vendor for finding flip-flop primitive
+    :type vendor_name: string
+    :return: Set of pins at each point in the netlist where voters will be inserted.
+    :rtype: list
 
-    :return insertion_points: Set of pins at each point in the netlist
-        where voters will be inserted.
     """
     endpoints_to_replicate = set(endpoints_to_replicate)
     primitive_names = set()
@@ -49,7 +52,9 @@ def find_before_ff_voter_points(
         # Find the data-in pin for flip-flop
         for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
             for port in [
-                port for port in pin.get_ports() if port.name is DATA_IN_PORT_NAME
+                port
+                for port in pin.get_ports()
+                if port.name is DATA_IN_PORT_NAME
             ]:
                 insertion_points.add(pin)
 
