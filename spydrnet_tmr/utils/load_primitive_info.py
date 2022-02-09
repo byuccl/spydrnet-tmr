@@ -30,9 +30,7 @@ def load_primitive_info(netlist, vendor):
         for power_ground_cell_info in primitive_info_db["power_ground_cells"]:
             # print(power_ground_cell_info["name"])
             power_ground_cell = next(
-                primitive_library.get_definitions(
-                    power_ground_cell_info["name"]
-                ),
+                primitive_library.get_definitions(power_ground_cell_info["name"]),
                 None,
             )
             if power_ground_cell is None:
@@ -55,14 +53,10 @@ def load_primitive_info(netlist, vendor):
     if "combinational_cells" in primitive_info_db:
         combinational_cells = set()
         primitive_info["combinational_cells"] = combinational_cells
-        for combinational_cell_info in primitive_info_db[
-            "combinational_cells"
-        ]:
+        for combinational_cell_info in primitive_info_db["combinational_cells"]:
             # print(combinational_cell_info["name"])
             combinational_cell = next(
-                primitive_library.get_definitions(
-                    combinational_cell_info["name"]
-                ),
+                primitive_library.get_definitions(combinational_cell_info["name"]),
                 None,
             )
             if combinational_cell is None:
@@ -82,17 +76,13 @@ def load_primitive_info(netlist, vendor):
             sequential_cells[sequential_cell] = sequential_cell_dict
 
             if "description" in seq_cell_info:
-                sequential_cell_dict["description"] = seq_cell_info[
-                    "description"
-                ]
+                sequential_cell_dict["description"] = seq_cell_info["description"]
 
             if "clk_ports" in seq_cell_info:
                 clock_pins = dict()
                 sequential_cell_dict["clk_ports"] = clock_pins
                 for clock_pin_info in seq_cell_info["clk_ports"]:
-                    clock_pin = next(
-                        sequential_cell.get_ports(clock_pin_info["name"])
-                    )
+                    clock_pin = next(sequential_cell.get_ports(clock_pin_info["name"]))
                     clock_pin_dict = dict()
                     clock_pins[clock_pin] = clock_pin_dict
 
@@ -130,6 +120,9 @@ def load_primitive_info(netlist, vendor):
                 continue
             ff_cell_dict = dict()
             ff_cells[ff_cell] = ff_cell_dict
+
+            if "name" in seq_cell_info:
+                ff_cell_dict["name"] = seq_cell_info["name"]
 
             if "description" in seq_cell_info:
                 ff_cell_dict["description"] = seq_cell_info["description"]

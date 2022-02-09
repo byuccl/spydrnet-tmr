@@ -6,7 +6,6 @@ from spydrnet_tmr import apply_nmr
 
 
 class TestIdentifyReductionPoints(unittest.TestCase):
-
     def setUp(self):
         self.netlist = sdn.load_example_netlist_by_name("b13")
         uniquify(self.netlist)
@@ -24,9 +23,7 @@ class TestIdentifyReductionPoints(unittest.TestCase):
             )
         )
         ports_to_replicate = list(x.item for x in hports_to_replicate)
-        replicas = apply_nmr(
-            [*instances_to_replicate, *ports_to_replicate], 3, "TMR"
-        )
+        replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 3, "TMR")
         self.insertion_points = identify_reduction_points(replicas, "TMR")
 
     def test_points_are_tuples(self):
@@ -35,10 +32,10 @@ class TestIdentifyReductionPoints(unittest.TestCase):
 
     def test_tuples_are_pins(self):
         for pin in self.insertion_points:
-            self.assertIsInstance(pin[0],sdn.OuterPin)
-            self.assertIsInstance(pin[1],frozenset)
+            self.assertIsInstance(pin[0], sdn.OuterPin)
+            self.assertIsInstance(pin[1], frozenset)
             for sink_pin in pin[1]:
-                self.assertIsInstance(sink_pin,sdn.Pin)
+                self.assertIsInstance(sink_pin, sdn.Pin)
 
     def test_point_amount(self):
-        self.assertEqual(len(self.insertion_points),9)
+        self.assertEqual(len(self.insertion_points), 9)

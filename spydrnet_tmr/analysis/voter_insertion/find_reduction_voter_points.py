@@ -7,6 +7,7 @@ import spydrnet as sdn
 def find_reduction_voter_points(
     netlist,
     endpoints_to_replicate,
+    vendor_name,
 ):
     """
     find_reduction_voter_points(netlist, endpoints_to_replicate)
@@ -47,8 +48,7 @@ def find_reduction_voter_points(
         # Check if the receiver pin is a top-level output port by looking at
         # its associated instance
         if any(
-            inst == netlist.top_instance
-            for inst in list(receiver_pin.get_instances())
+            inst == netlist.top_instance for inst in list(receiver_pin.get_instances())
         ):
             # Check if driver instance is replicated and receiver port is NOT replicated
             if any(
@@ -135,9 +135,7 @@ def find_immediate_receiver_pin(driver_pin, receiver_pin):
         next_upstream_receiver_pin = list(
             immediate_driver_pin.get_pins(selection=sdn.OUTSIDE)
         )[0]
-        return find_immediate_receiver_pin(
-            driver_pin, next_upstream_receiver_pin
-        )
+        return find_immediate_receiver_pin(driver_pin, next_upstream_receiver_pin)
 
     next_upstream_receiver_pin = list(immediate_driver_pin.get_pins())[0]
     return find_immediate_receiver_pin(driver_pin, next_upstream_receiver_pin)
@@ -174,10 +172,7 @@ def find_receiver_pins_in_netlist(netlist):
                 if pin.inner_pin.port.direction is sdn.IN:
                     receiver_pins.add(pin)
 
-        if (
-            isinstance(endpoint.item, sdn.Port)
-            and endpoint.item.direction is sdn.OUT
-        ):
+        if isinstance(endpoint.item, sdn.Port) and endpoint.item.direction is sdn.OUT:
             for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
                 if pin.wire is None:
                     receiver_pins.add(pin.inner_pin)
@@ -211,9 +206,7 @@ def find_driver_pin(receiver_pin):
         or isinstance(receiver_pin, sdn.OuterPin)
         and receiver_pin.inner_pin.port.direction is sdn.OUT
     ):
-        print(
-            "WARNING: Given pin for the receiver_pin was actually a driver pin"
-        )
+        print("WARNING: Given pin for the receiver_pin was actually a driver pin")
         return receiver_pin
 
     for immediate_driver_pin in receiver_pin.wire.pins:
@@ -275,9 +268,7 @@ def find_immediate_driver_pin(receiver_pin):
         or isinstance(receiver_pin, sdn.OuterPin)
         and receiver_pin.inner_pin.port.direction is sdn.OUT
     ):
-        print(
-            "WARNING: Given pin for the receiver_pin was actually a driver pin"
-        )
+        print("WARNING: Given pin for the receiver_pin was actually a driver pin")
         return receiver_pin
 
     # Find the driving pin connected to the receiver pin.

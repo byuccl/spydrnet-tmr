@@ -2,9 +2,11 @@ import unittest
 from random import randint
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
+from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.replication.organ import JTAG, StickyDWCDetector, XilinxCombinedOrgan, XilinxTMRVoter, XilinxDWCDetector
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
+
 from spydrnet_tmr.utils.design_rule_check.drc_insert_organs import check_organs
 
 class TestOrgan(unittest.TestCase):
@@ -48,7 +50,7 @@ class TestOrgan(unittest.TestCase):
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
         hports_to_replicate = list(netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
-        self.insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+        self.insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)
         self.replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], copy_amount, name_suffix=suffix, rename_original=True)
 
         return example_to_test

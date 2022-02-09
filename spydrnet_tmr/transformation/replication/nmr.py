@@ -1,6 +1,5 @@
-from spydrnet_tmr.transformation.util import add_suffix_to_name
 from spydrnet.ir import Port, Instance, InnerPin
-from spydrnet.util.hierarchical_reference import HRef
+from spydrnet_tmr.transformation.util import add_suffix_to_name
 IN = Port.Direction.IN
 OUT = Port.Direction.OUT
 INOUT = Port.Direction.INOUT
