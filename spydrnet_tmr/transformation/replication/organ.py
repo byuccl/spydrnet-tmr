@@ -20,6 +20,49 @@ class Organ:
 
 
 class XilinxTMRVoter(Organ):
+
+    '''
+    :param netlist_type: either "EDIF", "BLIF", or "Verilog"
+    '''
+    def __init__(self, netlist_type="EDIF"):
+        self.netlist_type = netlist_type
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+        self.organ_class = None
+    
+    def ensure_definition_in_netlist(self, netlist):
+        if self.netlist_type is "BLIF":
+            # print("BLIF voter detected")
+            self.organ_class = XilinxTMRVoterBLIF()
+            self.organ_class.ensure_definition_in_netlist(netlist)
+        elif self.netlist_type is "EDIF":
+            # print("EDIF voter detected")
+            self.organ_class = XilinxTMRVoterEDIF()
+            self.organ_class.ensure_definition_in_netlist(netlist)
+        elif self.netlist_type is "Verilog":
+            # print("EDIF voter detected")
+            self.organ_class = XilinxTMRVoterVerilog()
+            self.organ_class.ensure_definition_in_netlist(netlist)
+        else: #default to EDIF
+            self.organ_class = XilinxTMRVoterEDIF()
+            self.organ_class.ensure_definition_in_netlist(netlist)
+
+    def get_primary_input_pin(self):
+        return self.organ_class.get_primary_input_pin()
+
+    def get_other_input_pins(self):
+        return self.organ_class.get_other_input_pins()
+
+    def get_primary_output_pin(self):
+        return self.organ_class.get_primary_output_pin()
+
+    def create_instance(self):
+        return self.organ_class.create_instance()
+
+
+class XilinxTMRVoterEDIF(Organ):
     """
     A LUT3 with INIT value 8'hE8. Votes by majority.
 
@@ -86,6 +129,142 @@ class XilinxTMRVoter(Organ):
         instance = sdn.Instance()
         properties = [{"identifier": "INIT", "value": "8'hE8"}]
         instance["EDIF.properties"] = properties
+        instance.reference = self._definition
+        return instance
+
+class XilinxTMRVoterBLIF(Organ):
+    """
+    A LUT3 with INIT value 8'hE8. Votes by majority.
+
+    .. figure:: ../../figures/voter.*
+        :width: 800px
+        :align: center
+    """
+
+    def __init__(self, netlist_type="EBLIF"):
+        self.netlist_type = netlist_type
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+
+    def ensure_definition_in_netlist(self, netlist):
+        primitive_library = next(netlist.get_libraries(), None)
+        primitive_definition = next(
+            primitive_library.get_definitions("LUT3"), None
+        )
+        if primitive_definition is None:
+            primitive_definition = primitive_library.create_definition()
+            primitive_definition.name = "LUT3"
+            for ii in range(3):
+                input_port = primitive_definition.create_port()
+                input_port.name = "I" + str(ii)
+                input_port["EBLIF.cname"] = input_port.name
+                input_port.direction = sdn.IN
+                input_port.create_pin()
+            output_port = primitive_definition.create_port()
+            output_port.name = "O"
+            output_port["EBLIF.cname"] = output_port.name
+            output_port.direction = sdn.OUT
+            output_port.create_pin()
+
+        primitive_definition["EBLIF.blackbox"] = True
+        self._definition = primitive_definition
+        self._primary_input_pin = next(self._definition.get_ports("I0")).pins[
+            0
+        ]
+        self._other_input_pins = [
+            next(self._definition.get_ports("I1")).pins[0],
+            next(self._definition.get_ports("I2")).pins[0],
+        ]
+        self._primary_output_pin = next(self._definition.get_ports("O")).pins[
+            0
+        ]
+
+    def get_primary_input_pin(self):
+        return self._primary_input_pin
+
+    def get_other_input_pins(self):
+        return self._other_input_pins
+
+    def get_primary_output_pin(self):
+        return self._primary_output_pin
+
+    def create_instance(self):
+        instance = sdn.Instance()
+        properties = {"INIT":"8'hE8"}
+        instance["EBLIF.param"] = properties
+        instance.reference = self._definition
+        instance['TYPE'] = ".subckt"
+        return instance
+
+class XilinxTMRVoterVerilog(Organ):
+    """
+    A LUT3 with INIT value 8'hE8. Votes by majority.
+
+    .. figure:: ../../figures/voter.*
+        :width: 800px
+        :align: center
+    """
+
+    def __init__(self):
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+
+    def ensure_definition_in_netlist(self, netlist):
+        primitive_library = next(netlist.get_libraries("SDN.verilog_primitives"), None)
+        if primitive_library is None:
+            primitive_library = sdn.Library()
+            netlist.add_library(primitive_library, 0)
+            primitive_library.name = "SDN.verilog_primitives"
+            # primitive_library["EDIF.identifier"] = primitive_library.name
+
+        primitive_definition = next(
+            primitive_library.get_definitions("LUT3"), None
+        )
+        if primitive_definition is None:
+            primitive_definition = primitive_library.create_definition()
+            primitive_definition.name = "LUT3"
+            # primitive_definition["EDIF.identifier"] = primitive_definition.name
+            for ii in range(3):
+                input_port = primitive_definition.create_port()
+                input_port.name = "I" + str(ii)
+                # input_port["EDIF.identifier"] = input_port.name
+                input_port.direction = sdn.IN
+                input_port.create_pin()
+            output_port = primitive_definition.create_port()
+            output_port.name = "O"
+            # output_port["EDIF.identifier"] = output_port.name
+            output_port.direction = sdn.OUT
+            output_port.create_pin()
+
+        self._definition = primitive_definition
+        self._primary_input_pin = next(self._definition.get_ports("I0")).pins[
+            0
+        ]
+        self._other_input_pins = [
+            next(self._definition.get_ports("I1")).pins[0],
+            next(self._definition.get_ports("I2")).pins[0],
+        ]
+        self._primary_output_pin = next(self._definition.get_ports("O")).pins[
+            0
+        ]
+
+    def get_primary_input_pin(self):
+        return self._primary_input_pin
+
+    def get_other_input_pins(self):
+        return self._other_input_pins
+
+    def get_primary_output_pin(self):
+        return self._primary_output_pin
+
+    def create_instance(self):
+        instance = sdn.Instance()
+        properties = {"INIT": "8'hE8"}
+        instance["Verilog.Parameters"] = properties
         instance.reference = self._definition
         return instance
 
