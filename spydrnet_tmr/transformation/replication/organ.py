@@ -1,5 +1,6 @@
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
+from spydrnet.util.netlist_type import EDIF, VERILOG, EBLIF
 
 
 class Organ:
@@ -22,9 +23,9 @@ class Organ:
 class XilinxTMRVoter(Organ):
 
     '''
-    :param netlist_type: either "EDIF", "BLIF", or "Verilog"
+    :param netlist_type: either "EDIF", "EBLIF", or "Verilog"
     '''
-    def __init__(self, netlist_type="EDIF"):
+    def __init__(self, netlist_type=EDIF):
         self.netlist_type = netlist_type
         self._definition = None
         self._primary_input_pin = None
@@ -33,15 +34,15 @@ class XilinxTMRVoter(Organ):
         self.organ_class = None
     
     def ensure_definition_in_netlist(self, netlist):
-        if self.netlist_type is "BLIF":
+        if (self.netlist_type is EBLIF or self.netlist_type == "EBLIF"):
             # print("BLIF voter detected")
-            self.organ_class = XilinxTMRVoterBLIF()
+            self.organ_class = XilinxTMRVoterEBLIF()
             self.organ_class.ensure_definition_in_netlist(netlist)
-        elif self.netlist_type is "EDIF":
+        elif (self.netlist_type is EDIF or self.netlist_type == "EDIF"):
             # print("EDIF voter detected")
             self.organ_class = XilinxTMRVoterEDIF()
             self.organ_class.ensure_definition_in_netlist(netlist)
-        elif self.netlist_type is "Verilog":
+        elif (self.netlist_type is VERILOG or self.netlist_type == "Verilog"):
             # print("EDIF voter detected")
             self.organ_class = XilinxTMRVoterVerilog()
             self.organ_class.ensure_definition_in_netlist(netlist)
@@ -132,7 +133,7 @@ class XilinxTMRVoterEDIF(Organ):
         instance.reference = self._definition
         return instance
 
-class XilinxTMRVoterBLIF(Organ):
+class XilinxTMRVoterEBLIF(Organ):
     """
     A LUT3 with INIT value 8'hE8. Votes by majority.
 
