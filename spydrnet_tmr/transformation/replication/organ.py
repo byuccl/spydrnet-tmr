@@ -336,6 +336,78 @@ class XilinxDWCDetector(Organ):
         instance.reference = self._definition
         return instance
 
+class GenericEBLIFVoter(Organ):
+    """
+    A TMR voter in a generic blif format. Votes by majority.
+
+    .. figure:: ../../figures/voter.*
+        :width: 800px
+        :align: center
+    """
+
+    def __init__(self, netlist_type="EBLIF"):
+        self.netlist_type = netlist_type
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+
+    def ensure_definition_in_netlist(self, netlist):
+        primitive_library = next(netlist.get_libraries(), None)
+        primitive_definition = next(
+            primitive_library.get_definitions("logic-gate_3"), None
+        )
+        if primitive_definition is None:
+            primitive_definition = primitive_library.create_definition()
+            primitive_definition.name = "logic-gate_3"
+            for ii in range(3):
+                input_port = primitive_definition.create_port()
+                input_port.name = "in_" + str(ii)
+                input_port["EBLIF.cname"] = input_port.name
+                input_port.direction = sdn.IN
+                input_port.create_pin()
+            output_port = primitive_definition.create_port()
+            output_port.name = "out"
+            output_port["EBLIF.cname"] = output_port.name
+            output_port.direction = sdn.OUT
+            output_port.create_pin()
+
+        primitive_definition["EBLIF.blackbox"] = True
+        self._definition = primitive_definition
+        self._primary_input_pin = next(self._definition.get_ports("in_0")).pins[
+            0
+        ]
+        self._other_input_pins = [
+            next(self._definition.get_ports("in_1")).pins[0],
+            next(self._definition.get_ports("in_2")).pins[0],
+        ]
+        self._primary_output_pin = next(self._definition.get_ports("out")).pins[
+            0
+        ]
+
+    def get_primary_input_pin(self):
+        return self._primary_input_pin
+
+    def get_other_input_pins(self):
+        return self._other_input_pins
+
+    def get_primary_output_pin(self):
+        return self._primary_output_pin
+
+    def create_instance(self):
+        instance = sdn.Instance()
+        # properties = {"INIT":"8'hE8"}
+        # instance["EBLIF.param"] = properties
+        output_covers = list()
+        output_covers.append("011 1")
+        output_covers.append("110 1")
+        output_covers.append("101 1")
+        output_covers.append("111 1")
+        instance["EBLIF.output_covers"] = output_covers
+        instance.reference = self._definition
+        instance["EBLIF.type"] = "EBLIF.names"
+        return instance
+
 
 class StickyDWCDetector(Organ):
     def __init__(self):

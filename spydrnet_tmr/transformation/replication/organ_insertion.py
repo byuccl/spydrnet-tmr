@@ -710,12 +710,13 @@ class OrganInsertion:
         return all_points
 
     def get_name(self,object):
-        if "EDIF.identifer" in object.data:
-            return object["EDIF.identifier"]
-        elif "EBLIF.cname" in object.data:
-            return object["EBLIF.cname"]
-        else:
-            return object.name
+        return object.name
+        # if "EDIF.identifer" in object.data:
+        #     return object["EDIF.identifier"]
+        # elif "EBLIF.cname" in object.data:
+        #     return object["EBLIF.cname"]
+        # else:
+        #     return object.name
 
     def set_name(self,object,name):
         if "EDIF.identifer" in object.data:
