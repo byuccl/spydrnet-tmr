@@ -544,6 +544,7 @@ class XilinxCombinedOrgan(Organ):
         self._primary_input_pin = None
         self._other_input_pins = None
         self._primary_output_pin = None
+        self.netlist_type = EDIF # only edif is supported for now
 
     def ensure_definition_in_netlist(self, netlist):
         primitive_library = next(netlist.get_libraries("organs"), None)
