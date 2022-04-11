@@ -1,3 +1,3 @@
-from spydrnet_tmr.symbiflow.fix_unconn_nets import change_unconn_to_dummy
+from spydrnet_tmr.symbiflow.fix_unconn_nets import connect_unconn_to_dummy
 from spydrnet_tmr.symbiflow.update_constraints import fix_and_update_constraints
-from spydrnet_tmr.symbiflow.fixup_netlist import fix_netlist
+from spydrnet_tmr.symbiflow.fixup_netlist import run_netlist_fixes

@@ -1,11 +1,13 @@
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
 
-'''
-Set all unconnected output pins to be connected to a 'dummy' wire.
-'''
+def connect_unconn_to_dummy(netlist):
+    '''
+    Any output pins that are left unconnected are denoted as being connected to “unconn”. Symbiflow expects all unconn nets to be connected to “dummy” wires. This function cycles through the netlist and connects any unconnected output pins to a dummy wire.
 
-def change_unconn_to_dummy(netlist):
+    :param netlist: the current netlist
+
+    '''
     fixer = Unconn_Net_Fixer(netlist)
     fixer.run()
 
