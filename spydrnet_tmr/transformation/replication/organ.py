@@ -21,10 +21,15 @@ class Organ:
 
 
 class XilinxTMRVoter(Organ):
+    """
+    A LUT3 with INIT value 8'hE8. Votes by majority. To ensure that properties of the voter are correct for the target netlist type, the netlist_type must be specified.
 
-    '''
-    :param netlist_type: either "EDIF", "EBLIF", or "Verilog"
-    '''
+    .. figure:: ../../figures/voter.*
+        :width: 800px
+        :align: center
+
+    :param netlist_type: either EDIF, EBLIF, or Verilog
+    """
     def __init__(self, netlist_type=EDIF):
         self.netlist_type = netlist_type
         self._definition = None
