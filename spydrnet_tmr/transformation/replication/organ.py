@@ -40,7 +40,7 @@ class XilinxTMRVoter(Organ):
     
     def ensure_definition_in_netlist(self, netlist):
         if (self.netlist_type is EBLIF or self.netlist_type == "EBLIF"):
-            # print("BLIF voter detected")
+            # print("EBLIF voter detected")
             self.organ_class = XilinxTMRVoterEBLIF()
             self.organ_class.ensure_definition_in_netlist(netlist)
         elif (self.netlist_type is EDIF or self.netlist_type == "EDIF"):
@@ -48,7 +48,7 @@ class XilinxTMRVoter(Organ):
             self.organ_class = XilinxTMRVoterEDIF()
             self.organ_class.ensure_definition_in_netlist(netlist)
         elif (self.netlist_type is VERILOG or self.netlist_type == "Verilog"):
-            # print("EDIF voter detected")
+            # print("Verilog voter detected")
             self.organ_class = XilinxTMRVoterVerilog()
             self.organ_class.ensure_definition_in_netlist(netlist)
         else: #default to EDIF
@@ -350,7 +350,7 @@ class GenericEBLIFVoter(Organ):
         :align: center
     """
 
-    def __init__(self, netlist_type="EBLIF"):
+    def __init__(self, netlist_type=EBLIF):
         self.netlist_type = netlist_type
         self._definition = None
         self._primary_input_pin = None

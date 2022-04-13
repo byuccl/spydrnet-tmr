@@ -13,4 +13,3 @@ Reference
    functions/index.rst
    organs/index.rst
    design_rule_check/index.rst
-   symbiflow/index.rst
