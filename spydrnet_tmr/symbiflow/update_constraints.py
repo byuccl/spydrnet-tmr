@@ -41,7 +41,7 @@ class Constraints_Fixer():
         self.pinmap = dict()
     
     def fix_constraints(self):
-        self.deepcopy_replicated_parameters()
+        # self.deepcopy_replicated_parameters()
         self.fix_replicated_parameters()
         self.read_new_constraints_file()
         self.create_pinmap()
@@ -172,7 +172,7 @@ class Constraints_Fixer():
         return None
 
     def update_parameter(self, instance, driven_wire, parameter):
-        original_param_info = instance["EBLIF.param"][parameter]
+        # original_param_info = instance["EBLIF.param"][parameter]
         new_param_info = "\"" + driven_wire + ":" + self.constraint_dict[driven_wire] + "\""
         instance["EBLIF.param"][parameter] = new_param_info
         # print(instance.name + " now has the parameter " + new_param_info)
