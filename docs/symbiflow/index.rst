@@ -3,7 +3,11 @@ SpyDrNet-TMR and Symbiflow
 
 As of version 1.11.0, `SpyDrNet <https://byuccl.github.io/spydrnet/docs/stable/index.html>`_ supports the EBLIF netlist format. This was done in hope that SpyDrNet-TMR could be used to replicate designs run through Symbiflow.
 
-**Note:** The following is intended for designs targeted for Xilinx devices. Other device families have not been tested yet, but can likely follow a similar procedure.
+**Note 1:** The following is intended for designs targeted for Xilinx devices. Other device families have not been tested yet, but can likely follow a similar procedure.
+
+**Note 2:** This area of Symbiflow was recently renamed to f4pga. This may cause one toneed to replace "symbiflow" with "f4pga" in the following.
+
+**Note 3:** Becoming familiar with Symbiflow by reviewing the various pages `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html#>`_ may be helpful.
 
 Steps to Replicate Designs Inside of Symbiflow
 -----------------------------------------------
@@ -16,7 +20,7 @@ Modify Built-In Symbiflow Scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Go into the INSTALL_DIR specified when installing symbiflow (which is likely ~/opt/symbiflow/) 
 2. Go to /xc7/install/share/symbiflow/scripts/xc7/. This directory contains files used by symbiflow_synth.
-3. Open synth.tcl. Add the "-nocarry" option to all of the synth_xilinx commands. This is done because replicating designs with carry adders doesn't work too well. However, if one is experienced with replicating designs and would still like carry adders, this part can be ommitted.
+3. Open synth.tcl. Add the "-nocarry" option to all of the synth_xilinx commands. This is done because replicating designs with carry adders doesn't work too well. However, if one is experienced with replicating designs and would still like carry adders, they may choose to skip this part.
 4. Open conv.tcl. Add the following:
    
    * "hierarchy -purgelib" as the first command
@@ -25,6 +29,7 @@ Modify Built-In Symbiflow Scripts
 5. Add command to execute python tmr script
    
    * Executing the python script needs to be done between symbiflow_synth and symbiflow_pack. Do one of the following two options:
+  
    * As the last command in conv.tcl from the previous step, put: 
   
       >>> exec python3 $::env(TMR_SCRIPT) $::env(OUT_EBLIF) $::env(CONSTRAINT_NEW)
@@ -37,10 +42,11 @@ Create Needed Files
 ^^^^^^^^^^^^^^^^^^^
 1. **Makefile** - create a new Makefile. Copy and paste the following into it and enter the needed information.
 
-.. code-block::
+.. code-block:: make
 
    current_dir := ${CURDIR}
    TOP := <name of top module>
+   TARGET := <board_name>
    SOURCES := ${current_dir}/<path to Verilog source files>
    TMR_SCRIPT := ${current_dir}/<path to python TMR script>
 
@@ -90,11 +96,11 @@ In the TMR script, be sure to do the following:
 
 Running Symbiflow
 ^^^^^^^^^^^^^^^^^^
-With all of the files in place, one should be able to run the following:
+In a directory with all the files, one should be able to run the following:
 
->>> TARGET="board_name" make -C .
+>>> make -C .
 
-Where <board_name> is replaced with the target board name (e.g. basys3). Symbiflow will run and generate a bitstream.
+Symbiflow will run and generate a bitstream.
 
 Synchronous Counter Example With Example Files
 -----------------------------------------------
@@ -109,6 +115,7 @@ Notes:
 
    current_dir := ${CURDIR}
    TOP := synchronouscounter
+   TARGET := basys3
    SOURCES := ${current_dir}/synchronouscounter.v
    TMR_SCRIPT := ${current_dir}/tmr_script.py
 
