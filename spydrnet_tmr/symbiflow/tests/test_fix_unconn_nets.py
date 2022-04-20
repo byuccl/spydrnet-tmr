@@ -1,11 +1,12 @@
 import unittest
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
+from spydrnet.util.netlist_type import EBLIF
 from spydrnet_tmr.symbiflow.fix_unconn_nets import connect_unconn_to_dummy
 
 class TestFixUnconnNets(unittest.TestCase):
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("b13")
+        self.netlist = sdn.load_example_netlist_by_name("synchronouscounter_nocarry", EBLIF)
         self.unconn_pins = list()
         for instance in self.netlist.get_instances():
             for pin in instance.get_pins(selection=Selection.OUTSIDE, filter=lambda x: x.inner_pin.port.direction is sdn.OUT):
