@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>find_reduction_voter_points &mdash; SpyDrNet TMR 1.2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="identify_reduction_points" href="identify_reduction_points.html" />
+    <link rel="prev" title="find_after_ff_voter_points" href="find_after_ff_voter_points.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> SpyDrNet TMR
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../replication/index.html">Circuit Replication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Other Functions</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Analysis</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Voter Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../transformation/index.html">Transformation/Replication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../organs/index.html">Organs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../design_rule_check/index.html">Design Rule Check</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../symbiflow/index.html">SpyDrNet-TMR and Symbiflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">SpyDrNet TMR</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Reference</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Other Functions</a> &raquo;</li>
+        
+          <li><a href="../index.html">Analysis</a> &raquo;</li>
+        
+          <li><a href="index.html">Voter Algorithms</a> &raquo;</li>
+        
+      <li>find_reduction_voter_points</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/reference/functions/analysis/voter_algorithms/find_reduction_voter_points.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="find-reduction-voter-points">
+<span id="id1"></span><h1>find_reduction_voter_points<a class="headerlink" href="#find-reduction-voter-points" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="spydrnet_tmr.analysis.voter_insertion.find_reduction_voter_points.find_reduction_voter_points">
+<span class="sig-prename descclassname"><span class="pre">spydrnet_tmr.analysis.voter_insertion.find_reduction_voter_points.</span></span><span class="sig-name descname"><span class="pre">find_reduction_voter_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">netlist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints_to_replicate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spydrnet_tmr.analysis.voter_insertion.find_reduction_voter_points.find_reduction_voter_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find reduction voter points for a netlist <em>before replicating</em></p>
+<p>When a TMR boundary consists of replicated logic going to non-replicated
+logic, a reduction voter can be placed so that the separate TMR domains from
+the replicated logic can be voted on, and the correct signal will be passed
+to the non-replicated logic. Otherwise, only the signal from the primary
+domain would be passed to the non-replicated logic, which would make the
+other TMR domains disconnected to any other logic, and useless.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>netlist</strong> (<em>Netlist</em><em>, </em><em>required</em>) – The netlist for which reduction voter points will be found.</p></li>
+<li><p><strong>endpoints_to_replicate</strong> (<em>list</em><em>, </em><em>required</em>) – Hierarchical references to top-level ports
+and leaf instances that are to be replicated in the design.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of pin tuples at which voters will be placed. See
+insertion_points parameter in <a class="reference internal" href="../../transformation/insert_organs.html#insert-organs"><span class="std std-ref">insert_organs</span></a> for more details.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="identify_reduction_points.html" class="btn btn-neutral float-right" title="identify_reduction_points" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="find_after_ff_voter_points.html" class="btn btn-neutral float-left" title="find_after_ff_voter_points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, BYU Configurable Computing Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
