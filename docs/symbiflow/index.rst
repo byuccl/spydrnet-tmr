@@ -5,7 +5,7 @@ As of version 1.11.0, `SpyDrNet <https://byuccl.github.io/spydrnet/docs/stable/i
 
 **Note 1:** The following is intended for designs targeted for Xilinx devices. Other device families have not been tested yet, but can likely follow a similar procedure.
 
-**Note 2:** This area of Symbiflow was recently renamed to f4pga. This may cause one toneed to replace "symbiflow" with "f4pga" in the following.
+**Note 2:** This area of Symbiflow was recently renamed to f4pga. This may cause one to need to replace "symbiflow" with "f4pga" in the following.
 
 **Note 3:** Becoming familiar with Symbiflow by reviewing the various pages `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html#>`_ may be helpful.
 
