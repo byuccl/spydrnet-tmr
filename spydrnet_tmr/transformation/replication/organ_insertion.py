@@ -538,9 +538,8 @@ class OrganInsertion:
             primary_organ.name += "_" + str(
                 additional_wire.cable.wires.index(additional_wire)
             )
-        primary_organ["EDIF.identifier"] = additional_wire.cable[
-            "EDIF.identifier"
-        ]
+
+        self.set_name(primary_organ,self.get_name(additional_wire.cable))
         additional_wire.cable.definition.add_child(primary_organ)
         return primary_organ
 
@@ -555,7 +554,7 @@ class OrganInsertion:
             # wire name = <port_name><type_suffix>[pin_index if array]
             port = primary.port
             port_name = port.name
-            port_edif_identifier = port["EDIF.identifier"]
+            port_identifier = self.get_name(port)
             if port.is_array:
                 pin_index = port.pins.index(primary)
                 cable_name = (
@@ -566,8 +565,8 @@ class OrganInsertion:
                     + str(pin_index)
                     + "]"
                 )
-                cable_edif_identifier = (
-                    port_edif_identifier
+                cable_identifier = (
+                    port_identifier
                     + "_"
                     + self.name_suffix
                     + "_"
@@ -576,18 +575,18 @@ class OrganInsertion:
                 )
             else:
                 cable_name = port_name + "_" + self.name_suffix
-                cable_edif_identifier = (
-                    port_edif_identifier + "_" + self.name_suffix
+                cable_identifier = (
+                    port_identifier + "_" + self.name_suffix
                 )
             parent = port.definition
         else:
             instance = primary.instance
             instance_name = instance.name
-            instance_edif_identifier = instance["EDIF.identifier"]
+            instance_identifier = self.get_name(instance)
             inner_pin = primary.inner_pin
             port = inner_pin.port
             port_name = port.name
-            port_edif_identifier = port["EDIF.identifier"]
+            port_identifier = self.get_name(port)
             if port.is_array:
                 pin_index = port.pins.index(inner_pin)
                 cable_name = (
@@ -600,10 +599,10 @@ class OrganInsertion:
                     + str(pin_index)
                     + "]"
                 )
-                cable_edif_identifier = (
-                    instance_edif_identifier
+                cable_identifier = (
+                    instance_identifier
                     + "_"
-                    + port_edif_identifier
+                    + port_identifier
                     + "_"
                     + self.name_suffix
                     + "_"
@@ -614,17 +613,17 @@ class OrganInsertion:
                 cable_name = (
                     instance_name + "_" + port_name + "_" + self.name_suffix
                 )
-                cable_edif_identifier = (
-                    instance_edif_identifier
+                cable_identifier = (
+                    instance_identifier
                     + "_"
-                    + port_edif_identifier
+                    + port_identifier
                     + "_"
                     + self.name_suffix
                 )
             parent = instance.parent
         new_cable = parent.create_cable()
         new_cable.name = cable_name
-        new_cable["EDIF.identifier"] = cable_edif_identifier
+        self.set_name(new_cable,cable_identifier)
         new_wire = new_cable.create_wire()
         return new_wire
 
@@ -709,3 +708,21 @@ class OrganInsertion:
             x for x in other_points if x not in to_remove
         )
         return all_points
+
+    def get_name(self,object):
+        return object.name
+        # if "EDIF.identifer" in object.data:
+        #     return object["EDIF.identifier"]
+        # elif "EBLIF.cname" in object.data:
+        #     return object["EBLIF.cname"]
+        # else:
+        #     return object.name
+
+    def set_name(self,object,name):
+        if "EDIF.identifer" in object.data:
+            object["EDIF.identifier"] = name
+        elif "EBLIF.cname" in object.data:
+            object["EBLIF.cname"] = name
+        else:
+            None
+        object.name = name

@@ -12,5 +12,6 @@ SpyDrNet TMR has the following organs that can be used in transforming netlists 
     xilinx_tmr_voter
     xilinx_dwc_detector
     xilinx_combined_organ
+    eblif_generic_voter
     sticky_dwc_detector
     jtag
