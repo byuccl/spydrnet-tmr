@@ -60,7 +60,7 @@ if __name__ == "__main__":
         package_data={"spydrnet": ["VERSION"] + example_edif_files},
         packages=setuptools.find_packages(),
         extras_require=extras_require,
-        install_requires=["spydrnet>=1.4,<2"],
+        install_requires=["spydrnet>=1.4,<2", "pyyaml"],
         python_requires=">=3.5",
         zip_safe=False,
     )

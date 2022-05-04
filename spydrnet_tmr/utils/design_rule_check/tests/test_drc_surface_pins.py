@@ -5,7 +5,8 @@ import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util import selection
 from spydrnet_tmr import insert_organs, apply_nmr, uniquify_nmr_property
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
+from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.replication.organ import XilinxDWCDetector
 from spydrnet_tmr.transformation.surface_pins import surface_pins
 from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
@@ -30,8 +31,7 @@ class TestDRCSurfacePins(unittest.TestCase):
         hports_to_replicate = list(self.netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-        primitive_info = load_primitive_info(self.netlist, XILINX)
-        insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate],[cell.name for cell in primitive_info[FF_CELLS]])
+        insertion_points = find_after_ff_voter_points(self.netlist,[*hinstances_to_replicate, *hports_to_replicate],XILINX)
         replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 2, name_suffix='DWC', rename_original=True)
         voters = insert_organs(replicas, insertion_points, XilinxDWCDetector(), 'DETECTOR')
         uniquify_nmr_property(replicas, {'HBLKNM', 'HLUTNM', 'SOFT_HLUTNM'}, "DWC")

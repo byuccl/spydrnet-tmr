@@ -39,7 +39,7 @@ Then we find the instances and ports to replicate. Note that in the following co
          hports_to_replicate.remove(x)
    ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-   insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+   insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
 
 Next, we triplicate the design using apply_nmr(). The instances and ports we specified are passed as two of the parameters. We also pass '3' and 'TMR' as number of replications and the applicable suffix, respectively.
 
@@ -73,8 +73,8 @@ While viewing the schematic, note that the voters' outputs feed back into the fl
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import (
-    find_voter_insertion_points_after_ff,
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
+    find_after_ff_voter_points,
 )
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 
@@ -98,7 +98,7 @@ for x in hports_to_replicate:
       hports_to_replicate.remove(x)
 ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-insertion_points = find_voter_insertion_points_after_ff(
+insertion_points = find_after_ff_voter_points(
     [*hinstances_to_replicate, *hports_to_replicate],
     {"FDRE", "FDSE", "FDPE", "FDCE"},
 )

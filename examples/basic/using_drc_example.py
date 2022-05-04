@@ -44,7 +44,7 @@ import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet.util.selection import Selection
 from spydrnet_tmr import insert_organs, apply_nmr
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import find_voter_insertion_points_after_ff
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 from spydrnet_tmr.transformation.replication.uniquify_nmr_property import uniquify_nmr_property
 from spydrnet_tmr.utils.design_rule_check import check_connections
@@ -85,7 +85,7 @@ def get_modified_netlists(netlist_name):
     instances_to_replicate = list(x.item for x in hinstances_to_replicate)
     hports_to_replicate = list(netlist.get_hports())
     ports_to_replicate = list(x.item for x in hports_to_replicate)
-    insertion_points = find_voter_insertion_points_after_ff([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+    insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
     replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 3, name_suffix='TMR', rename_original=True)
     voters = insert_organs(replicas, insertion_points, XilinxTMRVoter(), 'VOTER')
     uniquify_nmr_property(replicas, {'HBLKNM', 'HLUTNM', 'SOFT_HLUTNM'}, "TMR")
