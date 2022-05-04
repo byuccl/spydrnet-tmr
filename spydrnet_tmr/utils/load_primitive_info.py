@@ -20,8 +20,10 @@ def load_primitive_info(netlist, vendor):
     )
 
     primitive_library = next(
-        netlist.get_libraries(primitive_info_db["primitive_library_name"])
+        netlist.get_libraries(primitive_info_db["primitive_library_name"]),None
     )
+    if primitive_library is None:
+        primitive_library = next(netlist.get_libraries())
     primitive_info["primitive_library"] = primitive_library
 
     if "power_ground_cells" in primitive_info_db:

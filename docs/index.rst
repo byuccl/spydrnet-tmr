@@ -16,7 +16,7 @@ applications. Here are some of the capabilities of SpyDrNet TMR's current state:
 
  * Triple Modular Redundancy and Duplication With Compare for netlists across hierarchy
 
-This Python package depends on `SpyDrNet <https://byuccl.github.io/spydrnet>`_ 1.3 or newer.
+This Python package depends on `SpyDrNet <https://byuccl.github.io/spydrnet>`_. As new features are constantly being added to SpyDrNet, using the latest version is recommended.
 
 History
 -------
@@ -49,5 +49,6 @@ Bibliography
    tutorial
    reference/index.rst
    auto_examples/index
+   symbiflow/index
    developer/index.rst
    license
