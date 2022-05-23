@@ -49,6 +49,8 @@ from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 from spydrnet_tmr.transformation.replication.uniquify_nmr_property import uniquify_nmr_property
 from spydrnet_tmr.utils.design_rule_check.drc_connections_after_replication_and_insertion import check_connections
 from spydrnet_tmr.utils.design_rule_check.drc_properties_after_replication import check_properties_after_replication
+from spydrnet_tmr.support_files.vendor_names import XILINX
+
 
 def run():
 
@@ -85,7 +87,7 @@ def get_modified_netlists(netlist_name):
     instances_to_replicate = list(x.item for x in hinstances_to_replicate)
     hports_to_replicate = list(netlist.get_hports())
     ports_to_replicate = list(x.item for x in hports_to_replicate)
-    insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+    insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)
     replicas = apply_nmr([*instances_to_replicate, *ports_to_replicate], 3, name_suffix='TMR', rename_original=True)
     voters = insert_organs(replicas, insertion_points, XilinxTMRVoter(), 'VOTER')
     uniquify_nmr_property(replicas, {'HBLKNM', 'HLUTNM', 'SOFT_HLUTNM'}, "TMR")
