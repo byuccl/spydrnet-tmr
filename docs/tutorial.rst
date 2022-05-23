@@ -65,7 +65,7 @@ Determine Organ Insertion Points
     
     .. code-block::
 
-        insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+        insertion_points = find_after_ff_voter_points(netlist, [*hinstances_to_replicate, *hports_to_replicate], vendor_name)
 
 Replicate the Design
 ^^^^^^^^^^^^^^^^^^^^^

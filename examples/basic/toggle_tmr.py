@@ -39,7 +39,7 @@ Then we find the instances and ports to replicate. Note that in the following co
          hports_to_replicate.remove(x)
    ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-   insertion_points = find_after_ff_voter_points([*hinstances_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+   insertion_points = find_after_ff_voter_points(netlist, [*hinstances_to_replicate, *hports_to_replicate], vendor_name)
 
 Next, we triplicate the design using apply_nmr(). The instances and ports we specified are passed as two of the parameters. We also pass '3' and 'TMR' as number of replications and the applicable suffix, respectively.
 
@@ -77,6 +77,7 @@ from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
     find_after_ff_voter_points,
 )
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
+from spydrnet_tmr.support_files.vendor_names import XILINX
 
 
 netlist = sdn.load_example_netlist_by_name("toggle")
@@ -98,9 +99,9 @@ for x in hports_to_replicate:
       hports_to_replicate.remove(x)
 ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-insertion_points = find_after_ff_voter_points(
+insertion_points = find_after_ff_voter_points(netlist,
     [*hinstances_to_replicate, *hports_to_replicate],
-    {"FDRE", "FDSE", "FDPE", "FDCE"},
+   XILINX
 )
 
 replicas = apply_nmr(
