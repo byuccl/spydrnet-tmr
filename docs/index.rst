@@ -20,7 +20,7 @@ This Python package depends on `SpyDrNet <https://byuccl.github.io/spydrnet>`_. 
 
 History
 -------
-Previous tools could not handle doing TMR and DWC on netlists with hierarchy. They required the netlists to be flatten before triplicaiton. SpyDrNet TMR addresses this issue, and can perform TMR and DWC on netlists without flattening.
+Previous tools could not handle doing TMR and DWC on netlists with hierarchy. They required the netlists to be flattened before triplicaiton. SpyDrNet TMR addresses this issue, and can perform TMR and DWC on netlists without flattening.
 
 Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNet TMR tools uses algorithms that put voters on flip flops.
 
