@@ -36,7 +36,7 @@ Then we find the instances and ports to replicate. Note that in the following co
     hports_to_replicate = list(netlist.get_hports(filter = lambda x: (not "clk" in x.name)is True))
     ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-    insertion_points = find_after_ff_voter_pointsces_to_replicate, *hports_to_replicate], {'FDRE', 'FDSE', 'FDPE', 'FDCE'})
+    insertion_points = find_after_ff_voter_points(netlist, [*hinstances_to_replicate, *hports_to_replicate], vendor_name)
 
 Next, we duplicate the design using apply_nmr(). The instances and ports we specified are passed as two of the parameters. We also pass '2' and 'DWC' as number of replications and the applicable suffix, respectively.
 
@@ -92,7 +92,9 @@ Note that the detectors' outputs are not connected to anything. To fix this,we c
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import find_after_ff_voter_points
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
+    find_after_ff_voter_points,
+)
 from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.replication.organ import XilinxDWCDetector
 from spydrnet.util.selection import Selection
@@ -115,9 +117,7 @@ hports_to_replicate = list(
 ports_to_replicate = list(x.item for x in hports_to_replicate)
 
 insertion_points = find_after_ff_voter_points(
-    netlist,
-    [*hinstances_to_replicate, *hports_to_replicate],
-    XILINX
+    netlist, [*hinstances_to_replicate, *hports_to_replicate], XILINX
 )
 
 replicas = apply_nmr(
@@ -127,17 +127,13 @@ replicas = apply_nmr(
     rename_original=True,
 )
 
-detectors = insert_organs(
-    replicas, insertion_points, XilinxDWCDetector(), "DETECTOR"
-)
+detectors = insert_organs(replicas, insertion_points, XilinxDWCDetector(), "DETECTOR")
 
 
 # create output ports for Detector outputs
 i = 0
 for detector_instance in netlist.get_instances(patterns="*DETECTOR*"):
-    for port in detector_instance.get_ports(
-        filter=lambda x: x.direction is sdn.OUT
-    ):
+    for port in detector_instance.get_ports(filter=lambda x: x.direction is sdn.OUT):
         for pin in port.get_pins(
             selection=Selection.OUTSIDE,
             filter=lambda x: (
