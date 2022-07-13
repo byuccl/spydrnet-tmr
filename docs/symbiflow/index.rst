@@ -23,7 +23,7 @@ Modify Built-In Symbiflow Scripts
 3. Open synth.tcl. Add the "-nocarry" option to all of the synth_xilinx commands. This is done because replicating designs with carry adders doesn't work too well. However, if one is experienced with replicating designs and would still like carry adders, they may choose to skip this part.
 4. Open conv.tcl. Add the following:
    
-   * "hierarchy -purgelib" as the first command
+   * "hierarchy -purge_lib" as the first command
    * Add option "-blackbox" to both write_blif commands
 
 5. Add command to execute python tmr script
