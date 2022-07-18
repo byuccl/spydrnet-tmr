@@ -1,10 +1,10 @@
 import os
-from spydrnet_tmr.symbiflow.fix_unconn_nets import connect_unconn_to_dummy
-from spydrnet_tmr.symbiflow.update_constraints import fix_and_update_constraints
+from spydrnet_tmr.f4pga.fix_unconn_nets import connect_unconn_to_dummy
+from spydrnet_tmr.f4pga.update_constraints import fix_and_update_constraints
 
 def run_netlist_fixes(netlist, replicas, new_constraints_file=None, suffix="TMR"):
     '''
-    Single function call that will do necessary things to get netlist ready for symbiflow.
+    Single function call that will do necessary things to get netlist ready for F4PGA.
     Calls :ref:`connect_unconn_to_dummy` and :ref:`update_constraints`. More functions may be added later as necessary.
 
     :param netlist: the current netlist

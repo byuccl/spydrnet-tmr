@@ -1,29 +1,27 @@
-SpyDrNet-TMR and Symbiflow
-===========================
+SpyDrNet-TMR and F4PGA
+=======================
 
-As of version 1.11.0, `SpyDrNet <https://byuccl.github.io/spydrnet/docs/stable/index.html>`_ supports the EBLIF netlist format. This was done in hope that SpyDrNet-TMR could be used to replicate designs run through Symbiflow.
+As of version 1.11.0, `SpyDrNet <https://byuccl.github.io/spydrnet/docs/stable/index.html>`_ supports the EBLIF netlist format. This was done in hope that SpyDrNet-TMR could be used to replicate designs run through F4PGA.
 
 **Note 1:** The following is intended for designs targeted for Xilinx devices. Other device families have not been tested yet, but can likely follow a similar procedure.
 
-**Note 2:** This area of Symbiflow was recently renamed to f4pga. This may cause one to need to replace "symbiflow" with "f4pga" in the following.
+**Note 2:** Becoming familiar with F4PGA by reviewing the various pages `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html#>`_ may be helpful.
 
-**Note 3:** Becoming familiar with Symbiflow by reviewing the various pages `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html#>`_ may be helpful.
-
-Steps to Replicate Designs Inside of Symbiflow
+Steps to Replicate Designs Inside of F4PGA
 -----------------------------------------------
-1. Install symbiflow and enter the environment. See `this page <https://f4pga-examples.readthedocs.io/en/latest/getting.html>`_ in the Symbiflow documentation on how to do so.
-2. Modify built-in symbiflow scripts
+1. Install F4PGA and enter the environment. See `this page <https://f4pga-examples.readthedocs.io/en/latest/getting.html>`_ in the F4PGA documentation on how to do so.
+2. Modify built-in f4pga scripts
 3. Create needed files
 4. Run
 
-Modify Built-In Symbiflow Scripts
+Modify Built-In F4PGA Scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1. Go into the INSTALL_DIR specified when installing symbiflow (which is likely ~/opt/symbiflow/) 
+1. Go into the INSTALL_DIR specified when installing F4PGA (which is likely ~/opt/f4pga/) 
 2. Go to /xc7/install/share/symbiflow/scripts/xc7/. This directory contains files used by symbiflow_synth.
 3. Open synth.tcl. Add the "-nocarry" option to all of the synth_xilinx commands. This is done because replicating designs with carry adders doesn't work too well. However, if one is experienced with replicating designs and would still like carry adders, they may choose to skip this part.
 4. Open conv.tcl. Add the following:
    
-   * "hierarchy -purgelib" as the first command
+   * "hierarchy -purge_lib" as the first command
    * Add option "-blackbox" to both write_blif commands
 
 5. Add command to execute python tmr script
@@ -58,7 +56,7 @@ Create Needed Files
 
    include <path to common.mk>
 
-2. **common.mk** - this is a common Makefile found under *symbiflow/symbiflow-examples/common*. You can copy and paste it into your current directory or just set the path to it. Either way, be sure to include a path to it.
+2. **common.mk** - this is a common Makefile found under *f4pga/f4pga-examples/common*. You can copy and paste it into your current directory or just set the path to it. Either way, be sure to include a path to it.
 
 3. **Verilog Source Files**
 
@@ -91,16 +89,16 @@ In the TMR script, be sure to do the following:
 
 
 **Tips:** 
-   * If down the line symbiflow fails, try not replicating instances with “iopadmap” in their name that are next to non-replicated ports. E.g. inserting reduction voters. Don't put them between ports and instances called “iopadmap” (even if it's not a buffer). Put the voters on the inner side of those (before or after depending on port direction).
+   * If down the line F4PGA fails, try not replicating instances with “iopadmap” in their name that are next to non-replicated ports. E.g. inserting reduction voters. Don't put them between ports and instances called “iopadmap” (even if it's not a buffer). Put the voters on the inner side of those (before or after depending on port direction).
    * See also :ref:`fixup_netlist`
 
-Running Symbiflow
+Running F4PGA
 ^^^^^^^^^^^^^^^^^^
 In a directory with all the files, one should be able to run the following:
 
 >>> make -C .
 
-Symbiflow will run and generate a bitstream.
+F4PGA will run and generate a bitstream.
 
 Synchronous Counter Example With Example Files
 -----------------------------------------------
@@ -206,11 +204,11 @@ Notes:
 
    download: ${BOARD_BUILDDIR}/${TOP}.bit
       if [ $(TARGET)='arty_35' ]; then \
-      openocd -f ~/opt/symbiflow/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
+      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
       elif [ $(TARGET)='arty_100' ]; then \
-      openocd -f ~/opt/symbiflow/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
+      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
       elif [ $(TARGET)='basys3' ]; then \
-      openocd -f ~/opt/symbiflow/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
+      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
       else  \
       echo "The commands needed to download the bitstreams to the board type specified are not currently supported by the F4PGA makefiles. \
       Please see documentation for more information."; \
@@ -280,8 +278,8 @@ Notes:
    from spydrnet_tmr.transformation.replication.organ import GenericEBLIFVoter
    from spydrnet_tmr.transformation.replication.organ_insertion import insert_organs
    from spydrnet.util.selection import Selection
-   from spydrnet_tmr.symbiflow import fix_and_update_constraints
-   from spydrnet_tmr.symbiflow import connect_unconn_to_dummy
+   from spydrnet_tmr.f4pga import fix_and_update_constraints
+   from spydrnet_tmr.f4pga import connect_unconn_to_dummy
 
    def run_tmr(netlist_name, new_constraints_file=None):
 
@@ -305,7 +303,7 @@ Notes:
       hports = list(x for x in netlist.get_hports() if x.item.direction is sdn.OUT)
       ports = list(x.item for x in hports)
 
-      # this will return an empty set because symbiflow renames primitives and spydrnet doesn't recognize them (e.g. FDRE is FDRE_ZINI)
+      # this will return an empty set because f4pga renames primitives and spydrnet doesn't recognize them (e.g. FDRE is FDRE_ZINI)
       insertion_points = find_after_ff_voter_points(netlist, [*hinstances, *hports], XILINX)
 
       # so manually find the insertion points here

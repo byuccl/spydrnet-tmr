@@ -4,5 +4,5 @@
 Run Netlist Fixes
 ==================
 
-.. currentmodule:: spydrnet_tmr.symbiflow.fixup_netlist
+.. currentmodule:: spydrnet_tmr.f4pga.fixup_netlist
 .. autofunction:: run_netlist_fixes

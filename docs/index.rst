@@ -49,6 +49,6 @@ Bibliography
    tutorial
    reference/index.rst
    auto_examples/index
-   symbiflow/index
+   f4pga/index
    developer/index.rst
    license

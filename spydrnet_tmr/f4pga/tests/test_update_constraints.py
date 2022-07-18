@@ -3,7 +3,7 @@ import unittest
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
 from spydrnet.util.netlist_type import EBLIF
-from spydrnet_tmr.symbiflow.update_constraints import fix_and_update_constraints
+from spydrnet_tmr.f4pga.update_constraints import fix_and_update_constraints
 from spydrnet_tmr import apply_nmr
 
 class TestUpdateConstraints(unittest.TestCase):

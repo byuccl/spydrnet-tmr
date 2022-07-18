@@ -6,7 +6,7 @@ def fix_and_update_constraints(netlist, replicas, new_constraints_file, suffix="
     '''
     Symbiflow_synth accepts a constraints file as an optional parameter. This constraints file is read and .param statements are entered into the netlist describing what net to constrain to what port. A problem arises when, in replicating a design, ports are replicated. Constraints on replicated ports causes symbiflow_synth to fail because those ports do not exist yet (the design is yet to be replicated). To fix this, after symbiflow_synth and the design is replicated in SpyDrNet, *fix_and_update_constraints* uses a simple file detailing what the new constrained ports are and what physical pin they should be tied to. The function cycles through the netlist, finds those ports, and adds/updates .param lines to reflect the proper constraint. Note that only the replicated ports need to be included in this file. Non replicated ports are untouched.
 
-    In short, this updates the replicated port parameters to reflect correct constraint values. Otherwise, all three domain ports will be constrained to the same pin and symbiflow will fail.
+    In short, this updates the replicated port parameters to reflect correct constraint values. Otherwise, all three domain ports will be constrained to the same pin and F4PGA will fail.
 
     The following is a line from what an original constraints file will look like:
 

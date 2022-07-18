@@ -2,7 +2,7 @@ import unittest
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
 from spydrnet.util.netlist_type import EBLIF
-from spydrnet_tmr.symbiflow.fix_unconn_nets import connect_unconn_to_dummy
+from spydrnet_tmr.f4pga.fix_unconn_nets import connect_unconn_to_dummy
 
 class TestFixUnconnNets(unittest.TestCase):
     def setUp(self):

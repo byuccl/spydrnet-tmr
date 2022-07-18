@@ -3,7 +3,7 @@ from spydrnet.util.selection import Selection
 
 def connect_unconn_to_dummy(netlist):
     '''
-    Any output pins that are left unconnected are denoted in the output netlist as being connected to “unconn”. Symbiflow expects all unconnected output pins to be connected to “dummy” wires. This function cycles through the netlist and connects any unconnected output pins to a dummy wire.
+    Any output pins that are left unconnected are denoted in the output netlist as being connected to “unconn”. F4PGA expects all unconnected output pins to be connected to “dummy” wires. This function cycles through the netlist and connects any unconnected output pins to a dummy wire.
 
     :param netlist: the current netlist
 
