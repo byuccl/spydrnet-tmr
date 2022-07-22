@@ -1,7 +1,7 @@
 Creating a Release
 ==================
 
-This section aims to help you do a spydrnet_tmr release, meaning you make the latest code and documentation available. The steps are listed in what seems to be the best order of operation. Steps which need more explanation are highlighted below.
+This section aims to help you do a SpyDrNet-TMR release, meaning you make the latest code and documentation available. The steps are listed in what seems to be the best order of operation. Steps which need more explanation are highlighted below.
 
 1. Merge each contributors' branches into one branch (the 'next_release' branch)
 2. Run `git merge main` while the next_release branch is checked out.
@@ -23,7 +23,7 @@ Update the Release Notes
 
 The release notes file called RELEASE.rst should be updated to outline what changes/fixes are in the new release. The date, version number, and other information should all be included.
 
-spydrnet_tmr uses a Major.Minor.Bug versioning scheme where minor version updates do not break the existing API and major version updates may break it. Bug fixes do not add substantial new functionality, but rather fix broken functionality.
+SpyDrNet-TMR uses a Major.Minor.Bug versioning scheme where minor version updates do not break the existing API and major version updates may break it. Bug fixes do not add substantial new functionality, but rather fix broken functionality.
 
 .. _update_documentation:
 
@@ -34,7 +34,7 @@ Sphinx pulls from doc strings as well as .rst files to build documentation. The 
 
 Before building the documentation run `make clean` to clear away the old files.
 
-Before proceeding, ensure that both of the following are successful (make they execute without errors. Try to minimize the warnings as well):
+**Before proceeding, ensure that both of the following are successful** (make sure they execute without errors. Try to minimize the warnings as well):
 
 >>> make html
 
@@ -66,7 +66,7 @@ In the examples below, replace 1.0.0 with the version number you are releasing.
 
 **Creation**
 
->>> git tag -a v1.0.0 -m "spydrnet_tmr 1.0.0"
+>>> git tag -a v1.0.0 -m "SpyDrNet-TMR 1.0.0"
 
 **Push your changes to the tags**
 
@@ -76,7 +76,7 @@ A tag may need to be updated if a new commit is pushed to the branch (because th
 
 **Updating**
 
->>> git tag -a v1.0.0 -m "spydrnet_tmr 1.0.0" -f
+>>> git tag -a v1.0.0 -m "SpyDrNet-TMR 1.0.0" -f
 
 >>> git push --tags -f
 
@@ -125,7 +125,7 @@ Create a Github Release
 
 Releases can be created on Github. On the releases tab, draft a new release. Select the new tag you just created (it should have the release number).
 
-The release should be named `spydrnet_tmr 1.0.0` where 1.0.0 is replaced with the
+The release should be named `SpyDrNet-TMR 1.0.0` where 1.0.0 is replaced with the
 proper release number.
 
 Enter a description--it could just be a reiteration of the release notes or other relevant information.

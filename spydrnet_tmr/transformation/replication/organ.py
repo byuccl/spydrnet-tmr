@@ -270,7 +270,7 @@ class XilinxTMRVoterVerilog(Organ):
     def create_instance(self):
         instance = sdn.Instance()
         properties = {"INIT": "8'hE8"}
-        instance["Verilog.Parameters"] = properties
+        instance["VERILOG.Parameters"] = properties
         instance.reference = self._definition
         return instance
 
@@ -701,5 +701,76 @@ class XilinxCombinedOrgan(Organ):
 
     def create_instance(self):
         instance = sdn.Instance()
+        instance.reference = self._definition
+        return instance
+
+class LatticeTMRVoter(Organ):
+    """
+    A LUT3 with INIT value 8'hE8. Votes by majority.
+
+    .. figure:: ../../figures/voter.*
+        :width: 800px
+        :align: center
+    """
+
+    def __init__(self):
+        self._definition = None
+        self._primary_input_pin = None
+        self._other_input_pins = None
+        self._primary_output_pin = None
+
+    def ensure_definition_in_netlist(self, netlist):
+        primitive_library = next(netlist.get_libraries("SDN.verilog_primitives"), None)
+        if primitive_library is None:
+            primitive_library = sdn.Library()
+            netlist.add_library(primitive_library, 0)
+            primitive_library.name = "SDN.verilog_primitives"
+            # primitive_library["EDIF.identifier"] = primitive_library.name
+
+        primitive_definition = next(
+            primitive_library.get_definitions("LUT4"), None
+        )
+        if primitive_definition is None:
+            primitive_definition = primitive_library.create_definition()
+            primitive_definition.name = "LUT4"
+            # primitive_definition["EDIF.identifier"] = primitive_definition.name
+            for ii in ["A", "B", "C", "D"]:
+                input_port = primitive_definition.create_port()
+                input_port.name = ii
+                # input_port["EDIF.identifier"] = input_port.name
+                input_port.direction = sdn.IN
+                input_port.create_pin()
+            output_port = primitive_definition.create_port()
+            output_port.name = "Z"
+            # output_port["EDIF.identifier"] = output_port.name
+            output_port.direction = sdn.OUT
+            output_port.create_pin()
+
+        self._definition = primitive_definition
+        self._primary_input_pin = next(self._definition.get_ports("A")).pins[
+            0
+        ]
+        self._other_input_pins = [
+            next(self._definition.get_ports("B")).pins[0],
+            next(self._definition.get_ports("C")).pins[0],
+            # next(self._definition.get_ports("D")).pins[0] # ignore this pin
+        ]
+        self._primary_output_pin = next(self._definition.get_ports("Z")).pins[
+            0
+        ]
+
+    def get_primary_input_pin(self):
+        return self._primary_input_pin
+
+    def get_other_input_pins(self):
+        return self._other_input_pins
+
+    def get_primary_output_pin(self):
+        return self._primary_output_pin
+
+    def create_instance(self):
+        instance = sdn.Instance()
+        properties = {"INIT": "\"0xFCC0\""}
+        instance["VERILOG.Parameters"] = properties
         instance.reference = self._definition
         return instance

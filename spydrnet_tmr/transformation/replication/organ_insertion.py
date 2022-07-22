@@ -109,10 +109,24 @@ class OrganInsertion:
         sink_pins = complex_insertion_point[1]
 
         associated_netlist = next(driver_pin.get_netlists())
+
         self.organ.ensure_definition_in_netlist(associated_netlist)
         if self._organ_has_no_primary_output():
             self._simple_insert(driver_pin)
+
+        elif all(pin in driver_pin.wire.pins for pin in sink_pins):
+            # all the pins on the same wire, so
+            # normal reduction voter insert
+            new_wire_to_be_driven_by_voter = self._create_a_wire_from_pin(driver_pin)
+            self._complex_voter_add(driver_pin, new_wire_to_be_driven_by_voter)
+            for pin in sink_pins:
+                if pin.wire:
+                    pin.wire.disconnect_pin(pin)
+                new_wire_to_be_driven_by_voter.connect_pin(pin)
         else:
+            # complex insert with replicated ports and wires
+            # when we connect a wire we only want to hook it up to the new ports and pins that we have replicated including
+            # the pins that we have replicated
             additional_wires_to_replicate = (
                 NMR.identify_additional_wires_to_replicate(
                     {driver_pin}, sink_pins
@@ -123,38 +137,21 @@ class OrganInsertion:
                     additional_wires_to_replicate
                 )
             )
-
-            if not additional_ports_to_replicate:
-                # normal reduction voter insert
-                new_wire_to_be_driven_by_voter = self._create_a_wire_from_pin(
-                    driver_pin
-                )
-                self._complex_voter_add(
-                    driver_pin, new_wire_to_be_driven_by_voter
-                )
-                for pin in sink_pins:
-                    if pin.wire:
-                        pin.wire.disconnect_pin(pin)
-                    new_wire_to_be_driven_by_voter.connect_pin(pin)
-            else:
-                # complex insert with replicated ports and wires
-                # when we connect a wire we only want to hook it up to the new ports and pins that we have replicated including
-                # the pins that we have replicated
-                complex_portmap = self._complex_replicate_ports(
-                    additional_ports_to_replicate
-                )
-                complex_wiremap = self._complex_replicate_wires(
-                    additional_wires_to_replicate
-                )
-                self._complex_connect(
-                    complex_wiremap, complex_portmap, sink_pins
-                )
-                new_wire_to_be_driven_by_voter = complex_wiremap[
-                    driver_pin.wire
-                ]
-                self._complex_voter_add(
-                    driver_pin, new_wire_to_be_driven_by_voter
-                )
+            complex_portmap = self._complex_replicate_ports(
+                additional_ports_to_replicate
+            )
+            complex_wiremap = self._complex_replicate_wires(
+                additional_wires_to_replicate
+            )
+            self._complex_connect(
+                complex_wiremap, complex_portmap, sink_pins
+            )
+            new_wire_to_be_driven_by_voter = complex_wiremap[
+                driver_pin.wire
+            ]
+            self._complex_voter_add(
+                driver_pin, new_wire_to_be_driven_by_voter
+            )
 
     def _complex_replicate_ports(self, additional_ports_to_replicate):
         complex_portmap = dict()

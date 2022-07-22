@@ -1,10 +1,11 @@
 import spydrnet as sdn
 from spydrnet.util.selection import Selection
+from spydrnet_tmr.utils.design_rule_check.util import find_key
 
 def check_organs(insertion_points,organs,organ_names,suffix):
     '''
     Checks to see if organs were inserted (using :ref:`insert_organs`) correctly by checking:
-       
+
         * if organs are found where they were intended to be inserted
         * if each organ outputs to elements in its own domain (e.g. VOTER_TMR_0 outputs to something else in TMR_0)
         * if each organ inputs from different domains (e.g. voter inputs from TMR_0, TMR_1, and TMR_2)
@@ -77,23 +78,14 @@ def check_if_organ_inputs_from_each_domain(organs,suffix):
                 else:
                     key = find_key(instance.inner_pin.port,suffix)
                 if key in keys:
-                    print(key)
-                    print(keys)
+                    # print(key)
+                    # print(keys)
                     print("WARNING:",organ.name,'inputs from the same domain more than once',organ.parent.name)
                     okay = False
                     break
                 else:
                     keys.append(key)
     return okay
-
-def find_key(instance,suffix):
-    start_index = instance.name.find(suffix)
-    stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
-        key = ''
-    else:
-        key = instance.name[start_index:stop_index]
-    return key
 
 def previous_instance_filter(current_pin,organ):
     if current_pin.instance.is_leaf() and current_pin.inner_pin.port.direction is sdn.OUT:

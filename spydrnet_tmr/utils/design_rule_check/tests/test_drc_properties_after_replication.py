@@ -16,7 +16,7 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
     '''
 
     def setUp(self):
-        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','fourBitCounter','basic_clock_crossing']
+        examples_list = ['b13','register_file','three_stage_synchronizer','synchronizer_test','n_bit_counter','fourBitCounter','basic_clock_crossing']#,'lc2','lc3','counters128']
         random_value = randint(0,len(examples_list)-1)
         self.example = examples_list[random_value]
 
@@ -81,4 +81,3 @@ class TestDRCPropertiesAfterReplication(unittest.TestCase):
     def remove_generated_netlists(self,example_name):
         os.remove(example_name+".edf")
         os.remove(example_name+"_modified.edf")
-    
