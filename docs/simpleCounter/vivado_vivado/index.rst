@@ -1,17 +1,12 @@
-"""
-==========================================
-SpyDrNet TMR using Vivado - Simple Counter
-==========================================
-
-.. note::
-   The Verilog Netlist portion of this example is not functioning properly. The design composes with no problems, but in Vivado the design is not getting the desired output.
-
+Vivado -> TMR -> Vivado
+=======================
+  
 Uploading the Verilog HDL into Vivado
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to create an RTL project.
 
-.. image:: /figures/vivado_screenshot1.*
+.. image:: vivado_screenshot1.*
    :align: center
 
 Add **simpleCounter.sv** to the project.
@@ -24,7 +19,7 @@ Getting the Netlist from Vivado
 After adding the simpleCounter.sv file to your project, go to the "Flow Navigator" window on the left hand side of the screen, and click on "Run Synthesis."
 
 .. _img:vivado_run_synthesis:
-.. image:: /figures/vivado_screenshot3.*
+.. image:: vivado_screenshot3.*
    :align: center
 
 Exporting the Netlist
@@ -38,7 +33,7 @@ A window pops up with the option to export EDIF and Verilog Netlists. Select the
  
 
 .. _img:vivado_export_netlist:
-.. image:: /figures/export_netlist.*
+.. image:: export_netlist.*
    :align: center
 
 * If downloading an EDIF file change the file type from .edn to .edf 
@@ -113,7 +108,7 @@ SpyDrNet TMR to Vivado
 Create new project in Vivado and choose Post-synthesis Project
 
 .. _img:post_synthesis:
-.. image:: /figures/post_synthesis.*
+.. image:: post_synthesis.*
    :align: center
 
 If working with a .edf file, upload **simpleCounter_tmr.edf** that was just created and **simpleCounter_tmr.xdc** to the project.
@@ -129,64 +124,64 @@ The verilog netlist asks for a top module to be specified. *Click on auto find*
 After adding the source files for your project, go to the "Flow Navigator" window on the left hand side of the screen, and click on "Generate Bitstream" under "Program and Debug."
 
 .. _img:vivado_run_generate_bitstream:
-.. image:: /figures/vivado_screenshot3.*
+.. image:: vivado_screenshot3.*
    :align: center
 
 Once the Bitstream has been generated click on "Open Hardware Manager" under the tab "Program and Debug", click on "Open Target" then click on "Auto Connect", next click on "Program Device" then click on the box that pops up. A "Program Device" window should open up, click on program to download the bitstream to your device.
 
 
-Verifying the Design Works
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Verifying if the Design Works
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The counter in this design increments when btnc is pressed. Once it reaches a count of 16 it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
 Since this is a TMR design there should be 3 sets of 4 leds in total.
 
+* Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)
+
 .. note::
-   This example is done on a BASYS 3 board. If a different FPGA is being used the .xdc file will need to be modified accordingly.
+   1. This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter_tmr.xdc file will need to be modified accordingly.
+   2. The Verilog Netlist portion of this example is not functioning properly. The design composes with no problems, but in Vivado the design is not getting the desired output.
 
 Files:
 
 |simpleCounter.sv|
 
 .. |simpleCounter.sv| replace::
-   :download:`simpleCounter.sv </auto_examples/basic/simpleCounter.sv>`
+   :download:`simpleCounter.sv <simpleCounter.sv>`
 
 |simpleCounter.edf|
 
 .. |simpleCounter.edf| replace::
-   :download:`simpleCounter.edf </auto_examples/basic/simpleCounter.edf>`
+   :download:`simpleCounter.edf <simpleCounter.edf>`
 
 |simpleCounter_tmr.edf|
 
 .. |simpleCounter_tmr.edf| replace::
-   :download:`simpleCounter_tmr.edf </auto_examples/basic/simpleCounter_tmr.edf>`
+   :download:`simpleCounter_tmr.edf <simpleCounter_tmr.edf>`
 
 |simpleCounter_tmr.xdc|
 
 .. |simpleCounter_tmr.xdc| replace::
-   :download:`simpleCounter_tmr.xdc </auto_examples/basic/simpleCounter_tmr.xdc>`
+   :download:`simpleCounter_tmr.xdc <simpleCounter_tmr.xdc>`
 
 |edf_tmr_script.py|
 
 .. |edf_tmr_script.py| replace::
-   :download:`edf_tmr_script.py </auto_examples/basic/edf_tmr_script.txt>`
+   :download:`edf_tmr_script.py <edf_tmr_script.txt>`
 
 
 
 |simpleCounter.v|
 
 .. |simpleCounter.v| replace::
-   :download:`simpleCounter.v </auto_examples/basic/simpleCounter.v>`
+   :download:`simpleCounter.v <simpleCounter.v>`
 
 |simpleCounter_tmr.v|
 
 .. |simpleCounter_tmr.v| replace::
-   :download:`simpleCounter_tmr.v </auto_examples/basic/simpleCounter_tmr.v>`
+   :download:`simpleCounter_tmr.v <simpleCounter_tmr.v>`
 
 |verilog_tmr_script.py|
 
 .. |verilog_tmr_script.py| replace::
-   :download:`verilog_tmr_script.py</auto_examples/basic/verilog_tmr_script.txt>`
-
-
-"""
+   :download:`verilog_tmr_script.py <verilog_tmr_script.txt>`
