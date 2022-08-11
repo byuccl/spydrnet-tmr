@@ -85,7 +85,7 @@ class Constraints_Fixer():
     def get_replica_domain(self, instance): # TMR_0, TMR_1 etc
         start_index = instance.name.find(self.suffix)
         stop_index = start_index + len(self.suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             key = ''
         else:
             key = instance.name[start_index:stop_index]

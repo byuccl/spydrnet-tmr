@@ -1,4 +1,4 @@
-Yosys -> TMR -> F4PGA
+Yosys/F4PGA
 =====================
    
 Install F4PGA
@@ -40,8 +40,6 @@ Running Yosys, SpyDrNet TMR, and F4PGA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once all of the files have been downloaded type navigate to their location and type in the command line
-export F4PGA_INSTALL_DIR=~/opt/f4pga
-
 
 >>> make -C .
 
@@ -55,16 +53,17 @@ To download the bitstream to the board using the command line
 Verifying if the Design Works
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The counter in this design increments when btnc is pressed. Once it reaches a count of 16 it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (all LEDs are ont) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
 Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 * Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)
 
 .. note:: 
    1. This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter.xdc and the new_constraints.txt file will need to be modified accordingly. 
-   2. Make sure all of the files are in the same location. If not the path to the file will need to be specified
+   2. Make sure all of the files are in the same location. If not the path to the file will need to be specified in the Makefile
    3. If getting errors with common.mk make sure that all of the indents are tabs and not spaces.
    4. Downloading the bitstream can be done in the same command **make download -C .**
+   5. Make sure that the corrected conda env is activated
 
 
 .. |simpleCounter.sv| replace::
@@ -76,7 +75,7 @@ Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 
 .. |new_constraints.txt| replace::
-   :download:`new_constraints.txtc <new_constraints.txt>`
+   :download:`new_constraints.txt <new_constraints.txt>`
 
 
 .. |tmr_script.py| replace::
@@ -89,12 +88,3 @@ Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 .. |Makefile| replace::
    :download:`Makefile <Makefile>`
-
-
-
-
-
-
-
-
-

@@ -8,6 +8,4 @@ The paths include:
    :maxdepth: 1
    
    vivado_vivado/index.rst
-   Vivado_F4PGA/index.rst
-   yosys_vivado/index.rst
-   Yosys_F4PGA/index.rst
+   yosys_f4pga/index.rst

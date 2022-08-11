@@ -1,4 +1,4 @@
-Vivado -> TMR -> Vivado
+Vivado/Vivado
 =======================
   
 Uploading the Verilog HDL into Vivado
@@ -133,7 +133,7 @@ Once the Bitstream has been generated click on "Open Hardware Manager" under the
 Verifying if the Design Works
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The counter in this design increments when btnc is pressed. Once it reaches a count of 16 it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (all LEDs are ont) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
 Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 * Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)
@@ -167,9 +167,7 @@ Files:
 |edf_tmr_script.py|
 
 .. |edf_tmr_script.py| replace::
-   :download:`edf_tmr_script.py <edf_tmr_script.txt>`
-
-
+   :download:`edf_tmr_script.py <edf_tmr_script.py>`
 
 |simpleCounter.v|
 
@@ -184,4 +182,4 @@ Files:
 |verilog_tmr_script.py|
 
 .. |verilog_tmr_script.py| replace::
-   :download:`verilog_tmr_script.py <verilog_tmr_script.txt>`
+   :download:`verilog_tmr_script.py <verilog_tmr_script.py>`
