@@ -98,7 +98,7 @@ Download: |edf_tmr_script.py|
 
 If using the .v file the following code can be downloaded to triplicate the design
 
-*Note: To be able to run the design through Spydrnet TMR any instances, ports, or wires that have a \ as the first character and a space as the last character need to have them removed before replication and then replaced after triplication, but before composing.*
+**Note:** To be able to run the design through Spydrnet TMR any instances, ports, or wires that have a \ as the first character and a space as the last character need to have them removed before replication and then replaced after triplication, but before composing.
 
 Download: |verilog_tmr_script.py|
 
@@ -133,7 +133,7 @@ Once the Bitstream has been generated click on "Open Hardware Manager" under the
 Verifying if the Design Works
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (all LEDs are ont) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (4 LEDs are on) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
 Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 * Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)

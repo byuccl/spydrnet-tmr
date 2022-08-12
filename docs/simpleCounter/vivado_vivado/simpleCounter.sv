@@ -1,13 +1,4 @@
 `timescale 1ns / 1ps
-/***************************************************************************
-* Module: simpleCounter
-*
-* Author: Ethan Monlux
-* Date: 3/29/2022
-* Description: Debounced Counter that increments once
-*
-****************************************************************************/
-
 
 module simpleCounter(
 

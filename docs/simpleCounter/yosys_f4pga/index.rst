@@ -1,25 +1,23 @@
 Yosys/F4PGA
 =====================
    
-Install F4PGA
-~~~~~~~~~~~~~
+Setting up Yosys and F4PGA
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow the walkthough on how to install F4PGA `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html>`_.
+Install F4PGA and follow all of the steps `here <https://f4pga-examples.readthedocs.io/en/latest/getting.html>`_.
 
-Modify F4PGA Scripts
-~~~~~~~~~~~~~~~~~~~~
+1. Using the command line type the following
 
-Once F4PGA has been installed
+>>> cd ~/opt/f4pga/xc7/share/f4pga/scripts/xc7
 
-1. Type in command line **~/opt/f4pga/xc7/install/share/symbiflow/scripts/xc7/**
-2. Open synth.tcl. 
+2. Open synth.tcl
 
-   * Add the “-nocarry” option to all of the synth_xilinx commands. 
+* Add the “-nocarry” option to all of the synth_xilinx commands.
 
-3. Open conv.tcl. 
+3. Open conv.tcl
 
-   * Add “hierarchy -purge_lib” as the first command, 
-   * Add option “-blackbox” to both write_blif commands
+* Add “hierarchy -purge_lib” as the first command
+* Add option “-blackbox” to both write_blif commands
 
 Download all of the following files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,6 +41,12 @@ Once all of the files have been downloaded type navigate to their location and t
 
 >>> make -C .
 
+or 
+
+>>> make download -C .
+
+**Note:** This will run Yosys and F4PGA then download the bitstream to the board
+
 Programming Device
 ^^^^^^^^^^^^^^^^^^
 
@@ -53,7 +57,7 @@ To download the bitstream to the board using the command line
 Verifying if the Design Works
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (all LEDs are ont) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (4 LEDs are on) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
 Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 * Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)
@@ -62,9 +66,6 @@ Since this is a TMR design there should be 3 sets of 4 leds in total.
    1. This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter.xdc and the new_constraints.txt file will need to be modified accordingly. 
    2. Make sure all of the files are in the same location. If not the path to the file will need to be specified in the Makefile
    3. If getting errors with common.mk make sure that all of the indents are tabs and not spaces.
-   4. Downloading the bitstream can be done in the same command **make download -C .**
-   5. Make sure that the corrected conda env is activated
-
 
 .. |simpleCounter.sv| replace::
    :download:`simpleCounter.sv <simpleCounter.sv>`
