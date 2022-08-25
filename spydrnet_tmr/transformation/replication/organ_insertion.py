@@ -550,7 +550,7 @@ class OrganInsertion:
                 additional_wire.cable.wires.index(additional_wire)
             )
 
-        self.set_name(primary_organ, primary_organ.name)
+        self.set_identifier(primary_organ, self.get_identifier(additional_wire.cable))
         additional_wire.cable.definition.add_child(primary_organ)
         return primary_organ
 
@@ -565,7 +565,9 @@ class OrganInsertion:
             # wire name = <port_name><type_suffix>[pin_index if array]
             port = primary.port
             port_name = port.name
-            port_identifier = self.get_name(port)
+            port_identifier = self.get_identifier(port)
+            if not port_identifier:
+                port_identifier = port_name
             if port.is_array:
                 pin_index = port.pins.index(primary)
                 cable_name = (
@@ -593,11 +595,15 @@ class OrganInsertion:
         else:
             instance = primary.instance
             instance_name = instance.name
-            instance_identifier = self.get_name(instance)
+            instance_identifier = self.get_identifier(instance)
+            if not instance_identifier:
+                instance_identifier = instance_name
             inner_pin = primary.inner_pin
             port = inner_pin.port
             port_name = port.name
-            port_identifier = self.get_name(port)
+            port_identifier = self.get_identifier(port)
+            if not port_identifier:
+                port_identifier = port_name
             if port.is_array:
                 pin_index = port.pins.index(inner_pin)
                 cable_name = (
@@ -634,7 +640,7 @@ class OrganInsertion:
             parent = instance.parent
         new_cable = parent.create_cable()
         new_cable.name = cable_name
-        self.set_name(new_cable,cable_identifier)
+        self.set_identifier(new_cable, cable_identifier)
         new_wire = new_cable.create_wire()
         return new_wire
 
@@ -720,20 +726,11 @@ class OrganInsertion:
         )
         return all_points
 
-    def get_name(self,object):
-        return object.name
-        # if "EDIF.identifer" in object.data:
-        #     return object["EDIF.identifier"]
-        # elif "EBLIF.cname" in object.data:
-        #     return object["EBLIF.cname"]
-        # else:
-        #     return object.name
+    def get_identifier(self,object):
+        if "EDIF.identifier" in object.data:
+            return object["EDIF.identifier"]
+        return None
 
-    def set_name(self,object,name):
-        if "EDIF.identifer" in object.data:
+    def set_identifier(self,object,name):
+        if name:
             object["EDIF.identifier"] = name
-        elif "EBLIF.cname" in object.data:
-            object["EBLIF.cname"] = name
-        else:
-            None
-        object.name = name
