@@ -49,6 +49,7 @@ Bibliography
    tutorial
    reference/index.rst
    auto_examples/index
+   simpleCounter/index.rst
    f4pga/index
    developer/index.rst
    license
