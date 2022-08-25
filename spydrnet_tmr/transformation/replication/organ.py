@@ -752,7 +752,7 @@ class LatticeTMRVoter(Organ):
         ]
         self._other_input_pins = [
             next(self._definition.get_ports("B")).pins[0],
-            next(self._definition.get_ports("C")).pins[0],
+            next(self._definition.get_ports("C")).pins[0]
             # next(self._definition.get_ports("D")).pins[0] # ignore this pin
         ]
         self._primary_output_pin = next(self._definition.get_ports("Z")).pins[

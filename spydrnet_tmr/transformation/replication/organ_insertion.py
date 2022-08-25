@@ -117,7 +117,16 @@ class OrganInsertion:
         elif all(pin in driver_pin.wire.pins for pin in sink_pins):
             # all the pins on the same wire, so
             # normal reduction voter insert
-            new_wire_to_be_driven_by_voter = self._create_a_wire_from_pin(driver_pin)
+            new_wire_to_be_driven_by_voter = None
+            if self.replica_suffix in driver_pin.wire.cable.name:
+                new_wire_to_be_driven_by_voter =self._create_a_wire_from_pin(driver_pin)
+            else: 
+                # the current wire is the non replicated original and thus should be output from the voter
+                new_wire_to_be_driven_by_voter = driver_pin.wire
+                new_wire_to_be_driven_by_voter.cable.name = new_wire_to_be_driven_by_voter.cable.name + "_" + self.name_suffix
+                driver_pin.wire.disconnect_pin(driver_pin)
+                new_wire = self._create_a_wire_from_pin(driver_pin)
+                new_wire.connect_pin(driver_pin)
             self._complex_voter_add(driver_pin, new_wire_to_be_driven_by_voter)
             for pin in sink_pins:
                 if pin.wire:
@@ -186,7 +195,9 @@ class OrganInsertion:
         return complex_wiremap
 
     def _complex_connect(self, complex_wiremap, complex_portmap, sink_pins):
+        items_to_insert = []
         for original_wire, clone_wire in complex_wiremap.items():
+            items_to_insert.append((clone_wire, original_wire))
             pins_to_swap = set()
             for pin in original_wire.pins:
                 if isinstance(pin, sdn.InnerPin):
@@ -215,9 +226,12 @@ class OrganInsertion:
                 connected_wire.disconnect_pin(pin)
                 clone_wire = complex_wiremap[connected_wire]
                 clone_wire.connect_pin(pin)
+        for item in items_to_insert:
+            complex_wiremap[item[0]] = item[1]
 
     def _complex_voter_add(self, driver_pin, new_wire_to_be_driven_by_voter):
         # create a voter based on new_wire_to_be_driven_name
+        # print(new_wire_to_be_driven_by_voter.cable.name + " is the new voter output wire")
         primary_organ = self._create_a_new_organ_from_wire(
             new_wire_to_be_driven_by_voter
         )
@@ -536,7 +550,7 @@ class OrganInsertion:
                 additional_wire.cable.wires.index(additional_wire)
             )
 
-        self.set_name(primary_organ,self.get_name(additional_wire.cable))
+        self.set_name(primary_organ, primary_organ.name)
         additional_wire.cable.definition.add_child(primary_organ)
         return primary_organ
 
@@ -568,7 +582,7 @@ class OrganInsertion:
                     + self.name_suffix
                     + "_"
                     + str(pin_index)
-                    + "_"
+                    # + "_"
                 )
             else:
                 cable_name = port_name + "_" + self.name_suffix
@@ -604,7 +618,7 @@ class OrganInsertion:
                     + self.name_suffix
                     + "_"
                     + str(pin_index)
-                    + "_"
+                    # + "_"
                 )
             else:
                 cable_name = (
@@ -658,7 +672,7 @@ class OrganInsertion:
     def find_key(self, instance):
         start_index = instance.name.find(self.replica_suffix)
         stop_index = start_index + len(self.replica_suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             key = ""
         else:
             key = instance.name[start_index:stop_index]
