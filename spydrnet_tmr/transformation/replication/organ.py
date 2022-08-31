@@ -706,7 +706,7 @@ class XilinxCombinedOrgan(Organ):
 
 class LatticeTMRVoter(Organ):
     """
-    A LUT3 with INIT value 8'hE8. Votes by majority.
+    A LUT4 with INIT value 8'hE8. Votes by majority.
 
     .. figure:: ../../figures/voter.*
         :width: 800px
