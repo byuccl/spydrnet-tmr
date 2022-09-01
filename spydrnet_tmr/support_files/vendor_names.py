@@ -1,1 +1,2 @@
 XILINX = "xilinx"
+LATTICE = "lattice"

@@ -1,0 +1,73 @@
+{
+    "vendor": "lattice",
+    "primitive_library_name": "hdi_primitives",
+    "ff_cells": [
+        {
+            "name": "FD1P3DX",
+            "description": "asynchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "CD",
+                "Q"
+            ]
+        },
+        {
+            "name": "FD1P3BX",
+            "description": "asynchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "PD",
+                "Q"
+            ]
+        },
+        {
+            "name": "FD1P3IX",
+            "description": "synchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "CD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "FD1P3JX",
+            "description": "synchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "PD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
+        }
+    ]
+    
+}
