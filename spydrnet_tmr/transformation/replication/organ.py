@@ -162,6 +162,7 @@ class XilinxTMRVoterEBLIF(Organ):
         if primitive_definition is None:
             primitive_definition = primitive_library.create_definition()
             primitive_definition.name = "LUT3"
+            primitive_definition["EBLIF.blackbox"] = True
             for ii in range(3):
                 input_port = primitive_definition.create_port()
                 input_port.name = "I" + str(ii)
@@ -220,11 +221,11 @@ class XilinxTMRVoterVerilog(Organ):
         self._primary_output_pin = None
 
     def ensure_definition_in_netlist(self, netlist):
-        primitive_library = next(netlist.get_libraries("SDN.verilog_primitives"), None)
+        primitive_library = next(netlist.get_libraries("hdi_primitives"), None)
         if primitive_library is None:
             primitive_library = sdn.Library()
             netlist.add_library(primitive_library, 0)
-            primitive_library.name = "SDN.verilog_primitives"
+            primitive_library.name = "hdi_primitives"
             # primitive_library["EDIF.identifier"] = primitive_library.name
 
         primitive_definition = next(
@@ -233,7 +234,7 @@ class XilinxTMRVoterVerilog(Organ):
         if primitive_definition is None:
             primitive_definition = primitive_library.create_definition()
             primitive_definition.name = "LUT3"
-            # primitive_definition["EDIF.identifier"] = primitive_definition.name
+            primitive_definition["VERILOG.primitive"] = True
             for ii in range(3):
                 input_port = primitive_definition.create_port()
                 input_port.name = "I" + str(ii)
@@ -720,11 +721,11 @@ class LatticeTMRVoter(Organ):
         self._primary_output_pin = None
 
     def ensure_definition_in_netlist(self, netlist):
-        primitive_library = next(netlist.get_libraries("SDN.verilog_primitives"), None)
+        primitive_library = next(netlist.get_libraries("hdi_primitives"), None)
         if primitive_library is None:
             primitive_library = sdn.Library()
             netlist.add_library(primitive_library, 0)
-            primitive_library.name = "SDN.verilog_primitives"
+            primitive_library.name = "hdi_primitives"
             # primitive_library["EDIF.identifier"] = primitive_library.name
 
         primitive_definition = next(
