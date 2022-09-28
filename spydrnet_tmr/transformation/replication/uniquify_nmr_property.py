@@ -26,12 +26,27 @@ def uniquify_nmr_property(replicas, property_keys, suffix="NMR"):
 
 
 def _update_edif_properties(element, property_keys, property_keys_lower, suffix):
-        if 'EDIF.properties' in element:
-            edif_properties = element['EDIF.properties']
-            for property in edif_properties:
-                if ('identifier' in property and property['identifier'].lower() in property_keys_lower) or \
-                        ('original_identifier' in property and property['original_identifier'] in property_keys):
-                    if 'value' in property:
-                        value = property['value']
-                        if isinstance(value, str):
-                            property['value'] = value + '_' + suffix
+    if 'EDIF.properties' in element:
+        edif_properties = element['EDIF.properties']
+        for property in edif_properties:
+            if ('identifier' in property and property['identifier'].lower() in property_keys_lower) or \
+                    ('original_identifier' in property and property['original_identifier'] in property_keys):
+                if 'value' in property:
+                    value = property['value']
+                    if isinstance(value, str):
+                        property['value'] = value + '_' + suffix
+    elif "VERILOG.InlineConstraints" in element:
+        properties = element["VERILOG.InlineConstraints"]
+        # print(properties.__class__)
+        new_properties = dict()
+        for prop_0, prop_1 in properties.items():
+            if any(prop_key in prop_0.lower() for prop_key in property_keys_lower):
+                # print("HERE " + prop_0 + " : " + prop_1)
+                value = prop_1
+                if isinstance(value, str):
+                    prop_1 = value[:len(value)-1] + "_" + suffix + value[len(value)-1]
+            new_properties[prop_0] = prop_1
+        element["VERILOG.InlineConstraints"] = new_properties
+
+    else:
+        None
