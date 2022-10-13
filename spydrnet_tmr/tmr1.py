@@ -1,5 +1,4 @@
 import spydrnet as sdn
-import spydrnet_shrec as sdn_shrec
 import os
 
 netlist = None
@@ -34,7 +33,7 @@ def run():
     
 def load_netlist():
     global netlist
-    netlist = sdn_shrec.load_example_netlist_by_name('registered_inverter')
+    netlist = sdn.load_example_netlist_by_name('registered_inverter')
 
 
 def select_ports_to_replicate():
