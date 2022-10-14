@@ -1,5 +1,5 @@
 import spydrnet as sdn
-from spydrnet_shrec import adjacency_list
+from spydrnet_tmr.analysis import adjacency_list
 import networkx as nx
 
 
