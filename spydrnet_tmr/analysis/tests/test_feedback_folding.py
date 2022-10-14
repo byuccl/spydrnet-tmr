@@ -1,5 +1,5 @@
-from spydrnet_shrec.analysis.adjacency_list import adjacency_list
-import spydrnet_shrec as sdn_shrec
+from spydrnet_tmr.analysis.adjacency_list import adjacency_list
+import spydrnet_tmr as sdn_tmr
 import spydrnet as sdn
 import networkx as nx
 
@@ -28,7 +28,7 @@ class TestFeedbackFolding(unittest.TestCase):
             feedback_hierarchy,
             distances,
             collapsed_graph,
-        ) = sdn_shrec.fold_feedback(connectivity_graph)
+        ) = sdn_tmr.fold_feedback(connectivity_graph)
         node_counts = self.get_node_counts(feedback_hierarchy)
         influence_counts = self.get_influence_counts(
             collapsed_graph, node_counts

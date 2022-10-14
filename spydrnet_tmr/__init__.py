@@ -26,7 +26,15 @@ from spydrnet_tmr.transformation.replication.organ_insertion import (
 from spydrnet_tmr.transformation.replication.uniquify_nmr_property import (
     uniquify_nmr_property,
 )
+from spydrnet_tmr.analysis.adjacency_list import adjacency_list
+from spydrnet_tmr.analysis.feedback_folding import fold_feedback
+from spydrnet_tmr.analysis.find_all_leaf_cells import find_all_leaf_cells
+from spydrnet_tmr.analysis.pin_clock_domain_analysis import (
+    pin_clock_domain_analysis,
+)
+from spydrnet_tmr.analysis.find_synchronizers import find_synchronizers
 from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
+from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter,XilinxDWCDetector
 
 import os
 

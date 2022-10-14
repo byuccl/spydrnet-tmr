@@ -1,5 +1,4 @@
 import spydrnet as sdn
-import spydrnet_shrec as sdn_shrec
 
 lut_counter = 0
 

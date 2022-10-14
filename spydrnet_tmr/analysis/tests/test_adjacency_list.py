@@ -1,7 +1,6 @@
 import unittest
 from collections import deque
-from spydrnet_shrec.analysis.adjacency_list import adjacency_list
-import spydrnet_shrec as sdn_shrec
+from spydrnet_tmr.analysis.adjacency_list import adjacency_list
 import spydrnet as sdn
 import networkx as nx
 

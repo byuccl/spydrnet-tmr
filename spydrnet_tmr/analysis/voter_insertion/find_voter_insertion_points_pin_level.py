@@ -181,4 +181,4 @@ def find_voter_insertion_points(netlist, endpoints_to_replicate, primitive_names
     # num_reduction_voters = len(insertion_points) - num_feedback_voters
     # print("Identified {} insertion points for reduction voters.".format(num_reduction_voters))
 
-    return insertion_points
+    # return insertion_points
