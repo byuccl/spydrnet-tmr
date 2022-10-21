@@ -22,7 +22,7 @@ def identify_reduction_points(replicas, suffix):
     ignore_types = ["VCC", "GND", "CLK"]
     for primary in pinmap.keys():
         if not any(ignore in primary.instance.name for ignore in ignore_types):
-            if primary.inner_pin.port.direction is sdn.OUT:
+            if primary.inner_pin.port.direction in {sdn.OUT, sdn.INOUT}:
                 insertion_points += get_and_compare_next_instances(
                     primary, pinmap[primary], suffix
                 )
@@ -107,7 +107,7 @@ def fix_instance_name(pin, suffix):
     modified_name = None
     start_index = name.find(suffix)
     stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
+    if start_index == -1:
         modified_name = name
     else:
         modified_name = (
