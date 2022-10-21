@@ -12,6 +12,7 @@ def insert_organs(
     organ,
     name_suffix="ORGAN",
     replicate_organ=True,
+    reuse_cables=False
 ):
     """
     Inserts organs (voters, detectors, etc.) at the specified insertion points.
@@ -25,10 +26,12 @@ def insert_organs(
     :param insertion_points: list of outer pins of where organs should be inserted
     :param organ: type of organ to insert (e.g. XilinxDWCDetector)
     :param name_suffix: string to append to organ instance names (e.g. 'DETECTOR')
+    :param replicate_organ: 
+    :param reuse_cables: create multibit cables when possible instead of creating a unique cable for each voter.
     :return: a map from insertion point to all organs
     """
     insert_organs_agent = OrganInsertion.from_replicas_points_organ_and_name(
-        replicas, insertion_points, organ, name_suffix, replicate_organ
+        replicas, insertion_points, organ, name_suffix, replicate_organ, reuse_cables
     )
     organs = insert_organs_agent.insert()
     return organs
@@ -37,14 +40,14 @@ def insert_organs(
 class OrganInsertion:
     @staticmethod
     def from_replicas_points_organ_and_name(
-        replicas, points, organ, name_suffix, replicate_organ=True
+        replicas, points, organ, name_suffix, replicate_organ=True, reuse_cables=False
     ):
         insert_organs_agent = OrganInsertion(
-            replicas, points, organ, name_suffix, replicate_organ
+            replicas, points, organ, name_suffix, replicate_organ, reuse_cables
         )
         return insert_organs_agent
 
-    def __init__(self, replicas, points, organ, name_suffix, replicate_organ):
+    def __init__(self, replicas, points, organ, name_suffix, replicate_organ, reuse_cables):
         self.replicas = replicas
         self.points = dict.fromkeys(self._filter_insertion_points(points))
         self.points = self.compress_insertion_points()
@@ -53,6 +56,7 @@ class OrganInsertion:
         self.replicate_organ = replicate_organ
         self.replica_suffix = self.find_replica_suffix()
         self.existing_organ = None
+        self.reuse_cables = reuse_cables
 
         self._pinmap = None
 
@@ -123,7 +127,8 @@ class OrganInsertion:
             else: 
                 # the current wire is the non replicated original and thus should be output from the voter
                 new_wire_to_be_driven_by_voter = driver_pin.wire
-                new_wire_to_be_driven_by_voter.cable.name = new_wire_to_be_driven_by_voter.cable.name + "_" + self.name_suffix
+                if self.name_suffix not in new_wire_to_be_driven_by_voter.cable.name:
+                    new_wire_to_be_driven_by_voter.cable.name = new_wire_to_be_driven_by_voter.cable.name + "_" + self.name_suffix
                 driver_pin.wire.disconnect_pin(driver_pin)
                 new_wire = self._create_a_wire_from_pin(driver_pin)
                 new_wire.connect_pin(driver_pin)
@@ -155,6 +160,14 @@ class OrganInsertion:
             self._complex_connect(
                 complex_wiremap, complex_portmap, sink_pins
             )
+            # new_wire_to_be_driven_by_voter = None
+            # if self.replica_suffix not in driver_pin.wire.cable.name:
+            #     new_wire_to_be_driven_by_voter = driver_pin.wire
+            #     new_wire_to_be_driven_by_voter.cable.name = new_wire_to_be_driven_by_voter.cable.name + "_" + self.name_suffix
+            #     driver_pin.wire.disconnect_pin(driver_pin)
+            #     new_wire = self._create_a_wire_from_pin(driver_pin)
+            #     new_wire.connect_pin(driver_pin)
+            # else:
             new_wire_to_be_driven_by_voter = complex_wiremap[
                 driver_pin.wire
             ]
@@ -235,6 +248,8 @@ class OrganInsertion:
         primary_organ = self._create_a_new_organ_from_wire(
             new_wire_to_be_driven_by_voter
         )
+        # if self.name_suffix not in primary_organ.name:
+        #     primary_organ.name = primary_organ.name + "_" + self.name_suffix
         self.organs[driver_pin] = list()
         self.organs[driver_pin].append(primary_organ)
 
@@ -561,6 +576,12 @@ class OrganInsertion:
         return any(other_pin.wire is None for other_pin in self._pinmap[pin])
 
     def _create_a_wire_from_pin(self, primary):
+        if self.reuse_cables:
+            return self._create_a_wire_from_pin_reuse(primary)
+        else:
+            return self._create_a_wire_from_pin_1(primary) 
+
+    def _create_a_wire_from_pin_1(self, primary):
         if isinstance(primary, sdn.InnerPin):
             # wire name = <port_name><type_suffix>[pin_index if array]
             port = primary.port
@@ -641,6 +662,95 @@ class OrganInsertion:
         new_cable = parent.create_cable()
         new_cable.name = cable_name
         self.set_identifier(new_cable, cable_identifier)
+        new_wire = new_cable.create_wire()
+        return new_wire
+    
+    def _create_a_wire_from_pin_reuse(self, primary):
+        pin_index = None
+        if isinstance(primary, sdn.InnerPin):
+            # wire name = <port_name><type_suffix>[pin_index if array]
+            port = primary.port
+            port_name = port.name
+            port_identifier = self.get_identifier(port)
+            if not port_identifier:
+                port_identifier = port_name
+            if port.is_array:
+                pin_index = port.pins.index(primary)
+                cable_name = (
+                    port_name
+                    + "_"
+                    + self.name_suffix
+                    # + "["
+                    # + str(pin_index)
+                    # + "]"
+                )
+                cable_identifier = (
+                    port_identifier
+                    + "_"
+                    + self.name_suffix
+                    # + "_"
+                    # + str(pin_index)
+                    # + "_"
+                )
+            else:
+                cable_name = port_name + "_" + self.name_suffix
+                cable_identifier = (
+                    port_identifier + "_" + self.name_suffix
+                )
+            parent = port.definition
+        else:
+            instance = primary.instance
+            instance_name = instance.name
+            instance_identifier = self.get_identifier(instance)
+            if not instance_identifier:
+                instance_identifier = instance_name
+            inner_pin = primary.inner_pin
+            port = inner_pin.port
+            port_name = port.name
+            port_identifier = self.get_identifier(port)
+            if not port_identifier:
+                port_identifier = port_name
+            if port.is_array:
+                pin_index = port.pins.index(inner_pin)
+                cable_name = (
+                    instance_name
+                    + "_"
+                    + port_name
+                    + "_"
+                    + self.name_suffix
+                    # + "["
+                    # + str(pin_index)
+                    # + "]"
+                )
+                cable_identifier = (
+                    instance_identifier
+                    + "_"
+                    + port_identifier
+                    + "_"
+                    + self.name_suffix
+                    # + "_"
+                    # + str(pin_index)
+                    # + "_"
+                )
+            else:
+                cable_name = (
+                    instance_name + "_" + port_name + "_" + self.name_suffix
+                )
+                cable_identifier = (
+                    instance_identifier
+                    + "_"
+                    + port_identifier
+                    + "_"
+                    + self.name_suffix
+                )
+            parent = instance.parent
+        new_cable = next(parent.get_cables(cable_name), None)
+        if not new_cable:
+            new_cable = parent.create_cable()
+            new_cable.name = cable_name
+            self.set_identifier(new_cable, cable_identifier)
+        new_wire = sdn.ir.Wire()
+        new_cable.add_wire(new_wire, pin_index)
         new_wire = new_cable.create_wire()
         return new_wire
 
