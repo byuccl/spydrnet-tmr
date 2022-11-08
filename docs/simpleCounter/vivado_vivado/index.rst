@@ -1,5 +1,7 @@
 Vivado/Vivado
 =======================
+
+This walk through explains how to take a net list from Vivado and run it through SpyDrNet TMR and then reinsert the design into Vivado. 
   
 Uploading the Verilog HDL into Vivado
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,12 +38,12 @@ A window pops up with the option to export EDIF and Verilog Netlists. Select the
 .. image:: export_netlist.*
    :align: center
 
-* If downloading an EDIF file change the file type from .edn to .edf 
+* If downloading an EDIF file change the file type from .edn to .edf (The python script to run tmr on EDIF netlists uses .edf)
 
-Using the tcl command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using the tcl command line in Vivado
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* To export the netlist using the tcl command line in Vivado type **write_edif simpleCounter.edf** or **write_verilog simpleCounter.v**
+* To export the netlist using the tcl command line type **write_edif simpleCounter.edf** or **write_verilog simpleCounter.v**
 
 Triplicating the design - SpyDrNet TMR 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,9 +55,13 @@ If using the .edf file, the following code runs the netlist through SpyDrNet TMR
    import spydrnet as sdn
    from spydrnet.uniquify import uniquify
    from spydrnet_tmr.support_files.vendor_names import XILINX
-   from spydrnet_tmr.apply_tmr_to_netlist import apply_tmr_to_netlist
+   from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
+      find_after_ff_voter_points,
+   )
+   from spydrnet_tmr import apply_nmr, insert_organs
+   from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 
-   # Parse in the downloaded .edf netlist
+   # Parse in the downloaded .v netlist
    netlist = sdn.parse("simpleCounter.edf")
 
    # Makes all instances unique in the netlist
@@ -65,40 +71,39 @@ If using the .edf file, the following code runs the netlist through SpyDrNet TMR
    hinstances_to_replicate = list(
       netlist.get_hinstances(
          recursive=True, filter=lambda x: x.item.reference.is_leaf() is True
-                                                      and "VCC" not in x.name
+                                                      and "VCC" not in x.name 
                                                       and "GND" not in x.name
                                                       and "ibuf" not in x.name.lower()
-                                                      and "IBUF" not in x.item.reference.name ))
+                                                      and "IBUF" not in x.item.reference.name))
 
    # Gets all of the OUT hports in the design 
-   hports_to_replicate = list(netlist.get_hports(filter=lambda x: x.item.direction is sdn.OUT))
+   hports_to_replicate = list(netlist.get_hports(filter = lambda x: x.item.direction is sdn.OUT))
 
+   instances_to_replicate = list(x.item for x in hinstances_to_replicate)
 
-   valid_voter_point_dict = dict()
-   valid_voter_point_dict["after_ff"] = [
-         *hinstances_to_replicate,
-         *hports_to_replicate,
-      ]
+   ports_to_replicate = list(x.item for x in hports_to_replicate)
 
-   # Triplicates the design and inserts the voters
-   apply_tmr_to_netlist(
-         netlist,
-         XILINX,
-         hinstances_and_hports_to_replicate=[
-               *hinstances_to_replicate,
-               *hports_to_replicate,
-         ],
-         valid_voter_point_dict=valid_voter_point_dict,
-      )
+   insertion_points = find_after_ff_voter_points(netlist,
+      [*hinstances_to_replicate, *hports_to_replicate],
+      XILINX
+   )
+
+   replicas = apply_nmr(
+      [*instances_to_replicate, *ports_to_replicate],
+      3,
+      name_suffix="TMR",
+      rename_original=True,
+   )
+
+   voters = insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
 
    # Compose the triplicated netlist
    netlist.compose("simpleCounter_tmr.edf")
+
    
 Download: |edf_tmr_script.py|
 
 If using the .v file the following code can be downloaded to triplicate the design
-
-**Note:** To be able to run the design through Spydrnet TMR any instances, ports, or wires that have a \ as the first character and a space as the last character need to have them removed before replication and then replaced after triplication, but before composing.
 
 Download: |verilog_tmr_script.py|
 
@@ -140,7 +145,7 @@ Since this is a TMR design there should be 3 sets of 4 leds in total.
 
 .. note::
    1. This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter_tmr.xdc file will need to be modified accordingly.
-   2. The Verilog Netlist portion of this example is not functioning properly. The design composes with no problems, but in Vivado the design is not getting the desired output.
+   2. To get the Verilog netlist to work properly the Carry4 primitives were not triplicated
 
 Files:
 

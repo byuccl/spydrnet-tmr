@@ -11,3 +11,5 @@ The following functions are specific to SpyDrNet TMR and can be used in analyzin
    
    analysis/index
    transformation/index
+   voter_algorithms/index
+
