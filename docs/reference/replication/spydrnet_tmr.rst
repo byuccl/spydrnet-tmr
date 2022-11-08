@@ -130,7 +130,7 @@ Circuit replication behaves differently depending on the type of reference provi
 all instances of the underlying definition or port will be affected by the replication. If a hierarchical reference is
 provided, circuit replication will ensure that the underlying defintion is unique (instanced only one through out 
 hierarchy). Making necessary copies and updating instance references to accomplish this can render the original 
-reference invalid. When this happens an original to updated reference map is provided.
+reference invalid. When this happens an original updated reference map is provided.
 
 Voter/Detector Insertion Point Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

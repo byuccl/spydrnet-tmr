@@ -1,11 +1,12 @@
 from spydrnet.ir import Port, Instance, InnerPin
 from spydrnet_tmr.transformation.util import add_suffix_to_name
+from spydrnet.util.selection import Selection
 IN = Port.Direction.IN
 OUT = Port.Direction.OUT
 INOUT = Port.Direction.INOUT
 
 
-def apply_nmr(ports_and_instances_to_replicate, degree, name_suffix='NMR', rename_original=True):
+def apply_nmr(ports_and_instances_to_replicate, degree, name_suffix='NMR', rename_original=True, verilog=False):
     """
     Replicate the selected ports and instances to the n-th degree.
 
@@ -17,24 +18,25 @@ def apply_nmr(ports_and_instances_to_replicate, degree, name_suffix='NMR', renam
     :return: A map from an original element to its replicas
     """
     nmr_agent = NMR.from_originals_degree_suffix_and_rename(ports_and_instances_to_replicate, degree, name_suffix,
-                                                            rename_original)
+                                                            rename_original, verilog)
     replicas = nmr_agent.apply()
     return replicas
 
 
 class NMR:
     @staticmethod
-    def from_originals_degree_suffix_and_rename(originals, degree, suffix, rename):
-        nmr_agent = NMR(originals, degree, suffix, rename)
+    def from_originals_degree_suffix_and_rename(originals, degree, suffix, rename, verilog):
+        nmr_agent = NMR(originals, degree, suffix, rename, verilog)
         return nmr_agent
 
-    def __init__(self, originals, degree, suffix, rename):
+    def __init__(self, originals, degree, suffix, rename, verilog):
         # Internal state
         self._applied = False
         self._wires_to_replicate = None
         self._additional_ports_to_replicate = None
         self._wiremap = None
         self._replicas = dict()
+        self._verilog = verilog
 
         # Inputs
         for original in originals:
@@ -60,10 +62,37 @@ class NMR:
     def _identify_additional_wires_and_ports_to_replicate(self):
         src_pins, snk_pins = self._idenfity_src_and_snk_pins_that_will_be_replicated()
         wires_to_replicate = self.identify_additional_wires_to_replicate(src_pins, snk_pins)
-        ports_to_replicate = self.identify_additional_ports_to_replicate(wires_to_replicate)
+        ports_to_replicate = self.identify_additional_ports_to_replicate(wires_to_replicate)        
+        if self._verilog:
+            for wire in self._identify_even_more_wires_to_replicate(ports_to_replicate, wires_to_replicate):
+                wires_to_replicate.add(wire)
 
         self._wires_to_replicate = wires_to_replicate
         self._replicas.update((port, None) for port in ports_to_replicate)
+
+    @staticmethod
+    def _identify_even_more_wires_to_replicate(ports_to_replicate, wires_to_replicate):
+        # for any port that will be replicated, make sure all wires connected to him are replicated as well
+        # for every cable to be replicated, make sure all wires in the cable will be replicated
+        # this keeps SpyDrNet happy with the Verilog netlist
+        more_wires = list()
+        for port in ports_to_replicate:
+            # if port.direction not in {OUT, INOUT}:
+            #     continue
+            for pin in port.get_pins(selection=Selection.OUTSIDE):
+                if not pin.wire:
+                    continue
+                if pin.wire not in wires_to_replicate:
+                    more_wires.append(pin.wire)
+
+        cable_set = set()
+        for wire in [*wires_to_replicate, *more_wires]:
+            cable_set.add(wire.cable)
+        for cable in cable_set:
+            for wire in cable.wires:
+                if len(wire.pins) == 1 and wire not in wires_to_replicate and wire not in more_wires:
+                    more_wires.append(wire)
+        return more_wires
 
     @staticmethod
     def identify_additional_ports_to_replicate(wires_to_replicate):
@@ -311,6 +340,22 @@ class NMR:
                                 other_pin = other_ports[ii].pins[pin_index]
                                 pinmap[pin].append(other_pin)
                                 wire.connect_pin(other_pin)
+                
+                if self._verilog:
+                    # This wire drives an input port of a non leaf instance. This wire also doesn’t have a driver. So he is not replicated. 
+                    # He just stays connected to that one port. But if that port is replicated, we should connect that wire to all of them so he drives all of them.
+                    # This keeps SpyDrNet happy with the verilog netlist
+                    if port.direction in {IN, INOUT}:
+                        for pin in port.get_pins(selection=Selection.OUTSIDE):
+                            if not pin.wire:
+                                continue
+                            if pin.wire not in self._wires_to_replicate:
+                                # print(pin.wire.cable.name + " was not replicated")
+                                pinmap[pin] = list()
+                                for ii in range(self.replication_degree - 1):
+                                    other_pin = next(other_ports[ii].get_pins(selection=Selection.OUTSIDE, filter = lambda x : x.index() == pin.index()))
+                                    pinmap[pin].append(other_pin)
+                                    pin.wire.connect_pin(other_pin)
 
         self._reorder_pins_for_readibility(pinmap)
 

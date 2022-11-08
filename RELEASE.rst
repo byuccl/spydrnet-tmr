@@ -1,3 +1,8 @@
+SpyDrNet-TMR 1.2.0
+------------------
+- Initial support and documentation for replicating designs using SpyDrNet-TMR while building a design using Symbiflow
+- Drop support for Python 3.5
+
 SpyDrNet-TMR 1.1.0
 ------------------
 October 23rd, 2021

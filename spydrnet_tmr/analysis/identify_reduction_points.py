@@ -22,7 +22,7 @@ def identify_reduction_points(replicas, suffix):
     ignore_types = ["VCC", "GND", "CLK"]
     for primary in pinmap.keys():
         if not any(ignore in primary.instance.name for ignore in ignore_types):
-            if primary.inner_pin.port.direction is sdn.OUT:
+            if primary.inner_pin.port.direction in {sdn.OUT, sdn.INOUT}:
                 insertion_points += get_and_compare_next_instances(
                     primary, pinmap[primary], suffix
                 )
@@ -64,26 +64,55 @@ def get_and_compare_next_instances(primary, other_pins, suffix):
 
 def get_next_instances(current_pin):
     next_instances = []
-    if current_pin.wire:
-        next_instances = list(
-            pin2
-            for pin2 in current_pin.wire.get_pins(
-                selection=Selection.OUTSIDE, filter=lambda x: (x is not current_pin)
-            )
-        )
+    wires_found = set()
+
+    wire = current_pin.wire
+    if not wire:
+        return next_instances
+    wires_found.add(wire)
+    search_stack = [(wire, False)]
+    while search_stack:
+        wire, visited = search_stack.pop()
+        if visited:
+            continue
+        search_stack.append((wire, True))
+        for pin in wire.pins:
+            if isinstance(pin, sdn.OuterPin):
+                if pin.instance.is_leaf() and current_pin.instance is not pin.instance:
+                    next_instances.append(pin)
+            else:
+                if pin.port.definition is TOP_INSTANCE.reference:
+                    next_instances.append(next(pin.get_pins(selection=Selection.OUTSIDE)))
+            other_wires = pin.get_wires(selection='OUTSIDE' if isinstance(pin, sdn.InnerPin) else 'INSIDE')
+            for other_wire in other_wires:
+                if other_wire not in wires_found:
+                    wires_found.add(other_wire)
+                    search_stack.append((other_wire, False))
+    # if current_pin.wire:
+    #     next_instances = list(
+    #         pin2
+    #         for pin2 in current_pin.wire.get_pins(
+    #             selection=Selection.OUTSIDE, filter=lambda x: (x is not current_pin)
+    #         )
+    #     )
     return next_instances
 
 
-def fix_instance_name(current_instance, suffix):
+def fix_instance_name(pin, suffix):
+    name = None
+    if isinstance(pin, sdn.OuterPin):
+        name = pin.instance.name
+    else:
+        name = pin.port.definition.name
     modified_name = None
-    start_index = current_instance.name.find(suffix)
+    start_index = name.find(suffix)
     stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
-        modified_name = current_instance.name
+    if start_index == -1:
+        modified_name = name
     else:
         modified_name = (
-            current_instance.name[: start_index - 1]
-            + current_instance.name[stop_index:]
+            name[: start_index - 1]
+            + name[stop_index:]
         )
     return modified_name
 
@@ -93,18 +122,16 @@ def compare_next_instances(
 ):
     reduction_points = []
     next_instances_replicated_names = list(
-        fix_instance_name(x.instance, suffix) for x in next_instances_replicated
+        fix_instance_name(x, suffix) for x in next_instances_replicated
+                            
     )
     # next_instances_orginal_names = list(fix_instance_name(x.instance,suffix) for x in next_instances_original)
     for pin in next_instances_original:
         if (
-            fix_instance_name(pin.instance, suffix)
+            fix_instance_name(pin, suffix)
             not in next_instances_replicated_names
         ):
-            if (
-                pin.instance is TOP_INSTANCE
-                or pin.instance.reference is current_output_pin.instance.parent
-            ):
+            if (pin.instance is TOP_INSTANCE or pin.instance.reference is current_output_pin.instance.parent):
                 reduction_points.append(
                     (current_output_pin, frozenset([pin.inner_pin]))
                 )

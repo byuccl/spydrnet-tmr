@@ -16,11 +16,11 @@ applications. Here are some of the capabilities of SpyDrNet TMR's current state:
 
  * Triple Modular Redundancy and Duplication With Compare for netlists across hierarchy
 
-This Python package depends on `SpyDrNet <https://byuccl.github.io/spydrnet>`_ 1.3 or newer.
+This Python package depends on `SpyDrNet <https://byuccl.github.io/spydrnet>`_. As new features are constantly being added to SpyDrNet, using the latest version is recommended.
 
 History
 -------
-Previous tools could not handle doing TMR and DWC on netlists with hierarchy. They required the netlists to be flatten before triplicaiton. SpyDrNet TMR addresses this issue, and can perform TMR and DWC on netlists without flattening.
+Previous tools could not handle doing TMR and DWC on netlists with hierarchy. They required the netlists to be flattened before triplicaiton. SpyDrNet TMR addresses this issue, and can perform TMR and DWC on netlists without flattening.
 
 Due to findings in the paper by Jonathon Mark Johnson, [Johnson01]_, the SpyDrNet TMR tools uses algorithms that put voters on flip flops.
 
@@ -49,5 +49,7 @@ Bibliography
    tutorial
    reference/index.rst
    auto_examples/index
+   simpleCounter/index.rst
+   f4pga/index
    developer/index.rst
    license

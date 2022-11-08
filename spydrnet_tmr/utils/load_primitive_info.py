@@ -7,21 +7,34 @@ def load_primitive_info(netlist, vendor):
     primitive_info = dict()
 
     import json
-
-    primitive_info_db = json.load(
-        open(
-            os.path.join(
-                base_dir,
-                "support_files",
-                "primitive_databases",
-                "xilinx_primitive_info_db.json",
+    if "xilinx" in vendor:
+        primitive_info_db = json.load(
+            open(
+                os.path.join(
+                    base_dir,
+                    "support_files",
+                    "primitive_databases",
+                    "xilinx_primitive_info_db.json",
+                )
             )
         )
-    )
+    if "lattice" in vendor:
+        primitive_info_db = json.load(
+            open(
+                os.path.join(
+                    base_dir,
+                    "support_files",
+                    "primitive_databases",
+                    "lattice_primitive_info_db.json",
+                )
+            )
+        )
 
     primitive_library = next(
-        netlist.get_libraries(primitive_info_db["primitive_library_name"])
+        netlist.get_libraries(primitive_info_db["primitive_library_name"]),None
     )
+    if primitive_library is None:
+        primitive_library = next(netlist.get_libraries())
     primitive_info["primitive_library"] = primitive_library
 
     if "power_ground_cells" in primitive_info_db:
