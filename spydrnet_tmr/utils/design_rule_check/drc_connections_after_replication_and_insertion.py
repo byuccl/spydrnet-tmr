@@ -18,7 +18,7 @@ def check_connections(original_netlist,modified_netlist,suffix,organ_names=[],wr
     For example, if the instance '**a_lut_3**' has a pin that drives the data_in port on the instance '**a_flip_flop**' in the original design, it will make sure that '**a_lut_3_TMR_0**' has a pin that drives the data_in port on '**a_flip_flop_TMR_0**' (it will check this for both TMR_1 and TMR_2 as well). **See figure below.**
 
 
-    .. figure:: ../../figures/check_connections.svg
+    .. figure:: ../../figures/check_connections.png
         :width: 700px
         :align: center
     '''
