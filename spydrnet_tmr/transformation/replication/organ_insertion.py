@@ -565,7 +565,7 @@ class OrganInsertion:
                 additional_wire.cable.wires.index(additional_wire)
             )
 
-        self.set_identifier(primary_organ, self.get_identifier(additional_wire.cable))
+        self.set_identifier(primary_organ, self.get_identifier(primary_organ))
         additional_wire.cable.definition.add_child(primary_organ)
         return primary_organ
 

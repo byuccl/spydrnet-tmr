@@ -202,7 +202,7 @@ class TestSurfacePins(unittest.TestCase):
             # print(levels)
             currentTree = hTree
             for l in levels:
-                if l is "O":
+                if l == "O":
                     currentTree[hpin[0].name] = wire
                 else:
                     inserted = False
@@ -296,7 +296,7 @@ class TestSurfacePins(unittest.TestCase):
                 levels = hPinName.split("/")
                 hPinName = ""
                 for l in levels:
-                    if l is currentName:
+                    if l == currentName:
                         break
                     hPinName += l + "/"
 
@@ -308,7 +308,7 @@ class TestSurfacePins(unittest.TestCase):
                     currentTree[n].connect_pin(outer_in_pin)
                     del currentTree[n]
                     leafs -= 1
-                    if i is 6:
+                    if i == 6:
                         break
 
                 outer_out_pin = lut6_inst.pins[next(lut6_inst.get_ports('0')).pins[0]]
@@ -325,7 +325,7 @@ class TestSurfacePins(unittest.TestCase):
 
                 currentTree[hPinName] = wire
 
-            if currentName is not "top":
+            if currentName != "top":
                 # put leafs on grandparent
                 # get grandparent
                 # print("test:5")
@@ -386,7 +386,7 @@ class TestSurfacePins(unittest.TestCase):
 
             currentName = nameStack.pop()
 
-            if currentName is "DONE":
+            if currentName == "DONE":
                 print(currentTree)
                 hTree = currentTree
                 break
