@@ -68,8 +68,8 @@ def find_after_ff_voter_points(
         ):
             # Identify OuterPin for output of each flip-flip
             for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
-                for port in pin.get_ports():
-                    if port.direction is sdn.OUT:
+                if pin.inner_pin.port.direction is sdn.OUT:
+                    if pin.wire:
                         insertion_points.add(pin)
 
     print(
