@@ -4,7 +4,7 @@
 pin_clock_domain_analysis
 ===========================
 
-.. currentmodule:: spydrnet_shrec
+.. currentmodule:: spydrnet_tmr
 .. autofunction:: pin_clock_domain_analysis
 
 

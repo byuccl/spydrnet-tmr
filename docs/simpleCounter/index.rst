@@ -1,7 +1,7 @@
-Simple Counter
-==============
+TMR Walkthrough
+===============
 
-This is a walkthrough of the different paths from HDL to SpyDrNet TMR to Bitstream using the same example.
+This is a walkthrough of the different paths from HDL through SpyDrNet TMR then to Bitstream using the same simpleCounter example.
 The paths include:
 
 .. toctree::

@@ -4,7 +4,7 @@
 adjacency_list
 =====================
 
-.. currentmodule:: spydrnet_shrec.analysis.adjacency_list
+.. currentmodule:: spydrnet_tmr.analysis.adjacency_list
 .. autofunction:: adjacency_list
 
 

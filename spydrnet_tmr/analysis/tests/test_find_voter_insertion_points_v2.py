@@ -1,7 +1,7 @@
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import apply_nmr, insert_organs
 from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points import (
-    find_voter_insertion_points,
+    find_voter_insertion_points
 )
 import spydrnet as sdn
 

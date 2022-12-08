@@ -16,3 +16,6 @@ Currently, SpyDrNet TMR employs the following voter insertion algorithms:
    find_after_ff_voter_points
    find_reduction_voter_points
    identify_reduction_points
+   find_voter_insertion_points
+   find_voter_insertion_points_after_ff
+   find_voter_insertion_points_before_ff
