@@ -10,31 +10,48 @@ As of version 1.11.0, `SpyDrNet <https://byuccl.github.io/spydrnet/docs/stable/i
 Steps to Replicate Designs Inside of F4PGA
 -----------------------------------------------
 1. Install F4PGA and enter the environment. See `this page <https://f4pga-examples.readthedocs.io/en/latest/getting.html>`_ in the F4PGA documentation on how to do so.
-2. Modify built-in f4pga scripts
+2. Modify built-in F4PGA scripts
 3. Create needed files
 4. Run
 
 Modify Built-In F4PGA Scripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Go into the INSTALL_DIR specified when installing F4PGA (which is likely ~/opt/f4pga/) 
-2. Go to /xc7/install/share/symbiflow/scripts/xc7/. This directory contains files used by symbiflow_synth.
-3. Open synth.tcl. Add the "-nocarry" option to all of the synth_xilinx commands. This is done because replicating designs with carry adders doesn't work too well. However, if one is experienced with replicating designs and would still like carry adders, they may choose to skip this part.
-4. Open conv.tcl. Add the following:
+2. Go to /xc7/conda/envs/xc7/lib/python3.7/site-packages/f4pga/wrappers/tcl. This directory contains files used by symbiflow_synth.
+3. Open xc7.f4pga.tcl. To make sure SpyDrNet has the necessary primitive information, add the following:
    
-   * "hierarchy -purge_lib" as the first command
-   * Add option "-blackbox" to both write_blif commands
+   * Right before the write_blif if-else part (at the very bottom), add "hierarchy -purge_lib"
+   * Then, add option "-blackbox" to both write_blif commands
 
-5. Add command to execute python tmr script
+   It should look like this:
+
+   .. code-block::
+
+      hierarchy -purge_lib
+      if { [info exists ::env(USE_LUT_CONSTANTS)] } {
+         write_blif -attr -cname -param -blackbox \
+            $::env(OUT_EBLIF)
+      } else {
+         write_blif -attr -cname -param -blackbox \
+            -true VCC VCC \
+            -false GND GND \
+            -undef VCC VCC \
+         $::env(OUT_EBLIF)
+      }
+
+4. Add command to execute python tmr script
    
    * Executing the python script needs to be done between symbiflow_synth and symbiflow_pack. Do one of the following two options:
   
-   * As the last command in conv.tcl from the previous step, put: 
+   * As the last command in xc7.f4pga.tcl from the previous step, put: 
   
       >>> exec python3 $::env(TMR_SCRIPT) $::env(OUT_EBLIF) $::env(CONSTRAINT_NEW)
 
-   * Or, in the line under the symbiflow_synth command in common.mk (so right under line 56), put:
+   * Or, in the line under the symbiflow_synth command in common.mk (a file that is described in next section), put:
 
-      >>> python3 ${TMR_SCRIPT} ${BOARD_BUILDDIR}/${TOP}.eblif ${CONSTRAINT_NEW}
+      >>> && python3 ${TMR_SCRIPT} ${BOARD_BUILDDIR}/${TOP}.eblif ${CONSTRAINT_NEW}
+      
+      As well as a \\ at the end of the previous line
 
 Create Needed Files
 ^^^^^^^^^^^^^^^^^^^
@@ -56,7 +73,7 @@ Create Needed Files
 
    include <path to common.mk>
 
-2. **common.mk** - this is a common Makefile found under *f4pga/f4pga-examples/common*. You can copy and paste it into your current directory or just set the path to it. Either way, be sure to include a path to it.
+2. **common.mk** - this is a common Makefile found under *f4pga-examples/common*. You can copy and paste it into your current directory or just set the path to it. Whether you create a new one or use the modified original, be sure to include a path to it.
 
 3. **Verilog Source Files**
 
@@ -69,7 +86,7 @@ Create Needed Files
 
       set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports { sw[0] }]; 
    
-   And here are the matching replicated constraints for #5:
+   And here are the matching replicated constraints for #5 (assuming the port is replicated):
 
    .. code-block::
 
@@ -106,6 +123,7 @@ Synchronous Counter Example With Example Files
 Notes: 
    * All files are in the same directory
    * Notice how we only replicate the output ports so those are the only constraints we need to specify in the CONSTRAINT_NEW file
+   * xc7.f4pga.tcl has been modified as explained above
 
 **Makefile**
 
@@ -140,26 +158,32 @@ Notes:
    DEVICE := xc7a50t_test
    BITSTREAM_DEVICE := artix7
    PARTNAME := xc7a35tcsg324-1
+   OFL_BOARD := arty_a7_35t
    else ifeq ($(TARGET),arty_100)
    DEVICE := xc7a100t_test
    BITSTREAM_DEVICE := artix7
    PARTNAME := xc7a100tcsg324-1
+   OFL_BOARD := arty_a7_100t
    else ifeq ($(TARGET),nexys4ddr)
    DEVICE := xc7a100t_test
    BITSTREAM_DEVICE := artix7
    PARTNAME := xc7a100tcsg324-1
+   OFL_BOARD := unsupported
    else ifeq ($(TARGET),zybo)
    DEVICE := xc7z010_test
    BITSTREAM_DEVICE := zynq7
    PARTNAME := xc7z010clg400-1
+   OFL_BOARD := zybo_z7_10
    else ifeq ($(TARGET),nexys_video)
    DEVICE := xc7a200t_test
    BITSTREAM_DEVICE := artix7
    PARTNAME := xc7a200tsbg484-1
+   OFL_BOARD := nexysVideo
    else ifeq ($(TARGET),basys3)
    DEVICE := xc7a50t_test
    BITSTREAM_DEVICE := artix7
    PARTNAME := xc7a35tcpg236-1
+   OFL_BOARD := $(TARGET)
    else
    $(error Unsupported board type)
    endif
@@ -175,6 +199,11 @@ Notes:
    PCF_CMD := -p ${PCF}
    endif
 
+   # Determine if we should use Surelog/UHDM to read sources
+   ifneq (${SURELOG_CMD},)
+   SURELOG_OPT := -s ${SURELOG_CMD}
+   endif
+
    .DELETE_ON_ERROR:
 
    # Build design
@@ -184,8 +213,8 @@ Notes:
       mkdir -p ${BOARD_BUILDDIR}
 
    ${BOARD_BUILDDIR}/${TOP}.eblif: ${SOURCES} ${XDC} ${SDC} ${PCF} | ${BOARD_BUILDDIR}
-      cd ${BOARD_BUILDDIR} && symbiflow_synth -t ${TOP} -v ${SOURCES} -d ${BITSTREAM_DEVICE} -p ${PARTNAME} ${XDC_CMD} 2>&1 > /dev/null
-      # python3 ${TMR_SCRIPT} ${BOARD_BUILDDIR}/${TOP}.eblif ${CONSTRAINT_NEW}
+      cd ${BOARD_BUILDDIR} && symbiflow_synth -t ${TOP} ${SURELOG_OPT} -v ${SOURCES} -d ${BITSTREAM_DEVICE} -p ${PARTNAME} ${XDC_CMD} \
+      && python3 ${TMR_SCRIPT} ${BOARD_BUILDDIR}/${TOP}.eblif ${CONSTRAINT_NEW}
 
    ${BOARD_BUILDDIR}/${TOP}.net: ${BOARD_BUILDDIR}/${TOP}.eblif
       cd ${BOARD_BUILDDIR} && symbiflow_pack -e ${TOP}.eblif -d ${DEVICE} ${SDC_CMD} 2>&1 > /dev/null
@@ -203,20 +232,15 @@ Notes:
       cd ${BOARD_BUILDDIR} && symbiflow_write_bitstream -d ${BITSTREAM_DEVICE} -f ${TOP}.fasm -p ${PARTNAME} -b ${TOP}.bit
 
    download: ${BOARD_BUILDDIR}/${TOP}.bit
-      if [ $(TARGET)='arty_35' ]; then \
-      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
-      elif [ $(TARGET)='arty_100' ]; then \
-      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
-      elif [ $(TARGET)='basys3' ]; then \
-      openocd -f ~/opt/f4pga/xc7/conda/envs/xc7/share/openocd/scripts/board/digilent_arty.cfg -c "init; pld load 0 ${BOARD_BUILDDIR}/${TOP}.bit; exit"; \
-      else  \
+      if [ $(TARGET)='unsupported' ]; then \
       echo "The commands needed to download the bitstreams to the board type specified are not currently supported by the F4PGA makefiles. \
       Please see documentation for more information."; \
       fi
-
+      openFPGALoader -b ${OFL_BOARD} ${BOARD_BUILDDIR}/${TOP}.bit
 
    clean:
       rm -rf ${BUILDDIR}
+
 
 **Verilog Source File** (synchronouscounter.v)
 
@@ -290,7 +314,7 @@ Notes:
 
       uniquify(netlist)
 
-      #    netlist.compose("before_TMR.eblif")
+      # netlist.compose("before_TMR.eblif")
 
       hinstances = list(x for x in netlist.get_hinstances(filter = lambda x: x.item.is_leaf()
                                                          and "VCC" not in x.name
@@ -335,10 +359,10 @@ Notes:
    import sys
 
    if __name__:
-   if len(sys.argv) >= 3:
-      run_tmr(sys.argv[1], sys.argv[2])
-   else:
-      run_tmr(sys.argv[1])
+      if len(sys.argv) >= 3:
+         run_tmr(sys.argv[1], sys.argv[2])
+      else:
+         run_tmr(sys.argv[1])
 
 Functions Referenced
 ^^^^^^^^^^^^^^^^^^^^^
