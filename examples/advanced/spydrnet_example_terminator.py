@@ -1,6 +1,6 @@
 """
-SpyDrNet Example
------------------
+SpyDrNet Example Terminator
+---------------------------
 """
 import networkx as nx
 import spydrnet as sdn

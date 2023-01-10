@@ -1,8 +1,8 @@
 import unittest
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
-from spydrnet_shrec.analysis.identify_reduction_points import identify_reduction_points
-from spydrnet_shrec import apply_nmr
+from spydrnet_tmr.analysis.identify_reduction_points import identify_reduction_points
+from spydrnet_tmr import apply_nmr
 
 
 class TestIdentifyReductionPoints(unittest.TestCase):

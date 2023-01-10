@@ -1,6 +1,6 @@
 """
-Apply TMR
-----------
+Apply TMR Terminator
+--------------------
 """
 import spydrnet as sdn
 import copy
