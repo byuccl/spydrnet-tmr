@@ -8,6 +8,8 @@ Uploading the Verilog HDL into Vivado
 
 The first step is to create an RTL project in Vivado.
 
+* Tip: Name the project simpleCounter (this allows for the python scripts to be run without any changes).
+
 .. image:: vivado_screenshot1.*
    :align: center
 
@@ -31,17 +33,17 @@ Once synthesis has been run expand the “Open Synthesized Design” tab under t
 
 To Export the Netlist click on File in the upper left, go down to Export, then click on Export Netlist.
 
-A window pops up with the option to export EDIF and Verilog Netlists. Select the desired file format and file destination.
+A window pops up with the option to export EDIF and Verilog Netlists. Select the desired file format and file destination then click ok.
  
 
 .. _img:vivado_export_netlist:
 .. image:: export_netlist.*
    :align: center
 
-* If downloading an EDIF file change the file type from .edn to .edf (The python script in this walkthrough to run tmr on EDIF netlists uses .edf)
+* If downloading an EDIF file change the file type from .edn to .edf (The python script in this walkthrough uses .edf to run tmr on EDIF netlists).
 
 Using the tcl command line in Vivado
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""
 
 * To export the netlist using the tcl command line type **write_edif simpleCounter.edf** or **write_verilog simpleCounter.v**
 
@@ -165,14 +167,18 @@ If using the .v file, the following code runs the netlist through SpyDrNet TMR.
 
 Download: |verilog_tmr_script.py|
 
+* Tip: Make sure that the python script(s) and the netlist(s) from vivado are both in the same location. 
+
 SpyDrNet TMR to Vivado
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create new project in Vivado and choose Post-synthesis Project
+Create new project in Vivado and choose Post-synthesis Project.
 
 .. _img:post_synthesis:
 .. image:: post_synthesis.*
    :align: center
+
+**NOTE:** If the .xdc file is downloaded from the link below, rename the file from simpleCounter_tmr.xdc.txt to simpleCounter_tmr.xdc
 
 If working with a .edf file, upload **simpleCounter_tmr.edf** that was just created and **simpleCounter_tmr.xdc** to the project.
 
@@ -185,13 +191,13 @@ Vivado to Bitstream
 
 After adding the source files for your project, go to the "Flow Navigator" window on the left hand side of the screen, and click on "Generate Bitstream" under "Program and Debug."
 
-**NOTE** The verilog netlist asks for a top module to be specified click ok on the box that pops up and then click on the 3 dots on the next pop up, then select simpleCounter as the top module.
+**NOTE:** The verilog netlist asks for a top module to be specified click "OK" on the box that pops up and then click on the 3 dots on the next pop up, then select simpleCounter as the top module.
 
 .. _img:vivado_run_generate_bitstream:
 .. image:: vivado_screenshot3.*
    :align: center
 
-Once the Bitstream has been generated click on "Open Hardware Manager" under the tab "Program and Debug", click on "Open Target" then click on "Auto Connect", next click on "Program Device" then click on Program in the box that pops up. A "Program Device" window should open up, click on program to download the bitstream to your device.
+Once the Bitstream has been generated click on "Open Hardware Manager" under the tab "Program and Debug", click on "Open Target" then click on "Auto Connect", next click on "Program Device". A window should open up, click on program to download the bitstream to your device.
 
 
 Verifying if the Design Works
