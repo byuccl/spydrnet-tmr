@@ -54,12 +54,12 @@ import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr import insert_organs, apply_nmr
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
-import spydrnet_shrec as sdn_shrec
-from spydrnet_shrec.analysis.find_voter_insertion_points import find_voter_insertion_points
+import spydrnet_tmr as sdn_tmr
+from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points import find_voter_insertion_points
 
 
 # Parse original netlist (it was added to the spydrnet_shrec example netlists)
-netlist = sdn_shrec.load_example_netlist_by_name('nexys4ddr')
+netlist = sdn_tmr.load_example_netlist_by_name('nexys4ddr')
 
 # You need to uniquify the netlist so we can make changes on individual instances
 uniquify(netlist)

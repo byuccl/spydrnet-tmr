@@ -3,7 +3,7 @@ Maximize Protected Routes
 --------------------------
 """
 import spydrnet as sdn
-import spydrnet_shrec as sdn_shrec
+import spydrnet_tmr as sdn_tmr
 import networkx as nx
 
 try:
@@ -67,7 +67,7 @@ def get_connectivity_graph():
         )
     )
     all_top_level_ports = list(netlist.get_hports())
-    connections = sdn_shrec.adjacency_list([*all_leaf_hinstances, *all_top_level_ports])
+    connections = sdn_tmr.adjacency_list([*all_leaf_hinstances, *all_top_level_ports])
     connectivity_graph = nx.DiGraph(connections)
     
     return connectivity_graph

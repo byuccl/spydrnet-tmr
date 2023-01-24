@@ -3,7 +3,7 @@ Clock Domain Analysis
 =====================
 '''
 import spydrnet as sdn
-import spydrnet_shrec as sdn_shrec
+import spydrnet_tmr as sdn_tmr
 
 netlist_filename = r"reference_switch-baseline-pblock-20180511.edf"
 primitive_info_filename = r"primitive_info_db.json"
@@ -54,12 +54,12 @@ def parse_netlist():
 
 def parse_primitive_info():
     global primitive_info
-    primitive_info = sdn_shrec.load_primitive_info(netlist)
+    primitive_info = sdn_tmr.load_primitive_info(netlist)
 
 
 def find_all_leaf_cells():
     global leaf_cells
-    leaf_cells = sdn_shrec.find_all_leaf_cells(netlist)
+    leaf_cells = sdn_tmr.find_all_leaf_cells(netlist)
 
 
 def report_leaf_count():

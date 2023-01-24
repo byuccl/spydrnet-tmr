@@ -3,13 +3,13 @@ TMR All Components Including IO
 --------------------------------
 """
 import spydrnet as sdn
-import spydrnet_shrec as sdn_shrec
+import spydrnet_tmr as sdn_tmr
 
 from spydrnet.uniquify import uniquify
 
-from spydrnet_shrec import apply_nmr
-from spydrnet_shrec import insert_organs
-from spydrnet_shrec.analysis.find_voter_insertion_points import find_voter_insertion_points
+from spydrnet_tmr import apply_nmr
+from spydrnet_tmr import insert_organs
+from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points import find_voter_insertion_points
 
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 

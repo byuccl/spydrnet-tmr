@@ -4,8 +4,8 @@ Cisco DWC Example
     
     This file provides an example of applying DWC to a larger, more complex design
 """
-import spydrnet_shrec as sdn_shrec
-from spydrnet_shrec.analysis.adjacency_list import adjacency_list
+import spydrnet_tmr as sdn_tmr
+from spydrnet_tmr.analysis.adjacency_list import adjacency_list
 import spydrnet as sdn
 import networkx as nx
 
@@ -47,7 +47,7 @@ def run():
     driving_pins = list(sdn.get_hpins(driving_non_dwc_hinst, filter=lambda x: x.item.port.direction is sdn.OUT))
     outer_driving_pins = list(sdn.get_pins(driving_pins, selection="OUTSIDE"))
 
-    replicaMap = sdn_shrec.apply_nmr(list(x.item for x in handoff_blocks_hinsts), 2, 'DWC')
+    replicaMap = sdn_tmr.apply_nmr(list(x.item for x in handoff_blocks_hinsts), 2, 'DWC')
 
     from spydrnet_tmr.transformation.replication.organ_insertion import insert_organs
     from spydrnet_tmr.transformation.replication.organ import XilinxDWCDetector
@@ -68,9 +68,9 @@ def run():
     dwcWiremap0 = surface_pins(detectorGroup0OutaPins, "DRail_0")
     dwcWiremap1 = surface_pins(detectorGroup1OutaPins, "DRail_1")
 
-    from spydrnet_shrec.transformation.reduction_network import create_reduction_network
-    from spydrnet_shrec.transformation.reduction_network import define_reg
-    from spydrnet_shrec.transformation.reduction_network import registerDWCWires, instance_JTAG_module
+    from spydrnet_tmr.transformation.reduction_network import create_reduction_network
+    from spydrnet_tmr.transformation.reduction_network import define_reg
+    from spydrnet_tmr.transformation.reduction_network import registerDWCWires, instance_JTAG_module
 
     regDef = define_reg(netlist)
 

@@ -1,15 +1,15 @@
 """
 Xilinx TMR
 ===========
-This is a xilinx TMR example using SpyDrNet SHREC
+This is a xilinx TMR example using SpyDrNet TMR
 """
 
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 from spydrnet_tmr import apply_nmr, insert_organs, uniquify_nmr_property
-import spydrnet_shrec as sdn_shrec
-from spydrnet_shrec.analysis.find_voter_insertion_points import find_voter_insertion_points
+import spydrnet_tmr as sdn_tmr
+from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points import find_voter_insertion_points
 
 def run():
     netlist = sdn.parse('reference_switch-baseline-pblock-20180511.edf')
@@ -17,8 +17,8 @@ def run():
     # uniquify is called to insure that non-leaf definitions are instanced only once, prevents unintended transformations.
     uniquify(netlist)
 
-    pin_clock_domains = sdn_shrec.pin_clock_domain_analysis(netlist)
-    synchronizer_chains = sdn_shrec.find_synchronizers(netlist, pin_clock_domains)
+    pin_clock_domains = sdn_tmr.pin_clock_domain_analysis(netlist)
+    synchronizer_chains = sdn_tmr.find_synchronizers(netlist, pin_clock_domains)
     hinstances_to_replicate = make_selection(netlist, pin_clock_domains, synchronizer_chains)
 
     with open("tmr_selection_conservative_1.txt", "w") as fi:
@@ -50,7 +50,7 @@ def make_selection(netlist, pin_clock_domains, synchronizer_chains):
 
     #exclude anything that drives a black box or multi-clock cell up to and including that element.
 
-    primitive_info = sdn_shrec.load_primitive_info(netlist)
+    primitive_info = sdn_tmr.load_primitive_info(netlist)
 
     blackboxes = set(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() and
                                                                              x.item.reference not in primitive_info['combinational_cells'] and
