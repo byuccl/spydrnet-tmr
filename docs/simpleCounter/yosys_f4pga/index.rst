@@ -8,16 +8,12 @@ Install F4PGA and follow all of the steps `here <https://f4pga-examples.readthed
 
 1. Using the command line type the following
 
->>> cd ~/opt/f4pga/xc7/share/f4pga/scripts/xc7
+>>> cd ~/opt/f4pga//xc7/conda/envs/xc7/lib/python3.7/site-packages/f4pga/wrappers/tcl
 
-2. Open synth.tcl
+2. Open xc7.f4pga.tcl
 
-* Add the “-nocarry” option to all of the synth_xilinx commands.
-
-3. Open conv.tcl
-
-* Add “hierarchy -purge_lib” as the first command
-* Add option “-blackbox” to both write_blif commands
+* Right before the write_blif if-else part (at the very bottom), add “hierarchy -purge_lib”
+* Then, add option “-blackbox” to both write_blif commands
 
 Download all of the following files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
