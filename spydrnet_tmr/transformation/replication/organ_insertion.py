@@ -30,6 +30,8 @@ def insert_organs(
     :param reuse_cables: create multibit cables when possible instead of creating a unique cable for each voter.
     :return: a map from insertion point to all organs
     """
+    if not len(insertion_points):
+        return None
     insert_organs_agent = OrganInsertion.from_replicas_points_organ_and_name(
         replicas, insertion_points, organ, name_suffix, replicate_organ, reuse_cables
     )
@@ -605,7 +607,7 @@ class OrganInsertion:
                     + self.name_suffix
                     + "_"
                     + str(pin_index)
-                    # + "_"
+                    + "_"
                 )
             else:
                 cable_name = port_name + "_" + self.name_suffix
@@ -645,7 +647,7 @@ class OrganInsertion:
                     + self.name_suffix
                     + "_"
                     + str(pin_index)
-                    # + "_"
+                    + "_"
                 )
             else:
                 cable_name = (
@@ -688,7 +690,7 @@ class OrganInsertion:
                     port_identifier
                     + "_"
                     + self.name_suffix
-                    # + "_"
+                    + "_"
                     # + str(pin_index)
                     # + "_"
                 )
@@ -728,7 +730,7 @@ class OrganInsertion:
                     + port_identifier
                     + "_"
                     + self.name_suffix
-                    # + "_"
+                    + "_"
                     # + str(pin_index)
                     # + "_"
                 )
