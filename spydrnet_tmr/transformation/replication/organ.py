@@ -155,7 +155,7 @@ class XilinxTMRVoterEBLIF(Organ):
         self._primary_output_pin = None
 
     def ensure_definition_in_netlist(self, netlist):
-        primitive_library = next(netlist.get_libraries(), None)
+        primitive_library = next(netlist.get_libraries("hdi_primitives"))
         primitive_definition = next(
             primitive_library.get_definitions("LUT3"), None
         )
@@ -359,7 +359,7 @@ class GenericEBLIFVoter(Organ):
         self._primary_output_pin = None
 
     def ensure_definition_in_netlist(self, netlist):
-        primitive_library = next(netlist.get_libraries(), None)
+        primitive_library = next(netlist.get_libraries("hdi_primitives"))
         primitive_definition = next(
             primitive_library.get_definitions("logic-gate_3"), None
         )
