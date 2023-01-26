@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maximize Protected Routes &mdash; SpyDrNet TMR 1.3.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cisco DWC Example" href="cisco_hotspring_dwc.html" />
+    <link rel="prev" title="Xilinx TMR" href="netfpga_switch_partial_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic">Basic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced">Advanced</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../basic/index.html">Basic</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Advanced</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="utilization_statistics.html">Utilization Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TMR_all_components_including_io.html">TMR All Components Including IO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nexys4ddr.html">nexys4ddr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="evaluate_graph.html">Evaluate Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netfpga_switch_partial_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Maximize Protected Routes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cisco_hotspring_dwc.html">Cisco DWC Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decompose.html">Decompose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decompose_v2.html">Decompose_v2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clock_domain_analysis.html">Clock Domain Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apply_tmr_terminator.html">Apply TMR Terminator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apply_tmr.html">Apply TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spydrnet_example_orig_terminator.html">SpyDrNet Example Original</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spydrnet_example.html">SpyDrNet Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spydrnet_example_terminator.html">SpyDrNet Example Terminator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Advanced</a></li>
+      <li class="breadcrumb-item active">Maximize Protected Routes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/more_advanced/maximize_protected_routes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-more-advanced-maximize-protected-routes-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="maximize-protected-routes">
+<span id="sphx-glr-auto-examples-more-advanced-maximize-protected-routes-py"></span><h1>Maximize Protected Routes<a class="headerlink" href="#maximize-protected-routes" title="Permalink to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">import</span> <span class="nn">spydrnet_tmr</span> <span class="k">as</span> <span class="nn">sdn_tmr</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">gurobipy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This example requires Gurobi. Please see gurobi.com for install and to aquire a license.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">nodeToIDMap</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">IDtoNodeMap</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">nodeSetVarMap</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">nodeUnsetVarMap</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">maxCoverage</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">maxInstances</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">selectedInstances</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">protectedEdges</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">neededReductionVoters</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">traceback</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">graph</span>
+    <span class="k">global</span> <span class="n">maxCoverage</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">get_connectivity_graph</span><span class="p">()</span>
+
+    <span class="n">totalNodes</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span>
+    <span class="n">totalEdges</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;results.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">nodeCount</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">totalNodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">maxCoverage</span> <span class="o">=</span> <span class="n">nodeCount</span><span class="o">/</span><span class="n">totalNodes</span>
+            <span class="n">run_solver</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">selectedInstances</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">export_dot</span><span class="p">(</span><span class="s2">&quot;dot/b13_</span><span class="si">{}</span><span class="s2">.dot&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeCount</span><span class="p">),</span> <span class="n">graph</span><span class="p">)</span>
+                <span class="n">fi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeCount</span><span class="p">,</span><span class="n">selectedInstances</span><span class="p">,</span> <span class="n">protectedEdges</span><span class="p">,</span> <span class="n">neededReductionVoters</span><span class="p">,</span> <span class="n">protectedEdges</span><span class="o">/</span><span class="n">selectedInstances</span><span class="o">*</span><span class="n">totalNodes</span><span class="o">/</span><span class="n">totalEdges</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">run_solver</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">model</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">&quot;maxP&quot;</span><span class="p">)</span>
+        <span class="n">solve_model</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">GurobiError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error code &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Encountered an attribute error&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_connectivity_graph</span><span class="p">():</span>
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;b13&quot;</span><span class="p">)</span>
+
+    <span class="n">all_leaf_hinstances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span>
+            <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">all_top_level_ports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">())</span>
+    <span class="n">connections</span> <span class="o">=</span> <span class="n">sdn_tmr</span><span class="o">.</span><span class="n">adjacency_list</span><span class="p">([</span><span class="o">*</span><span class="n">all_leaf_hinstances</span><span class="p">,</span> <span class="o">*</span><span class="n">all_top_level_ports</span><span class="p">])</span>
+    <span class="n">connectivity_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">connections</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">connectivity_graph</span>
+
+<span class="k">def</span> <span class="nf">solve_model</span><span class="p">():</span>
+    <span class="n">create_variables_constraints_and_objective</span><span class="p">()</span>
+    <span class="n">optimize_model</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">create_variables_constraints_and_objective</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">nodeToIDMap</span>
+    <span class="k">global</span> <span class="n">IDtoNodeMap</span>
+    <span class="k">global</span> <span class="n">nodeSetVarMap</span>
+    <span class="k">global</span> <span class="n">nodeUnsetVarMap</span>
+    <span class="k">global</span> <span class="n">maxInstances</span>
+
+    <span class="n">nodeToIDMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">IDtoNodeMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">nodeSetVarMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">nodeUnsetVarMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="n">nodeIndex</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">edgeIndex</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+        <span class="n">nodeToIDMap</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">nodeIndex</span>
+        <span class="n">IDtoNodeMap</span><span class="p">[</span><span class="n">nodeIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="n">setVar</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">BINARY</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;s</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeIndex</span><span class="p">))</span>
+        <span class="n">nodeSetVarMap</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">setVar</span>
+        <span class="n">unsetVar</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span><span class="o">=</span><span class="n">GRB</span><span class="o">.</span><span class="n">BINARY</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;u</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeIndex</span><span class="p">))</span>
+        <span class="n">nodeUnsetVarMap</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">unsetVar</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">setVar</span> <span class="o">+</span> <span class="n">unsetVar</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;i</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeIndex</span><span class="p">))</span>
+        <span class="n">nodeIndex</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">plusVars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">minusVars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">successor</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+            <span class="n">plusVar</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span> <span class="o">=</span> <span class="n">GRB</span><span class="o">.</span><span class="n">BINARY</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;p</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edgeIndex</span><span class="p">))</span>
+            <span class="n">minusVar</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">addVar</span><span class="p">(</span><span class="n">vtype</span> <span class="o">=</span> <span class="n">GRB</span><span class="o">.</span><span class="n">BINARY</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;m</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edgeIndex</span><span class="p">))</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">plusVar</span> <span class="o">==</span> <span class="n">and_</span><span class="p">(</span><span class="n">nodeSetVarMap</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">nodeSetVarMap</span><span class="p">[</span><span class="n">successor</span><span class="p">]),</span> <span class="s2">&quot;a</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edgeIndex</span><span class="p">))</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">minusVar</span> <span class="o">==</span> <span class="n">and_</span><span class="p">(</span><span class="n">nodeSetVarMap</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">nodeUnsetVarMap</span><span class="p">[</span><span class="n">successor</span><span class="p">]),</span> <span class="s2">&quot;an</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edgeIndex</span><span class="p">))</span>
+            <span class="n">plusVars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plusVar</span><span class="p">)</span>
+            <span class="n">minusVars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">minusVar</span><span class="p">)</span>
+            <span class="n">edgeIndex</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">setVars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nodeSetVarMap</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">maxInstances</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">setVars</span><span class="p">)</span><span class="o">*</span><span class="n">maxCoverage</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">addConstr</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">setVars</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">maxInstances</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">setObjective</span><span class="p">(</span><span class="n">quicksum</span><span class="p">(</span><span class="n">plusVars</span><span class="p">)</span> <span class="o">-</span> <span class="n">quicksum</span><span class="p">(</span><span class="n">minusVars</span><span class="p">),</span> <span class="n">GRB</span><span class="o">.</span><span class="n">MAXIMIZE</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">optimize_model</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">selectedInstances</span>
+    <span class="k">global</span> <span class="n">protectedEdges</span>
+    <span class="k">global</span> <span class="n">neededReductionVoters</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+
+    <span class="c1">#for c in model.getConstrs():</span>
+    <span class="c1">#   print(c)</span>
+    <span class="c1">#for v in model.getVars():</span>
+    <span class="c1">#   print(&#39;%s %g&#39; % (v.varName, v.x))</span>
+    <span class="n">selectedInstances</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">varName</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">protectedEdges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">varName</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">neededReductionVoters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getVars</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">varName</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obj: </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">model</span><span class="o">.</span><span class="n">objVal</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max Coverage:&quot;</span><span class="p">,</span> <span class="n">maxCoverage</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max Instances:&quot;</span><span class="p">,</span> <span class="n">maxInstances</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selected Instances:&quot;</span><span class="p">,</span> <span class="n">selectedInstances</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Protected Nets:&quot;</span><span class="p">,</span> <span class="n">protectedEdges</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Necessary Reduction Voters:&quot;</span><span class="p">,</span> <span class="n">neededReductionVoters</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">export_dot</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">graph</span><span class="p">):</span>
+    <span class="n">create_filename_directory_if_not_present</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="n">fi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;digraph {</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">mapping</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span><span class="p">;</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;EDIF.identifier&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">getVarByName</span><span class="p">(</span><span class="s2">&quot;s</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nodeToIDMap</span><span class="p">[</span><span class="n">node</span><span class="p">]))</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;,color=blue&quot;</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">sdn</span><span class="o">.</span><span class="n">Port</span><span class="p">):</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;rarrow&quot;</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">sdn</span><span class="o">.</span><span class="n">Instance</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="p">[</span><span class="s1">&#39;EDIF.identifier&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;FD&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;,shape=box&quot;</span>
+            <span class="n">fi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1">[label=&quot;</span><span class="si">{}</span><span class="s1">&quot;</span><span class="si">{}{}</span><span class="s1">];</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">color</span><span class="p">,</span><span class="n">shape</span><span class="p">))</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">successor</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+                <span class="n">fi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1"> -&gt; </span><span class="si">{}</span><span class="s1">;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">mapping</span><span class="p">[</span><span class="n">successor</span><span class="p">]))</span>
+        <span class="n">fi</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">);</span>
+
+<span class="k">def</span> <span class="nf">create_filename_directory_if_not_present</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-more-advanced-maximize-protected-routes-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f7e92636731a03bd0ed1d14a6b6a1bd4/maximize_protected_routes.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">maximize_protected_routes.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/67e5d05e6d1545177f346055a3b6fcfa/maximize_protected_routes.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">maximize_protected_routes.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="netfpga_switch_partial_tmr.html" class="btn btn-neutral float-left" title="Xilinx TMR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cisco_hotspring_dwc.html" class="btn btn-neutral float-right" title="Cisco DWC Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

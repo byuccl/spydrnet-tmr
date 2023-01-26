@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpyDrNet-TMR and F4PGA &mdash; SpyDrNet TMR 1.3.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fix and Update Constraints" href="update_constraints.html" />
+    <link rel="prev" title="Yosys/F4PGA" href="../simpleCounter/yosys_f4pga/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SpyDrNet-TMR and F4PGA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#steps-to-replicate-designs-inside-of-f4pga">Steps to Replicate Designs Inside of F4PGA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modify-built-in-f4pga-scripts">Modify Built-In F4PGA Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-needed-files">Create Needed Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-python-script">Create the Python Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-f4pga">Running F4PGA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronous-counter-example-with-example-files">Synchronous Counter Example With Example Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions-referenced">Functions Referenced</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="update_constraints.html">Fix and Update Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fix_unconn_nets.html">Connect Unconn Nets To Dummy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fixup_netlist.html">Run Netlist Fixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">SpyDrNet-TMR and F4PGA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/f4pga/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spydrnet-tmr-and-f4pga">
+<h1>SpyDrNet-TMR and F4PGA<a class="headerlink" href="#spydrnet-tmr-and-f4pga" title="Permalink to this heading"></a></h1>
+<p>As of version 1.11.0, <a class="reference external" href="https://byuccl.github.io/spydrnet/docs/stable/index.html">SpyDrNet</a> supports the EBLIF netlist format. This was done in hope that SpyDrNet-TMR could be used to replicate designs run through F4PGA.</p>
+<p><strong>Note 1:</strong> The following is intended for designs targeted for Xilinx devices. Other device families have not been tested yet, but can likely follow a similar procedure.</p>
+<p><strong>Note 2:</strong> Becoming familiar with F4PGA by reviewing the various pages <a class="reference external" href="https://f4pga-examples.readthedocs.io/en/latest/getting.html#">here</a> may be helpful.</p>
+<section id="steps-to-replicate-designs-inside-of-f4pga">
+<h2>Steps to Replicate Designs Inside of F4PGA<a class="headerlink" href="#steps-to-replicate-designs-inside-of-f4pga" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Install F4PGA and enter the environment. See <a class="reference external" href="https://f4pga-examples.readthedocs.io/en/latest/getting.html">this page</a> in the F4PGA documentation on how to do so.</p></li>
+<li><p>Modify built-in F4PGA scripts</p></li>
+<li><p>Create needed files</p></li>
+<li><p>Run</p></li>
+</ol>
+<section id="modify-built-in-f4pga-scripts">
+<h3>Modify Built-In F4PGA Scripts<a class="headerlink" href="#modify-built-in-f4pga-scripts" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Go into the INSTALL_DIR specified when installing F4PGA (which is likely ~/opt/f4pga/)</p></li>
+<li><p>Go to /xc7/conda/envs/xc7/lib/python3.7/site-packages/f4pga/wrappers/tcl. This directory contains files used by symbiflow_synth.</p></li>
+<li><p>Open xc7.f4pga.tcl. To make sure SpyDrNet has the necessary primitive information, add the following:</p>
+<ul class="simple">
+<li><p>Right before the write_blif if-else part (at the very bottom), add “hierarchy -purge_lib”</p></li>
+<li><p>Then, add option “-blackbox” to both write_blif commands</p></li>
+</ul>
+<p>It should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hierarchy -purge_lib
+if { [info exists ::env(USE_LUT_CONSTANTS)] } {
+   write_blif -attr -cname -param -blackbox \
+      $::env(OUT_EBLIF)
+} else {
+   write_blif -attr -cname -param -blackbox \
+      -true VCC VCC \
+      -false GND GND \
+      -undef VCC VCC \
+   $::env(OUT_EBLIF)
+}
+</pre></div>
+</div>
+</li>
+<li><p>Add command to execute python tmr script</p>
+<ul>
+<li><p>Executing the python script needs to be done between symbiflow_synth and symbiflow_pack. Do one of the following two options:</p></li>
+<li><p>As the last command in xc7.f4pga.tcl from the previous step, put:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; exec python3 $::env(TMR_SCRIPT) $::env(OUT_EBLIF) $::env(CONSTRAINT_NEW)
+</pre></div>
+</div>
+</li>
+<li><p>Or, in the line under the symbiflow_synth command in common.mk (a file that is described in next section), put:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; &amp;&amp; python3 ${TMR_SCRIPT} ${BOARD_BUILDDIR}/${TOP}.eblif ${CONSTRAINT_NEW}
+</pre></div>
+</div>
+<p>As well as a \ at the end of the previous line</p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="create-needed-files">
+<h3>Create Needed Files<a class="headerlink" href="#create-needed-files" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Makefile</strong> - create a new Makefile. Copy and paste the following into it and enter the needed information.</p></li>
+</ol>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">current_dir</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">CURDIR</span><span class="si">}</span>
+<span class="nv">TOP</span> <span class="o">:=</span> &lt;name of top module&gt;
+<span class="nv">TARGET</span> <span class="o">:=</span> &lt;board_name&gt;
+<span class="nv">SOURCES</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/&lt;path to Verilog <span class="nb">source</span> files&gt;
+<span class="nv">TMR_SCRIPT</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/&lt;path to python TMR script&gt;
+
+<span class="nv">XDC</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/&lt;original constraints file&gt;
+<span class="nv">CONSTRAINT_NEW</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/&lt;file detailing new constraints&gt;
+
+<span class="k">export</span> <span class="nv">TMR_SCRIPT</span>
+<span class="k">export</span> <span class="nv">CONSTRAINT_NEW</span>
+
+<span class="cp">include &lt;path to common.mk&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p><strong>common.mk</strong> - this is a common Makefile found under <em>f4pga-examples/common</em>. You can copy and paste it into your current directory or just set the path to it. Whether you create a new one or use the modified original, be sure to include a path to it.</p></li>
+<li><p><strong>Verilog Source Files</strong></p></li>
+<li><p><strong>XDC (Constraint File)</strong> - constraints for the design as if it were not to be replicated. This keeps symbiflow_synth from running into errors.</p></li>
+<li><p><strong>CONSTRAINT_NEW</strong> - simple text file that contains port_name:pin pairs. Note that only ports that are replicated should be included.</p>
+<p>The following is a line from a constraints file for #4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">V17</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">sw</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}];</span>
+</pre></div>
+</div>
+<p>And here are the matching replicated constraints for #5 (assuming the port is replicated):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sw_TMR_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">V17</span>
+<span class="n">sw_TMR_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">V16</span>
+<span class="n">sw_TMR_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">W16</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>TMR_SCRIPT</strong> - a python script that uses SpyDrNet to replicate the design. See next section.</p></li>
+</ol>
+</section>
+<section id="create-the-python-script">
+<h3>Create the Python Script<a class="headerlink" href="#create-the-python-script" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>In the TMR script, be sure to do the following:</dt><dd><ul class="simple">
+<li><p>Replicate design and insert voters</p></li>
+<li><p>Connect unconnected pins to dummy nets. See <a class="reference internal" href="fix_unconn_nets.html#connect-unconn-to-dummy"><span class="std std-ref">Connect Unconn Nets To Dummy</span></a>.</p></li>
+<li><p>Update constraints. See <a class="reference internal" href="update_constraints.html#update-constraints"><span class="std std-ref">Fix and Update Constraints</span></a>.</p></li>
+<li><p>Compose the netlist to the same file name that was parsed in.</p></li>
+</ul>
+</dd>
+<dt><strong>Tips:</strong></dt><dd><ul class="simple">
+<li><p>If down the line F4PGA fails, try not replicating instances with “iopadmap” in their name that are next to non-replicated ports. E.g. inserting reduction voters. Don’t put them between ports and instances called “iopadmap” (even if it’s not a buffer). Put the voters on the inner side of those (before or after depending on port direction).</p></li>
+<li><p>See also <a class="reference internal" href="fixup_netlist.html#fixup-netlist"><span class="std std-ref">Run Netlist Fixes</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="running-f4pga">
+<h3>Running F4PGA<a class="headerlink" href="#running-f4pga" title="Permalink to this heading"></a></h3>
+<p>In a directory with all the files, one should be able to run the following:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="o">-</span><span class="n">C</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>F4PGA will run and generate a bitstream.</p>
+</section>
+</section>
+<section id="synchronous-counter-example-with-example-files">
+<h2>Synchronous Counter Example With Example Files<a class="headerlink" href="#synchronous-counter-example-with-example-files" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>Notes:</dt><dd><ul class="simple">
+<li><p>All files are in the same directory</p></li>
+<li><p>Notice how we only replicate the output ports so those are the only constraints we need to specify in the CONSTRAINT_NEW file</p></li>
+<li><p>xc7.f4pga.tcl has been modified as explained above</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Makefile</strong></p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">current_dir</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">CURDIR</span><span class="si">}</span>
+<span class="nv">TOP</span> <span class="o">:=</span> synchronouscounter
+<span class="nv">TARGET</span> <span class="o">:=</span> basys3
+<span class="nv">SOURCES</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/synchronouscounter.v
+<span class="nv">TMR_SCRIPT</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/tmr_script.py
+
+<span class="k">export</span> <span class="nv">TMR_SCRIPT</span>
+<span class="k">export</span> <span class="nv">CONSTRAINT_NEW</span>
+
+<span class="nv">XDC</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/constraints.xdc
+<span class="nv">CONSTRAINT_NEW</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/new_constraints.txt
+
+<span class="cp">include common.mk</span>
+</pre></div>
+</div>
+<p><strong>common.mk</strong> (this file is as described above and can be copied exactly)</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">TOP</span> <span class="o">:=</span> <span class="k">$(</span>strip <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span><span class="k">)</span>
+<span class="nv">TARGET</span> <span class="o">:=</span> <span class="k">$(</span>strip <span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span><span class="k">)</span>
+
+<span class="nv">BUILDDIR</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">current_dir</span><span class="si">}</span>/build
+<span class="nv">BOARD_BUILDDIR</span> <span class="o">:=</span> <span class="si">${</span><span class="nv">BUILDDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">TARGET</span><span class="si">}</span>
+
+<span class="c"># Set board properties based on TARGET variable</span>
+<span class="cp">ifeq ($(TARGET),arty_35)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7a50t_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> artix7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7a35tcsg324-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> arty_a7_35t
+<span class="cp">else ifeq ($(TARGET),arty_100)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7a100t_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> artix7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7a100tcsg324-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> arty_a7_100t
+<span class="cp">else ifeq ($(TARGET),nexys4ddr)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7a100t_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> artix7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7a100tcsg324-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> unsupported
+<span class="cp">else ifeq ($(TARGET),zybo)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7z010_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> zynq7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7z010clg400-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> zybo_z7_10
+<span class="cp">else ifeq ($(TARGET),nexys_video)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7a200t_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> artix7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7a200tsbg484-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> nexysVideo
+<span class="cp">else ifeq ($(TARGET),basys3)</span>
+<span class="nv">DEVICE</span> <span class="o">:=</span> xc7a50t_test
+<span class="nv">BITSTREAM_DEVICE</span> <span class="o">:=</span> artix7
+<span class="nv">PARTNAME</span> <span class="o">:=</span> xc7a35tcpg236-1
+<span class="nv">OFL_BOARD</span> <span class="o">:=</span> <span class="k">$(</span>TARGET<span class="k">)</span>
+<span class="cp">else</span>
+<span class="k">$(</span><span class="nv">error</span> <span class="nv">Unsupported</span> <span class="nv">board</span> <span class="nv">type</span><span class="k">)</span><span class="w"></span>
+<span class="cp">endif</span>
+
+<span class="c"># Determine the type of constraint being used</span>
+<span class="cp">ifneq (${XDC},)</span>
+<span class="nv">XDC_CMD</span> <span class="o">:=</span> -x <span class="si">${</span><span class="nv">XDC</span><span class="si">}</span>
+<span class="cp">endif</span>
+<span class="cp">ifneq (${SDC},)</span>
+<span class="nv">SDC_CMD</span> <span class="o">:=</span> -s <span class="si">${</span><span class="nv">SDC</span><span class="si">}</span>
+<span class="cp">endif</span>
+<span class="cp">ifneq (${PCF},)</span>
+<span class="nv">PCF_CMD</span> <span class="o">:=</span> -p <span class="si">${</span><span class="nv">PCF</span><span class="si">}</span>
+<span class="cp">endif</span>
+
+<span class="c"># Determine if we should use Surelog/UHDM to read sources</span>
+<span class="cp">ifneq (${SURELOG_CMD},)</span>
+<span class="nv">SURELOG_OPT</span> <span class="o">:=</span> -s <span class="si">${</span><span class="nv">SURELOG_CMD</span><span class="si">}</span>
+<span class="cp">endif</span>
+
+<span class="nf">.DELETE_ON_ERROR</span><span class="o">:</span>
+
+<span class="c"># Build design</span>
+<span class="nf">all</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">bit</span>
+
+<span class="nf">${BOARD_BUILDDIR}</span><span class="o">:</span>
+   mkdir -p <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span>
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.eblif</span><span class="o">:</span> ${<span class="n">SOURCES</span>} ${<span class="n">XDC</span>} ${<span class="n">SDC</span>} ${<span class="n">PCF</span>} <span class="p">|</span> ${<span class="n">BOARD_BUILDDIR</span>}
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_synth -t <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span> <span class="si">${</span><span class="nv">SURELOG_OPT</span><span class="si">}</span> -v <span class="si">${</span><span class="nv">SOURCES</span><span class="si">}</span> -d <span class="si">${</span><span class="nv">BITSTREAM_DEVICE</span><span class="si">}</span> -p <span class="si">${</span><span class="nv">PARTNAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">XDC_CMD</span><span class="si">}</span> <span class="se">\</span>
+   <span class="o">&amp;&amp;</span> python3 <span class="si">${</span><span class="nv">TMR_SCRIPT</span><span class="si">}</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.eblif <span class="si">${</span><span class="nv">CONSTRAINT_NEW</span><span class="si">}</span>
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.net</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">eblif</span>
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_pack -e <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.eblif -d <span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span> <span class="si">${</span><span class="nv">SDC_CMD</span><span class="si">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.place</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">net</span>
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_place -e <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.eblif -d <span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span> <span class="si">${</span><span class="nv">PCF_CMD</span><span class="si">}</span> -n <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.net -P <span class="si">${</span><span class="nv">PARTNAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">SDC_CMD</span><span class="si">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.route</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">place</span>
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_route -e <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.eblif -d <span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span> <span class="si">${</span><span class="nv">SDC_CMD</span><span class="si">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; /dev/null
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.fasm</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">route</span>
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_write_fasm -e <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.eblif -d <span class="si">${</span><span class="nv">DEVICE</span><span class="si">}</span>
+
+<span class="nf">${BOARD_BUILDDIR}/${TOP}.bit</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">fasm</span>
+   <span class="nb">cd</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span> <span class="o">&amp;&amp;</span> symbiflow_write_bitstream -d <span class="si">${</span><span class="nv">BITSTREAM_DEVICE</span><span class="si">}</span> -f <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.fasm -p <span class="si">${</span><span class="nv">PARTNAME</span><span class="si">}</span> -b <span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.bit
+
+<span class="nf">download</span><span class="o">:</span> ${<span class="n">BOARD_BUILDDIR</span>}/${<span class="n">TOP</span>}.<span class="n">bit</span>
+<span class="cp">   if [ $(TARGET)=&#39;unsupported&#39; ]; then \</span>
+<span class="cp">   echo &quot;The commands needed to download the bitstreams to the board type specified are not currently supported by the F4PGA makefiles. \</span>
+<span class="cp">   Please see documentation for more information.&quot;; \</span>
+<span class="cp">   fi</span>
+   openFPGALoader -b <span class="si">${</span><span class="nv">OFL_BOARD</span><span class="si">}</span> <span class="si">${</span><span class="nv">BOARD_BUILDDIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">TOP</span><span class="si">}</span>.bit
+
+<span class="nf">clean</span><span class="o">:</span>
+   rm -rf <span class="si">${</span><span class="nv">BUILDDIR</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Verilog Source File</strong> (synchronouscounter.v)</p>
+<div class="highlight-Verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">synchronouscounter</span><span class="p">(</span><span class="n">clk</span><span class="p">,</span><span class="n">reset</span><span class="p">,</span><span class="n">count</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="k">input</span><span class="w"> </span><span class="n">clk</span><span class="p">,</span><span class="n">reset</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="k">output</span><span class="w"> </span><span class="kt">reg</span><span class="w"> </span><span class="p">[</span><span class="mh">3</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">always</span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">begin</span><span class="w"></span>
+<span class="w">             </span><span class="k">if</span><span class="p">(</span><span class="n">reset</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">4</span><span class="mb">&#39;b0000</span><span class="p">;</span><span class="w"></span>
+<span class="w">             </span><span class="k">else</span><span class="w"></span>
+<span class="w">                     </span><span class="n">count</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="k">end</span><span class="w"></span>
+
+<span class="k">endmodule</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>XDC</strong> (constraints.xdc)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">W5</span>    <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">clk</span> <span class="p">}];</span>
+<span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">V17</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">reset</span> <span class="p">}];</span>
+<span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">U16</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}];</span>
+<span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">E19</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">}];</span>
+<span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">U19</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">count</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">}];</span>
+<span class="n">set_property</span> <span class="o">-</span><span class="nb">dict</span> <span class="p">{</span> <span class="n">PACKAGE_PIN</span> <span class="n">V19</span>   <span class="n">IOSTANDARD</span> <span class="n">LVCMOS33</span> <span class="p">}</span> <span class="p">[</span><span class="n">get_ports</span> <span class="p">{</span> <span class="n">count</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">}];</span>
+</pre></div>
+</div>
+<p><strong>CONSTRAINT_NEW</strong> (new_constraints.txt)</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>count_TMR_0[0] U16
+count_TMR_0[1] E19
+count_TMR_0[2] U19
+count_TMR_0[3] V19
+count_TMR_1[0] U15
+count_TMR_1[1] U14
+count_TMR_1[2] V14
+count_TMR_1[3] V13
+count_TMR_2[0] W3
+count_TMR_2[1] U3
+count_TMR_2[2] P3
+count_TMR_2[3] N3
+</pre></div>
+</div>
+<p><strong>TMR_SCRIPT</strong> (tmr_script.py)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.nmr</span> <span class="kn">import</span> <span class="n">apply_nmr</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points</span> <span class="kn">import</span> <span class="n">find_after_ff_voter_points</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.identify_reduction_points</span> <span class="kn">import</span> <span class="n">identify_reduction_points</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.support_files.vendor_names</span> <span class="kn">import</span> <span class="n">XILINX</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.organ</span> <span class="kn">import</span> <span class="n">GenericEBLIFVoter</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.organ_insertion</span> <span class="kn">import</span> <span class="n">insert_organs</span>
+<span class="kn">from</span> <span class="nn">spydrnet.util.selection</span> <span class="kn">import</span> <span class="n">Selection</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.f4pga</span> <span class="kn">import</span> <span class="n">fix_and_update_constraints</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.f4pga</span> <span class="kn">import</span> <span class="n">connect_unconn_to_dummy</span>
+
+<span class="k">def</span> <span class="nf">run_tmr</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">,</span> <span class="n">new_constraints_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting to replicate design using Spydrnet&quot;</span><span class="p">)</span>
+
+   <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">)</span>
+
+
+   <span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+
+   <span class="c1"># netlist.compose(&quot;before_TMR.eblif&quot;)</span>
+
+   <span class="n">hinstances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span>
+                                                      <span class="ow">and</span> <span class="s2">&quot;VCC&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span>
+                                                      <span class="ow">and</span> <span class="s2">&quot;GND&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span>
+                                                      <span class="ow">and</span> <span class="s2">&quot;ibuf&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                                                      <span class="ow">and</span> <span class="s2">&quot;IBUF&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">name</span> <span class="p">))</span>
+
+   <span class="n">instances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances</span><span class="p">)</span>
+
+   <span class="n">hports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+   <span class="n">ports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports</span><span class="p">)</span>
+
+   <span class="c1"># this will return an empty set because f4pga renames primitives and spydrnet doesn&#39;t recognize them (e.g. FDRE is FDRE_ZINI)</span>
+   <span class="n">insertion_points</span> <span class="o">=</span> <span class="n">find_after_ff_voter_points</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="p">[</span><span class="o">*</span><span class="n">hinstances</span><span class="p">,</span> <span class="o">*</span><span class="n">hports</span><span class="p">],</span> <span class="n">XILINX</span><span class="p">)</span>
+
+   <span class="c1"># so manually find the insertion points here</span>
+   <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+      <span class="k">if</span> <span class="s2">&quot;FDRE&quot;</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="n">output_pin</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">pin</span> <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">get_pins</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="n">Selection</span><span class="o">.</span><span class="n">OUTSIDE</span><span class="p">,</span>
+                              <span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">inner_pin</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">direction</span> <span class="ow">is</span> <span class="n">sdn</span><span class="o">.</span><span class="n">OUT</span><span class="p">))</span>
+            <span class="n">insertion_points</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">output_pin</span><span class="p">)</span>
+
+   <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;TMR&quot;</span>
+   <span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">([</span><span class="o">*</span><span class="n">instances</span><span class="p">,</span> <span class="o">*</span><span class="n">ports</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+   <span class="c1"># check for any points needing reduction voters and add them to the insertion points set</span>
+   <span class="n">insertion_points_more</span> <span class="o">=</span> <span class="n">identify_reduction_points</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="n">suffix</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">insertion_points_more</span><span class="p">:</span>
+      <span class="n">insertion_points</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total Insertion Points Found: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">insertion_points</span><span class="p">)))</span>
+   <span class="n">voters</span> <span class="o">=</span> <span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="n">insertion_points</span><span class="p">,</span> <span class="n">GenericEBLIFVoter</span><span class="p">(),</span><span class="s2">&quot;VOTER&quot;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+
+   <span class="n">connect_unconn_to_dummy</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">new_constraints_file</span><span class="p">):</span>
+      <span class="n">fix_and_update_constraints</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">replicas</span><span class="p">,</span> <span class="n">new_constraints_file</span><span class="p">,</span> <span class="n">suffix</span><span class="p">)</span>
+
+   <span class="n">netlist</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">,</span><span class="n">write_blackbox</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">write_eblif_cname</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Design successfully replicated using Spydrnet&quot;</span><span class="p">)</span>
+
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="p">:</span>
+   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+      <span class="n">run_tmr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">run_tmr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<section id="functions-referenced">
+<h3>Functions Referenced<a class="headerlink" href="#functions-referenced" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="update_constraints.html">Fix and Update Constraints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fix_unconn_nets.html">Connect Unconn Nets To Dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixup_netlist.html">Run Netlist Fixes</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../simpleCounter/yosys_f4pga/index.html" class="btn btn-neutral float-left" title="Yosys/F4PGA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="update_constraints.html" class="btn btn-neutral float-right" title="Fix and Update Constraints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

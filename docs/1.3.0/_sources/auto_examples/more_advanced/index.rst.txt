@@ -1,0 +1,292 @@
+
+
+.. _sphx_glr_auto_examples_more_advanced:
+
+Advanced
+--------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Utilization Statistics">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_utilization_statistics_thumb.png
+    :alt: Utilization Statistics
+
+  :ref:`sphx_glr_auto_examples_more_advanced_utilization_statistics.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Utilization Statistics</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="TMR All Components Including IO">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_TMR_all_components_including_io_thumb.png
+    :alt: TMR All Components Including IO
+
+  :ref:`sphx_glr_auto_examples_more_advanced_TMR_all_components_including_io.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">TMR All Components Including IO</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The following is a script that was used to triplicate and insert voters into the SpyDrNet SHREC...">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_nexys4ddr_thumb.png
+    :alt: nexys4ddr
+
+  :ref:`sphx_glr_auto_examples_more_advanced_nexys4ddr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">nexys4ddr</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Evaluate Graph">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_evaluate_graph_thumb.png
+    :alt: Evaluate Graph
+
+  :ref:`sphx_glr_auto_examples_more_advanced_evaluate_graph.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Evaluate Graph</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Xilinx TMR">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_netfpga_switch_partial_tmr_thumb.png
+    :alt: Xilinx TMR
+
+  :ref:`sphx_glr_auto_examples_more_advanced_netfpga_switch_partial_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Xilinx TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maximize Protected Routes">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_maximize_protected_routes_thumb.png
+    :alt: Maximize Protected Routes
+
+  :ref:`sphx_glr_auto_examples_more_advanced_maximize_protected_routes.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maximize Protected Routes</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Cisco DWC Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_cisco_hotspring_dwc_thumb.png
+    :alt: Cisco DWC Example
+
+  :ref:`sphx_glr_auto_examples_more_advanced_cisco_hotspring_dwc.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cisco DWC Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decompose">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_decompose_thumb.png
+    :alt: Decompose
+
+  :ref:`sphx_glr_auto_examples_more_advanced_decompose.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decompose</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decompose_v2">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_decompose_v2_thumb.png
+    :alt: Decompose_v2
+
+  :ref:`sphx_glr_auto_examples_more_advanced_decompose_v2.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decompose_v2</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Clock Domain Analysis">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_clock_domain_analysis_thumb.png
+    :alt: Clock Domain Analysis
+
+  :ref:`sphx_glr_auto_examples_more_advanced_clock_domain_analysis.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Clock Domain Analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Apply TMR Terminator">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_apply_tmr_terminator_thumb.png
+    :alt: Apply TMR Terminator
+
+  :ref:`sphx_glr_auto_examples_more_advanced_apply_tmr_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Apply TMR Terminator</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Apply TMR">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_apply_tmr_thumb.png
+    :alt: Apply TMR
+
+  :ref:`sphx_glr_auto_examples_more_advanced_apply_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Apply TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example Original">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_orig_terminator_thumb.png
+    :alt: SpyDrNet Example Original
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example_orig_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example Original</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_thumb.png
+    :alt: SpyDrNet Example
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example Terminator">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_terminator_thumb.png
+    :alt: SpyDrNet Example Terminator
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example Terminator</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/more_advanced/utilization_statistics
+   /auto_examples/more_advanced/TMR_all_components_including_io
+   /auto_examples/more_advanced/nexys4ddr
+   /auto_examples/more_advanced/evaluate_graph
+   /auto_examples/more_advanced/netfpga_switch_partial_tmr
+   /auto_examples/more_advanced/maximize_protected_routes
+   /auto_examples/more_advanced/cisco_hotspring_dwc
+   /auto_examples/more_advanced/decompose
+   /auto_examples/more_advanced/decompose_v2
+   /auto_examples/more_advanced/clock_domain_analysis
+   /auto_examples/more_advanced/apply_tmr_terminator
+   /auto_examples/more_advanced/apply_tmr
+   /auto_examples/more_advanced/spydrnet_example_orig_terminator
+   /auto_examples/more_advanced/spydrnet_example
+   /auto_examples/more_advanced/spydrnet_example_terminator
+
