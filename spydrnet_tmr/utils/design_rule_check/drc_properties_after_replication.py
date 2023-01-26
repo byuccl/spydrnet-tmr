@@ -1,3 +1,4 @@
+from spydrnet_tmr.utils.design_rule_check.util import get_original_name
 
 def check_properties_after_replication(original_netlist,modified_netlist,suffix,organ_names = list(),write_enable=False):
     '''
@@ -58,7 +59,7 @@ def compare_properties(original,modified,suffix,write_enable,name):
         f = open('drc_property_results_'+name+'.txt','w')
     not_matched = []
     for instance_modified in modified:
-        modified_name = find_name(instance_modified.item,suffix)
+        modified_name = get_original_name(instance_modified.item,suffix)
         matched_for_compare = False
         if instance_modified.parent.item.reference.name in original.keys():
             for instance_original in original[instance_modified.parent.item.reference.name]:
@@ -95,19 +96,6 @@ def compare_a_match(instance_original,instance_modified,suffix,f):
             if f:
                 f.write('NOT MATCH: '+instance_modified.name+' ' + str(instance_modified["EDIF.properties"])+' did not match '+instance_original.name+' '+str(instance_original["EDIF.properties"])+' as expected\n')
     return not_matched
-
-def find_name(current_instance,suffix):
-    '''
-    returns the instance's name without the replica suffix appended to it
-    '''
-    modified_name = None
-    start_index = current_instance.name.find(suffix)
-    stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
-        modified_name = current_instance.name
-    else :
-        modified_name = current_instance.name[:start_index-1] + current_instance.name[stop_index:]
-    return modified_name
 
 def filter_suffix_from_properties(instance,suffix):
     '''

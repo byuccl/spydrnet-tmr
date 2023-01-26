@@ -10,13 +10,16 @@ from spydrnet_tmr.support_files.vendor_names import XILINX
 from spydrnet_tmr.transformation.replication.organ import XilinxDWCDetector
 from spydrnet_tmr.transformation.surface_pins import surface_pins
 from spydrnet_tmr.utils.design_rule_check.drc_surface_pins import check_surfaced_pins
+from spydrnet_tmr.support_files.xilinx_primitive_tokens import FF_CELLS
+from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
 
 class TestDRCSurfacePins(unittest.TestCase):
     '''
     Tests the DRC check for surface_pins()
     '''
     def setUp(self):
-        examples_list = ['lfsr_zybo','register_file']
+        examples_list = ['lfsr_zybo','register_file']#,'lc3']
         random_value = randint(0,len(examples_list)-1)
         example_to_test = examples_list[random_value]
 

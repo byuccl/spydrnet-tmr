@@ -3,7 +3,7 @@ Find voter insertion points after every flip-flip
 """
 import spydrnet as sdn
 
-from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet_tmr.support_files.vendor_names import XILINX, LATTICE
 from spydrnet_tmr.support_files.xilinx_primitive_tokens import FF_CELLS
 from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
 
@@ -48,12 +48,15 @@ def find_after_ff_voter_points(
     # """
     endpoints_to_replicate = set(endpoints_to_replicate)
     primitive_names = set()
-
+    
     insertion_points = set()
 
     # Load primitive info for finding flip-flops
     primitive_info = load_primitive_info(netlist, vendor_name)
     if vendor_name is XILINX:
+        for definition in primitive_info[FF_CELLS]:
+            primitive_names.add(definition.name)
+    if vendor_name is LATTICE:
         for definition in primitive_info[FF_CELLS]:
             primitive_names.add(definition.name)
 
@@ -65,8 +68,8 @@ def find_after_ff_voter_points(
         ):
             # Identify OuterPin for output of each flip-flip
             for pin in endpoint.item.get_pins(selection=sdn.OUTSIDE):
-                for port in pin.get_ports():
-                    if port.direction is sdn.OUT:
+                if pin.inner_pin.port.direction is sdn.OUT:
+                    if pin.wire:
                         insertion_points.add(pin)
 
     print(

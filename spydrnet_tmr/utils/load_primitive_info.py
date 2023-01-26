@@ -7,17 +7,28 @@ def load_primitive_info(netlist, vendor):
     primitive_info = dict()
 
     import json
-
-    primitive_info_db = json.load(
-        open(
-            os.path.join(
-                base_dir,
-                "support_files",
-                "primitive_databases",
-                "xilinx_primitive_info_db.json",
+    if "xilinx" in vendor:
+        primitive_info_db = json.load(
+            open(
+                os.path.join(
+                    base_dir,
+                    "support_files",
+                    "primitive_databases",
+                    "xilinx_primitive_info_db.json",
+                )
             )
         )
-    )
+    if "lattice" in vendor:
+        primitive_info_db = json.load(
+            open(
+                os.path.join(
+                    base_dir,
+                    "support_files",
+                    "primitive_databases",
+                    "lattice_primitive_info_db.json",
+                )
+            )
+        )
 
     primitive_library = next(
         netlist.get_libraries(primitive_info_db["primitive_library_name"]),None
@@ -65,10 +76,10 @@ def load_primitive_info(netlist, vendor):
                 continue
             combinational_cells.add(combinational_cell)
 
-    if "sequential_cells" in primitive_info_db:
+    if "complex_sequential_cells" in primitive_info_db:
         sequential_cells = dict()
-        primitive_info["sequential_cells"] = sequential_cells
-        for seq_cell_info in primitive_info_db["sequential_cells"]:
+        primitive_info["complex_sequential_cells"] = sequential_cells
+        for seq_cell_info in primitive_info_db["complex_sequential_cells"]:
             sequential_cell = next(
                 primitive_library.get_definitions(seq_cell_info["name"]), None
             )
@@ -159,5 +170,13 @@ def load_primitive_info(netlist, vendor):
                         )
                     )
                     async_ports.add(async_port)
+
+    # combine ff_cells and complex_sequential_cells into a single sequential_cells section
+    if 'ff_cells' in primitive_info.keys():
+        primitive_info["sequential_cells"] = primitive_info['ff_cells'].copy()
+    else:
+        primitive_info["sequential_cells"] = dict()
+    if "complex_sequential_cells" in primitive_info.keys():
+        primitive_info["sequential_cells"].update(primitive_info["complex_sequential_cells"])
 
     return primitive_info
