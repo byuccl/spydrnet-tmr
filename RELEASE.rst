@@ -1,3 +1,11 @@
+SpyDrNet-TMR 1.3.0
+------------------
+- Added functionality from another repository
+- Updated instructions for F4PGA 
+- Updated documentation
+- Minor bug fixes
+- Initial Lattice support 
+
 SpyDrNet-TMR 1.2.0
 ------------------
 - Initial support and documentation for replicating designs using SpyDrNet-TMR while building a design using Symbiflow

@@ -5,8 +5,8 @@ This section aims to help you do a SpyDrNet-TMR release, meaning you make the la
 
 1. Merge each contributors' branches into one branch (the 'next_release' branch)
 2. Run `git merge main` while the next_release branch is checked out.
-3. :ref:`update_release_notes`
-4. :ref:`update_documentation` and ensure it can build properly
+3. :ref:`update_release_notes` and git commit release notes
+4. :ref:`update_documentation` and ensure it can build properly 
 5. On Github, create a pull request with the updated code in the next_release branch.
 6. Accept and merge the pull request when the checks have finished.
 7. Move to the main branch using `git checkout main`
