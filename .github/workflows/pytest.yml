@@ -1,0 +1,28 @@
+name: Pytest
+
+on: [push]
+
+jobs:
+  SpyDrNet_TMR_push:
+    name: SpyDrNet-TMR Push
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: python -m pip install --upgrade pip spydrnet networkx
+    - name: Run Pytest for SpyDrNet-TMR
+      uses: cclauss/GitHub-Action-for-pytest@master
+      with:
+        args: python -m pytest -v
