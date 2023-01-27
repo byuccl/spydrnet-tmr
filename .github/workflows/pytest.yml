@@ -17,10 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@master
       with:
         python-version: ${{ matrix.python-version }}
-    - uses: actions/checkout@master
     - name: Install Dependencies
       run: |
         python3 -m pip install spydrnet networkx
