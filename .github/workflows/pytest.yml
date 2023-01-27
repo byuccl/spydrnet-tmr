@@ -22,8 +22,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        python -m pip install --upgrade pip spydrnet networkx
+        python3 -m pip install --upgrade pip spydrnet networkx
     - name: Run Pytest for SpyDrNet-TMR
       uses: cclauss/GitHub-Action-for-pytest@master
       with:
-        args: python -m pytest -v
+        args: python3 -m pytest -v
