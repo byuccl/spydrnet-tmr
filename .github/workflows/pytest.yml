@@ -26,6 +26,3 @@ jobs:
     - name: Run Pytest for SpyDrNet-TMR
       run: |
         pytest -v
-      # uses: cclauss/GitHub-Action-for-pytest@master
-      # with:
-        # args: python -m pytest -v
