@@ -35,7 +35,7 @@ def reorder_pins_helper(organ):
 def find_key(instance,suffix):
     start_index = instance.name.find(suffix)
     stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
+    if start_index == -1:
         key = ''
     else:
         key = instance.name[start_index:stop_index]

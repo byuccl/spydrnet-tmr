@@ -67,7 +67,7 @@ def fix_name(current_instance,suffix):
     while True:
         start_index = modified_name_prefix.find(suffix)
         stop_index = start_index + len(suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             return modified_name_prefix
         modified_name_prefix =modified_name_prefix[:start_index-1] + modified_name_prefix[stop_index:]
 
