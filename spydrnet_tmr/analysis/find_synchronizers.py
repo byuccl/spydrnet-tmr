@@ -1,8 +1,9 @@
 import spydrnet as sdn
 from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
+from spydrnet_tmr.support_files.vendor_names import XILINX
 
 
-def find_synchronizers(netlist, pin_clock_domains):
+def find_synchronizers(netlist, pin_clock_domains, vendor=XILINX):
     '''
     Find the synchronizers in a design
 
@@ -10,7 +11,7 @@ def find_synchronizers(netlist, pin_clock_domains):
     :param pin_clock_domains: obtained by running :ref:`pin_clock_domain_analysis`
     :return: list of HRef objects to the found synchronizer instances
     '''
-    primitive_info = load_primitive_info(netlist)
+    primitive_info = load_primitive_info(netlist, vendor)
 
     multiple_clocks = list(x for x in pin_clock_domains if len(pin_clock_domains[x]) > 1)
     multiple_clocks_seq = set(x.parent.parent for x in multiple_clocks if x.item.port.definition in
