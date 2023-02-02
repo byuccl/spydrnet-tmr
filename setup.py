@@ -17,23 +17,20 @@ if sys.version_info[:2] < (3, 6):
 
 # Write the version information.
 sys.path.insert(0, "spydrnet_tmr")
-from spydrnet_tmr import release
-
+import release
 version = release.update_versionfile()
 sys.path.pop(0)
 
 with open("README.md", "r") as fh:
     long_description = fh.read().replace(":ref:", "")
 
-example_edif_files = list()
+support_files = list()
 folder_path = os.path.normpath(
-    os.path.join(os.path.dirname(__file__), "spydrnet_tmr", "support_files")
-)
+    os.path.join(os.path.dirname(__file__), "spydrnet_tmr", "support_files"))
 for filename in glob.glob(
-    os.path.join(folder_path, "**", "*"), recursive=True
-):
-    if os.path.isfile(filename) and os.path.getsize(filename) < 1024 * 10:
-        example_edif_files.append(
+    os.path.join(folder_path, "**", "*"), recursive=True):
+    if os.path.isfile(filename) and ".py" not in filename:
+        support_files.append(
             "support_files/"
             + str(filename)[len(folder_path) + 1 :].replace("\\", "/")
         )
@@ -57,7 +54,7 @@ if __name__ == "__main__":
         url=release.url,
         project_urls=release.project_urls,
         classifiers=release.classifiers,
-        package_data={"spydrnet": ["VERSION"] + example_edif_files},
+        package_data={"spydrnet_tmr": ["VERSION"] + support_files},
         packages=setuptools.find_packages(),
         extras_require=extras_require,
         install_requires=["spydrnet>=1.4,<2", "pyyaml"],
