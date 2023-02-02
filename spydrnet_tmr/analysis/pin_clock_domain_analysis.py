@@ -3,7 +3,7 @@ from spydrnet_tmr.utils.load_primitive_info import load_primitive_info
 from spydrnet_tmr.support_files.vendor_names import XILINX
 
 
-def pin_clock_domain_analysis(netlist, include_blackboxes=True, vendor=XILINX):
+def pin_clock_domain_analysis(netlist, include_blackboxes=True, vendor=XILINX, verbose=True):
     '''
     Finds all of the pins in a design involving clocks. (e.g. clk, clr, enable)
 
@@ -15,7 +15,9 @@ def pin_clock_domain_analysis(netlist, include_blackboxes=True, vendor=XILINX):
     primitive_info = load_primitive_info(netlist, vendor)
 
     leaf_cells = set(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf()))
-    _report_leaf_count(leaf_cells)
+    
+    if verbose:
+        _report_leaf_count(leaf_cells)
 
     known_clock_ports = set(sdn.get_hports(leaf_cells,
                                            filter=lambda x: x.item.definition in primitive_info['sequential_cells'] and
@@ -30,7 +32,8 @@ def pin_clock_domain_analysis(netlist, include_blackboxes=True, vendor=XILINX):
                                                                              primitive_info['power_ground_cells']))
 
     clock_endpoints = _find_clock_endpoints_from_clock_sources(known_clock_srcs)
-    _report_clock_endpoints_count(clock_endpoints)
+    if verbose:
+        _report_clock_endpoints_count(clock_endpoints)
 
     pin_clock_domains = dict()
     _propagate_clocks(primitive_info, clock_endpoints, pin_clock_domains)
