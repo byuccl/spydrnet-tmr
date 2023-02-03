@@ -10,13 +10,12 @@ from spydrnet_tmr.transformation.replication.organ_insertion import (
     insert_organs,
 )
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_after_ff import (
+from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
     find_voter_insertion_points_after_ff,
 )
-from spydrnet_tmr.analysis.voter_insertion.find_voter_insertion_points_before_ff import (
+from spydrnet_tmr.analysis.voter_insertion.find_before_ff_voter_points import (
     find_voter_insertion_points_before_ff,
 )
-
 
 def apply_tmr_to_netlist(netlist, vendor_name, **kwargs):
     """
@@ -35,7 +34,7 @@ def apply_tmr_to_netlist(netlist, vendor_name, **kwargs):
         The netlist to which triplication will be applied.
     vendor_name : str - Required
         The vendor name for the primitive definitions found in the netlist. See
-        `spydrnet_shrec/support_files/vendor_names.py` for a list of supported
+        `spydrnet_tmr/support_files/vendor_names.py` for a list of supported
         vendors.
     hinstances_to_replicate : href, Iterable - optional, default: set()
         Hierarchical references to the instances within the netlist that will be
@@ -112,7 +111,7 @@ def apply_tmr_to_netlist(netlist, vendor_name, **kwargs):
     # Load primitive info for finding flip-flops later
     primitive_info = load_primitive_info(netlist, vendor_name)
     if vendor_name is XILINX:
-        from spydrnet_shrec.support_files.xilinx_primitive_tokens import (
+        from spydrnet_tmr.support_files.xilinx_primitive_tokens import (
             FF_CELLS as FF_PRIMITIVES,
         )
 
