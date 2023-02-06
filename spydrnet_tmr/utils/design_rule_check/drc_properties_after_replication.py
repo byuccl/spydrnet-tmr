@@ -105,7 +105,7 @@ def filter_suffix_from_properties(instance,suffix):
     while True:
         start_index = filtered_properties.find(suffix)
         stop_index = start_index + len(suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             return filtered_properties
 
         filtered_properties = filtered_properties[:start_index-1] + filtered_properties[stop_index:]

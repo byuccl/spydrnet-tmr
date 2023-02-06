@@ -107,7 +107,7 @@ class TestDRCConnectionsAfterReplicationAndInsertion(unittest.TestCase):
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
         hports_to_replicate = list(netlist.get_hports())
         ports_to_replicate = list(x.item for x in hports_to_replicate)
-        if which_side is 'after':
+        if which_side == 'after':
             insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)
         else:
             insertion_points = find_after_ff_voter_points(netlist,[*hinstances_to_replicate, *hports_to_replicate], XILINX)

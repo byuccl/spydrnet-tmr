@@ -4,7 +4,7 @@ def find_key(instance,suffix):
     '''
     start_index = instance.name.find(suffix)
     stop_index = start_index + len(suffix) + 2
-    if start_index is -1:
+    if start_index == -1:
         key = ''
     else:
         key = instance.name[start_index:stop_index]
@@ -21,7 +21,7 @@ def get_original_name(current_instance,suffix):
     start_index = modified_name.find(suffix)
     stop_index = start_index + len(suffix) + 2
     while True:
-        if start_index is -1:
+        if start_index == -1:
             return modified_name
         else :
             modified_name = modified_name[:start_index-1] + modified_name[stop_index:]

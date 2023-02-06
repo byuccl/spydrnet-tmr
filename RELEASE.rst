@@ -1,3 +1,9 @@
+SpyDrNet-TMR 1.3.1
+------------------
+- Added github actions for pytest
+- Fixed bug where support files were not included when building the python package
+- Removed old examples
+
 SpyDrNet-TMR 1.3.0
 ------------------
 - Added functionality from another repository

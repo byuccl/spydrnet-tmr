@@ -46,7 +46,7 @@ def check_replicas_amount(netlist,all_elements_to_replicate,degree,suffix):
     for item in instance_dict:
         if instance_dict[item] is degree and any((item == x[0] and x[1] is sdn.Instance) for x in stuff_to_replicate):
             continue
-        elif instance_dict[item] is 1 and not any((item == x[0] and x[1] is sdn.Instance) for x in stuff_to_replicate):
+        elif instance_dict[item] == 1 and not any((item == x[0] and x[1] is sdn.Instance) for x in stuff_to_replicate):
             continue
         else:
             # print("instance",item,':',instance_dict[item],'\t',any((item == x[0] and x[1] is sdn.Instance) for x in stuff_to_replicate))
@@ -55,7 +55,7 @@ def check_replicas_amount(netlist,all_elements_to_replicate,degree,suffix):
     for item in port_dict:
         if port_dict[item] is degree and any((item == x[0] and x[1] is sdn.Port) for x in stuff_to_replicate):
             continue
-        elif port_dict[item] is 1 and not any((item == x[0] and x[1] is sdn.Port) for x in stuff_to_replicate):
+        elif port_dict[item] == 1 and not any((item == x[0] and x[1] is sdn.Port) for x in stuff_to_replicate):
             continue
         else:
             # print('port',item,':',port_dict[item],'\t',any((item == x[0] and x[1] is sdn.Port) for x in stuff_to_replicate))
@@ -67,7 +67,7 @@ def fix_name(current_instance,suffix):
     while True:
         start_index = modified_name_prefix.find(suffix)
         stop_index = start_index + len(suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             return modified_name_prefix
         modified_name_prefix =modified_name_prefix[:start_index-1] + modified_name_prefix[stop_index:]
 

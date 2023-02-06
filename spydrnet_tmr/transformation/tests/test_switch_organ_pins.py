@@ -33,7 +33,7 @@ class TestSwitchOrganPins(unittest.TestCase):
         for point in self.voters.keys():
             for organ in self.voters[point]:
                 key = self.find_key(organ,'TMR')
-                primary_input_pin = next(organ.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.inner_pin.port.name is 'Primary'))
+                primary_input_pin = next(organ.get_pins(selection=Selection.OUTSIDE,filter=lambda x: x.inner_pin.port.name == 'Primary'))
                 driver = next(x for x in primary_input_pin.wire.pins if x.inner_pin.port.direction is sdn.OUT)
                 self.assertTrue(key in driver.instance.name)
 
@@ -55,7 +55,7 @@ class TestSwitchOrganPins(unittest.TestCase):
     def find_key(self,instance,suffix):
         start_index = instance.name.find(suffix)
         stop_index = start_index + len(suffix) + 2
-        if start_index is -1:
+        if start_index == -1:
             key = ''
         else:
             key = instance.name[start_index:stop_index]
