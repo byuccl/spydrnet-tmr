@@ -34,7 +34,7 @@ The number of times each primitive is instanced before and after triplicating wi
  .. code-block:: none
 
     Identified 4 insertion points for reduction voters.
-    {(<spydrnet.ir.OuterPin object at 0x7f40eb66ea90>, <spydrnet.ir.InnerPin object at 0x7f40eb6a74c0>), (<spydrnet.ir.OuterPin object at 0x7f40eb66e5e0>, <spydrnet.ir.InnerPin object at 0x7f40eb6a2ec0>), (<spydrnet.ir.OuterPin object at 0x7f40eb66e900>, <spydrnet.ir.InnerPin object at 0x7f40eb6a2900>), (<spydrnet.ir.OuterPin object at 0x7f40eb66e770>, <spydrnet.ir.InnerPin object at 0x7f40eb6a2340>)}
+    {(<spydrnet.ir.OuterPin object at 0x7f2c0d3f6310>, <spydrnet.ir.InnerPin object at 0x7f2c0d17f280>), (<spydrnet.ir.OuterPin object at 0x7f2c0d3f6ae0>, <spydrnet.ir.InnerPin object at 0x7f2c0d17b100>), (<spydrnet.ir.OuterPin object at 0x7f2c0d3f61d0>, <spydrnet.ir.InnerPin object at 0x7f2c0d17b6c0>), (<spydrnet.ir.OuterPin object at 0x7f2c0d3f6180>, <spydrnet.ir.InnerPin object at 0x7f2c0d17f840>)}
 
     Primitive count before and after TMR:
              BUFG :  1  -->  3

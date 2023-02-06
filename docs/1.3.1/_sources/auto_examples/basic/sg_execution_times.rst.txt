@@ -5,20 +5,20 @@
 
 Computation times
 =================
-**00:00.316** total execution time for **auto_examples_basic** files:
+**00:00.339** total execution time for **auto_examples_basic** files:
 
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_basic_plot_voters_for_every_ff_tmr.py` (``plot_voters_for_every_ff_tmr.py``)   | 00:00.240 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_basic_plot_voters_for_every_ff_tmr.py` (``plot_voters_for_every_ff_tmr.py``)   | 00:00.255 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_basic_plot_config_tmr.py` (``plot_config_tmr.py``)                             | 00:00.031 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_basic_plot_xilinx_generic_tmr.py` (``plot_xilinx_generic_tmr.py``)             | 00:00.017 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_basic_plot_generic_tmr.py` (``plot_generic_tmr.py``)                           | 00:00.015 | 0.0 MB |
++-------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_basic_plot_counter_bitstream_tmr.py` (``plot_counter_bitstream_tmr.py``)       | 00:00.014 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_basic_plot_registered_inverter_tmr.py` (``plot_registered_inverter_tmr.py``)   | 00:00.008 | 0.0 MB |
-+-------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_basic_plot_generic_tmr.py` (``plot_generic_tmr.py``)                           | 00:00.006 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_auto_examples_basic_surface_pins_example.py` (``surface_pins_example.py``)                   | 00:00.000 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------------+-----------+--------+
