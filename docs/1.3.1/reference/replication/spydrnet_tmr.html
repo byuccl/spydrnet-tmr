@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpyDrNet TMR &mdash; SpyDrNet TMR 1.3.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HDL Level" href="hdl_level.html" />
+    <link rel="prev" title="Circuit Replication" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Circuit Replication</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SpyDrNet TMR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#export">Export</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parse">Parse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select">Select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apply">Apply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compose">Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import">Import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#footnotes">Footnotes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hdl_level.html">HDL Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="natively.html">Natively</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/index.html">Other Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organs/index.html">Organs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design_rule_check/index.html">Design Rule Check</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Reference</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Circuit Replication</a></li>
+      <li class="breadcrumb-item active">SpyDrNet TMR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/reference/replication/spydrnet_tmr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spydrnet-tmr">
+<span id="id1"></span><h1>SpyDrNet TMR<a class="headerlink" href="#spydrnet-tmr" title="Permalink to this heading"></a></h1>
+<p>The following steps are taken to apply circuit replication using SpyDrNet TMR:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#export">Export</a></p></li>
+<li><p><a class="reference internal" href="#parse">Parse</a></p></li>
+<li><p><a class="reference internal" href="#select">Select</a></p></li>
+<li><p><a class="reference internal" href="#apply">Apply</a></p></li>
+<li><p><a class="reference internal" href="#compose">Compose</a></p></li>
+<li><p><a class="reference internal" href="#import">Import</a></p></li>
+</ol>
+<section id="export">
+<h2>Export<a class="headerlink" href="#export" title="Permalink to this heading"></a></h2>
+<p>The netlist of the target design needs exported from wherever it originates into a format that SpyDrNet TMR can
+recognize. Currently that format is EDIF.</p>
+<section id="from-vivado">
+<h3>From Vivado<a class="headerlink" href="#from-vivado" title="Permalink to this heading"></a></h3>
+<p>Netlists can be exported from Vivado using the following command (in either the synthesis or implementation view):</p>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">Vivado</span><span class="o">%</span><span class="w"> </span>write_edif<span class="w"> </span><span class="o">&lt;</span>name_of_top_level_instance<span class="o">&gt;</span>.edf
+</pre></div>
+</div>
+<p>Note that this command will export an unencrypted netlist and any encrypted portions of the netlist as separate files.
+Traditionally, encrypted portions of IP cores have been treated as <cite>blackboxes</cite>, which the user may or may not want to
+replicate.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>Create a page that talks about blackboxes.</p>
+</div>
+<p>Accompanying constraints can be exported from Vivado using the following command:</p>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">Vivado</span><span class="o">%</span><span class="w"> </span>write_xdc<span class="w"> </span><span class="o">-</span>constraints<span class="w"> </span>ALL<span class="w"> </span><span class="o">&lt;</span>name_of_top_level_instance<span class="o">&gt;</span>.xdc
+</pre></div>
+</div>
+<p>The references made in the constraints match the name of components in the netlist. Replication is applied in such a
+way that the number of changes made to the orginal netlist are minimized. This is done to in turn minimize the number of
+changes that are needed to preserve the functionality of the constraints.</p>
+</section>
+</section>
+<section id="parse">
+<h2>Parse<a class="headerlink" href="#parse" title="Permalink to this heading"></a></h2>
+<p>SpyDrNet TMR uses the SpyDrNet intermeidate representation. Netlists can be parsed into memory using the SpyDrNet
+framework. SpyDrNet TMR accepts these objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;path_of_the_netlist_file&gt;.edf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="select">
+<h2>Select<a class="headerlink" href="#select" title="Permalink to this heading"></a></h2>
+<p>Here is where circuit replication gets interesting. The elements within a netlist must be selected for circuit
+replication. Most netlists will be rendered useless if all circuit elements are replicated. Things to consider are:</p>
+<ul class="simple">
+<li><p>Top level ports/pins, and</p></li>
+<li><p>Component instances</p></li>
+</ul>
+<section id="top-level-ports-and-pins">
+<h3>Top Level Ports and Pins<a class="headerlink" href="#top-level-ports-and-pins" title="Permalink to this heading"></a></h3>
+<p>Depending on the netlist usage, the user may or may not want to replicate top level ports or pins, or the user may want
+to only replicate a subset of the top level ports or pins. SpyDrNet TMR requires that the ports for replication be
+explicitly specified. That can be done through a get query or through an automated selection algorithm.</p>
+<p>Ports can be specified directly or as hierarchical references. The following commands return the top level ports by
+direct reference and hierarchical reference respectively:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ports_by_direct_reference</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sdn</span><span class="o">.</span><span class="n">get_ports</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">top_instance</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ports_by_hierarchical_reference</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sdn</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="n">netlist</span><span class="p">))</span>  <span class="c1"># equivalent to the following</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ports_by_hierarchical_reference</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sdn</span><span class="o">.</span><span class="n">get_hports</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">top_instance</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Replicating a single pin on a port is not possible at this time.</p>
+</section>
+<section id="instances">
+<h3>Instances<a class="headerlink" href="#instances" title="Permalink to this heading"></a></h3>
+<p>Like ports, components too must be explicitly specified for replication. This can be done manually or through an
+automated selection algorithm. There are many ways that circuit components can be selected.</p>
+<p>Likely, the most commmon mode of selection (even for automated selections algorithms) will be through get queryies. Here
+are some examples.</p>
+<p>All leaf components (returns all components within the netlist that are leaf components - not hierarchical modules):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">is_leaf</span><span class="p">(</span><span class="n">hinst</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">reference</span> <span class="o">=</span> <span class="n">hinst</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="kc">False</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">leaf_cells</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">is_leaf</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Only combinational lookup tables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">is_leaf_and_combinational</span><span class="p">(</span><span class="n">hinst</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">reference</span> <span class="o">=</span> <span class="n">hinst</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">reference</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;LUT&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="kc">False</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comb_insts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">is_leaf_and_combinational</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="direct-verses-hierarchical-references">
+<h3>Direct Verses Hierarchical References<a class="headerlink" href="#direct-verses-hierarchical-references" title="Permalink to this heading"></a></h3>
+<p>Selection of ports and instances may be given as direct or hierarchical reference. A direct reference refers to
+the element of a netlist directly without any consideration to that element’s position in hierarchy. In a netlist
+where all non-leaf definitions are instanced only once, there is virtually no difference between a direct reference and
+a hierarchical reference. In that situation, the contents of a definition (other than port configuration) is not shared
+amoung multiple instances. In situations where a non-leaf cells is instanced more than once, a hierarchical reference
+allows the user to point to a specific instance through multiple layers of hierarchy. This is useful for analysis and
+also for differentiation between which specific elements should or should not be replicated.</p>
+<p>Circuit replication behaves differently depending on the type of reference provided. If direct references are provided,
+all instances of the underlying definition or port will be affected by the replication. If a hierarchical reference is
+provided, circuit replication will ensure that the underlying defintion is unique (instanced only one through out
+hierarchy). Making necessary copies and updating instance references to accomplish this can render the original
+reference invalid. When this happens an original updated reference map is provided.</p>
+</section>
+<section id="voter-detector-insertion-point-selection">
+<h3>Voter/Detector Insertion Point Selection<a class="headerlink" href="#voter-detector-insertion-point-selection" title="Permalink to this heading"></a></h3>
+<p>Voters and detectors can be inserted in many different ways throughout a design. Previous work has explored various
+voter insertion algorithms <a class="reference internal" href="#johnson2010" id="id3"><span>[Johnson2010]</span></a> .</p>
+<p>Detectors tap into a signal. Voters cut signal paths (are inserted into signal paths). Therefore, detector and voter
+insertion points may be specified by instance, port, or pin, but only voter insertion points can be customized to
+include only a subset of the end points. This customization comes in handy when a voter is desired to break a feedback
+path and increasing the critical path downstream is not desired.</p>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>Make a figure showing a lut-register pair with tight feedback driving a long chain of combinational logic.
+show that a voter can be inserted between the register output and the LUT input without lengthening the downstream
+combinational path (beyond the added load of the voter - i.e., the voter is not placed in the critical path.</p>
+</div>
+<section id="voter-insertion-algorithms">
+<h4>Voter Insertion Algorithms<a class="headerlink" href="#voter-insertion-algorithms" title="Permalink to this heading"></a></h4>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>Add details about the various voter insertion algorithms that could be used including split vote (if the two
+on the end agree, have them use their own signal, if they disagree, use the middle signal).</p>
+</div>
+</section>
+</section>
+</section>
+<section id="apply">
+<h2>Apply<a class="headerlink" href="#apply" title="Permalink to this heading"></a></h2>
+<p>Partial circuit replication is applied in two or three stages depending on the type. The first stage is called <em>NMR</em>.
+In this stage, the selected instances and ports are replicated to the n-th degree and a map is returned from the
+selected components to their replicated counterparts. Other than the degree of replication, this stage is the same for
+all replication types. The second stage is called <em>OrganInsertion</em>. This name stems from the orignal paper by John
+Von Neumann where TMR was first proposed <a class="reference internal" href="#vonneumann1956" id="id6"><span>[VonNeumann1956]</span></a> . This stage inserts voters or detector at the desired
+insertion points. The final stage is called <em>NetworkInsertion</em>. NetworkInsertion inserts a network used to collect
+error detection signals. There is enormous flexible in the manner in which error detection signals signals can be
+collected. The final stage is only used for error signal collection <a class="footnote-reference brackets" href="#f1" id="id7">1</a> .</p>
+<section id="nmr">
+<h3>NMR<a class="headerlink" href="#nmr" title="Permalink to this heading"></a></h3>
+<p>inputs - netlist, ports to replicate (direct or hierarchical reference), instances to replicate (direct or
+hierarchical reference), naming suffix, degree of replication (1 - do nothing, 2, 3, 4, 5, …)</p>
+<p>output - modified netlist (not a duplicate), hierarchical reference map (invalid to valid), original to replicates
+(in the form they were provided in).</p>
+</section>
+<section id="organinsertion">
+<h3>OrganInsertion<a class="headerlink" href="#organinsertion" title="Permalink to this heading"></a></h3>
+</section>
+<section id="networkinsertion">
+<h3>NetworkInsertion<a class="headerlink" href="#networkinsertion" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="compose">
+<h2>Compose<a class="headerlink" href="#compose" title="Permalink to this heading"></a></h2>
+</section>
+<section id="import">
+<h2>Import<a class="headerlink" href="#import" title="Permalink to this heading"></a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h2>
+<dl class="citation">
+<dt class="label" id="johnson2010"><span class="brackets"><a class="fn-backref" href="#id3">Johnson2010</a></span></dt>
+<dd><p>Jonathan M. Johnson and Michael J. Wirthlin. 2010. Voter insertion algorithms for FPGA designs using
+triple modular redundancy. In Proceedings of the 18th annual ACM/SIGDA international symposium on Field programmable
+gate arrays (FPGA ’10). Association for Computing Machinery, New York, NY, USA, 249–258.
+DOI: <a class="reference external" href="https://doi.org/10.1145/1723112.1723154">https://doi.org/10.1145/1723112.1723154</a></p>
+</dd>
+<dt class="label" id="vonneumann1956"><span class="brackets"><a class="fn-backref" href="#id6">VonNeumann1956</a></span></dt>
+<dd><p>Von Neumann, John. “Probabilistic logics and the synthesis of reliable organisms from unreliable
+components.” Automata studies 34 (1956): 43-98.</p>
+</dd>
+</dl>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading"></a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id7">1</a></span></dt>
+<dd><p>Imagine a TMR/DWC hybrid where voters are also detectors. (Think LUT6_2, one output is a voter, the other says
+that this domain is odd man out.)</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Circuit Replication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hdl_level.html" class="btn btn-neutral float-right" title="HDL Level" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniquify NMR Property Example &mdash; SpyDrNet TMR 1.3.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Toggle TMR Example" href="toggle_tmr.html" />
+    <link rel="prev" title="Basic TMR" href="plot_generic_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic">Basic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced">Advanced</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Basic</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Uniquify NMR Property Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_config_tmr.html">YAML Configuration Mode for Triplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using_drc_example.html">SyntaxError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../more_advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Basic</a></li>
+      <li class="breadcrumb-item active">Uniquify NMR Property Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/uniquify_nmr_property_example.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-uniquify-nmr-property-example-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="uniquify-nmr-property-example">
+<span id="sphx-glr-auto-examples-basic-uniquify-nmr-property-example-py"></span><h1>Uniquify NMR Property Example<a class="headerlink" href="#uniquify-nmr-property-example" title="Permalink to this heading"></a></h1>
+<p>Loads in the example netlist ‘b13’, triplicates it, and uniquifies the value of any instance with the property ‘SOFT_HLUTNM’</p>
+<p>The properties of ‘FSM_onehot_next_bit[9]_i_2_TMR_&lt;#&gt;’ is printed before and after uniquifying the property to show what is happening.</p>
+<p>See <a class="reference internal" href="../../reference/functions/transformation/uniquify_nmr_property.html#uniquify-nmr-property"><span class="std std-ref">uniquify_nmr_property</span></a></p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>BEFORE UNIQUIFYING THE PROPERTY VALUE
+        FSM_onehot_next_bit[9]_i_2_TMR_0 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5&#39;}]
+        FSM_onehot_next_bit[9]_i_2_TMR_1 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5&#39;}]
+        FSM_onehot_next_bit[9]_i_2_TMR_2 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5&#39;}]
+
+AFTER UNIQUIFYING THE PROPERTY VALUE
+        FSM_onehot_next_bit[9]_i_2_TMR_0 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5_TMR_0&#39;}]
+        FSM_onehot_next_bit[9]_i_2_TMR_1 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5_TMR_1&#39;}]
+        FSM_onehot_next_bit[9]_i_2_TMR_2 [{&#39;identifier&#39;: &#39;INIT&#39;, &#39;value&#39;: &quot;8&#39;h7F&quot;}, {&#39;identifier&#39;: &#39;SOFT_HLUTNM&#39;, &#39;value&#39;: &#39;soft_lutpair5_TMR_2&#39;}]
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.transformation.replication.uniquify_nmr_property</span> <span class="kn">import</span> <span class="n">uniquify_nmr_property</span>
+<span class="kn">from</span> <span class="nn">spydrnet.uniquify</span> <span class="kn">import</span> <span class="n">uniquify</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">apply_nmr</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;b13&quot;</span><span class="p">)</span>
+    <span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+    <span class="n">hinstances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">instances_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hinstances_to_replicate</span><span class="p">)</span>
+    <span class="n">hports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">())</span>
+    <span class="n">ports_to_replicate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hports_to_replicate</span><span class="p">)</span>
+
+    <span class="n">replicas</span> <span class="o">=</span> <span class="n">apply_nmr</span><span class="p">([</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span> <span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">name_suffix</span><span class="o">=</span><span class="s1">&#39;TMR&#39;</span><span class="p">,</span> <span class="n">rename_original</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BEFORE UNIQUIFYING THE PROPERTY VALUE&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;FSM_onehot_next_bit[9]_i_2&#39;</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;EDIF.properties&quot;</span><span class="p">])</span>
+
+
+    <span class="n">uniquify_nmr_property</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span> <span class="s1">&#39;SOFT_HLUTNM&#39;</span><span class="p">,</span> <span class="s2">&quot;TMR&quot;</span><span class="p">)</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">AFTER UNIQUIFYING THE PROPERTY VALUE&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">netlist</span><span class="o">.</span><span class="n">get_instances</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;FSM_onehot_next_bit[9]_i_2&#39;</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">instance</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">instance</span><span class="p">[</span><span class="s2">&quot;EDIF.properties&quot;</span><span class="p">])</span>
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-uniquify-nmr-property-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/b2cdcdf4d4ad972a8672d226b7a4cb21/uniquify_nmr_property_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">uniquify_nmr_property_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/068ce0e727391b87ee86ad088d3cc910/uniquify_nmr_property_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">uniquify_nmr_property_example.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_generic_tmr.html" class="btn btn-neutral float-left" title="Basic TMR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="toggle_tmr.html" class="btn btn-neutral float-right" title="Toggle TMR Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

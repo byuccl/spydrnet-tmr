@@ -1,0 +1,514 @@
+:orphan:
+
+.. _sec:examples:
+
+Examples
+========
+
+A collection of examples to introduce the functionality, features, and uses of SpyDrNet-TMR.
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    </div>
+
+Basic
+-----
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A bare minimum use case for SpyDrNet-TMR.">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_generic_tmr_thumb.png
+    :alt: Basic TMR
+
+  :ref:`sphx_glr_auto_examples_basic_plot_generic_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Basic TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Loads in the example netlist &#x27;b13&#x27;, triplicates it, and uniquifies the value of any instance wi...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_uniquify_nmr_property_example_thumb.png
+    :alt: Uniquify NMR Property Example
+
+  :ref:`sphx_glr_auto_examples_basic_uniquify_nmr_property_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Uniquify NMR Property Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of doing TMR on a basic design using SpyDrNet TMR.">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_toggle_tmr_thumb.png
+    :alt: Toggle TMR Example
+
+  :ref:`sphx_glr_auto_examples_basic_toggle_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Toggle TMR Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, there is a global clock buffer that is triplicated. This allows  for a global ...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_registered_inverter_tmr_thumb.png
+    :alt: Registered Inverter TMR Example
+
+  :ref:`sphx_glr_auto_examples_basic_plot_registered_inverter_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Registered Inverter TMR Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of using surface_pins to bring pins to the top module. Although this example...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_surface_pins_example_thumb.png
+    :alt: Surface Pins Example
+
+  :ref:`sphx_glr_auto_examples_basic_surface_pins_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Surface Pins Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="There are several ways to place voters in a TMR netlist. This example covers the two simplest w...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_voters_for_every_ff_tmr_thumb.png
+    :alt: Voter Before/After Every Flip-Flop Algorithms
+
+  :ref:`sphx_glr_auto_examples_basic_plot_voters_for_every_ff_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Voter Before/After Every Flip-Flop Algorithms</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of doing DWC on a basic design using SpyDrNet TMR.">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_toggle_dwc_thumb.png
+    :alt: Toggle DWC Example
+
+  :ref:`sphx_glr_auto_examples_basic_toggle_dwc.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Toggle DWC Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The number of times each primitive is instanced before and after triplicating will be printed.">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_xilinx_generic_tmr_thumb.png
+    :alt: Xilinx TMR
+
+  :ref:`sphx_glr_auto_examples_basic_plot_xilinx_generic_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Xilinx TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, a simple design with a two-bit counter with a one-shot detector for a Digilent...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_counter_bitstream_tmr_thumb.png
+    :alt: Two-Bit Counter Bitstream TMR
+
+  :ref:`sphx_glr_auto_examples_basic_plot_counter_bitstream_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Two-Bit Counter Bitstream TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In order to ease the use of SpyDrNet-TMR and allow for complex replication/voter insertion, sup...">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_plot_config_tmr_thumb.png
+    :alt: YAML Configuration Mode for Triplication
+
+  :ref:`sphx_glr_auto_examples_basic_plot_config_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">YAML Configuration Mode for Triplication</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Example script with invalid Python syntax ">
+
+.. only:: html
+
+  .. image:: /auto_examples/basic/images/thumb/sphx_glr_using_drc_example_thumb.png
+    :alt: SyntaxError
+
+  :ref:`sphx_glr_auto_examples_basic_using_drc_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SyntaxError</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+Advanced
+--------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Utilization Statistics">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_utilization_statistics_thumb.png
+    :alt: Utilization Statistics
+
+  :ref:`sphx_glr_auto_examples_more_advanced_utilization_statistics.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Utilization Statistics</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="TMR All Components Including IO">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_TMR_all_components_including_io_thumb.png
+    :alt: TMR All Components Including IO
+
+  :ref:`sphx_glr_auto_examples_more_advanced_TMR_all_components_including_io.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">TMR All Components Including IO</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The following is a script that was used to triplicate and insert voters into the SpyDrNet SHREC...">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_nexys4ddr_thumb.png
+    :alt: nexys4ddr
+
+  :ref:`sphx_glr_auto_examples_more_advanced_nexys4ddr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">nexys4ddr</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Evaluate Graph">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_evaluate_graph_thumb.png
+    :alt: Evaluate Graph
+
+  :ref:`sphx_glr_auto_examples_more_advanced_evaluate_graph.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Evaluate Graph</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Xilinx TMR">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_netfpga_switch_partial_tmr_thumb.png
+    :alt: Xilinx TMR
+
+  :ref:`sphx_glr_auto_examples_more_advanced_netfpga_switch_partial_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Xilinx TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maximize Protected Routes">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_maximize_protected_routes_thumb.png
+    :alt: Maximize Protected Routes
+
+  :ref:`sphx_glr_auto_examples_more_advanced_maximize_protected_routes.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maximize Protected Routes</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Cisco DWC Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_cisco_hotspring_dwc_thumb.png
+    :alt: Cisco DWC Example
+
+  :ref:`sphx_glr_auto_examples_more_advanced_cisco_hotspring_dwc.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cisco DWC Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decompose">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_decompose_thumb.png
+    :alt: Decompose
+
+  :ref:`sphx_glr_auto_examples_more_advanced_decompose.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decompose</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decompose_v2">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_decompose_v2_thumb.png
+    :alt: Decompose_v2
+
+  :ref:`sphx_glr_auto_examples_more_advanced_decompose_v2.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decompose_v2</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Clock Domain Analysis">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_clock_domain_analysis_thumb.png
+    :alt: Clock Domain Analysis
+
+  :ref:`sphx_glr_auto_examples_more_advanced_clock_domain_analysis.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Clock Domain Analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Apply TMR Terminator">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_apply_tmr_terminator_thumb.png
+    :alt: Apply TMR Terminator
+
+  :ref:`sphx_glr_auto_examples_more_advanced_apply_tmr_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Apply TMR Terminator</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Apply TMR">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_apply_tmr_thumb.png
+    :alt: Apply TMR
+
+  :ref:`sphx_glr_auto_examples_more_advanced_apply_tmr.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Apply TMR</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example Original">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_orig_terminator_thumb.png
+    :alt: SpyDrNet Example Original
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example_orig_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example Original</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_thumb.png
+    :alt: SpyDrNet Example
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SpyDrNet Example Terminator">
+
+.. only:: html
+
+  .. image:: /auto_examples/more_advanced/images/thumb/sphx_glr_spydrnet_example_terminator_thumb.png
+    :alt: SpyDrNet Example Terminator
+
+  :ref:`sphx_glr_auto_examples_more_advanced_spydrnet_example_terminator.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SpyDrNet Example Terminator</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+   /auto_examples/basic/index.rst
+   /auto_examples/more_advanced/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic TMR &mdash; SpyDrNet TMR 1.3.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Uniquify NMR Property Example" href="uniquify_nmr_property_example.html" />
+    <link rel="prev" title="Basic" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic">Basic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced">Advanced</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Basic</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Basic TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_config_tmr.html">YAML Configuration Mode for Triplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using_drc_example.html">SyntaxError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../more_advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Basic</a></li>
+      <li class="breadcrumb-item active">Basic TMR</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/plot_generic_tmr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-plot-generic-tmr-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="basic-tmr">
+<span id="sphx-glr-auto-examples-basic-plot-generic-tmr-py"></span><h1>Basic TMR<a class="headerlink" href="#basic-tmr" title="Permalink to this heading"></a></h1>
+<p>A bare minimum use case for SpyDrNet-TMR.</p>
+<p>This script loads in a netlist of an inverter from SpyDrNet. Only required parameters are given to <cite>apply_tmr_to_netlist</cite> so default settings will be applied. Everything in the netlist will be replicated, including all top-level ports. Since there are no reduction voters required and no special voter insertion was enabled, there are no voters inserted in this design.</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Identified 0 insertion points for reduction voters.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.apply_tmr_to_netlist</span> <span class="kn">import</span> <span class="n">apply_tmr_to_netlist</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.support_files.vendor_names</span> <span class="kn">import</span> <span class="n">XILINX</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">netlist_name</span> <span class="o">=</span> <span class="s2">&quot;inverter&quot;</span>
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">)</span>
+    <span class="n">apply_tmr_to_netlist</span><span class="p">(</span>
+        <span class="n">netlist</span><span class="p">,</span>
+        <span class="n">XILINX</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">sdn</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">netlist_name</span> <span class="o">+</span> <span class="s2">&quot;_tmr.edf&quot;</span><span class="p">)</span>
+
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.006 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-plot-generic-tmr-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/16daab1661776c6c50b46a66162687b9/plot_generic_tmr.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_generic_tmr.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/4ae424e2989c102caa53d6b4d8f11ec4/plot_generic_tmr.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_generic_tmr.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Basic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uniquify_nmr_property_example.html" class="btn btn-neutral float-right" title="Uniquify NMR Property Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

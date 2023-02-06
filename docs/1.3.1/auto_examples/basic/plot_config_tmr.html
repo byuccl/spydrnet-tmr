@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YAML Configuration Mode for Triplication &mdash; SpyDrNet TMR 1.3.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SyntaxError" href="using_drc_example.html" />
+    <link rel="prev" title="Two-Bit Counter Bitstream TMR" href="plot_counter_bitstream_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#basic">Basic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#advanced">Advanced</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Basic</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">YAML Configuration Mode for Triplication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using_drc_example.html">SyntaxError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../more_advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simpleCounter/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Basic</a></li>
+      <li class="breadcrumb-item active">YAML Configuration Mode for Triplication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/plot_config_tmr.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-plot-config-tmr-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="yaml-configuration-mode-for-triplication">
+<span id="sphx-glr-auto-examples-basic-plot-config-tmr-py"></span><h1>YAML Configuration Mode for Triplication<a class="headerlink" href="#yaml-configuration-mode-for-triplication" title="Permalink to this heading"></a></h1>
+<p>In order to ease the use of SpyDrNet-TMR and allow for complex replication/voter
+insertion, support for YAML configurations has been implemented. A configuration
+file for SpyDrNet-TMR is organized as the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replication options for both instances and top-level ports</span><span class="w"></span>
+<span class="nt">replication</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">instances_to_replicate</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;instance_option&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports_to_replicate</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&lt;port_option&gt;</span><span class="w"></span>
+
+<span class="nt">voter_insertion</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;voter_algorithm_name&gt;</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">instances_at_valid_points</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;instance_option&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">ports_at_valid_points</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">&lt;port_option&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Instance options include the following:</dt><dd><ul class="simple">
+<li><p><cite>all</cite>: include all instances</p></li>
+<li><p><cite>none</cite>: exclude all instances</p></li>
+<li><p><cite>exclude_prim: [“&lt;primitve_name&gt;”]</cite>: include all instances except for ones of primtive types listed</p></li>
+<li><p><cite>exclude_hinst: [“&lt;hinst_name&gt;”]</cite>: include all instances except for the hierachircal instance names given</p></li>
+</ul>
+</dd>
+<dt>Port options include the following:</dt><dd><ul class="simple">
+<li><p><cite>all</cite>: include all top-level ports</p></li>
+<li><p><cite>none</cite>: exclude all top-level ports</p></li>
+<li><p><cite>top_level_input_ports</cite>: only include all top-level input ports</p></li>
+<li><p><cite>top_level_output_ports</cite>: only include all top-level output ports</p></li>
+<li><p><cite>top_level_inoutput_ports</cite>: only include all top-level in/output ports</p></li>
+<li><p><cite>exclude_ports: [“&lt;port_name&gt;”]</cite>: include all top-level ports except for the port names given</p></li>
+</ul>
+</dd>
+</dl>
+<p>Voter insertion algorithm names come from the module/function names found in
+the <cite>spydrnet_tmr/analysis/voter_insertion/</cite> directory. The algorithm name is
+matched with the modules/functions in that directory in the following manner:
+<cite>find_&lt;voter_algorithm_name&gt;_points.py</cite>. The given algorithm name in a
+configuration file must excatly match an algorithm from the algorithms in the
+mentioned drectory.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Example:</dt><dd><ul>
+<li><p><cite>&lt;voter_algorithm_name&gt;</cite> for <cite>find_after_ff_voter_points.py</cite> would be <cite>after_ff</cite></p></li>
+<li><p><cite>&lt;voter_algorithm_name&gt;</cite> for <cite>find_after_ff_voter_points.py</cite> would be <cite>after_ff</cite></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Identified 4 insertion points for feedback voters before flip-flops.
+Identified 2 insertion points for reduction voters.
+Identified 3 insertion points for reduction voters.
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">yaml.loader</span> <span class="kn">import</span> <span class="n">FullLoader</span>
+
+
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">load_example_netlist_by_name</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.process_config</span> <span class="kn">import</span> <span class="n">process_config</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.apply_tmr_to_netlist</span> <span class="kn">import</span> <span class="n">apply_tmr_to_netlist</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.support_files.vendor_names</span> <span class="kn">import</span> <span class="n">XILINX</span>
+<span class="kn">from</span> <span class="nn">spydrnet</span> <span class="kn">import</span> <span class="n">compose</span>
+
+<span class="n">YAML_CONFIG1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">################ TMR Config Example 1 ################</span>
+<span class="s2">replication:</span>
+<span class="s2">  # All leaf instances will be replicated within the design.</span>
+<span class="s2">  instances_to_replicate:</span>
+<span class="s2">    all</span>
+<span class="s2">  # Only the top-level input ports will be replicated, which leaves any output</span>
+<span class="s2">  # ports or inoutput ports not replicated.</span>
+<span class="s2">  ports_to_replicate:</span>
+<span class="s2">    top_level_input_ports</span>
+
+<span class="s2"># Here in the voter_insertion section, we have two algorithms that will be</span>
+<span class="s2"># applied to the netlist.</span>
+<span class="s2">#</span>
+<span class="s2"># First, place a voter before every flip-flop in the design denoted by the</span>
+<span class="s2"># name &quot;before_ff&quot; which comes from the function/module name in the</span>
+<span class="s2"># &#39;spydrnet_tmr/analysis/voter_insertion/&#39; directory. This needs to match exact!</span>
+
+<span class="s2"># Second, place reduction voters for replicated to non-replicated TMR boundaries</span>
+<span class="s2"># again denoted by the name &quot;reduction&quot; which comes from the corresponding</span>
+<span class="s2"># function/module name.</span>
+<span class="s2">#</span>
+<span class="s2"># For both of these algorithms, all points will be considered for voter</span>
+<span class="s2"># insertion, but that does not mean a voter will be placed at every point.</span>
+<span class="s2"># For example, the &quot;before_ff&quot; algorithm will consider LUTs for voter insertion,</span>
+<span class="s2"># but will ultimately decide not to place a voter before it because it isn&#39;t a</span>
+<span class="s2"># flip-flop. If you don&#39;t want a voter at a certain instance/port, use</span>
+<span class="s2"># &#39;exclude_prim&#39;, &#39;exclude_ports&#39;, or &#39;exclude_hinst&#39;.</span>
+<span class="s2">voter_insertion:</span>
+<span class="s2">  before_ff:</span>
+<span class="s2">    instances_at_valid_points:</span>
+<span class="s2">      all</span>
+<span class="s2">    ports_at_valid_points:</span>
+<span class="s2">      all</span>
+<span class="s2">  reduction:</span>
+<span class="s2">    instances_at_valid_points:</span>
+<span class="s2">      all</span>
+<span class="s2">    ports_at_valid_points:</span>
+<span class="s2">      all</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">YAML_CONFIG2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">################ TMR Config Example 2 ################</span>
+<span class="s2">replication:</span>
+<span class="s2">  # Here is an example of excluding an instance within the design. The</span>
+<span class="s2">  # hierarchical name is required.</span>
+<span class="s2">  instances_to_replicate:</span>
+<span class="s2">    exclude_hinst: [&quot;PURPOSEFUL_GENERATE[8].SEQUENTIAL_LOGIC/DQ_reg[1]&quot;]</span>
+<span class="s2">  ports_to_replicate:</span>
+<span class="s2">    all</span>
+<span class="s2">voter_insertion:</span>
+<span class="s2">  reduction:</span>
+<span class="s2">    # Here is an example of excluding all instances of a primitive type for</span>
+<span class="s2">    # voter insertion. In this case, we want to do this because the flip-flop</span>
+<span class="s2">    # that is excluded from replication will receive a clock signal from the</span>
+<span class="s2">    # global clock buffer, and we don&#39;t want to place a voter in its path, so</span>
+<span class="s2">    # we&#39;ll exclude all BUFGs from the reduction voter insertion algorithm.</span>
+<span class="s2">    instances_at_valid_points:</span>
+<span class="s2">      exclude_prim: [&quot;BUFG&quot;]</span>
+<span class="s2">    ports_at_valid_points:</span>
+<span class="s2">      all</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+    <span class="n">netlist_config_pairs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;two_bit_counter_top&quot;</span><span class="p">:</span> <span class="n">YAML_CONFIG1</span><span class="p">,</span>
+        <span class="s2">&quot;registered_inverter&quot;</span><span class="p">:</span> <span class="n">YAML_CONFIG2</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">netlist_name</span><span class="p">,</span> <span class="n">config_filename</span> <span class="ow">in</span> <span class="n">netlist_config_pairs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">process_config_and_apply_tmr</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">,</span> <span class="n">config_filename</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">process_config_and_apply_tmr</span><span class="p">(</span><span class="n">netlist_name</span><span class="p">,</span> <span class="n">config_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Process YAML configuration file and apply TMR to netlist.</span>
+
+<span class="sd">    Use the &#39;process_config&#39; and &#39;apply_tmr_to_netlist&#39; functions for an existing</span>
+<span class="sd">    example netlist and an existing config file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">example_netlist_name</span> <span class="o">=</span> <span class="n">netlist_name</span>
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="n">example_netlist_name</span><span class="p">)</span>
+
+    <span class="n">tmr_config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">config_str</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">FullLoader</span><span class="p">)</span>
+    <span class="p">(</span>
+        <span class="n">hinstances_and_hports_to_replicate</span><span class="p">,</span>
+        <span class="n">valid_voter_point_dict</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">process_config</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">tmr_config</span><span class="p">)</span>
+
+    <span class="n">netlist</span> <span class="o">=</span> <span class="n">apply_tmr_to_netlist</span><span class="p">(</span>
+        <span class="n">netlist</span><span class="p">,</span>
+        <span class="n">XILINX</span><span class="p">,</span>
+        <span class="n">hinstances_and_hports_to_replicate</span><span class="p">,</span>
+        <span class="n">valid_voter_point_dict</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">compose</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span> <span class="n">netlist_name</span> <span class="o">+</span> <span class="s2">&quot;_tmr.edf&quot;</span><span class="p">)</span>
+
+
+<span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.031 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-plot-config-tmr-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e2646f799d276fc6ae97be8f0930d7fb/plot_config_tmr.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_config_tmr.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/7f02e0d995acff981a390c71a62e12e3/plot_config_tmr.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_config_tmr.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_counter_bitstream_tmr.html" class="btn btn-neutral float-left" title="Two-Bit Counter Bitstream TMR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="using_drc_example.html" class="btn btn-neutral float-right" title="SyntaxError" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
