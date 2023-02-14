@@ -7,7 +7,7 @@ from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
 from spydrnet_tmr import apply_nmr, insert_organs
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
 
-# Parse in the downloaded .v netlist
+# Parse in the downloaded .edf netlist
 netlist = sdn.parse("simpleCounter.edf")
 
 # Makes all instances unique in the netlist
