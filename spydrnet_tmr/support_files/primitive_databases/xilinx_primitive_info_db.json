@@ -129,6 +129,29 @@
             "name": "INV"
         }
     ],
+    "lut_cells": [
+        {
+            "name": "LUT1"
+        },
+        {
+            "name": "LUT2"
+        },
+        {
+            "name": "LUT3"
+        },
+        {
+            "name": "LUT4"
+        },
+        {
+            "name": "LUT5"
+        },
+        {
+            "name": "LUT6"
+        },
+        {
+            "name": "LUT6_2"
+        }
+    ],
     "ff_cells": [
         {
             "name": "FDCE",
