@@ -1,6 +1,62 @@
 {
+    "comments": "**WARNING** This database is incomplete and may contain inaccuracies",
     "vendor": "lattice",
     "primitive_library_name": "hdi_primitives",
+    "power_ground_cells": [
+        {
+            "name": "VHI"
+        },
+        {
+            "name": "VLO"
+        }
+    ],
+    "misc_cells": [
+        {
+            "name": "IB"
+        },
+        {
+            "name": "OB"
+        },
+        {
+            "name": "PLL"
+        },
+        {
+            "name": "OSC"
+        },
+        {
+            "name": "OSCA"
+        },
+        {
+            "name": "BUF"
+        },
+        {
+            "name": "GSR"
+        },
+        {
+            "name": "PUR"
+        }
+    ],
+    "clock_buffers": [
+    ],
+    "combinational_cells": [
+        {
+            "name": "CCU2"
+        },
+        {
+            "name": "LUT4"
+        },
+        {
+            "name": "WIDEFN9"
+        },
+        {
+            "name": "INV"
+        }
+    ],
+    "lut_cells": [
+        {
+            "name": "LUT4"
+        }
+    ],
     "ff_cells": [
         {
             "name": "FD1P3DX",
@@ -67,7 +123,76 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "IFD1P3BX",
+            "description": "asynchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "PD",
+                "Q"
+            ]
+        },
+        {
+            "name": "IFD1P3DX",
+            "description": "asynchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "CD",
+                "Q"
+            ]
+        },
+        {
+            "name": "IFD1P3IX",
+            "description": "synchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "CD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "IFD1P3JX",
+            "description": "synchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "PD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
         }
+    ],
+    "complex_sequential_cells": [
+
     ]
     
 }
