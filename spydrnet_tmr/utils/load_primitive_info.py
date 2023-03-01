@@ -107,7 +107,7 @@ def load_primitive_info(netlist, vendor):
                                 sequential_cell.get_ports(
                                     sync_port_name + r"(?:\[[^\]]+\])?$",
                                     is_re=True,
-                                )
+                                ), "NONE"
                             )
                             sync_ports.add(sync_port)
 
@@ -118,7 +118,7 @@ def load_primitive_info(netlist, vendor):
                     async_port = next(
                         sequential_cell.get_ports(
                             async_port_name + r"(?:\[[^\]]+\])?$", is_re=True
-                        )
+                        ), "NONE"
                     )
                     async_ports.add(async_port)
 
