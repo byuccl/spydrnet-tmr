@@ -1,6 +1,80 @@
 {
+    "comments": "**WARNING** This database is incomplete and may contain inaccuracies",
     "vendor": "lattice",
     "primitive_library_name": "hdi_primitives",
+    "power_ground_cells": [
+        {
+            "name": "VHI"
+        },
+        {
+            "name": "VLO"
+        }
+    ],
+    "misc_cells": [
+        {
+            "name": "SGMIICDR"
+        },
+        {
+            "name": "IB"
+        },
+        {
+            "name": "OB"
+        },
+        {
+            "name": "DELAYA"
+        },
+        {
+            "name": "DELAYB"
+        },
+        {
+            "name": "BUF"
+        },
+        {
+            "name": "BB"
+        },
+        {
+            "name": "PLL"
+        },
+        {
+            "name": "PLLA"
+        },
+        {
+            "name": "PCIE"
+        },
+        {
+            "name": "OSC"
+        },
+        {
+            "name": "OSCA"
+        },
+        {
+            "name": "GSR"
+        },
+        {
+            "name": "PUR"
+        }
+    ],
+    "clock_buffers": [
+    ],
+    "combinational_cells": [
+        {
+            "name": "CCU2"
+        },
+        {
+            "name": "LUT4"
+        },
+        {
+            "name": "WIDEFN9"
+        },
+        {
+            "name": "INV"
+        }
+    ],
+    "lut_cells": [
+        {
+            "name": "LUT4"
+        }
+    ],
     "ff_cells": [
         {
             "name": "FD1P3DX",
@@ -67,7 +141,337 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "IFD1P3BX",
+            "description": "asynchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "PD",
+                "Q"
+            ]
+        },
+        {
+            "name": "IFD1P3DX",
+            "description": "asynchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ],
+            "async_ports": [
+                "CD",
+                "Q"
+            ]
+        },
+        {
+            "name": "IFD1P3IX",
+            "description": "synchronous clear",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "CD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "IFD1P3JX",
+            "description": "synchronous preset",
+            "clk_ports": [
+                {
+                    "name": "CK",
+                    "sync_ports": [
+                        "PD",
+                        "D",
+                        "SP",
+                        "Q"
+                    ]
+                }
+            ]
         }
+    ],
+    "complex_sequential_cells": [
+    {
+        "name": "DP16K",
+        "description": "16Kb Dual Port Block RAM",
+        "clk_ports": [
+            {
+                "name": "CLKA",
+                "sync_ports": [
+                    "DIA",
+                    "ADA",
+                    "CEA",
+                    "WEA",
+                    "CSA",
+                    "DOA"
+                ]
+            },
+            {
+                "name": "CLKB",
+                "sync_ports": [
+                    "DIB",
+                    "ADB",
+                    "CEB",
+                    "WEB",
+                    "CAB",
+                    "DOB"
+                ]
+            }
+        ],
+        "async_ports": [
+            "RSTA",
+            "RSTB"
+        ]
+    },
+    {
+        "name": "DPSC512K",
+        "description": "512Kb Single Clock Dual Port Block RAM",
+        "clk_ports": [
+            {
+                "name": "CLK",
+                "sync_ports": [
+                    "DIA",
+                    "DIB",
+                    "ADA",
+                    "ADB",
+                    "CEA",
+                    "CEB",
+                    "WEA",
+                    "WEB",
+                    "CSA",
+                    "CSB",
+                    "RSTA",
+                    "RSTB",
+                    "BENA_N",
+                    "BENB_N",
+                    "CEOUTA",
+                    "CEOUTB",
+                    "DOA",
+                    "DOB",
+                    "ERRDECA",
+                    "ERRDECB"
+                ]
+            }
+        ],
+        "async_ports": [
+            "DOA",
+            "DOB",
+            "RSTA",
+            "RSTB"
+        ]
+    },
+    {
+        "name": "PDP16K",
+        "description": "16Kb Pseudo Dual Port Block RAM",
+        "clk_ports": [
+            {
+                "name": "CLKR",
+                "sync_ports": [
+                    "DO",
+                    "ADR",
+                    "CER",
+                    "CSR"
+                ]
+            },
+            {
+                "name": "CLKW",
+                "sync_ports": [
+                    "DI",
+                    "ADW",
+                    "CEW",
+                    "CSW"
+                ]
+            }
+        ],
+        "async_ports": [
+            "DO",
+            "RST",
+            "ONEBITERR",
+            "TWOBITERR"
+        ]
+    },
+    {
+        "name": "SP16K",
+        "description": "16 kb Single Port Block RAM",
+        "clk_ports": [
+            {
+                "name": "CLK",
+                "sync_ports": [
+                    "DI",
+                    "DO",
+                    "RST",
+                    "AD",
+                    "CE",
+                    "WE",
+                    "CS"
+                ]
+            }
+        ],
+        "async_ports": [
+            "DO",
+            "RST"
+        ]
+    },
+    {
+        "name": "SP512K",
+        "description": "512Kb Single Port Block RAM",
+        "clk_ports": [
+            {
+                "name": "CLK",
+                "sync_ports": [
+                    "DI",
+                    "DA",
+                    "CE",
+                    "WE",
+                    "CA",
+                    "RSTOUT",
+                    "CEOUT",
+                    "BYTEEN_N",
+                    "DDO",
+                    "ERRDECA",
+                    "ERRDECB"
+                ]
+            }
+        ],
+        "async_ports": [
+            "DDO",
+            "RSTOUT"
+        ]
+    },
+    {
+        "name": "MULT18X18",
+        "description": "18x18 Multiplier with Optional Input/Output Registers",
+        "clk_ports": [
+            {
+                "name": "CLK",
+                "sync_ports": [
+                    "A",
+                    "B",
+                    "CEA",
+                    "RSTA",
+                    "CEB",
+                    "RSTB",
+                    "SIGNEDA",
+                    "SIGNEDB",
+                    "RSTOUT",
+                    "CEOUT",
+                    "Z"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "MULT36X36",
+        "description": "36x36 Multiplier with Optional Input/Output Registers",
+        "clk_ports": [
+            {
+                "name": "CLK",
+                "sync_ports": [
+                    "A",
+                    "B",
+                    "CEA",
+                    "RSTA",
+                    "CEB",
+                    "RSTB",
+                    "SIGNEDA",
+                    "SIGNEDB",
+                    "RSTOUT",
+                    "CEOUT",
+                    "Z"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ODDRX1",
+        "description": "Generic X1 ODDR",
+        "clk_ports": [
+            {
+                "name": "SCLK",
+                "sync_ports": [
+                    "Q",
+                    "D0",
+                    "D1",
+                    "RST"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "IDDRX1",
+        "description": "Generic X1 IDDR",
+        "clk_ports": [
+            {
+                "name": "SCLK",
+                "sync_ports": [
+                    "Q0",
+                    "Q1",
+                    "D",
+                    "RST"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "FIFO16K",
+        "description": "16 KB FIFO using block RAM",
+        "clk_ports": [
+            {
+                "name": "CLKR",
+                "sync_ports": [
+                    "DO",
+                    "RE",
+                    "EMPTYI",
+                    "CSR",
+                    "RPRST",
+                    "ALMOSTEMPTY",
+                    "EMPTY"
+                ]
+            },
+            {
+                "name": "CLKW",
+                "sync_ports": [
+                    "DI",
+                    "WE",
+                    "FULLI",
+                    "CSW",
+                    "RSTW",
+                    "ALMOSTFULL",
+                    "FULL"
+                ]
+            }
+        ],
+        "async_ports": [
+            "DO",
+            "RSTW",
+            "RPRST",
+            "ALMOSTEMPTY",
+            "EMPTY",
+            "ALMOSTFULL",
+            "FULL",
+            "ONEBITERR",
+            "TWOBITERR"
+        ]
+    }
     ]
     
 }

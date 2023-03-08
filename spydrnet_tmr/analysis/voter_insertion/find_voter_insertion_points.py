@@ -138,11 +138,11 @@ def find_voter_insertion_points(
         ):
             wires = sub_pin.get_hwires(selection="ALL")
             pins = set(
-                #pins it drives of other leaf instances or its parent instance
+                #pins it drives of other leaf instances or its parent instance if the parent is the top instance
                 sdn.get_hpins(
                     wires,
                     filter=lambda x: (x.item.port.definition.is_leaf()
-                    and x.item.port.direction is sdn.IN) or (x.parent.parent is reduction_voter.parent)
+                    and x.item.port.direction is sdn.IN) or (x.parent.parent is reduction_voter.parent and x.parent.parent.item.is_top_instance)
                 )
             )
             instances = set(sdn.get_hinstances(pins))

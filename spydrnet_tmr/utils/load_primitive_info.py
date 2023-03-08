@@ -171,6 +171,19 @@ def load_primitive_info(netlist, vendor):
                     )
                     async_ports.add(async_port)
 
+    if "lut_cells" in primitive_info_db:
+        lut_cells = set()
+        primitive_info["lut_cells"] = lut_cells
+        for lut_cell_info in primitive_info_db["lut_cells"]:
+            # print(combinational_cell_info["name"])
+            lut_cell = next(
+                primitive_library.get_definitions(lut_cell_info["name"]),
+                None,
+            )
+            if lut_cell is None:
+                continue
+            lut_cells.add(lut_cell)
+
     # combine ff_cells and complex_sequential_cells into a single sequential_cells section
     if 'ff_cells' in primitive_info.keys():
         primitive_info["sequential_cells"] = primitive_info['ff_cells'].copy()
