@@ -751,5 +751,14 @@
                 "ECCPARITY"
             ]
         }
+    ],
+    "carry_chain": [
+        {
+            "name": "CARRY4",
+            "ports": {
+                "carry_in": ["CI"],
+                "carry_out": ["CO[3:0]","CO"]
+            }
+        }
     ]
 }

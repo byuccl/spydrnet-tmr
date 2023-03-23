@@ -472,6 +472,14 @@
             "TWOBITERR"
         ]
     }
+    ],
+    "carry_chain": [
+        {
+            "name": "CCU2",
+            "ports": {
+                "carry_in": ["CIN"],
+                "carry_out": ["COUT"]
+            }
+        }
     ]
-    
 }
