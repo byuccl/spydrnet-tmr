@@ -163,7 +163,7 @@ def apply_tmr_to_netlist(netlist, vendor_name, **kwargs):
             [cell.name for cell in primitive_info[FF_PRIMITIVES]],
         )
     if insert_voters_after_ff_flag:
-        before_ff_voter_points = find_voter_insertion_points_after_ff(
+        after_ff_voter_points = find_voter_insertion_points_after_ff(
             [*hinstances_to_replicate, *hports_to_replicate],
             [cell.name for cell in primitive_info[FF_PRIMITIVES]],
         )
