@@ -1,4 +1,4 @@
-Vivado/Vivado
+Basic Vivado to Vivado
 =======================
 
 This walk through explains how to take a netlist from Vivado and run it through SpyDrNet TMR, then reinsert the triplicated design back into Vivado to generate a bitstream. 
