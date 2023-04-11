@@ -178,11 +178,11 @@ Create new project in Vivado and choose Post-synthesis Project.
 .. image:: post_synthesis.*
    :align: center
 
+If working with a .edf file, upload **simpleCounter_tmr.edf** and **simpleCounter_tmr.xdc** to the project.
+
+If working with a .v file, upload **simpleCoutner_tmr.v** and **simpleCounter_tmr.xdc** to the project. Select a top module for the design by pressing on the 3 dots and then selecting the top module.
+
 **NOTE:** If the .xdc file is downloaded from the link below, rename the file from simpleCounter_tmr.xdc.txt to simpleCounter_tmr.xdc
-
-If working with a .edf file, upload **simpleCounter_tmr.edf** that was just created and **simpleCounter_tmr.xdc** to the project.
-
-If working with a .v file, upload **simpleCoutner_tmr.v** and **simpleCounter_tmr.xdc** to the project.
 
 Download: |simpleCounter_tmr.xdc|
 
@@ -197,7 +197,9 @@ After adding the source files for your project, go to the "Flow Navigator" windo
 .. image:: vivado_screenshot3.*
    :align: center
 
-Once the Bitstream has been generated click on "Open Hardware Manager" under the tab "Program and Debug", click on "Open Target" then click on "Auto Connect", next click on "Program Device". A window should open up, click on program to download the bitstream to your device.
+Once the Bitstream has been generated click on "Open Hardware Manager" under the tab "Program and Debug", click on "Open Target" then click on "Auto Connect", next click on "Program Device". 
+
+A window should open up, click on program to download the bitstream to your device.
 
 
 Verifying if the Design Works
