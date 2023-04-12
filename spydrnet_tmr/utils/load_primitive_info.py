@@ -184,6 +184,29 @@ def load_primitive_info(netlist, vendor):
                 continue
             lut_cells.add(lut_cell)
 
+    if 'carry_chain' in primitive_info_db:
+        carry_chain_cells = dict()
+        primitive_info["carry_chain"] = carry_chain_cells
+        for carry_cell_info in primitive_info_db["carry_chain"]:
+            carry_cell = next(primitive_library.get_definitions(carry_cell_info["name"]), None)
+            if carry_cell is None:
+                continue
+
+            carry_cell_dict = dict()
+            carry_chain_cells[carry_cell] = carry_cell_dict
+
+            if "ports" in carry_cell_info:
+                if "carry_in" in carry_cell_info["ports"]:
+                    port_name_list = carry_cell_info["ports"]["carry_in"]
+                    # carry_in_port = next(carry_cell.get_ports(port_name), None)
+                    # if carry_in_port:
+                    carry_cell_dict["carry_in"] = port_name_list
+                if "carry_out" in carry_cell_info["ports"]:
+                    port_name_list = carry_cell_info["ports"]["carry_out"]
+                    # carry_out_port = next(carry_cell.get_ports(port_name), None)
+                    # if carry_out_port:
+                    carry_cell_dict["carry_out"] = port_name_list
+
     # combine ff_cells and complex_sequential_cells into a single sequential_cells section
     if 'ff_cells' in primitive_info.keys():
         primitive_info["sequential_cells"] = primitive_info['ff_cells'].copy()
