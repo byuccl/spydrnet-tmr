@@ -369,15 +369,18 @@ module BitmapToVga
     wire \vcount_reg_TMR_2[1]_Q_VOTER ;
     wire \vcount_reg_TMR_1[1]_Q_VOTER ;
     wire \vcount_reg_TMR_0[1]_Q_VOTER ;
-    wire \vcount_reg_TMR_2[5]_Q_VOTER ;
-    wire \vcount_reg_TMR_1[5]_Q_VOTER ;
-    wire \vcount_reg_TMR_0[5]_Q_VOTER ;
+    wire VGA_vsync_reg_TMR_2_Q_VOTER;
+    wire VGA_vsync_reg_TMR_1_Q_VOTER;
+    wire VGA_vsync_reg_TMR_0_Q_VOTER;
     wire \vcount_reg_TMR_2[0]_Q_VOTER ;
     wire \vcount_reg_TMR_1[0]_Q_VOTER ;
     wire \vcount_reg_TMR_0[0]_Q_VOTER ;
-    wire \vcount_reg_TMR_2[4]_Q_VOTER ;
-    wire \vcount_reg_TMR_1[4]_Q_VOTER ;
-    wire \vcount_reg_TMR_0[4]_Q_VOTER ;
+    wire \vcount_reg_TMR_2[8]_Q_VOTER ;
+    wire \vcount_reg_TMR_1[8]_Q_VOTER ;
+    wire \vcount_reg_TMR_0[8]_Q_VOTER ;
+    wire \hcount_reg_TMR_2[5]_Q_VOTER ;
+    wire \hcount_reg_TMR_1[5]_Q_VOTER ;
+    wire \hcount_reg_TMR_0[5]_Q_VOTER ;
     wire \hcount_reg_TMR_2[9]_Q_VOTER ;
     wire \hcount_reg_TMR_1[9]_Q_VOTER ;
     wire \hcount_reg_TMR_0[9]_Q_VOTER ;
@@ -390,48 +393,45 @@ module BitmapToVga
     wire \vcount_reg_TMR_2[9]_Q_VOTER ;
     wire \vcount_reg_TMR_1[9]_Q_VOTER ;
     wire \vcount_reg_TMR_0[9]_Q_VOTER ;
-    wire VGA_vsync_reg_TMR_2_Q_VOTER;
-    wire VGA_vsync_reg_TMR_1_Q_VOTER;
-    wire VGA_vsync_reg_TMR_0_Q_VOTER;
-    wire \vcount_reg_TMR_2[8]_Q_VOTER ;
-    wire \vcount_reg_TMR_1[8]_Q_VOTER ;
-    wire \vcount_reg_TMR_0[8]_Q_VOTER ;
-    wire \vcount_reg_TMR_2[2]_Q_VOTER ;
-    wire \vcount_reg_TMR_1[2]_Q_VOTER ;
-    wire \vcount_reg_TMR_0[2]_Q_VOTER ;
-    wire \vcount_reg_TMR_2[6]_Q_VOTER ;
-    wire \vcount_reg_TMR_1[6]_Q_VOTER ;
-    wire \vcount_reg_TMR_0[6]_Q_VOTER ;
-    wire \hcount_reg_TMR_2[5]_Q_VOTER ;
-    wire \hcount_reg_TMR_1[5]_Q_VOTER ;
-    wire \hcount_reg_TMR_0[5]_Q_VOTER ;
-    wire \hcount_reg_TMR_2[1]_Q_VOTER ;
-    wire \hcount_reg_TMR_1[1]_Q_VOTER ;
-    wire \hcount_reg_TMR_0[1]_Q_VOTER ;
     wire \hcount_reg_TMR_2[0]_Q_VOTER ;
     wire \hcount_reg_TMR_1[0]_Q_VOTER ;
     wire \hcount_reg_TMR_0[0]_Q_VOTER ;
     wire \vcount_reg_TMR_2[3]_Q_VOTER ;
     wire \vcount_reg_TMR_1[3]_Q_VOTER ;
     wire \vcount_reg_TMR_0[3]_Q_VOTER ;
+    wire \vcount_reg_TMR_2[2]_Q_VOTER ;
+    wire \vcount_reg_TMR_1[2]_Q_VOTER ;
+    wire \vcount_reg_TMR_0[2]_Q_VOTER ;
     wire \hcount_reg_TMR_2[2]_Q_VOTER ;
     wire \hcount_reg_TMR_1[2]_Q_VOTER ;
     wire \hcount_reg_TMR_0[2]_Q_VOTER ;
-    wire \hcount_reg_TMR_2[7]_Q_VOTER ;
-    wire \hcount_reg_TMR_1[7]_Q_VOTER ;
-    wire \hcount_reg_TMR_0[7]_Q_VOTER ;
+    wire \hcount_reg_TMR_2[1]_Q_VOTER ;
+    wire \hcount_reg_TMR_1[1]_Q_VOTER ;
+    wire \hcount_reg_TMR_0[1]_Q_VOTER ;
     wire \hcount_reg_TMR_2[6]_Q_VOTER ;
     wire \hcount_reg_TMR_1[6]_Q_VOTER ;
     wire \hcount_reg_TMR_0[6]_Q_VOTER ;
+    wire \vcount_reg_TMR_2[5]_Q_VOTER ;
+    wire \vcount_reg_TMR_1[5]_Q_VOTER ;
+    wire \vcount_reg_TMR_0[5]_Q_VOTER ;
+    wire \hcount_reg_TMR_2[8]_Q_VOTER ;
+    wire \hcount_reg_TMR_1[8]_Q_VOTER ;
+    wire \hcount_reg_TMR_0[8]_Q_VOTER ;
+    wire \vcount_reg_TMR_2[4]_Q_VOTER ;
+    wire \vcount_reg_TMR_1[4]_Q_VOTER ;
+    wire \vcount_reg_TMR_0[4]_Q_VOTER ;
+    wire \hcount_reg_TMR_2[7]_Q_VOTER ;
+    wire \hcount_reg_TMR_1[7]_Q_VOTER ;
+    wire \hcount_reg_TMR_0[7]_Q_VOTER ;
+    wire \vcount_reg_TMR_2[6]_Q_VOTER ;
+    wire \vcount_reg_TMR_1[6]_Q_VOTER ;
+    wire \vcount_reg_TMR_0[6]_Q_VOTER ;
     wire \hcount_reg_TMR_2[3]_Q_VOTER ;
     wire \hcount_reg_TMR_1[3]_Q_VOTER ;
     wire \hcount_reg_TMR_0[3]_Q_VOTER ;
     wire \vcount_reg_TMR_2[7]_Q_VOTER ;
     wire \vcount_reg_TMR_1[7]_Q_VOTER ;
     wire \vcount_reg_TMR_0[7]_Q_VOTER ;
-    wire \hcount_reg_TMR_2[8]_Q_VOTER ;
-    wire \hcount_reg_TMR_1[8]_Q_VOTER ;
-    wire \hcount_reg_TMR_0[8]_Q_VOTER ;
     wire [9:0]vcount_reg__0_TMR_2;
     wire [9:0]vcount_reg__0_TMR_1;
     wire [9:0]vcount_reg__0_TMR_0;
@@ -2409,37 +2409,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \hcount_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_0[7]_Q_VOTER_wire 
+    \vcount_reg_TMR_0[7]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[7]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[7]_Q_VOTER ),
@@ -2449,7 +2419,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[7]_Q_VOTER_wire 
+    \vcount_reg_TMR_1[7]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[7]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[7]_Q_VOTER ),
@@ -2459,7 +2429,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[7]_Q_VOTER_wire 
+    \vcount_reg_TMR_2[7]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[7]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[7]_Q_VOTER ),
@@ -2469,7 +2439,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \hcount_reg_TMR_0[3]_Q_VOTER_wire 
+    \hcount_reg_TMR_0[3]_Q_VOTER 
     (
         .I0(\hcount_reg_TMR_0[3]_Q_VOTER ),
         .I1(\hcount_reg_TMR_1[3]_Q_VOTER ),
@@ -2479,7 +2449,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \hcount_reg_TMR_1[3]_Q_VOTER_wire 
+    \hcount_reg_TMR_1[3]_Q_VOTER 
     (
         .I0(\hcount_reg_TMR_0[3]_Q_VOTER ),
         .I1(\hcount_reg_TMR_1[3]_Q_VOTER ),
@@ -2489,7 +2459,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \hcount_reg_TMR_2[3]_Q_VOTER_wire 
+    \hcount_reg_TMR_2[3]_Q_VOTER 
     (
         .I0(\hcount_reg_TMR_0[3]_Q_VOTER ),
         .I1(\hcount_reg_TMR_1[3]_Q_VOTER ),
@@ -2499,217 +2469,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \hcount_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
-        .O(vcount_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
-        .O(vcount_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
-        .O(vcount_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(hcount_reg__0_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(hcount_reg__0_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(hcount_reg__0_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_0[6]_Q_VOTER_wire 
+    \vcount_reg_TMR_0[6]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[6]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[6]_Q_VOTER ),
@@ -2719,7 +2479,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[6]_Q_VOTER_wire 
+    \vcount_reg_TMR_1[6]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[6]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[6]_Q_VOTER ),
@@ -2729,7 +2489,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[6]_Q_VOTER_wire 
+    \vcount_reg_TMR_2[6]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[6]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[6]_Q_VOTER ),
@@ -2739,177 +2499,37 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_0[2]_Q_VOTER_wire 
+    \hcount_reg_TMR_0[7]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(vcount_reg_TMR_0[2])
+        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[7])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[2]_Q_VOTER_wire 
+    \hcount_reg_TMR_1[7]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(vcount_reg_TMR_1[2])
+        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[7])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[2]_Q_VOTER_wire 
+    \hcount_reg_TMR_2[7]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
-        .O(vcount_reg_TMR_2[2])
+        .I0(\hcount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[7]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[7])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(vcount_reg_TMR_0[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(vcount_reg_TMR_1[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
-        .O(vcount_reg_TMR_2[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    VGA_vsync_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(VGA_vsync_reg_TMR_0_Q_VOTER),
-        .I1(VGA_vsync_reg_TMR_1_Q_VOTER),
-        .I2(VGA_vsync_reg_TMR_2_Q_VOTER),
-        .O(VGA_VS_OBUF)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_0[9]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_0[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_1[9]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_1[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_2[9]_Q_VOTER_wire 
-    (
-        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_2[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    VGA_hsync_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(VGA_hsync_reg_TMR_0_Q_VOTER),
-        .I1(VGA_hsync_reg_TMR_1_Q_VOTER),
-        .I2(VGA_hsync_reg_TMR_2_Q_VOTER),
-        .O(VGA_HS_OBUF)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_0[9]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(hcount_reg_TMR_0[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_1[9]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(hcount_reg_TMR_1[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \hcount_reg_TMR_2[9]_Q_VOTER_wire 
-    (
-        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
-        .O(hcount_reg_TMR_2[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \vcount_reg_TMR_0[4]_Q_VOTER_wire 
+    \vcount_reg_TMR_0[4]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[4]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[4]_Q_VOTER ),
@@ -2919,7 +2539,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[4]_Q_VOTER_wire 
+    \vcount_reg_TMR_1[4]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[4]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[4]_Q_VOTER ),
@@ -2929,7 +2549,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[4]_Q_VOTER_wire 
+    \vcount_reg_TMR_2[4]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[4]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[4]_Q_VOTER ),
@@ -2939,37 +2559,37 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_0[0]_Q_VOTER_wire 
+    \hcount_reg_TMR_0[8]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_0[0])
+        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[8])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[0]_Q_VOTER_wire 
+    \hcount_reg_TMR_1[8]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_1[0])
+        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[8])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[0]_Q_VOTER_wire 
+    \hcount_reg_TMR_2[8]_Q_VOTER 
     (
-        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
-        .O(vcount_reg__0_TMR_2[0])
+        .I0(\hcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[8])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_0[5]_Q_VOTER_wire 
+    \vcount_reg_TMR_0[5]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[5]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[5]_Q_VOTER ),
@@ -2979,7 +2599,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[5]_Q_VOTER_wire 
+    \vcount_reg_TMR_1[5]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[5]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[5]_Q_VOTER ),
@@ -2989,7 +2609,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[5]_Q_VOTER_wire 
+    \vcount_reg_TMR_2[5]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[5]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[5]_Q_VOTER ),
@@ -2999,7 +2619,387 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_0[1]_Q_VOTER_wire 
+    \hcount_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[6]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[1]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(vcount_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(vcount_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[2]_Q_VOTER ),
+        .O(vcount_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
+        .O(vcount_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
+        .O(vcount_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[3]_Q_VOTER ),
+        .O(vcount_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(hcount_reg__0_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(hcount_reg__0_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(hcount_reg__0_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[9]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_0[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_1[9]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_1[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_2[9]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_2[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[4]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    VGA_hsync_reg_TMR_0_Q_VOTER
+    (
+        .I0(VGA_hsync_reg_TMR_0_Q_VOTER),
+        .I1(VGA_hsync_reg_TMR_1_Q_VOTER),
+        .I2(VGA_hsync_reg_TMR_2_Q_VOTER),
+        .O(VGA_HS_OBUF)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[9]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[9]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[9]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[9]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
+        .O(hcount_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
+        .O(hcount_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \hcount_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\hcount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\hcount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\hcount_reg_TMR_2[5]_Q_VOTER ),
+        .O(hcount_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(vcount_reg_TMR_0[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_1[8]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(vcount_reg_TMR_1[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_2[8]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[8]_Q_VOTER ),
+        .O(vcount_reg_TMR_2[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\vcount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\vcount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\vcount_reg_TMR_2[0]_Q_VOTER ),
+        .O(vcount_reg__0_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    VGA_vsync_reg_TMR_0_Q_VOTER
+    (
+        .I0(VGA_vsync_reg_TMR_0_Q_VOTER),
+        .I1(VGA_vsync_reg_TMR_1_Q_VOTER),
+        .I2(VGA_vsync_reg_TMR_2_Q_VOTER),
+        .O(VGA_VS_OBUF)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \vcount_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[1]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[1]_Q_VOTER ),
@@ -3009,7 +3009,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_1[1]_Q_VOTER_wire 
+    \vcount_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[1]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[1]_Q_VOTER ),
@@ -3019,7 +3019,7 @@ module BitmapToVga
     LUT3 #(
         .INIT(8'hE8)
     )
-    \vcount_reg_TMR_2[1]_Q_VOTER_wire 
+    \vcount_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\vcount_reg_TMR_0[1]_Q_VOTER ),
         .I1(\vcount_reg_TMR_1[1]_Q_VOTER ),
@@ -3085,318 +3085,318 @@ module Pong
     input btnu_IBUF;
     input [1:0]anode_select;
 
-    wire \ballX_reg_TMR_2[1]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[1]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[1]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[1]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[1]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[1]_Q_VOTER ;
-    wire \P2score_reg_TMR_2[7]_Q_VOTER ;
-    wire \P2score_reg_TMR_1[7]_Q_VOTER ;
-    wire \P2score_reg_TMR_0[7]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[5]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[5]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[5]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[30]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[30]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[30]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[28]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[28]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[28]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[1]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[1]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[1]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[6]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[6]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[6]_Q_VOTER ;
-    wire erasing_reg_TMR_2_Q_VOTER;
-    wire erasing_reg_TMR_1_Q_VOTER;
-    wire erasing_reg_TMR_0_Q_VOTER;
-    wire \ballY_reg_TMR_2[0]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[0]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[0]_Q_VOTER ;
     wire \ballX_reg_TMR_2[8]_Q_VOTER ;
     wire \ballX_reg_TMR_1[8]_Q_VOTER ;
     wire \ballX_reg_TMR_0[8]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[0]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[0]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[0]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[4]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[4]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[4]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[27]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[27]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[27]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[19]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[19]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[19]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[7]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[7]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[7]_Q_VOTER ;
-    wire \P2score_reg_TMR_2[2]_Q_VOTER ;
-    wire \P2score_reg_TMR_1[2]_Q_VOTER ;
-    wire \P2score_reg_TMR_0[2]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[4]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[4]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[4]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[4]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[4]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[4]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[25]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[25]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[25]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[17]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[17]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[17]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[5]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[5]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[5]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[5]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[5]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[21]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[21]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[21]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[3]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[3]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[3]_Q_VOTER ;
     wire \clearX_reg_TMR_2[3]_Q_VOTER ;
     wire \clearX_reg_TMR_1[3]_Q_VOTER ;
     wire \clearX_reg_TMR_0[3]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[2]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[2]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[2]_Q_VOTER ;
     wire \timerCount_reg_TMR_2[6]_Q_VOTER ;
     wire \timerCount_reg_TMR_1[6]_Q_VOTER ;
     wire \timerCount_reg_TMR_0[6]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[24]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[24]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[24]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[5]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[5]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[5]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[3]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[3]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[3]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[2]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[2]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[2]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[4]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[4]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[4]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[12]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[12]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[12]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[23]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[23]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[23]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[15]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[15]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[15]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[1]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[1]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[1]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[8]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[8]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[8]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[27]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[27]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[27]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[0]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[0]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[0]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[3]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[3]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[3]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[0]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[0]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[0]_Q_VOTER ;
+    wire \P2score_reg_TMR_2[4]_Q_VOTER ;
+    wire \P2score_reg_TMR_1[4]_Q_VOTER ;
+    wire \P2score_reg_TMR_0[4]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[5]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[5]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[5]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[5]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[5]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[26]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[26]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[26]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[18]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[18]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[18]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[7]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[7]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[7]_Q_VOTER ;
     wire \clearY_reg_TMR_2[2]_Q_VOTER ;
     wire \clearY_reg_TMR_1[2]_Q_VOTER ;
     wire \clearY_reg_TMR_0[2]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[2]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[2]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[2]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[6]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[6]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[6]_Q_VOTER ;
     wire ballMovingDown_reg_TMR_2_Q_VOTER;
     wire ballMovingDown_reg_TMR_1_Q_VOTER;
     wire ballMovingDown_reg_TMR_0_Q_VOTER;
-    wire \LPaddleY_reg_TMR_2[3]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[3]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[3]_Q_VOTER ;
     wire \P2score_reg_TMR_2[3]_Q_VOTER ;
     wire \P2score_reg_TMR_1[3]_Q_VOTER ;
     wire \P2score_reg_TMR_0[3]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[11]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[11]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[11]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[7]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[7]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[7]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[3]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[3]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[3]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[1]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[1]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[1]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[3]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[3]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[3]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[6]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[6]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[6]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[3]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[3]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[3]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[16]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[16]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[16]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[7]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[7]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[7]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[3]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[3]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[3]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[2]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[2]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[2]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[5]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[5]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[5]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[6]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[6]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[6]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[20]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[20]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[20]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[0]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[0]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[0]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[5]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[5]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[5]_Q_VOTER ;
-    wire \P2score_reg_TMR_2[4]_Q_VOTER ;
-    wire \P2score_reg_TMR_1[4]_Q_VOTER ;
-    wire \P2score_reg_TMR_0[4]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[7]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[7]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[7]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[4]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[4]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[4]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[4]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[4]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[4]_Q_VOTER ;
-    wire \ballY_reg_TMR_2[7]_Q_VOTER ;
-    wire \ballY_reg_TMR_1[7]_Q_VOTER ;
-    wire \ballY_reg_TMR_0[7]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[2]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[2]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[2]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[4]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[4]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[4]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[0]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[0]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[0]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[4]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[4]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[4]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[1]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[1]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[1]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[4]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[4]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[4]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[5]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[5]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[5]_Q_VOTER ;
-    wire \P2score_reg_TMR_2[5]_Q_VOTER ;
-    wire \P2score_reg_TMR_1[5]_Q_VOTER ;
-    wire \P2score_reg_TMR_0[5]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[3]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[3]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[3]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[26]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[26]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[26]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[29]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[29]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[29]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[18]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[18]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[18]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[6]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[6]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[6]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[6]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[6]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[6]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[8]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[8]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[8]_Q_VOTER ;
-    wire \P1score_reg_TMR_2[2]_Q_VOTER ;
-    wire \P1score_reg_TMR_1[2]_Q_VOTER ;
-    wire \P1score_reg_TMR_0[2]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[7]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[7]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[7]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[17]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[17]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[17]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[14]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[14]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[14]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[0]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[0]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[0]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[5]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[5]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[5]_Q_VOTER ;
-    wire \P2score_reg_TMR_2[0]_Q_VOTER ;
-    wire \P2score_reg_TMR_1[0]_Q_VOTER ;
-    wire \P2score_reg_TMR_0[0]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[5]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[5]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[5]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[22]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[22]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[22]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[25]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[25]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[25]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[6]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[6]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[6]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[1]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[1]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[1]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[9]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[9]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[9]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[7]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[7]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[7]_Q_VOTER ;
     wire \ballX_reg_TMR_2[0]_Q_VOTER ;
     wire \ballX_reg_TMR_1[0]_Q_VOTER ;
     wire \ballX_reg_TMR_0[0]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[4]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[4]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[4]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[4]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[4]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[4]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[0]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[0]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[0]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[30]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[30]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[30]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[22]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[22]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[22]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[1]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[1]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[1]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[12]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[12]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[12]_Q_VOTER ;
+    wire \P2score_reg_TMR_2[5]_Q_VOTER ;
+    wire \P2score_reg_TMR_1[5]_Q_VOTER ;
+    wire \P2score_reg_TMR_0[5]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[1]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[1]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[1]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[6]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[6]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[6]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[3]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[3]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[3]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[7]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[7]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[11]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[11]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[11]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[3]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[3]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[3]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[6]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[6]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[6]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[19]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[19]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[19]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[4]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[4]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[4]_Q_VOTER ;
+    wire \P2score_reg_TMR_2[0]_Q_VOTER ;
+    wire \P2score_reg_TMR_1[0]_Q_VOTER ;
+    wire \P2score_reg_TMR_0[0]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[7]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[7]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[31]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[31]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[31]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[23]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[23]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[23]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[15]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[15]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[15]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[7]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[7]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[7]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[5]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[5]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[5]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[8]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[8]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[8]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[3]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[3]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[3]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[1]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[1]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[1]_Q_VOTER ;
     wire ballMovingRight_reg_TMR_2_Q_VOTER;
     wire ballMovingRight_reg_TMR_1_Q_VOTER;
     wire ballMovingRight_reg_TMR_0_Q_VOTER;
     wire \LPaddleY_reg_TMR_2[2]_Q_VOTER ;
     wire \LPaddleY_reg_TMR_1[2]_Q_VOTER ;
     wire \LPaddleY_reg_TMR_0[2]_Q_VOTER ;
-    wire \clearX_reg_TMR_2[4]_Q_VOTER ;
-    wire \clearX_reg_TMR_1[4]_Q_VOTER ;
-    wire \clearX_reg_TMR_0[4]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[21]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[21]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[21]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[13]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[13]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[13]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[10]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[10]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[10]_Q_VOTER ;
-    wire \ballX_reg_TMR_2[7]_Q_VOTER ;
-    wire \ballX_reg_TMR_1[7]_Q_VOTER ;
-    wire \ballX_reg_TMR_0[7]_Q_VOTER ;
     wire \P2score_reg_TMR_2[6]_Q_VOTER ;
     wire \P2score_reg_TMR_1[6]_Q_VOTER ;
     wire \P2score_reg_TMR_0[6]_Q_VOTER ;
-    wire \clearY_reg_TMR_2[0]_Q_VOTER ;
-    wire \clearY_reg_TMR_1[0]_Q_VOTER ;
-    wire \clearY_reg_TMR_0[0]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_2[6]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_1[6]_Q_VOTER ;
-    wire \RPaddleY_reg_TMR_0[6]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[0]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[0]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[0]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_2[7]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_1[7]_Q_VOTER ;
+    wire \RPaddleY_reg_TMR_0[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[7]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[28]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[28]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[28]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[1]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[1]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[1]_Q_VOTER ;
     wire \clearX_reg_TMR_2[0]_Q_VOTER ;
     wire \clearX_reg_TMR_1[0]_Q_VOTER ;
     wire \clearX_reg_TMR_0[0]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_2[1]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_1[1]_Q_VOTER ;
-    wire \LPaddleY_reg_TMR_0[1]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[0]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[0]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[0]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[4]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[4]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[4]_Q_VOTER ;
+    wire erasing_reg_TMR_2_Q_VOTER;
+    wire erasing_reg_TMR_1_Q_VOTER;
+    wire erasing_reg_TMR_0_Q_VOTER;
+    wire \ballX_reg_TMR_2[2]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[2]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[2]_Q_VOTER ;
     wire \P2score_reg_TMR_2[1]_Q_VOTER ;
     wire \P2score_reg_TMR_1[1]_Q_VOTER ;
     wire \P2score_reg_TMR_0[1]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[31]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[31]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[31]_Q_VOTER ;
-    wire \timerCount_reg_TMR_2[5]_Q_VOTER ;
-    wire \timerCount_reg_TMR_1[5]_Q_VOTER ;
-    wire \timerCount_reg_TMR_0[5]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[6]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[6]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[6]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[2]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[2]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[2]_Q_VOTER ;
     wire \RPaddleY_reg_TMR_2[2]_Q_VOTER ;
     wire \RPaddleY_reg_TMR_1[2]_Q_VOTER ;
     wire \RPaddleY_reg_TMR_0[2]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[24]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[24]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[24]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[16]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[16]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[16]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[3]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[3]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[3]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[13]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[13]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[13]_Q_VOTER ;
+    wire \P2score_reg_TMR_2[7]_Q_VOTER ;
+    wire \P2score_reg_TMR_1[7]_Q_VOTER ;
+    wire \P2score_reg_TMR_0[7]_Q_VOTER ;
+    wire \clearY_reg_TMR_2[3]_Q_VOTER ;
+    wire \clearY_reg_TMR_1[3]_Q_VOTER ;
+    wire \clearY_reg_TMR_0[3]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[8]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[8]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[8]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[20]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[20]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[20]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[1]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[1]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[1]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[1]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[1]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[1]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[0]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[0]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[0]_Q_VOTER ;
+    wire \ballX_reg_TMR_2[7]_Q_VOTER ;
+    wire \ballX_reg_TMR_1[7]_Q_VOTER ;
+    wire \ballX_reg_TMR_0[7]_Q_VOTER ;
+    wire \clearX_reg_TMR_2[7]_Q_VOTER ;
+    wire \clearX_reg_TMR_1[7]_Q_VOTER ;
+    wire \clearX_reg_TMR_0[7]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[5]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[5]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[5]_Q_VOTER ;
+    wire \P2score_reg_TMR_2[2]_Q_VOTER ;
+    wire \P2score_reg_TMR_1[2]_Q_VOTER ;
+    wire \P2score_reg_TMR_0[2]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[4]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[4]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[4]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[14]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[14]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[14]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[9]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[9]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[9]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[2]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[2]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[2]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[4]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[4]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[4]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[2]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[2]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[2]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[6]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[6]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[6]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[29]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[29]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[29]_Q_VOTER ;
+    wire \timerCount_reg_TMR_2[10]_Q_VOTER ;
+    wire \timerCount_reg_TMR_1[10]_Q_VOTER ;
+    wire \timerCount_reg_TMR_0[10]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[6]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[6]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[6]_Q_VOTER ;
+    wire \ballY_reg_TMR_2[1]_Q_VOTER ;
+    wire \ballY_reg_TMR_1[1]_Q_VOTER ;
+    wire \ballY_reg_TMR_0[1]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[5]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[5]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[5]_Q_VOTER ;
+    wire \P1score_reg_TMR_2[1]_Q_VOTER ;
+    wire \P1score_reg_TMR_1[1]_Q_VOTER ;
+    wire \P1score_reg_TMR_0[1]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_2[6]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_1[6]_Q_VOTER ;
+    wire \LPaddleY_reg_TMR_0[6]_Q_VOTER ;
     wire timerRst_TMR_2;
     wire timerRst_TMR_1;
     wire timerRst_TMR_0;
@@ -8004,7 +8004,7 @@ module Pong
     CARRY4 \_inferred__4/i__carry__1 
     (
         .CI(\_inferred__4/i__carry__0_n_0 ),
-        .CO({\_inferred__4/i__carry__1_n_3 }),
+        .CO(\_inferred__4/i__carry__1_n_3 ),
         .CYINIT(\<const0> ),
         .DI({\<const0> , \<const0> , \<const0> , \<const0> }),
         .S({\<const0> , \<const0> , \<const0> , i__carry__1_i_1_n_0}),
@@ -8034,7 +8034,7 @@ module Pong
     CARRY4 \_inferred__5/i__carry__1 
     (
         .CI(\_inferred__5/i__carry__0_n_0 ),
-        .CO({\_inferred__5/i__carry__1_n_3 }),
+        .CO(\_inferred__5/i__carry__1_n_3 ),
         .CYINIT(\<const0> ),
         .DI({\<const0> , \<const0> , \<const0> , \<const0> }),
         .S({\<const0> , \<const0> , \<const0> , i__carry__1_i_1__0_n_0}),
@@ -8261,7 +8261,7 @@ module Pong
     CARRY4 ballMovingRight2_carry__0
     (
         .CI(ballMovingRight2_carry_n_0),
-        .CO({ballMovingRight28_in}),
+        .CO(ballMovingRight28_in),
         .CYINIT(\<const0> ),
         .DI({\<const0> , \<const0> , \<const0> , ballMovingRight2_carry__0_i_1_n_0}),
         .S({\<const0> , \<const0> , \<const0> , ballMovingRight2_carry__0_i_2_n_0}),
@@ -8740,7 +8740,7 @@ module Pong
     CARRY4 \ballMovingRight3_inferred__0/i__carry__0 
     (
         .CI(\ballMovingRight3_inferred__0/i__carry_n_0 ),
-        .CO({ballMovingRight3}),
+        .CO(ballMovingRight3),
         .CYINIT(\<const0> ),
         .DI({\<const0> , \<const0> , \<const0> , p_0_in}),
         .S({\<const0> , \<const0> , \<const0> , i__carry__0_i_2_n_0}),
@@ -13969,607 +13969,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \RPaddleY_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[31]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[31])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[31]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[31])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[31]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[31])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
-        .O(P2score_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
-        .O(P2score_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
-        .O(P2score_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P2score_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P2score_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P2score_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[10]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[10])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[10]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[10])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[10]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[10])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[13]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[13])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[13]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[13])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[13]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[13])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[21]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[21])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[21]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[21])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[21]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[21])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[4] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[4] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[4] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingRight_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
-        .O(ballMovingRight_reg_n_0_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingRight_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
-        .O(ballMovingRight_reg_n_0_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingRight_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
-        .O(ballMovingRight_reg_n_0_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[9]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[9]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[9]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[9])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[6]_Q_VOTER_wire 
+    \LPaddleY_reg_TMR_0[6]_Q_VOTER 
     (
         .I0(\LPaddleY_reg_TMR_0[6]_Q_VOTER ),
         .I1(\LPaddleY_reg_TMR_1[6]_Q_VOTER ),
@@ -14579,7 +13979,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \LPaddleY_reg_TMR_1[6]_Q_VOTER_wire 
+    \LPaddleY_reg_TMR_1[6]_Q_VOTER 
     (
         .I0(\LPaddleY_reg_TMR_0[6]_Q_VOTER ),
         .I1(\LPaddleY_reg_TMR_1[6]_Q_VOTER ),
@@ -14589,7 +13989,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \LPaddleY_reg_TMR_2[6]_Q_VOTER_wire 
+    \LPaddleY_reg_TMR_2[6]_Q_VOTER 
     (
         .I0(\LPaddleY_reg_TMR_0[6]_Q_VOTER ),
         .I1(\LPaddleY_reg_TMR_1[6]_Q_VOTER ),
@@ -14599,607 +13999,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \timerCount_reg_TMR_0[25]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[25])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[25]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[25])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[25]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[25])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[22]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[22])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[22]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[22])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[22]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[22])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P2score_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P2score_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P2score_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[14]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[14]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[14]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[17]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[17])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[17]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[17])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[17]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[17])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P1score_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P1score_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P1score_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[18]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[18]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[18]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[29]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[29])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[29]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[29])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[29]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[29])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[26]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[26])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[26]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[26])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[26]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[26])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P1score_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P1score_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P1score_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
-        .O(P2score_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
-        .O(P2score_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
-        .O(P2score_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[1]_Q_VOTER_wire 
+    \P1score_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[1]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[1]_Q_VOTER ),
@@ -15209,7 +14009,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P1score_reg_TMR_1[1]_Q_VOTER_wire 
+    \P1score_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[1]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[1]_Q_VOTER ),
@@ -15219,7 +14019,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P1score_reg_TMR_2[1]_Q_VOTER_wire 
+    \P1score_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[1]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[1]_Q_VOTER ),
@@ -15229,1747 +14029,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \ballX_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[7] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[7] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[7] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P2score_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P2score_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P2score_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[20]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[20])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[20]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[20])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[20]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[20])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P1score_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P1score_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
-        .O(P1score_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P1score_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P1score_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P1score_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[16]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[16])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[16]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[16])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[16]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[16])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \RPaddleY_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[6] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[6] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[6] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[11]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[11])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[11]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[11])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[11]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[11])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
-        .O(cs_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
-        .O(cs_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
-        .O(cs_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P2score_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P2score_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
-        .O(P2score_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingDown_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
-        .O(in_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingDown_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
-        .O(in_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    ballMovingDown_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
-        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
-        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
-        .O(in_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[2] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[2] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[2] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[15]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[15]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[15]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[23]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[23])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[23]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[23])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[23]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[23])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[12]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[12]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[12]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(LPaddleY_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(LPaddleY_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \LPaddleY_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
-        .O(LPaddleY_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[24]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[24])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[24]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[24])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[24]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[24])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_0[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_1[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearX_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
-        .O(\clearX_reg_n_0__TMR_2[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P2score_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P2score_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P2score_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
-        .O(P2score_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
-        .O(clearY_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
-        .O(clearY_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \clearY_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
-        .O(clearY_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[19]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[19])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[19]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[19])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[19]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[19])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[27]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[27])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[27]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[27])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[27]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[27])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[4]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P1score_TMR_0[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[4]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P1score_TMR_1[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[4]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
-        .O(P1score_TMR_2[4])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P1score_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P1score_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
-        .O(P1score_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
-        .O(ballX_reg_TMR_0[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
-        .O(ballX_reg_TMR_1[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballX_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
-        .O(ballX_reg_TMR_2[8])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    erasing_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(erasing_reg_TMR_0_Q_VOTER),
-        .I1(erasing_reg_TMR_1_Q_VOTER),
-        .I2(erasing_reg_TMR_2_Q_VOTER),
-        .O(erasing_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    erasing_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(erasing_reg_TMR_0_Q_VOTER),
-        .I1(erasing_reg_TMR_1_Q_VOTER),
-        .I2(erasing_reg_TMR_2_Q_VOTER),
-        .O(erasing_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    erasing_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(erasing_reg_TMR_0_Q_VOTER),
-        .I1(erasing_reg_TMR_1_Q_VOTER),
-        .I2(erasing_reg_TMR_2_Q_VOTER),
-        .O(erasing_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballY_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballY_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \ballY_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
-        .O(ballY_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[28]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[28])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[28]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[28])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[28]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[28])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_0[30]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
-        .O(timerCount_reg_TMR_0[30])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_1[30]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
-        .O(timerCount_reg_TMR_1[30])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \timerCount_reg_TMR_2[30]_Q_VOTER_wire 
-    (
-        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
-        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
-        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
-        .O(timerCount_reg_TMR_2[30])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \P1score_reg_TMR_0[5]_Q_VOTER_wire 
+    \P1score_reg_TMR_0[5]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[5]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[5]_Q_VOTER ),
@@ -16979,7 +14039,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P1score_reg_TMR_1[5]_Q_VOTER_wire 
+    \P1score_reg_TMR_1[5]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[5]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[5]_Q_VOTER ),
@@ -16989,7 +14049,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P1score_reg_TMR_2[5]_Q_VOTER_wire 
+    \P1score_reg_TMR_2[5]_Q_VOTER 
     (
         .I0(\P1score_reg_TMR_0[5]_Q_VOTER ),
         .I1(\P1score_reg_TMR_1[5]_Q_VOTER ),
@@ -16999,67 +14059,577 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P2score_reg_TMR_0[7]_Q_VOTER_wire 
+    \ballY_reg_TMR_0[1]_Q_VOTER 
     (
-        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P2score_TMR_0[7])
+        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P2score_reg_TMR_1[7]_Q_VOTER_wire 
+    \ballY_reg_TMR_1[1]_Q_VOTER 
     (
-        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P2score_TMR_1[7])
+        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \P2score_reg_TMR_2[7]_Q_VOTER_wire 
+    \ballY_reg_TMR_2[1]_Q_VOTER 
     (
-        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
-        .O(P2score_TMR_2[7])
+        .I0(\ballY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[1]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \RPaddleY_reg_TMR_0[1]_Q_VOTER_wire 
+    \ballY_reg_TMR_0[6]_Q_VOTER 
     (
-        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(RPaddleY_TMR_0[1])
+        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \RPaddleY_reg_TMR_1[1]_Q_VOTER_wire 
+    \ballY_reg_TMR_1[6]_Q_VOTER 
     (
-        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(RPaddleY_TMR_1[1])
+        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \RPaddleY_reg_TMR_2[1]_Q_VOTER_wire 
+    \ballY_reg_TMR_2[6]_Q_VOTER 
     (
-        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
-        .O(RPaddleY_TMR_2[1])
+        .I0(\ballY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \ballX_reg_TMR_0[1]_Q_VOTER_wire 
+    \timerCount_reg_TMR_0[10]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[10])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[10]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[10])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[10]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[10]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[10]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[10]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[10])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[29]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[29])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[29]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[29])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[29]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[29]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[29]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[29]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[29])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P1score_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P1score_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P1score_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P1score_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P1score_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P1score_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[2]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[9]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[9]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[9]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[9]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[9])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[14]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[14]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[14]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[14]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[4]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P2score_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P2score_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[2]_Q_VOTER ),
+        .O(P2score_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[7] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[7] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[7]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[7] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[1]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\ballX_reg_TMR_0[1]_Q_VOTER ),
         .I1(\ballX_reg_TMR_1[1]_Q_VOTER ),
@@ -17069,7 +14639,7 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \ballX_reg_TMR_1[1]_Q_VOTER_wire 
+    \ballX_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\ballX_reg_TMR_0[1]_Q_VOTER ),
         .I1(\ballX_reg_TMR_1[1]_Q_VOTER ),
@@ -17079,12 +14649,2442 @@ module Pong
     LUT3 #(
         .INIT(8'hE8)
     )
-    \ballX_reg_TMR_2[1]_Q_VOTER_wire 
+    \ballX_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\ballX_reg_TMR_0[1]_Q_VOTER ),
         .I1(\ballX_reg_TMR_1[1]_Q_VOTER ),
         .I2(\ballX_reg_TMR_2[1]_Q_VOTER ),
         .O(ballX_reg_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[20]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[20])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[20]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[20])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[20]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[20]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[20]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[20]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[20])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[8]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[8]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[8]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[3]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P2score_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P2score_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P2score_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[13]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[13])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[13]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[13])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[13]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[13]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[13]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[13]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[13])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[16]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[16])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[16]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[16])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[16]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[16]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[16]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[16]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[16])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[24]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[24])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[24]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[24])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[24]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[24]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[24]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[24]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[24])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[2] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[2] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[2]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[2] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[6]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
+        .O(P2score_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
+        .O(P2score_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[1]_Q_VOTER ),
+        .O(P2score_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    erasing_reg_TMR_0_Q_VOTER
+    (
+        .I0(erasing_reg_TMR_0_Q_VOTER),
+        .I1(erasing_reg_TMR_1_Q_VOTER),
+        .I2(erasing_reg_TMR_2_Q_VOTER),
+        .O(erasing_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    erasing_reg_TMR_1_Q_VOTER
+    (
+        .I0(erasing_reg_TMR_0_Q_VOTER),
+        .I1(erasing_reg_TMR_1_Q_VOTER),
+        .I2(erasing_reg_TMR_2_Q_VOTER),
+        .O(erasing_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    erasing_reg_TMR_2_Q_VOTER
+    (
+        .I0(erasing_reg_TMR_0_Q_VOTER),
+        .I1(erasing_reg_TMR_1_Q_VOTER),
+        .I2(erasing_reg_TMR_2_Q_VOTER),
+        .O(erasing_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[4]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[0]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[0]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[1]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[28]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[28])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[28]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[28])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[28]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[28]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[28]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[28]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[28])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[7]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P1score_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P1score_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P1score_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P2score_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P2score_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[6]_Q_VOTER ),
+        .O(P2score_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[2]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingRight_reg_TMR_0_Q_VOTER
+    (
+        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
+        .O(ballMovingRight_reg_n_0_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingRight_reg_TMR_1_Q_VOTER
+    (
+        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
+        .O(ballMovingRight_reg_n_0_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingRight_reg_TMR_2_Q_VOTER
+    (
+        .I0(ballMovingRight_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingRight_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingRight_reg_TMR_2_Q_VOTER),
+        .O(ballMovingRight_reg_n_0_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[8]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[8]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[8]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[5]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[7]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[15]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[15]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[15]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[15]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[23]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[23])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[23]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[23])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[23]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[23]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[23]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[23]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[23])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[31]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[31])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[31]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[31])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[31]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[31]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[31]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[31]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[31])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[7]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P2score_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P2score_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[0]_Q_VOTER ),
+        .O(P2score_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[19]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[19])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[19]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[19])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[19]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[19]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[19]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[19]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[19])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[6]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[3]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[11]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[11])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[11]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[11])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[11]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[11]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[11]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[11]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[11])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P1score_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P1score_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[7]_Q_VOTER ),
+        .O(P1score_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P1score_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P1score_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P1score_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[6] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[6] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[6]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[6] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[1]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
+        .O(P2score_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
+        .O(P2score_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[5]_Q_VOTER ),
+        .O(P2score_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[12]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[12])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[12]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[12])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[12]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[12]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[12])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[1]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[22]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[22])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[22]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[22])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[22]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[22]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[22]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[22]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[22])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[30]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[30])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[30]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[30])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[30]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[30]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[30]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[30]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[30])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P1score_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P1score_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P1score_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\P1score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P1score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P1score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P1score_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[4]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[0]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
+        .O(cs_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
+        .O(cs_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[2]_Q_VOTER ),
+        .O(cs_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P2score_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P2score_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[3]_Q_VOTER ),
+        .O(P2score_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingDown_reg_TMR_0_Q_VOTER
+    (
+        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
+        .O(in_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingDown_reg_TMR_1_Q_VOTER
+    (
+        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
+        .O(in_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    ballMovingDown_reg_TMR_2_Q_VOTER
+    (
+        .I0(ballMovingDown_reg_TMR_0_Q_VOTER),
+        .I1(ballMovingDown_reg_TMR_1_Q_VOTER),
+        .I2(ballMovingDown_reg_TMR_2_Q_VOTER),
+        .O(in_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[6]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[2]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[7]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[18]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[18]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[18]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[18]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[26]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[26])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[26]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[26])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[26]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[26]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[26]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[26]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[26])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[5]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[5]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P2score_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P2score_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \P2score_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\P2score_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\P2score_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\P2score_reg_TMR_2[4]_Q_VOTER ),
+        .O(P2score_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[0]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[3]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[0]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[27]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[27])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[27]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[27])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[27]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[27]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[27]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[27]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[27])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[6]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballY_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballY_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballY_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\ballY_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\ballY_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\ballY_reg_TMR_2[2]_Q_VOTER ),
+        .O(ballY_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[3]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[3]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[21]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[21])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[21]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[21])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[21]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[21]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[21]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[21]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[21])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
+        .O(clearY_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
+        .O(clearY_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearY_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\clearY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\clearY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\clearY_reg_TMR_2[5]_Q_VOTER ),
+        .O(clearY_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(LPaddleY_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(LPaddleY_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \LPaddleY_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\LPaddleY_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\LPaddleY_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\LPaddleY_reg_TMR_2[5]_Q_VOTER ),
+        .O(LPaddleY_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[17]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[17])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[17]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[17])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[17]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[17]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[17]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[17]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[17])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_0[25]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
+        .O(timerCount_reg_TMR_0[25])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_1[25]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
+        .O(timerCount_reg_TMR_1[25])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \timerCount_reg_TMR_2[25]_Q_VOTER 
+    (
+        .I0(\timerCount_reg_TMR_0[25]_Q_VOTER ),
+        .I1(\timerCount_reg_TMR_1[25]_Q_VOTER ),
+        .I2(\timerCount_reg_TMR_2[25]_Q_VOTER ),
+        .O(timerCount_reg_TMR_2[25])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(RPaddleY_TMR_0[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(RPaddleY_TMR_1[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \RPaddleY_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\RPaddleY_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\RPaddleY_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\RPaddleY_reg_TMR_2[4]_Q_VOTER ),
+        .O(RPaddleY_TMR_2[4])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_0[4]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_0[4] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_1[4]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_1[4] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \clearX_reg_TMR_2[4]_Q_VOTER 
+    (
+        .I0(\clearX_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\clearX_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\clearX_reg_TMR_2[4]_Q_VOTER ),
+        .O(\clearX_reg_n_0__TMR_2[4] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
+        .O(ballX_reg_TMR_0[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_1[8]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
+        .O(ballX_reg_TMR_1[8])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \ballX_reg_TMR_2[8]_Q_VOTER 
+    (
+        .I0(\ballX_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\ballX_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\ballX_reg_TMR_2[8]_Q_VOTER ),
+        .O(ballX_reg_TMR_2[8])
     );
 endmodule
 
@@ -17103,57 +17103,57 @@ module SevenSegmentControl
     input btnc_IBUF;
     input clk_100;
 
-    wire \count_val_reg_TMR_2[1]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[1]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[1]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[4]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[4]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[4]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[9]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[9]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[9]_Q_VOTER ;
     wire \count_val_reg_TMR_2[16]_Q_VOTER ;
     wire \count_val_reg_TMR_1[16]_Q_VOTER ;
     wire \count_val_reg_TMR_0[16]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[12]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[12]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[12]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[11]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[11]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[11]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[5]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[5]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[5]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[1]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[1]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[1]_Q_VOTER ;
     wire \count_val_reg_TMR_2[0]_Q_VOTER ;
     wire \count_val_reg_TMR_1[0]_Q_VOTER ;
     wire \count_val_reg_TMR_0[0]_Q_VOTER ;
     wire \count_val_reg_TMR_2[6]_Q_VOTER ;
     wire \count_val_reg_TMR_1[6]_Q_VOTER ;
     wire \count_val_reg_TMR_0[6]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[9]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[9]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[9]_Q_VOTER ;
     wire \count_val_reg_TMR_2[13]_Q_VOTER ;
     wire \count_val_reg_TMR_1[13]_Q_VOTER ;
     wire \count_val_reg_TMR_0[13]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[5]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[5]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[5]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[3]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[3]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[3]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[15]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[15]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[15]_Q_VOTER ;
     wire \count_val_reg_TMR_2[2]_Q_VOTER ;
     wire \count_val_reg_TMR_1[2]_Q_VOTER ;
     wire \count_val_reg_TMR_0[2]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[8]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[8]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[8]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[12]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[12]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[12]_Q_VOTER ;
     wire \count_val_reg_TMR_2[7]_Q_VOTER ;
     wire \count_val_reg_TMR_1[7]_Q_VOTER ;
     wire \count_val_reg_TMR_0[7]_Q_VOTER ;
     wire \count_val_reg_TMR_2[14]_Q_VOTER ;
     wire \count_val_reg_TMR_1[14]_Q_VOTER ;
     wire \count_val_reg_TMR_0[14]_Q_VOTER ;
-    wire \count_val_reg_TMR_2[11]_Q_VOTER ;
-    wire \count_val_reg_TMR_1[11]_Q_VOTER ;
-    wire \count_val_reg_TMR_0[11]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[4]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[4]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[4]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[3]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[3]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[3]_Q_VOTER ;
     wire \count_val_reg_TMR_2[10]_Q_VOTER ;
     wire \count_val_reg_TMR_1[10]_Q_VOTER ;
     wire \count_val_reg_TMR_0[10]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[8]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[8]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[8]_Q_VOTER ;
+    wire \count_val_reg_TMR_2[15]_Q_VOTER ;
+    wire \count_val_reg_TMR_1[15]_Q_VOTER ;
+    wire \count_val_reg_TMR_0[15]_Q_VOTER ;
     wire \count_val_reg_n_0_[9] ;
     wire \count_val_reg_n_0_[8] ;
     wire \count_val_reg_n_0_[7] ;
@@ -17577,7 +17577,7 @@ module SevenSegmentControl
         .CYINIT(\<const0> ),
         .DI({\<const0> , \<const0> , \<const0> , \<const0> }),
         .S({\<const0> , \<const0> , \<const0> , anode_select[1]}),
-        .O({\count_val_reg[16]_i_1_n_7 })
+        .O(\count_val_reg[16]_i_1_n_7 )
     );
     FDRE #(
         .INIT(1'b0)
@@ -17899,77 +17899,7 @@ module SevenSegmentControl
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_val_reg_TMR_0[10]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[10]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[10]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[10]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[10] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[11]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[11]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[11]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[11]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[11] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[14]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[14]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[14] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[7]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[7] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[12]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[12]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[12] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[8]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[2]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[2] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[15]_Q_VOTER_wire 
+    \count_val_reg_TMR_0[15]_Q_VOTER 
     (
         .I0(\count_val_reg_TMR_0[15]_Q_VOTER ),
         .I1(\count_val_reg_TMR_1[15]_Q_VOTER ),
@@ -17979,7 +17909,27 @@ module SevenSegmentControl
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_val_reg_TMR_0[3]_Q_VOTER_wire 
+    \count_val_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[8]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[10]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[10]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[10]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[10]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[10] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[3]_Q_VOTER 
     (
         .I0(\count_val_reg_TMR_0[3]_Q_VOTER ),
         .I1(\count_val_reg_TMR_1[3]_Q_VOTER ),
@@ -17989,87 +17939,7 @@ module SevenSegmentControl
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_val_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[5]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[13]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[13]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[13]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[13]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[13] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[6]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[6] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
-        .O(\count_val_reg_n_0__TMR_0[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
-        .O(\count_val_reg_n_0__TMR_1[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
-        .O(\count_val_reg_n_0__TMR_2[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[16]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[16]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[16]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[16]_Q_VOTER ),
-        .O(anode_select[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[9]_Q_VOTER_wire 
-    (
-        .I0(\count_val_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\count_val_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\count_val_reg_TMR_2[9]_Q_VOTER ),
-        .O(\count_val_reg_n_0_[9] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_val_reg_TMR_0[4]_Q_VOTER_wire 
+    \count_val_reg_TMR_0[4]_Q_VOTER 
     (
         .I0(\count_val_reg_TMR_0[4]_Q_VOTER ),
         .I1(\count_val_reg_TMR_1[4]_Q_VOTER ),
@@ -18079,12 +17949,142 @@ module SevenSegmentControl
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_val_reg_TMR_0[1]_Q_VOTER_wire 
+    \count_val_reg_TMR_0[14]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[14]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[14] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[7]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[7] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[2]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[2] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[13]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[13]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[13]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[13]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[13] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[9]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[9]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[9] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[6]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[6] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
+        .O(\count_val_reg_n_0__TMR_0[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
+        .O(\count_val_reg_n_0__TMR_1[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[0]_Q_VOTER ),
+        .O(\count_val_reg_n_0__TMR_2[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\count_val_reg_TMR_0[1]_Q_VOTER ),
         .I1(\count_val_reg_TMR_1[1]_Q_VOTER ),
         .I2(\count_val_reg_TMR_2[1]_Q_VOTER ),
         .O(\count_val_reg_n_0_[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[5]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[11]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[11]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[11]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[11]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[11] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[12]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[12]_Q_VOTER ),
+        .O(\count_val_reg_n_0_[12] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_val_reg_TMR_0[16]_Q_VOTER 
+    (
+        .I0(\count_val_reg_TMR_0[16]_Q_VOTER ),
+        .I1(\count_val_reg_TMR_1[16]_Q_VOTER ),
+        .I2(\count_val_reg_TMR_2[16]_Q_VOTER ),
+        .O(anode_select[1])
     );
 endmodule
 
@@ -18540,7 +18540,7 @@ module VgaRam
         .I3(\VGA_B[0] ),
         .O(VGA_R_OBUF)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -18736,7 +18736,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -18932,7 +18932,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -19152,7 +19152,7 @@ module VgaRam
         .I0(Q_TMR_2[7]),
         .O(ram_reg_0_0_i_2_n_0_TMR_2)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -19348,7 +19348,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -19544,7 +19544,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -19740,7 +19740,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -19936,7 +19936,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -20132,7 +20132,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_0_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "0", ram_addr_end = "32767", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -20328,7 +20328,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -20524,7 +20524,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_1_0_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -20720,7 +20720,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -20916,7 +20916,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -21112,7 +21112,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_1_1_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -21308,7 +21308,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -21504,7 +21504,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -21700,7 +21700,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_1_2_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -21896,7 +21896,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_1_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "32768", ram_addr_end = "65535", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -22092,7 +22092,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -22288,7 +22288,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -22484,7 +22484,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -22680,7 +22680,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -22876,7 +22876,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -23072,7 +23072,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -23268,7 +23268,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -23464,7 +23464,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -23660,7 +23660,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_2_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "65536", ram_addr_end = "98303", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -23856,7 +23856,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -24052,7 +24052,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_3_0_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -24248,7 +24248,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_0", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "0", ram_slice_end = "0" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -24444,7 +24444,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -24640,7 +24640,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_3_1_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -24836,7 +24836,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_1", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "1", ram_slice_end = "1" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -25032,7 +25032,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -25228,7 +25228,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO(ram_reg_3_2_n_67)
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -25424,7 +25424,7 @@ module VgaRam
         .WEBWE({\<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> , \<const0> }),
         .DOBDO()
     );
-(* \MEM.PORTA.DATA_BIT_LAYOUT  = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT  = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
+(* \MEM.PORTA.DATA_BIT_LAYOUT = "p0_d1", \MEM.PORTB.DATA_BIT_LAYOUT = "p0_d1", METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}", RTL_RAM_BITS = "368640", RTL_RAM_NAME = "BitmapToVga_inst/VgaRam_inst/ram_reg_3_2", RTL_RAM_TYPE = "RAM_SDP", ram_addr_begin = "98304", ram_addr_end = "131071", ram_offset = "0", ram_slice_begin = "2", ram_slice_end = "2" *)
     RAMB36E1 #(
         .DOA_REG(0),
         .DOB_REG(0),
@@ -25656,7 +25656,7 @@ module VgaRam
     LUT3 #(
         .INIT(8'hE8)
     )
-    ram_reg_mux_sel_b_pos_0__1_TMR_0_Q_VOTER_wire
+    ram_reg_mux_sel_b_pos_0__1_TMR_0_Q_VOTER
     (
         .I0(ram_reg_mux_sel_b_pos_0__1_TMR_0_Q_VOTER),
         .I1(ram_reg_mux_sel_b_pos_0__1_TMR_1_Q_VOTER),
@@ -25805,12 +25805,30 @@ module BallDrawer
     input btnc_IBUF;
     input clk_100;
 
+    wire \FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_2[4]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_2[10]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ;
+    wire \FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_2[7]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER ;
@@ -25820,24 +25838,6 @@ module BallDrawer
     wire \FSM_onehot_cs_reg_TMR_2[2]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER ;
     wire \FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ;
-    wire \FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ;
     wire ram_reg_0_0_i_46_n_0_TMR_2;
     wire ram_reg_0_0_i_46_n_0_TMR_1;
     wire ram_reg_0_0_i_46_n_0_TMR_0;
@@ -27920,187 +27920,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[3] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[8] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[9] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[9] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[9] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[5] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[1] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_0[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_1[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(\FSM_onehot_cs_reg_n_0__TMR_2[0] )
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER ),
@@ -28110,7 +27930,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER ),
@@ -28120,7 +27940,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_2[2]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_2[2]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[2]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[2]_Q_VOTER ),
@@ -28130,7 +27950,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_0[6]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_0[6]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[6]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[6]_Q_VOTER ),
@@ -28140,7 +27960,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_1[6]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_1[6]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[6]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[6]_Q_VOTER ),
@@ -28150,7 +27970,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_2[6]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_2[6]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[6]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[6]_Q_VOTER ),
@@ -28160,7 +27980,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER ),
@@ -28170,7 +27990,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER ),
@@ -28180,7 +28000,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_2[7]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_2[7]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[7]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[7]_Q_VOTER ),
@@ -28190,7 +28010,37 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[1] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER ),
@@ -28200,7 +28050,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER ),
@@ -28210,7 +28060,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_2[10]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_2[10]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[10]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[10]_Q_VOTER ),
@@ -28220,7 +28070,37 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[5]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[5] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER ),
@@ -28230,7 +28110,7 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER ),
@@ -28240,12 +28120,132 @@ module BallDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_onehot_cs_reg_TMR_2[4]_Q_VOTER_wire 
+    \FSM_onehot_cs_reg_TMR_2[4]_Q_VOTER 
     (
         .I0(\FSM_onehot_cs_reg_TMR_0[4]_Q_VOTER ),
         .I1(\FSM_onehot_cs_reg_TMR_1[4]_Q_VOTER ),
         .I2(\FSM_onehot_cs_reg_TMR_2[4]_Q_VOTER ),
         .O(\FSM_onehot_cs_reg_n_0__TMR_2[4] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[0] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[9] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[9] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[9]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[9]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[9]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[9] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[3]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[3] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_0[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_1[8] )
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER 
+    (
+        .I0(\FSM_onehot_cs_reg_TMR_0[8]_Q_VOTER ),
+        .I1(\FSM_onehot_cs_reg_TMR_1[8]_Q_VOTER ),
+        .I2(\FSM_onehot_cs_reg_TMR_2[8]_Q_VOTER ),
+        .O(\FSM_onehot_cs_reg_n_0__TMR_2[8] )
     );
 endmodule
 
@@ -28398,36 +28398,36 @@ module VLineDrawer
     input [7:0]y_out_carry__0_1_TMR_1;
     input [7:0]y_out_carry__0_1_TMR_2;
 
-    wire \count_reg_TMR_2[7]_Q_VOTER ;
-    wire \count_reg_TMR_1[7]_Q_VOTER ;
-    wire \count_reg_TMR_0[7]_Q_VOTER ;
     wire \count_reg_TMR_2[2]_Q_VOTER ;
     wire \count_reg_TMR_1[2]_Q_VOTER ;
     wire \count_reg_TMR_0[2]_Q_VOTER ;
-    wire \count_reg_TMR_2[3]_Q_VOTER ;
-    wire \count_reg_TMR_1[3]_Q_VOTER ;
-    wire \count_reg_TMR_0[3]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
-    wire \count_reg_TMR_2[4]_Q_VOTER ;
-    wire \count_reg_TMR_1[4]_Q_VOTER ;
-    wire \count_reg_TMR_0[4]_Q_VOTER ;
-    wire \count_reg_TMR_2[5]_Q_VOTER ;
-    wire \count_reg_TMR_1[5]_Q_VOTER ;
-    wire \count_reg_TMR_0[5]_Q_VOTER ;
-    wire \count_reg_TMR_2[1]_Q_VOTER ;
-    wire \count_reg_TMR_1[1]_Q_VOTER ;
-    wire \count_reg_TMR_0[1]_Q_VOTER ;
-    wire \count_reg_TMR_2[0]_Q_VOTER ;
-    wire \count_reg_TMR_1[0]_Q_VOTER ;
-    wire \count_reg_TMR_0[0]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ;
     wire \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ;
+    wire \count_reg_TMR_2[3]_Q_VOTER ;
+    wire \count_reg_TMR_1[3]_Q_VOTER ;
+    wire \count_reg_TMR_0[3]_Q_VOTER ;
+    wire \count_reg_TMR_2[7]_Q_VOTER ;
+    wire \count_reg_TMR_1[7]_Q_VOTER ;
+    wire \count_reg_TMR_0[7]_Q_VOTER ;
+    wire \count_reg_TMR_2[4]_Q_VOTER ;
+    wire \count_reg_TMR_1[4]_Q_VOTER ;
+    wire \count_reg_TMR_0[4]_Q_VOTER ;
     wire \count_reg_TMR_2[6]_Q_VOTER ;
     wire \count_reg_TMR_1[6]_Q_VOTER ;
     wire \count_reg_TMR_0[6]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
+    wire \count_reg_TMR_2[1]_Q_VOTER ;
+    wire \count_reg_TMR_1[1]_Q_VOTER ;
+    wire \count_reg_TMR_0[1]_Q_VOTER ;
+    wire \count_reg_TMR_2[5]_Q_VOTER ;
+    wire \count_reg_TMR_1[5]_Q_VOTER ;
+    wire \count_reg_TMR_0[5]_Q_VOTER ;
+    wire \count_reg_TMR_2[0]_Q_VOTER ;
+    wire \count_reg_TMR_1[0]_Q_VOTER ;
+    wire \count_reg_TMR_0[0]_Q_VOTER ;
     wire y_out_carry_n_3;
     wire y_out_carry_n_2;
     wire y_out_carry_n_1;
@@ -30273,67 +30273,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
-        .O(cs_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[0]_Q_VOTER_wire 
+    \count_reg_TMR_0[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -30343,7 +30283,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[0]_Q_VOTER_wire 
+    \count_reg_TMR_1[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -30353,7 +30293,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[0]_Q_VOTER_wire 
+    \count_reg_TMR_2[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -30363,37 +30303,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[1]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
-        .O(count_reg_TMR_0[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[1]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
-        .O(count_reg_TMR_1[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[1]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
-        .O(count_reg_TMR_2[1])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[5]_Q_VOTER_wire 
+    \count_reg_TMR_0[5]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[5]_Q_VOTER ),
         .I1(\count_reg_TMR_1[5]_Q_VOTER ),
@@ -30403,7 +30313,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[5]_Q_VOTER_wire 
+    \count_reg_TMR_1[5]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[5]_Q_VOTER ),
         .I1(\count_reg_TMR_1[5]_Q_VOTER ),
@@ -30413,7 +30323,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[5]_Q_VOTER_wire 
+    \count_reg_TMR_2[5]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[5]_Q_VOTER ),
         .I1(\count_reg_TMR_1[5]_Q_VOTER ),
@@ -30423,37 +30333,37 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[4]_Q_VOTER_wire 
+    \count_reg_TMR_0[1]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
-        .O(count_reg_TMR_0[4])
+        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
+        .O(count_reg_TMR_0[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[4]_Q_VOTER_wire 
+    \count_reg_TMR_1[1]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
-        .O(count_reg_TMR_1[4])
+        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
+        .O(count_reg_TMR_1[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[4]_Q_VOTER_wire 
+    \count_reg_TMR_2[1]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
-        .O(count_reg_TMR_2[4])
+        .I0(\count_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[1]_Q_VOTER ),
+        .O(count_reg_TMR_2[1])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
@@ -30463,7 +30373,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
@@ -30473,7 +30383,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
@@ -30483,67 +30393,67 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[3]_Q_VOTER_wire 
+    \count_reg_TMR_0[6]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_0[3])
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_0[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[3]_Q_VOTER_wire 
+    \count_reg_TMR_1[6]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_1[3])
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_1[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[3]_Q_VOTER_wire 
+    \count_reg_TMR_2[6]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_2[3])
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_2[6])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[2]_Q_VOTER_wire 
+    \count_reg_TMR_0[4]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
-        .O(count_reg_TMR_0[2])
+        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
+        .O(count_reg_TMR_0[4])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[2]_Q_VOTER_wire 
+    \count_reg_TMR_1[4]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
-        .O(count_reg_TMR_1[2])
+        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
+        .O(count_reg_TMR_1[4])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[2]_Q_VOTER_wire 
+    \count_reg_TMR_2[4]_Q_VOTER 
     (
-        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
-        .O(count_reg_TMR_2[2])
+        .I0(\count_reg_TMR_0[4]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[4]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[4]_Q_VOTER ),
+        .O(count_reg_TMR_2[4])
     );
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[7]_Q_VOTER_wire 
+    \count_reg_TMR_0[7]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[7]_Q_VOTER ),
         .I1(\count_reg_TMR_1[7]_Q_VOTER ),
@@ -30553,7 +30463,7 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[7]_Q_VOTER_wire 
+    \count_reg_TMR_1[7]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[7]_Q_VOTER ),
         .I1(\count_reg_TMR_1[7]_Q_VOTER ),
@@ -30563,12 +30473,102 @@ module VLineDrawer
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[7]_Q_VOTER_wire 
+    \count_reg_TMR_2[7]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[7]_Q_VOTER ),
         .I1(\count_reg_TMR_1[7]_Q_VOTER ),
         .I2(\count_reg_TMR_2[7]_Q_VOTER ),
         .O(count_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_0[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_1[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ),
+        .O(cs_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
+        .O(count_reg_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
+        .O(count_reg_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[2]_Q_VOTER ),
+        .O(count_reg_TMR_2[2])
     );
 endmodule
 

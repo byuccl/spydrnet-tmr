@@ -9,7 +9,7 @@ from spydrnet_tmr import apply_nmr, insert_organs
 from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoterVerilog
 
 # Parse in the downloaded .v netlist
-netlist = sdn.parse("simpleCounter.v",architecture=XILINX_7SERIES,remove_space=True)
+netlist = sdn.parse("simpleCounter.v",architecture=XILINX_7SERIES)
 
 # Makes all instances unique in the netlist
 uniquify(netlist)
@@ -46,4 +46,4 @@ replicas = apply_nmr(
 voters = insert_organs(replicas, insertion_points, XilinxTMRVoterVerilog(), "VOTER")
 
 # Compose the triplicated netlist
-netlist.compose("simpleCounter_tmr.v", voters, reinsert_space=True)
+netlist.compose("simpleCounter_tmr.v", voters)

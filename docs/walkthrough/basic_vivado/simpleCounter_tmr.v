@@ -18,30 +18,30 @@ module simpleCounter
     output [3:0]led_TMR_1;
     output [3:0]led_TMR_2;
 
-    wire \led_reg_TMR_2[1]_Q_VOTER ;
-    wire \led_reg_TMR_1[1]_Q_VOTER ;
-    wire \led_reg_TMR_0[1]_Q_VOTER ;
+    wire one_shot_1_reg_TMR_2_Q_VOTER;
+    wire one_shot_1_reg_TMR_1_Q_VOTER;
+    wire one_shot_1_reg_TMR_0_Q_VOTER;
+    wire f2_reg_TMR_2_Q_VOTER;
+    wire f2_reg_TMR_1_Q_VOTER;
+    wire f2_reg_TMR_0_Q_VOTER;
     wire \led_reg_TMR_2[0]_Q_VOTER ;
     wire \led_reg_TMR_1[0]_Q_VOTER ;
     wire \led_reg_TMR_0[0]_Q_VOTER ;
     wire \led_reg_TMR_2[3]_Q_VOTER ;
     wire \led_reg_TMR_1[3]_Q_VOTER ;
     wire \led_reg_TMR_0[3]_Q_VOTER ;
-    wire f2_reg_TMR_2_Q_VOTER;
-    wire f2_reg_TMR_1_Q_VOTER;
-    wire f2_reg_TMR_0_Q_VOTER;
-    wire \led_reg_TMR_2[2]_Q_VOTER ;
-    wire \led_reg_TMR_1[2]_Q_VOTER ;
-    wire \led_reg_TMR_0[2]_Q_VOTER ;
     wire one_shot_2_reg_TMR_2_Q_VOTER;
     wire one_shot_2_reg_TMR_1_Q_VOTER;
     wire one_shot_2_reg_TMR_0_Q_VOTER;
     wire f1_reg_TMR_2_Q_VOTER;
     wire f1_reg_TMR_1_Q_VOTER;
     wire f1_reg_TMR_0_Q_VOTER;
-    wire one_shot_1_reg_TMR_2_Q_VOTER;
-    wire one_shot_1_reg_TMR_1_Q_VOTER;
-    wire one_shot_1_reg_TMR_0_Q_VOTER;
+    wire \led_reg_TMR_2[2]_Q_VOTER ;
+    wire \led_reg_TMR_1[2]_Q_VOTER ;
+    wire \led_reg_TMR_0[2]_Q_VOTER ;
+    wire \led_reg_TMR_2[1]_Q_VOTER ;
+    wire \led_reg_TMR_1[1]_Q_VOTER ;
+    wire \led_reg_TMR_0[1]_Q_VOTER ;
     wire [3:0]p_0_in_TMR_2;
     wire [3:0]p_0_in_TMR_1;
     wire [3:0]p_0_in_TMR_0;
@@ -598,217 +598,7 @@ module simpleCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    one_shot_1_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
-        .O(one_shot_1_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    one_shot_1_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
-        .O(one_shot_1_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    one_shot_1_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
-        .O(one_shot_1_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f1_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(f1_reg_TMR_0_Q_VOTER),
-        .I1(f1_reg_TMR_1_Q_VOTER),
-        .I2(f1_reg_TMR_2_Q_VOTER),
-        .O(f1_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f1_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(f1_reg_TMR_0_Q_VOTER),
-        .I1(f1_reg_TMR_1_Q_VOTER),
-        .I2(f1_reg_TMR_2_Q_VOTER),
-        .O(f1_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f1_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(f1_reg_TMR_0_Q_VOTER),
-        .I1(f1_reg_TMR_1_Q_VOTER),
-        .I2(f1_reg_TMR_2_Q_VOTER),
-        .O(f1_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    one_shot_2_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
-        .O(one_shot_2_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    one_shot_2_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
-        .O(one_shot_2_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    one_shot_2_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
-        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
-        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
-        .O(one_shot_2_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_0[2]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
-        .O(led_OBUF_TMR_0[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_1[2]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
-        .O(led_OBUF_TMR_1[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_2[2]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
-        .O(led_OBUF_TMR_2[2])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f2_reg_TMR_0_Q_VOTER_wire
-    (
-        .I0(f2_reg_TMR_0_Q_VOTER),
-        .I1(f2_reg_TMR_1_Q_VOTER),
-        .I2(f2_reg_TMR_2_Q_VOTER),
-        .O(f2_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f2_reg_TMR_1_Q_VOTER_wire
-    (
-        .I0(f2_reg_TMR_0_Q_VOTER),
-        .I1(f2_reg_TMR_1_Q_VOTER),
-        .I2(f2_reg_TMR_2_Q_VOTER),
-        .O(f2_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    f2_reg_TMR_2_Q_VOTER_wire
-    (
-        .I0(f2_reg_TMR_0_Q_VOTER),
-        .I1(f2_reg_TMR_1_Q_VOTER),
-        .I2(f2_reg_TMR_2_Q_VOTER),
-        .O(f2_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
-        .O(led_OBUF_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
-        .O(led_OBUF_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
-        .O(led_OBUF_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
-        .O(led_OBUF_TMR_0[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
-        .O(led_OBUF_TMR_1[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
-        .O(led_OBUF_TMR_2[0])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \led_reg_TMR_0[1]_Q_VOTER_wire 
+    \led_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\led_reg_TMR_0[1]_Q_VOTER ),
         .I1(\led_reg_TMR_1[1]_Q_VOTER ),
@@ -818,7 +608,7 @@ module simpleCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \led_reg_TMR_1[1]_Q_VOTER_wire 
+    \led_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\led_reg_TMR_0[1]_Q_VOTER ),
         .I1(\led_reg_TMR_1[1]_Q_VOTER ),
@@ -828,12 +618,222 @@ module simpleCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \led_reg_TMR_2[1]_Q_VOTER_wire 
+    \led_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\led_reg_TMR_0[1]_Q_VOTER ),
         .I1(\led_reg_TMR_1[1]_Q_VOTER ),
         .I2(\led_reg_TMR_2[1]_Q_VOTER ),
         .O(led_OBUF_TMR_2[1])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_0[2]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
+        .O(led_OBUF_TMR_0[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_1[2]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
+        .O(led_OBUF_TMR_1[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_2[2]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[2]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[2]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[2]_Q_VOTER ),
+        .O(led_OBUF_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f1_reg_TMR_0_Q_VOTER
+    (
+        .I0(f1_reg_TMR_0_Q_VOTER),
+        .I1(f1_reg_TMR_1_Q_VOTER),
+        .I2(f1_reg_TMR_2_Q_VOTER),
+        .O(f1_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f1_reg_TMR_1_Q_VOTER
+    (
+        .I0(f1_reg_TMR_0_Q_VOTER),
+        .I1(f1_reg_TMR_1_Q_VOTER),
+        .I2(f1_reg_TMR_2_Q_VOTER),
+        .O(f1_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f1_reg_TMR_2_Q_VOTER
+    (
+        .I0(f1_reg_TMR_0_Q_VOTER),
+        .I1(f1_reg_TMR_1_Q_VOTER),
+        .I2(f1_reg_TMR_2_Q_VOTER),
+        .O(f1_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_2_reg_TMR_0_Q_VOTER
+    (
+        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
+        .O(one_shot_2_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_2_reg_TMR_1_Q_VOTER
+    (
+        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
+        .O(one_shot_2_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_2_reg_TMR_2_Q_VOTER
+    (
+        .I0(one_shot_2_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_2_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_2_reg_TMR_2_Q_VOTER),
+        .O(one_shot_2_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
+        .O(led_OBUF_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
+        .O(led_OBUF_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[3]_Q_VOTER ),
+        .O(led_OBUF_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
+        .O(led_OBUF_TMR_0[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
+        .O(led_OBUF_TMR_1[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \led_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\led_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\led_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\led_reg_TMR_2[0]_Q_VOTER ),
+        .O(led_OBUF_TMR_2[0])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f2_reg_TMR_0_Q_VOTER
+    (
+        .I0(f2_reg_TMR_0_Q_VOTER),
+        .I1(f2_reg_TMR_1_Q_VOTER),
+        .I2(f2_reg_TMR_2_Q_VOTER),
+        .O(f2_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f2_reg_TMR_1_Q_VOTER
+    (
+        .I0(f2_reg_TMR_0_Q_VOTER),
+        .I1(f2_reg_TMR_1_Q_VOTER),
+        .I2(f2_reg_TMR_2_Q_VOTER),
+        .O(f2_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    f2_reg_TMR_2_Q_VOTER
+    (
+        .I0(f2_reg_TMR_0_Q_VOTER),
+        .I1(f2_reg_TMR_1_Q_VOTER),
+        .I2(f2_reg_TMR_2_Q_VOTER),
+        .O(f2_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_1_reg_TMR_0_Q_VOTER
+    (
+        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
+        .O(one_shot_1_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_1_reg_TMR_1_Q_VOTER
+    (
+        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
+        .O(one_shot_1_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    one_shot_1_reg_TMR_2_Q_VOTER
+    (
+        .I0(one_shot_1_reg_TMR_0_Q_VOTER),
+        .I1(one_shot_1_reg_TMR_1_Q_VOTER),
+        .I2(one_shot_1_reg_TMR_2_Q_VOTER),
+        .O(one_shot_1_TMR_2)
     );
 endmodule
 
@@ -1002,33 +1002,45 @@ module debounceCounter
     input f2_TMR_1;
     input f2_TMR_2;
 
-    wire \count_reg_TMR_2[2]_Q_VOTER ;
-    wire \count_reg_TMR_1[2]_Q_VOTER ;
-    wire \count_reg_TMR_0[2]_Q_VOTER ;
     wire \count_reg_TMR_2[12]_Q_VOTER ;
     wire \count_reg_TMR_1[12]_Q_VOTER ;
     wire \count_reg_TMR_0[12]_Q_VOTER ;
+    wire \count_reg_TMR_2[14]_Q_VOTER ;
+    wire \count_reg_TMR_1[14]_Q_VOTER ;
+    wire \count_reg_TMR_0[14]_Q_VOTER ;
+    wire \count_reg_TMR_2[2]_Q_VOTER ;
+    wire \count_reg_TMR_1[2]_Q_VOTER ;
+    wire \count_reg_TMR_0[2]_Q_VOTER ;
     wire \count_reg_TMR_2[8]_Q_VOTER ;
     wire \count_reg_TMR_1[8]_Q_VOTER ;
     wire \count_reg_TMR_0[8]_Q_VOTER ;
     wire \count_reg_TMR_2[13]_Q_VOTER ;
     wire \count_reg_TMR_1[13]_Q_VOTER ;
     wire \count_reg_TMR_0[13]_Q_VOTER ;
+    wire \count_reg_TMR_2[5]_Q_VOTER ;
+    wire \count_reg_TMR_1[5]_Q_VOTER ;
+    wire \count_reg_TMR_0[5]_Q_VOTER ;
     wire \count_reg_TMR_2[11]_Q_VOTER ;
     wire \count_reg_TMR_1[11]_Q_VOTER ;
     wire \count_reg_TMR_0[11]_Q_VOTER ;
+    wire \count_reg_TMR_2[7]_Q_VOTER ;
+    wire \count_reg_TMR_1[7]_Q_VOTER ;
+    wire \count_reg_TMR_0[7]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
     wire \count_reg_TMR_2[1]_Q_VOTER ;
     wire \count_reg_TMR_1[1]_Q_VOTER ;
     wire \count_reg_TMR_0[1]_Q_VOTER ;
     wire \count_reg_TMR_2[0]_Q_VOTER ;
     wire \count_reg_TMR_1[0]_Q_VOTER ;
     wire \count_reg_TMR_0[0]_Q_VOTER ;
-    wire \count_reg_TMR_2[7]_Q_VOTER ;
-    wire \count_reg_TMR_1[7]_Q_VOTER ;
-    wire \count_reg_TMR_0[7]_Q_VOTER ;
     wire \count_reg_TMR_2[16]_Q_VOTER ;
     wire \count_reg_TMR_1[16]_Q_VOTER ;
     wire \count_reg_TMR_0[16]_Q_VOTER ;
+    wire \count_reg_TMR_2[18]_Q_VOTER ;
+    wire \count_reg_TMR_1[18]_Q_VOTER ;
+    wire \count_reg_TMR_0[18]_Q_VOTER ;
     wire \count_reg_TMR_2[4]_Q_VOTER ;
     wire \count_reg_TMR_1[4]_Q_VOTER ;
     wire \count_reg_TMR_0[4]_Q_VOTER ;
@@ -1038,33 +1050,21 @@ module debounceCounter
     wire \count_reg_TMR_2[9]_Q_VOTER ;
     wire \count_reg_TMR_1[9]_Q_VOTER ;
     wire \count_reg_TMR_0[9]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ;
-    wire \count_reg_TMR_2[18]_Q_VOTER ;
-    wire \count_reg_TMR_1[18]_Q_VOTER ;
-    wire \count_reg_TMR_0[18]_Q_VOTER ;
-    wire \count_reg_TMR_2[6]_Q_VOTER ;
-    wire \count_reg_TMR_1[6]_Q_VOTER ;
-    wire \count_reg_TMR_0[6]_Q_VOTER ;
     wire \count_reg_TMR_2[15]_Q_VOTER ;
     wire \count_reg_TMR_1[15]_Q_VOTER ;
     wire \count_reg_TMR_0[15]_Q_VOTER ;
-    wire \count_reg_TMR_2[17]_Q_VOTER ;
-    wire \count_reg_TMR_1[17]_Q_VOTER ;
-    wire \count_reg_TMR_0[17]_Q_VOTER ;
+    wire \count_reg_TMR_2[6]_Q_VOTER ;
+    wire \count_reg_TMR_1[6]_Q_VOTER ;
+    wire \count_reg_TMR_0[6]_Q_VOTER ;
     wire \count_reg_TMR_2[3]_Q_VOTER ;
     wire \count_reg_TMR_1[3]_Q_VOTER ;
     wire \count_reg_TMR_0[3]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ;
-    wire \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ;
-    wire \count_reg_TMR_2[5]_Q_VOTER ;
-    wire \count_reg_TMR_1[5]_Q_VOTER ;
-    wire \count_reg_TMR_0[5]_Q_VOTER ;
-    wire \count_reg_TMR_2[14]_Q_VOTER ;
-    wire \count_reg_TMR_1[14]_Q_VOTER ;
-    wire \count_reg_TMR_0[14]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ;
+    wire \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ;
+    wire \count_reg_TMR_2[17]_Q_VOTER ;
+    wire \count_reg_TMR_1[17]_Q_VOTER ;
+    wire \count_reg_TMR_0[17]_Q_VOTER ;
     wire timerDone__17_TMR_2;
     wire timerDone__17_TMR_1;
     wire timerDone__17_TMR_0;
@@ -2237,127 +2237,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[14]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
-        .O(count_reg_TMR_0[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[14]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
-        .O(count_reg_TMR_1[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[14]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
-        .O(count_reg_TMR_2[14])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[5]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
-        .O(count_reg_TMR_0[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[5]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
-        .O(count_reg_TMR_1[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[5]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
-        .O(count_reg_TMR_2[5])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_0)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_1)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER_wire 
-    (
-        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
-        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
-        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
-        .O(cs_TMR_2)
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[3]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_0[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[3]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_1[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[3]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
-        .O(count_reg_TMR_2[3])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[17]_Q_VOTER_wire 
+    \count_reg_TMR_0[17]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[17]_Q_VOTER ),
         .I1(\count_reg_TMR_1[17]_Q_VOTER ),
@@ -2367,7 +2247,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[17]_Q_VOTER_wire 
+    \count_reg_TMR_1[17]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[17]_Q_VOTER ),
         .I1(\count_reg_TMR_1[17]_Q_VOTER ),
@@ -2377,7 +2257,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[17]_Q_VOTER_wire 
+    \count_reg_TMR_2[17]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[17]_Q_VOTER ),
         .I1(\count_reg_TMR_1[17]_Q_VOTER ),
@@ -2387,97 +2267,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[15]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
-        .O(count_reg_TMR_0[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[15]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
-        .O(count_reg_TMR_1[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[15]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
-        .O(count_reg_TMR_2[15])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_0[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_1[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[6]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
-        .O(count_reg_TMR_2[6])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[18]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
-        .O(count_reg_TMR_0[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[18]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
-        .O(count_reg_TMR_1[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[18]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
-        .O(count_reg_TMR_2[18])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
@@ -2487,7 +2277,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
@@ -2497,7 +2287,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\FSM_sequential_cs_reg_TMR_0[1]_Q_VOTER ),
         .I1(\FSM_sequential_cs_reg_TMR_1[1]_Q_VOTER ),
@@ -2507,7 +2297,97 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[9]_Q_VOTER_wire 
+    \count_reg_TMR_0[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_0[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_1[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[3]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[3]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[3]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[3]_Q_VOTER ),
+        .O(count_reg_TMR_2[3])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[6]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_0[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[6]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_1[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[6]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[6]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[6]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[6]_Q_VOTER ),
+        .O(count_reg_TMR_2[6])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[15]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
+        .O(count_reg_TMR_0[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[15]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
+        .O(count_reg_TMR_1[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[15]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[15]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[15]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[15]_Q_VOTER ),
+        .O(count_reg_TMR_2[15])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[9]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[9]_Q_VOTER ),
         .I1(\count_reg_TMR_1[9]_Q_VOTER ),
@@ -2517,7 +2397,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[9]_Q_VOTER_wire 
+    \count_reg_TMR_1[9]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[9]_Q_VOTER ),
         .I1(\count_reg_TMR_1[9]_Q_VOTER ),
@@ -2527,7 +2407,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[9]_Q_VOTER_wire 
+    \count_reg_TMR_2[9]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[9]_Q_VOTER ),
         .I1(\count_reg_TMR_1[9]_Q_VOTER ),
@@ -2537,7 +2417,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[10]_Q_VOTER_wire 
+    \count_reg_TMR_0[10]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[10]_Q_VOTER ),
         .I1(\count_reg_TMR_1[10]_Q_VOTER ),
@@ -2547,7 +2427,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[10]_Q_VOTER_wire 
+    \count_reg_TMR_1[10]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[10]_Q_VOTER ),
         .I1(\count_reg_TMR_1[10]_Q_VOTER ),
@@ -2557,7 +2437,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[10]_Q_VOTER_wire 
+    \count_reg_TMR_2[10]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[10]_Q_VOTER ),
         .I1(\count_reg_TMR_1[10]_Q_VOTER ),
@@ -2567,7 +2447,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[4]_Q_VOTER_wire 
+    \count_reg_TMR_0[4]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[4]_Q_VOTER ),
         .I1(\count_reg_TMR_1[4]_Q_VOTER ),
@@ -2577,7 +2457,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[4]_Q_VOTER_wire 
+    \count_reg_TMR_1[4]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[4]_Q_VOTER ),
         .I1(\count_reg_TMR_1[4]_Q_VOTER ),
@@ -2587,7 +2467,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[4]_Q_VOTER_wire 
+    \count_reg_TMR_2[4]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[4]_Q_VOTER ),
         .I1(\count_reg_TMR_1[4]_Q_VOTER ),
@@ -2597,7 +2477,37 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[16]_Q_VOTER_wire 
+    \count_reg_TMR_0[18]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
+        .O(count_reg_TMR_0[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[18]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
+        .O(count_reg_TMR_1[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[18]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[18]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[18]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[18]_Q_VOTER ),
+        .O(count_reg_TMR_2[18])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[16]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[16]_Q_VOTER ),
         .I1(\count_reg_TMR_1[16]_Q_VOTER ),
@@ -2607,7 +2517,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[16]_Q_VOTER_wire 
+    \count_reg_TMR_1[16]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[16]_Q_VOTER ),
         .I1(\count_reg_TMR_1[16]_Q_VOTER ),
@@ -2617,7 +2527,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[16]_Q_VOTER_wire 
+    \count_reg_TMR_2[16]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[16]_Q_VOTER ),
         .I1(\count_reg_TMR_1[16]_Q_VOTER ),
@@ -2627,37 +2537,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[7]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
-        .O(count_reg_TMR_0[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[7]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
-        .O(count_reg_TMR_1[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[7]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
-        .O(count_reg_TMR_2[7])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[0]_Q_VOTER_wire 
+    \count_reg_TMR_0[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -2667,7 +2547,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[0]_Q_VOTER_wire 
+    \count_reg_TMR_1[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -2677,7 +2557,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[0]_Q_VOTER_wire 
+    \count_reg_TMR_2[0]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[0]_Q_VOTER ),
         .I1(\count_reg_TMR_1[0]_Q_VOTER ),
@@ -2687,7 +2567,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[1]_Q_VOTER_wire 
+    \count_reg_TMR_0[1]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[1]_Q_VOTER ),
         .I1(\count_reg_TMR_1[1]_Q_VOTER ),
@@ -2697,7 +2577,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[1]_Q_VOTER_wire 
+    \count_reg_TMR_1[1]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[1]_Q_VOTER ),
         .I1(\count_reg_TMR_1[1]_Q_VOTER ),
@@ -2707,7 +2587,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[1]_Q_VOTER_wire 
+    \count_reg_TMR_2[1]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[1]_Q_VOTER ),
         .I1(\count_reg_TMR_1[1]_Q_VOTER ),
@@ -2717,7 +2597,67 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[11]_Q_VOTER_wire 
+    \FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_0)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_1)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER 
+    (
+        .I0(\FSM_sequential_cs_reg_TMR_0[0]_Q_VOTER ),
+        .I1(\FSM_sequential_cs_reg_TMR_1[0]_Q_VOTER ),
+        .I2(\FSM_sequential_cs_reg_TMR_2[0]_Q_VOTER ),
+        .O(cs_TMR_2)
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[7]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
+        .O(count_reg_TMR_0[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[7]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
+        .O(count_reg_TMR_1[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[7]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[7]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[7]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[7]_Q_VOTER ),
+        .O(count_reg_TMR_2[7])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[11]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[11]_Q_VOTER ),
         .I1(\count_reg_TMR_1[11]_Q_VOTER ),
@@ -2727,7 +2667,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[11]_Q_VOTER_wire 
+    \count_reg_TMR_1[11]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[11]_Q_VOTER ),
         .I1(\count_reg_TMR_1[11]_Q_VOTER ),
@@ -2737,7 +2677,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[11]_Q_VOTER_wire 
+    \count_reg_TMR_2[11]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[11]_Q_VOTER ),
         .I1(\count_reg_TMR_1[11]_Q_VOTER ),
@@ -2747,7 +2687,37 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[13]_Q_VOTER_wire 
+    \count_reg_TMR_0[5]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
+        .O(count_reg_TMR_0[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[5]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
+        .O(count_reg_TMR_1[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[5]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[5]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[5]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[5]_Q_VOTER ),
+        .O(count_reg_TMR_2[5])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[13]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[13]_Q_VOTER ),
         .I1(\count_reg_TMR_1[13]_Q_VOTER ),
@@ -2757,7 +2727,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[13]_Q_VOTER_wire 
+    \count_reg_TMR_1[13]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[13]_Q_VOTER ),
         .I1(\count_reg_TMR_1[13]_Q_VOTER ),
@@ -2767,7 +2737,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[13]_Q_VOTER_wire 
+    \count_reg_TMR_2[13]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[13]_Q_VOTER ),
         .I1(\count_reg_TMR_1[13]_Q_VOTER ),
@@ -2777,7 +2747,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[8]_Q_VOTER_wire 
+    \count_reg_TMR_0[8]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[8]_Q_VOTER ),
         .I1(\count_reg_TMR_1[8]_Q_VOTER ),
@@ -2787,7 +2757,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[8]_Q_VOTER_wire 
+    \count_reg_TMR_1[8]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[8]_Q_VOTER ),
         .I1(\count_reg_TMR_1[8]_Q_VOTER ),
@@ -2797,7 +2767,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[8]_Q_VOTER_wire 
+    \count_reg_TMR_2[8]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[8]_Q_VOTER ),
         .I1(\count_reg_TMR_1[8]_Q_VOTER ),
@@ -2807,37 +2777,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_0[12]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
-        .O(count_reg_TMR_0[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_1[12]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
-        .O(count_reg_TMR_1[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_2[12]_Q_VOTER_wire 
-    (
-        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
-        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
-        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
-        .O(count_reg_TMR_2[12])
-    );
-    LUT3 #(
-        .INIT(8'hE8)
-    )
-    \count_reg_TMR_0[2]_Q_VOTER_wire 
+    \count_reg_TMR_0[2]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[2]_Q_VOTER ),
         .I1(\count_reg_TMR_1[2]_Q_VOTER ),
@@ -2847,7 +2787,7 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_1[2]_Q_VOTER_wire 
+    \count_reg_TMR_1[2]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[2]_Q_VOTER ),
         .I1(\count_reg_TMR_1[2]_Q_VOTER ),
@@ -2857,12 +2797,72 @@ module debounceCounter
     LUT3 #(
         .INIT(8'hE8)
     )
-    \count_reg_TMR_2[2]_Q_VOTER_wire 
+    \count_reg_TMR_2[2]_Q_VOTER 
     (
         .I0(\count_reg_TMR_0[2]_Q_VOTER ),
         .I1(\count_reg_TMR_1[2]_Q_VOTER ),
         .I2(\count_reg_TMR_2[2]_Q_VOTER ),
         .O(count_reg_TMR_2[2])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[14]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
+        .O(count_reg_TMR_0[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[14]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
+        .O(count_reg_TMR_1[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[14]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[14]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[14]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[14]_Q_VOTER ),
+        .O(count_reg_TMR_2[14])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_0[12]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
+        .O(count_reg_TMR_0[12])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_1[12]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
+        .O(count_reg_TMR_1[12])
+    );
+    LUT3 #(
+        .INIT(8'hE8)
+    )
+    \count_reg_TMR_2[12]_Q_VOTER 
+    (
+        .I0(\count_reg_TMR_0[12]_Q_VOTER ),
+        .I1(\count_reg_TMR_1[12]_Q_VOTER ),
+        .I2(\count_reg_TMR_2[12]_Q_VOTER ),
+        .O(count_reg_TMR_2[12])
     );
 endmodule
 
