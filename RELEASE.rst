@@ -1,3 +1,13 @@
+SpyDrNet-TMR 1.4
+-----------------
+April 18, 2023
+
+- Removed Travis CI from checks. Only github actions is used now
+- Bug fix for vendor names missing
+- Additions to Lattice primitive info database
+- Various minor edits
+- More examples
+
 SpyDrNet-TMR 1.3.1
 ------------------
 - Added github actions for pytest

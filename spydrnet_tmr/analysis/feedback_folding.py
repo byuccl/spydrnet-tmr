@@ -3,7 +3,7 @@ from collections import deque
 
 import re
 
-def fold_feedback(connectivity_graph):
+def fold_feedback(connectivity_graph, verbose=True):
     '''
     Analyzes tight feedback in a design.
 
@@ -11,7 +11,8 @@ def fold_feedback(connectivity_graph):
     '''
     sccs = list(sorted(nx.strongly_connected_components(connectivity_graph), key=len))
     scc_count = len(sccs)
-    print("There are {} SCC nodes".format(scc_count))
+    if verbose:
+        print("There are {} SCC nodes".format(scc_count))
     working_graph = connectivity_graph.copy()
     feedback_hierarchy = set()
     distances = dict()
@@ -19,23 +20,27 @@ def fold_feedback(connectivity_graph):
         if len(scc) == 1:
             is_selfloop = all(working_graph.successors(x) in scc for x in scc)
             if is_selfloop:
-                print("{} SCC is selfloop".format(scc_count))
+                if verbose:
+                    print("{} SCC is selfloop".format(scc_count))
                 new_node = _collapse(scc, working_graph)
                 distances[new_node] = 1
             else:
-                print("{} SCC is feedforward".format(scc_count))
+                if verbose:
+                    print("{} SCC is feedforward".format(scc_count))
                 new_node = next(iter(scc))
         else:
-            print("{} SCC is multi-node".format(scc_count))
-            new_node = _further_fold_scc(scc, working_graph, distances)
+            if verbose:
+                print("{} SCC is multi-node".format(scc_count))
+            new_node = _further_fold_scc(scc, working_graph, distances, verbose)
         feedback_hierarchy.add(new_node)
         scc_count -= 1
     return frozenset(feedback_hierarchy), distances, working_graph
 
 
-def _further_fold_scc(scc, working_graph, distances):
+def _further_fold_scc(scc, working_graph, distances, verbose):
     while len(scc) > 1:
-        print("{} nodes remain".format(len(scc)))
+        if verbose:
+            print("{} nodes remain".format(len(scc)))
         scc_subgraph = working_graph.subgraph(scc)
         shortest_distance = 1
         candidates = list()

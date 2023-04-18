@@ -1,14 +1,15 @@
 import spydrnet as sdn
 from spydrnet.uniquify import uniquify
 from spydrnet_tmr.support_files.vendor_names import XILINX
+from spydrnet.util.architecture import XILINX_7SERIES
 from spydrnet_tmr.analysis.voter_insertion.find_after_ff_voter_points import (
     find_after_ff_voter_points,
 )
 from spydrnet_tmr import apply_nmr, insert_organs
-from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoter
+from spydrnet_tmr.transformation.replication.organ import XilinxTMRVoterVerilog
 
 # Parse in the downloaded .v netlist
-netlist = sdn.parse("simpleCounter.edf")
+netlist = sdn.parse("simpleCounter.v",architecture=XILINX_7SERIES)
 
 # Makes all instances unique in the netlist
 uniquify(netlist)
@@ -20,6 +21,7 @@ hinstances_to_replicate = list(
                                                     and "VCC" not in x.name 
                                                     and "GND" not in x.name
                                                     and "ibuf" not in x.name.lower()
+                                                    and "CARRY4" not in x.item.reference.name
                                                     and "IBUF" not in x.item.reference.name))
 
 # Gets all of the OUT hports in the design 
@@ -41,7 +43,7 @@ replicas = apply_nmr(
     rename_original=True,
 )
 
-voters = insert_organs(replicas, insertion_points, XilinxTMRVoter(), "VOTER")
+voters = insert_organs(replicas, insertion_points, XilinxTMRVoterVerilog(), "VOTER")
 
 # Compose the triplicated netlist
-netlist.compose("simpleCounter_tmr.edf")
+netlist.compose("simpleCounter_tmr.v", voters)
