@@ -1,4 +1,4 @@
-Yosys/F4PGA
+Basic Yosys to F4PGA
 =====================
    
 Setting up Yosys and F4PGA
