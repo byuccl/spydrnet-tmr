@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Analysis Example &mdash; SpyDrNet TMR 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Registered Inverter TMR Example" href="plot_registered_inverter_tmr.html" />
+    <link rel="prev" title="Toggle TMR Example" href="toggle_tmr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#basic">Basic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_generic_tmr.html">Basic TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uniquify_nmr_property_example.html">Uniquify NMR Property Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_tmr.html">Toggle TMR Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Feedback Analysis Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_registered_inverter_tmr.html">Registered Inverter TMR Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surface_pins_example.html">Surface Pins Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_voters_for_every_ff_tmr.html">Voter Before/After Every Flip-Flop Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toggle_dwc.html">Toggle DWC Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_xilinx_generic_tmr.html">Xilinx TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_counter_bitstream_tmr.html">Two-Bit Counter Bitstream TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_config_tmr.html">YAML Configuration Mode for Triplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using_drc_example.html">SyntaxError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../walkthrough/index.html">TMR Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Examples</a> &raquo;</li>
+      <li>Feedback Analysis Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/basic/feedback_example.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-basic-feedback-example-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="feedback-analysis-example">
+<span id="sphx-glr-auto-examples-basic-feedback-example-py"></span><h1>Feedback Analysis Example<a class="headerlink" href="#feedback-analysis-example" title="Permalink to this heading"></a></h1>
+<p>This is an example of doing feedback analysis on a netlist. This example specificially uses the b13 netlist.</p>
+<p><strong>Run the following code</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">import</span> <span class="nn">spydrnet_tmr</span> <span class="k">as</span> <span class="nn">sdn_tmr</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.adjacency_list</span> <span class="kn">import</span> <span class="n">adjacency_list</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">fold_feedback</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">global</span> <span class="n">depth_dict</span>
+<span class="n">depth_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">print_feedback_hierarchy</span><span class="p">(</span><span class="n">f_set</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+   <span class="k">global</span> <span class="n">depth_dict</span>
+   <span class="k">if</span> <span class="n">depth</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">depth_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+      <span class="n">depth_dict</span><span class="p">[</span><span class="n">depth</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_set</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">):</span>
+            <span class="n">print_feedback_hierarchy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indent</span><span class="o">+</span><span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">depth_dict</span><span class="p">[</span><span class="n">depth</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+
+<span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;b13&quot;</span><span class="p">)</span>
+
+<span class="c1"># create connectivity graph</span>
+<span class="n">all_leaf_hinstances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+<span class="n">all_top_level_ports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">())</span>
+<span class="n">connections</span> <span class="o">=</span> <span class="n">adjacency_list</span><span class="p">([</span><span class="o">*</span><span class="n">all_leaf_hinstances</span><span class="p">,</span> <span class="o">*</span><span class="n">all_top_level_ports</span><span class="p">])</span>
+<span class="n">connectivity_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">connections</span><span class="p">)</span>
+
+<span class="c1"># Notes:</span>
+<span class="c1"># feedback_hierarchy - frozensets inside frozensets inside frozensets. Feedback hierarchy from large loops down to small loops</span>
+<span class="c1"># distances - a dictionary. Keys are frozensets of hinstances in the feedback loop. Item is the distance.</span>
+<span class="c1"># working_graph - networkx digraph. The resulting graph after all feedback has been folded down</span>
+<span class="n">feedback_hierarchy</span><span class="p">,</span> <span class="n">distances</span><span class="p">,</span> <span class="n">working_graph</span> <span class="o">=</span> <span class="n">fold_feedback</span><span class="p">(</span><span class="n">connectivity_graph</span><span class="p">)</span>
+
+<span class="n">print_feedback_hierarchy</span><span class="p">(</span><span class="n">feedback_hierarchy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>The output should look something like this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="n">are</span> <span class="mi">38</span> <span class="n">SCC</span> <span class="n">nodes</span>
+<span class="mi">38</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">37</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">36</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">35</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">34</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">33</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">32</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">31</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">30</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">29</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">28</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">27</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">26</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">25</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">24</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">23</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">22</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">21</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">20</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">19</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">18</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">17</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">16</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">15</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">14</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">13</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">12</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">11</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">10</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">feedforward</span>
+<span class="mi">9</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">8</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">7</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">6</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">5</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">4</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">3</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">2</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">1</span> <span class="n">SCC</span> <span class="ow">is</span> <span class="n">multi</span><span class="o">-</span><span class="n">node</span>
+<span class="mi">69</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">37</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">35</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">25</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">24</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">19</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">18</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">17</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">16</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">15</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">14</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">13</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">12</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">11</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">10</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">2</span> <span class="n">nodes</span> <span class="n">remain</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">_i_1</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">add_mpx2</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_i_1</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">clock</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_i_2</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">error_reg</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">error_i_1</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_i_3</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">dsr</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_i_4</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">soc_reg</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">soc_i_1</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">eoc</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg_reg</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_i_6</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">error</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_out_reg</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">load_dato</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">mux_en</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">GND</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">add_mpx2_i_1</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">add_mpx2_reg</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">reset</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">soc</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">VCC</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">mux_en_i_1</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">mux_en_reg</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">canale</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">data_in</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">_i_1</span>
+         <span class="mi">3</span><span class="p">:</span> <span class="n">FSM_onehot_S1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="n">_i_1</span>
+         <span class="mi">3</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+         <span class="mi">3</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+               <span class="mi">5</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                     <span class="mi">7</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                        <span class="mi">8</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+                           <span class="mi">9</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+                              <span class="mi">10</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+                                 <span class="mi">11</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+                                    <span class="mi">12</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_itfc_state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">send_data_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_itfc_state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_onehot_S1</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_S2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">confirm_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_itfc_state_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_S2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">shot_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">confirm_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_itfc_state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">_i_2</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">mpx_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_S2_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">shot_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">mpx_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">rdy_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_S2_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">rdy_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">FSM_sequential_itfc_state_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">send_data_i_1</span>
+                                    <span class="mi">12</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="n">_i_1</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">tx_end_i_1</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">send_en_reg</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">send_en_i_1</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">data_out_i_5</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="n">_i_1</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">tx_end_reg</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">_i_1</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="n">_i_1</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="n">_i_2</span>
+                                                <span class="mi">16</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+                                                <span class="mi">16</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="n">_i_1</span>
+                                                <span class="mi">16</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+                                                <span class="mi">16</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="n">_i_1</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="n">_i_2</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                                             <span class="mi">15</span><span class="p">:</span> <span class="n">tx_conta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="n">_i_1</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">tre_reg</span>
+                                          <span class="mi">14</span><span class="p">:</span> <span class="n">tre_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">send_reg</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">send_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">load_i_1</span>
+                                       <span class="mi">13</span><span class="p">:</span> <span class="n">load_reg</span>
+                  <span class="mi">6</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="mi">4</span><span class="p">:</span> <span class="n">FSM_onehot_next_bit_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="n">_i_1</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="mi">2</span><span class="p">:</span> <span class="n">FSM_onehot_S1_reg</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="n">_i_1</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp_reg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp_reg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">conta_tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="n">_i_1</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">load_dato_reg</span>
+   <span class="mi">1</span><span class="p">:</span> <span class="n">load_dato_i_1</span>
+<span class="mi">0</span><span class="p">:</span> <span class="n">out_reg</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="n">_i_1</span>
+</pre></div>
+</div>
+<p>The feedback analysis checks how “tight” a feedback loop is. The tighter the feedback loop the smaller the path and number of instances that are connected in it.
+In this design feedback loop 16 is the smallest loop and it is inside feedback loop 15. Feedback loop 15 is inside feedback loop 14, 14 inside 13, etc.
+This continues until feedback loop 0 which is the largest feedback loop that contains all other feedback loops.</p>
+<p><strong>The following code is for feedback analysis</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spydrnet</span> <span class="k">as</span> <span class="nn">sdn</span>
+<span class="kn">import</span> <span class="nn">spydrnet_tmr</span> <span class="k">as</span> <span class="nn">sdn_tmr</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr.analysis.adjacency_list</span> <span class="kn">import</span> <span class="n">adjacency_list</span>
+<span class="kn">from</span> <span class="nn">spydrnet_tmr</span> <span class="kn">import</span> <span class="n">fold_feedback</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">global</span> <span class="n">depth_dict</span>
+<span class="n">depth_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">print_feedback_hierarchy</span><span class="p">(</span><span class="n">f_set</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">depth_dict</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">depth_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">depth_dict</span><span class="p">[</span><span class="n">depth</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f_set</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">):</span>
+            <span class="n">print_feedback_hierarchy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indent</span><span class="o">+</span><span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">depth_dict</span><span class="p">[</span><span class="n">depth</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+
+<span class="n">netlist</span> <span class="o">=</span> <span class="n">sdn</span><span class="o">.</span><span class="n">load_example_netlist_by_name</span><span class="p">(</span><span class="s2">&quot;b13&quot;</span><span class="p">)</span>
+
+<span class="c1"># create connectivity graph</span>
+<span class="n">all_leaf_hinstances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                <span class="nb">filter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">reference</span><span class="o">.</span><span class="n">is_leaf</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">))</span>
+<span class="n">all_top_level_ports</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">netlist</span><span class="o">.</span><span class="n">get_hports</span><span class="p">())</span>
+<span class="n">connections</span> <span class="o">=</span> <span class="n">adjacency_list</span><span class="p">([</span><span class="o">*</span><span class="n">all_leaf_hinstances</span><span class="p">,</span> <span class="o">*</span><span class="n">all_top_level_ports</span><span class="p">])</span>
+<span class="n">connectivity_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">(</span><span class="n">connections</span><span class="p">)</span>
+
+<span class="c1"># Notes:</span>
+<span class="c1"># feedback_hierarchy - frozensets inside frozensets inside frozensets. Feedback hierarchy from large loops down to small loops</span>
+<span class="c1"># distances - a dictionary. Keys are frozensets of hinstances in the feedback loop. Item is the distance.</span>
+<span class="c1"># working_graph - networkx digraph. The resulting graph after all feedback has been folded down</span>
+<span class="n">feedback_hierarchy</span><span class="p">,</span> <span class="n">distances</span><span class="p">,</span> <span class="n">working_graph</span> <span class="o">=</span> <span class="n">fold_feedback</span><span class="p">(</span><span class="n">connectivity_graph</span><span class="p">)</span>
+
+<span class="n">print_feedback_hierarchy</span><span class="p">(</span><span class="n">feedback_hierarchy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-basic-feedback-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/bc3afcf90f03c0f05d2d387fbc778b12/feedback_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">feedback_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/a7de3e48dce178d3934a7fd36c3d842f/feedback_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">feedback_example.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="toggle_tmr.html" class="btn btn-neutral float-left" title="Toggle TMR Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_registered_inverter_tmr.html" class="btn btn-neutral float-right" title="Registered Inverter TMR Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

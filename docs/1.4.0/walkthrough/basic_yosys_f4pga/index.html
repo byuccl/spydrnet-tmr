@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Yosys to F4PGA &mdash; SpyDrNet TMR 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Medium Vivado to Vivado" href="../medium_vivado/index.html" />
+    <link rel="prev" title="Basic Vivado to Vivado" href="../basic_vivado/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">TMR Walkthrough</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../basic_vivado/index.html">Basic Vivado to Vivado</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Yosys to F4PGA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-yosys-and-f4pga">Setting up Yosys and F4PGA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-all-of-the-following-files">Download all of the following files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-yosys-spydrnet-tmr-and-f4pga">Running Yosys, SpyDrNet TMR, and F4PGA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#programming-device">Programming Device</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-if-the-design-works">Verifying if the Design Works</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../medium_vivado/index.html">Medium Vivado to Vivado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../medium_yosys_f4pga/index.html">Medium Yosys to F4PGA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">TMR Walkthrough</a> &raquo;</li>
+      <li>Basic Yosys to F4PGA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/walkthrough/basic_yosys_f4pga/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-yosys-to-f4pga">
+<h1>Basic Yosys to F4PGA<a class="headerlink" href="#basic-yosys-to-f4pga" title="Permalink to this heading"></a></h1>
+<section id="setting-up-yosys-and-f4pga">
+<h2>Setting up Yosys and F4PGA<a class="headerlink" href="#setting-up-yosys-and-f4pga" title="Permalink to this heading"></a></h2>
+<p>Install F4PGA and follow all of the steps <a class="reference external" href="https://f4pga-examples.readthedocs.io/en/latest/getting.html">here</a>.</p>
+<ol class="arabic simple">
+<li><p>Using the command line type the following</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">f4pga</span><span class="o">//</span><span class="n">xc7</span><span class="o">/</span><span class="n">conda</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">xc7</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">f4pga</span><span class="o">/</span><span class="n">wrappers</span><span class="o">/</span><span class="n">tcl</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Open xc7.f4pga.tcl</p></li>
+</ol>
+<ul class="simple">
+<li><p>Right before the write_blif if-else part (at the very bottom), add “hierarchy -purge_lib”</p></li>
+<li><p>Then, add option “-blackbox” to both write_blif commands</p></li>
+</ul>
+<section id="download-all-of-the-following-files">
+<h3>Download all of the following files<a class="headerlink" href="#download-all-of-the-following-files" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/1c4c1a8f626bb3cff8e2b52fe65030b2/simpleCounter.sv"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.sv</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/44868a4764ac85df49f9f3aef19990ea/simpleCounter.xdc"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.xdc</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ac84b86907eebb2f2d52b718a101c1fc/new_constraints.txt"><code class="xref download docutils literal notranslate"><span class="pre">new_constraints.txt</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ecc069843af8de7839d5dbdae025748b/tmr_script.py"><code class="xref download docutils literal notranslate"><span class="pre">tmr_script.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/a0aa8dacfd30decebd18e6fcf9d32246/common.mk"><code class="xref download docutils literal notranslate"><span class="pre">common.mk</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/cc6afe7fcb26b9924d7f210e940189f4/Makefile"><code class="xref download docutils literal notranslate"><span class="pre">Makefile</span></code></a></p>
+</section>
+</section>
+<section id="running-yosys-spydrnet-tmr-and-f4pga">
+<h2>Running Yosys, SpyDrNet TMR, and F4PGA<a class="headerlink" href="#running-yosys-spydrnet-tmr-and-f4pga" title="Permalink to this heading"></a></h2>
+<p>Once all of the files have been downloaded type navigate to their location and type in the command line</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="o">-</span><span class="n">C</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">download</span> <span class="o">-</span><span class="n">C</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> This will run Yosys and F4PGA then download the bitstream to the board</p>
+<section id="programming-device">
+<h3>Programming Device<a class="headerlink" href="#programming-device" title="Permalink to this heading"></a></h3>
+<p>To download the bitstream to the board using the command line</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">make</span> <span class="n">download</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="verifying-if-the-design-works">
+<h2>Verifying if the Design Works<a class="headerlink" href="#verifying-if-the-design-works" title="Permalink to this heading"></a></h2>
+<p>The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (4 LEDs are on) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+Since this is a TMR design there should be 3 sets of 4 leds in total.</p>
+<ul class="simple">
+<li><p>Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter.xdc and the new_constraints.txt file will need to be modified accordingly.</p></li>
+<li><p>Make sure all of the files are in the same location. If not the path to the file will need to be specified in the Makefile</p></li>
+<li><p>If getting errors with common.mk make sure that all of the indents are tabs and not spaces.</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../basic_vivado/index.html" class="btn btn-neutral float-left" title="Basic Vivado to Vivado" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../medium_vivado/index.html" class="btn btn-neutral float-right" title="Medium Vivado to Vivado" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

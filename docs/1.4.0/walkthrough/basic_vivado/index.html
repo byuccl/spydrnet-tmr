@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vivado to Vivado &mdash; SpyDrNet TMR 1.4.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Yosys to F4PGA" href="../basic_yosys_f4pga/index.html" />
+    <link rel="prev" title="TMR Walkthrough" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SpyDrNet TMR
+          </a>
+              <div class="version">
+                1.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">TMR Walkthrough</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Vivado to Vivado</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uploading-the-verilog-hdl-into-vivado">Uploading the Verilog HDL into Vivado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-the-netlist-from-vivado">Getting the Netlist from Vivado</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exporting-the-netlist">Exporting the Netlist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#triplicating-the-design-spydrnet-tmr">Triplicating the design - SpyDrNet TMR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spydrnet-tmr-to-vivado">SpyDrNet TMR to Vivado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vivado-to-bitstream">Vivado to Bitstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-if-the-design-works">Verifying if the Design Works</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../basic_yosys_f4pga/index.html">Basic Yosys to F4PGA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../medium_vivado/index.html">Medium Vivado to Vivado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../medium_yosys_f4pga/index.html">Medium Yosys to F4PGA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../f4pga/index.html">SpyDrNet-TMR and F4PGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SpyDrNet TMR</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">TMR Walkthrough</a> &raquo;</li>
+      <li>Basic Vivado to Vivado</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/walkthrough/basic_vivado/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-vivado-to-vivado">
+<h1>Basic Vivado to Vivado<a class="headerlink" href="#basic-vivado-to-vivado" title="Permalink to this heading"></a></h1>
+<p>This walk through explains how to take a netlist from Vivado and run it through SpyDrNet TMR, then reinsert the triplicated design back into Vivado to generate a bitstream.</p>
+<section id="uploading-the-verilog-hdl-into-vivado">
+<h2>Uploading the Verilog HDL into Vivado<a class="headerlink" href="#uploading-the-verilog-hdl-into-vivado" title="Permalink to this heading"></a></h2>
+<p>The first step is to create an RTL project in Vivado.</p>
+<ul class="simple">
+<li><p>Tip: Name the project simpleCounter (this allows for the python scripts to be run without any changes).</p></li>
+</ul>
+<img alt="../../_images/vivado_screenshot1.png" class="align-center" src="../../_images/vivado_screenshot1.png" />
+<p>Create the project and add <strong>simpleCounter.sv</strong> to the project.</p>
+<p>Download: <a class="reference download internal" download="" href="../../_downloads/5fdd385c30c31e8a7645a873eeef6c2e/simpleCounter.sv"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.sv</span></code></a></p>
+</section>
+<section id="getting-the-netlist-from-vivado">
+<h2>Getting the Netlist from Vivado<a class="headerlink" href="#getting-the-netlist-from-vivado" title="Permalink to this heading"></a></h2>
+<p>After adding the simpleCounter.sv file to your project, go to the “Flow Navigator” window on the left hand side of the screen, and click on “Run Synthesis.”</p>
+<img alt="../../_images/vivado_screenshot3.png" class="align-center" id="img-vivado-run-synthesis" src="../../_images/vivado_screenshot3.png" />
+<section id="exporting-the-netlist">
+<h3>Exporting the Netlist<a class="headerlink" href="#exporting-the-netlist" title="Permalink to this heading"></a></h3>
+<p>Once synthesis has been run expand the “Open Synthesized Design” tab under the “Synthesis” section, and click on the “Schematic” option.</p>
+<p>To Export the Netlist click on File in the upper left, go down to Export, then click on Export Netlist.</p>
+<p>A window pops up with the option to export EDIF and Verilog Netlists. Select the desired file format and file destination then click ok.</p>
+<img alt="../../_images/export_netlist.png" class="align-center" id="img-vivado-export-netlist" src="../../_images/export_netlist.png" />
+<ul class="simple">
+<li><p>If downloading an EDIF file change the file type from .edn to .edf (The python script in this walkthrough uses .edf to run tmr on EDIF netlists).</p></li>
+</ul>
+<section id="using-the-tcl-command-line-in-vivado">
+<h4>Using the tcl command line in Vivado<a class="headerlink" href="#using-the-tcl-command-line-in-vivado" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>To export the netlist using the tcl command line type <strong>write_edif simpleCounter.edf</strong> or <strong>write_verilog simpleCounter.v</strong></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="triplicating-the-design-spydrnet-tmr">
+<h2>Triplicating the design - SpyDrNet TMR<a class="headerlink" href="#triplicating-the-design-spydrnet-tmr" title="Permalink to this heading"></a></h2>
+<p>If using the .edf file, the following code runs the netlist through SpyDrNet TMR.</p>
+<div class="highlight-sv notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spydrnet</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">sdn</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet</span><span class="p">.</span><span class="n">uniquify</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">uniquify</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">support_files</span><span class="p">.</span><span class="n">vendor_names</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">XILINX</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">analysis</span><span class="p">.</span><span class="n">voter_insertion</span><span class="p">.</span><span class="n">find_after_ff_voter_points</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">find_after_ff_voter_points</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">apply_nmr</span><span class="p">,</span><span class="w"> </span><span class="n">insert_organs</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">transformation</span><span class="p">.</span><span class="n">replication</span><span class="p">.</span><span class="n">organ</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">XilinxTMRVoter</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Parse</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">downloaded</span><span class="w"> </span><span class="p">.</span><span class="n">v</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">netlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdn</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;simpleCounter.edf&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Makes</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="k">unique</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Gets</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hinstances</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">design</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">leaves</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">VCC</span><span class="w"> </span><span class="n">GND</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">IBUF</span><span class="w"></span>
+<span class="p">#</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">triplicated</span><span class="w"></span>
+<span class="n">hinstances_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">netlist</span><span class="p">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">recursive</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">filter</span><span class="o">=</span><span class="n">lambda</span><span class="w"> </span><span class="nl">x:</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">reference</span><span class="p">.</span><span class="n">is_leaf</span><span class="p">()</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">True</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;VCC&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;GND&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;ibuf&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;IBUF&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">reference</span><span class="p">.</span><span class="n">name</span><span class="p">))</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Gets</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">OUT</span><span class="w"> </span><span class="n">hports</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">design</span><span class="w"></span>
+<span class="n">hports_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">netlist</span><span class="p">.</span><span class="n">get_hports</span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="nl">x:</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">direction</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">sdn</span><span class="p">.</span><span class="n">OUT</span><span class="p">))</span><span class="w"></span>
+
+<span class="n">instances_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">hinstances_to_replicate</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">ports_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">hports_to_replicate</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Find</span><span class="w"> </span><span class="n">insertion</span><span class="w"> </span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="n">walkthrough</span><span class="w"> </span><span class="n">find_after_ff_voter_points</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">insertion</span><span class="w"> </span><span class="n">points</span><span class="w"></span>
+<span class="p">#</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">flip</span><span class="o">-</span><span class="n">flops</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">ports</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">replicated</span><span class="p">.</span><span class="w"></span>
+<span class="n">insertion_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_after_ff_voter_points</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span><span class="w"></span>
+<span class="w">   </span><span class="n">XILINX</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Replicate</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">ports</span><span class="w"></span>
+<span class="n">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">apply_nmr</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span><span class="w"></span>
+<span class="w">   </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">name_suffix</span><span class="o">=</span><span class="s">&quot;TMR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">rename_original</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Insert</span><span class="w"> </span><span class="n">voters</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">insertion</span><span class="w"> </span><span class="n">point</span><span class="w"></span>
+<span class="n">voters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span><span class="w"> </span><span class="n">insertion_points</span><span class="p">,</span><span class="w"> </span><span class="n">XilinxTMRVoter</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;VOTER&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Compose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">triplicated</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">netlist</span><span class="p">.</span><span class="n">compose</span><span class="p">(</span><span class="s">&quot;simpleCounter_tmr.edf&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Download: <a class="reference download internal" download="" href="../../_downloads/12b4ebeb1eb1729c4c38e53ea9a981f3/edf_tmr_script.py"><code class="xref download docutils literal notranslate"><span class="pre">edf_tmr_script.py</span></code></a></p>
+<p>If using the .v file, the following code runs the netlist through SpyDrNet TMR.</p>
+<div class="highlight-sv notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spydrnet</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">sdn</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet</span><span class="p">.</span><span class="n">uniquify</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">uniquify</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">support_files</span><span class="p">.</span><span class="n">vendor_names</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">XILINX</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">architecture</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">XILINX_7SERIES</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">analysis</span><span class="p">.</span><span class="n">voter_insertion</span><span class="p">.</span><span class="n">find_after_ff_voter_points</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">find_after_ff_voter_points</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">apply_nmr</span><span class="p">,</span><span class="w"> </span><span class="n">insert_organs</span><span class="w"></span>
+<span class="n">from</span><span class="w"> </span><span class="n">spydrnet_tmr</span><span class="p">.</span><span class="n">transformation</span><span class="p">.</span><span class="n">replication</span><span class="p">.</span><span class="n">organ</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">XilinxTMRVoterVerilog</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Parse</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">downloaded</span><span class="w"> </span><span class="p">.</span><span class="n">v</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">netlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdn</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;simpleCounter.v&quot;</span><span class="p">,</span><span class="n">architecture</span><span class="o">=</span><span class="n">XILINX_7SERIES</span><span class="p">,</span><span class="n">remove_space</span><span class="o">=</span><span class="n">True</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Makes</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="k">unique</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">uniquify</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Gets</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hinstances</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">design</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">leaves</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">VCC</span><span class="w"> </span><span class="n">GND</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">IBUF</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">triplicated</span><span class="w"></span>
+<span class="n">hinstances_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">netlist</span><span class="p">.</span><span class="n">get_hinstances</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">recursive</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">filter</span><span class="o">=</span><span class="n">lambda</span><span class="w"> </span><span class="nl">x:</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">reference</span><span class="p">.</span><span class="n">is_leaf</span><span class="p">()</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">True</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;VCC&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;GND&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;ibuf&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;CARRY4&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">reference</span><span class="p">.</span><span class="n">name</span><span class="w"></span>
+<span class="w">                                                   </span><span class="k">and</span><span class="w"> </span><span class="s">&quot;IBUF&quot;</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">reference</span><span class="p">.</span><span class="n">name</span><span class="p">))</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Gets</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">OUT</span><span class="w"> </span><span class="n">hports</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">design</span><span class="w"></span>
+<span class="n">hports_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">netlist</span><span class="p">.</span><span class="n">get_hports</span><span class="p">(</span><span class="n">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="nl">x:</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="p">.</span><span class="n">direction</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">sdn</span><span class="p">.</span><span class="n">OUT</span><span class="p">))</span><span class="w"></span>
+
+<span class="n">instances_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">hinstances_to_replicate</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">ports_to_replicate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">item</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">hports_to_replicate</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">insertion_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_after_ff_voter_points</span><span class="p">(</span><span class="n">netlist</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="o">*</span><span class="n">hinstances_to_replicate</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">hports_to_replicate</span><span class="p">],</span><span class="w"></span>
+<span class="w">   </span><span class="n">XILINX</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="n">replicas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">apply_nmr</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="o">*</span><span class="n">instances_to_replicate</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ports_to_replicate</span><span class="p">],</span><span class="w"></span>
+<span class="w">   </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">name_suffix</span><span class="o">=</span><span class="s">&quot;TMR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">rename_original</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+
+<span class="n">voters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insert_organs</span><span class="p">(</span><span class="n">replicas</span><span class="p">,</span><span class="w"> </span><span class="n">insertion_points</span><span class="p">,</span><span class="w"> </span><span class="n">XilinxTMRVoterVerilog</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;VOTER&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">#</span><span class="w"> </span><span class="n">Compose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">triplicated</span><span class="w"> </span><span class="n">netlist</span><span class="w"></span>
+<span class="n">netlist</span><span class="p">.</span><span class="n">compose</span><span class="p">(</span><span class="s">&quot;simpleCounter_tmr.v&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">voters</span><span class="p">,</span><span class="w"> </span><span class="n">reinsert_space</span><span class="o">=</span><span class="n">True</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Download: <a class="reference download internal" download="" href="../../_downloads/9c3c1640deb42c17b9d75f184b7bac8d/verilog_tmr_script.py"><code class="xref download docutils literal notranslate"><span class="pre">verilog_tmr_script.py</span></code></a></p>
+<ul class="simple">
+<li><p>Tip: Make sure that the python script(s) and the netlist(s) from vivado are both in the same location.</p></li>
+</ul>
+</section>
+<section id="spydrnet-tmr-to-vivado">
+<h2>SpyDrNet TMR to Vivado<a class="headerlink" href="#spydrnet-tmr-to-vivado" title="Permalink to this heading"></a></h2>
+<p>Create new project in Vivado and choose Post-synthesis Project.</p>
+<img alt="../../_images/post_synthesis.png" class="align-center" id="img-post-synthesis" src="../../_images/post_synthesis.png" />
+<p>If working with a .edf file, upload <strong>simpleCounter_tmr.edf</strong> and <strong>simpleCounter_tmr.xdc</strong> to the project.</p>
+<p>If working with a .v file, upload <strong>simpleCoutner_tmr.v</strong> and <strong>simpleCounter_tmr.xdc</strong> to the project. Select a top module for the design by pressing on the 3 dots and then selecting the top module.</p>
+<p><strong>NOTE:</strong> If the .xdc file is downloaded from the link below, rename the file from simpleCounter_tmr.xdc.txt to simpleCounter_tmr.xdc</p>
+<p>Download: <a class="reference download internal" download="" href="../../_downloads/be5b8a1d91f2a2f4e859b28a848b191c/simpleCounter_tmr.xdc"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter_tmr.xdc</span></code></a></p>
+</section>
+<section id="vivado-to-bitstream">
+<h2>Vivado to Bitstream<a class="headerlink" href="#vivado-to-bitstream" title="Permalink to this heading"></a></h2>
+<p>After adding the source files for your project, go to the “Flow Navigator” window on the left hand side of the screen, and click on “Generate Bitstream” under “Program and Debug.”</p>
+<p><strong>NOTE:</strong> The verilog netlist asks for a top module to be specified click “OK” on the box that pops up and then click on the 3 dots on the next pop up, then select simpleCounter as the top module.</p>
+<img alt="../../_images/vivado_screenshot3.png" class="align-center" id="img-vivado-run-generate-bitstream" src="../../_images/vivado_screenshot3.png" />
+<p>Once the Bitstream has been generated click on “Open Hardware Manager” under the tab “Program and Debug”, click on “Open Target” then click on “Auto Connect”, next click on “Program Device”.</p>
+<p>A window should open up, click on program to download the bitstream to your device.</p>
+</section>
+<section id="verifying-if-the-design-works">
+<h2>Verifying if the Design Works<a class="headerlink" href="#verifying-if-the-design-works" title="Permalink to this heading"></a></h2>
+<p>The counter in this design increments when btnc is pressed. Once it reaches a count of 15 (4 LEDs are on) it rolls over to 0 and starts counting up again. If at any point btnu is pressed the count is reset to 0.
+Since this is a TMR design there should be 3 sets of 4 leds in total.</p>
+<ul class="simple">
+<li><p>Set 1 (LEDS 0-3), Set 2 (LEDs 5-8), Set 3 (LEDs 10-13)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>This example was designed using a BASYS 3 board. If a different FPGA is being used the simpleCounter_tmr.xdc file will need to be modified accordingly.</p></li>
+<li><p>To get the Verilog netlist to work properly the Carry4 primitives were not triplicated</p></li>
+</ol>
+</div>
+<p>Files:</p>
+<p><a class="reference download internal" download="" href="../../_downloads/5fdd385c30c31e8a7645a873eeef6c2e/simpleCounter.sv"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.sv</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c04c6b94a2a6391702e2ba158908544c/simpleCounter.edf"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.edf</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/6c8f5e7d06c9bde9c592c51ec445d47d/simpleCounter_tmr.edf"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter_tmr.edf</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/be5b8a1d91f2a2f4e859b28a848b191c/simpleCounter_tmr.xdc"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter_tmr.xdc</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/12b4ebeb1eb1729c4c38e53ea9a981f3/edf_tmr_script.py"><code class="xref download docutils literal notranslate"><span class="pre">edf_tmr_script.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/bd4cd2e83793bc58e60a61e1c64e7176/simpleCounter.v"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter.v</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/f156d3e5de0e1293d1403ccc62f79946/simpleCounter_tmr.v"><code class="xref download docutils literal notranslate"><span class="pre">simpleCounter_tmr.v</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/9c3c1640deb42c17b9d75f184b7bac8d/verilog_tmr_script.py"><code class="xref download docutils literal notranslate"><span class="pre">verilog_tmr_script.py</span></code></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="TMR Walkthrough" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../basic_yosys_f4pga/index.html" class="btn btn-neutral float-right" title="Basic Yosys to F4PGA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, BYU Configurable Computing Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
