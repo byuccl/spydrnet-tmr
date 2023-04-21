@@ -20,7 +20,6 @@ def run_tmr(netlist_name, new_constraints_file=None):
 
    uniquify(netlist)
 
-   #    netlist.compose("before_TMR.eblif")
 
    hinstances = list(x for x in netlist.get_hinstances(filter = lambda x: x.item.is_leaf()
                                                       and "VCC" not in x.name
