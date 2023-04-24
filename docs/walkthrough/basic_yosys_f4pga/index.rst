@@ -8,12 +8,26 @@ Install F4PGA and follow all of the steps `here <https://f4pga-examples.readthed
 
 1. Using the command line type the following
 
->>> cd ~/opt/f4pga//xc7/conda/envs/xc7/lib/python3.7/site-packages/f4pga/wrappers/tcl
+>>> cd ~/opt/f4pga/xc7/conda/envs/xc7/lib/python3.7/site-packages/f4pga/wrappers/tcl
 
 2. Open xc7.f4pga.tcl
 
 * Right before the write_blif if-else part (at the very bottom), add “hierarchy -purge_lib”
 * Then, add option “-blackbox” to both write_blif commands
+* Should look something like this
+
+.. code-block::
+   hierarchy -purge_lib
+   if { [info exists ::env(USE_LUT_CONSTANTS)] } {
+      write_blif -attr -cname -param -blackbox \
+         $::env(OUT_EBLIF)
+   } else {
+      write_blif -attr -cname -param -blackbox \
+         -true VCC VCC \
+         -false GND GND \
+         -undef VCC VCC \
+      $::env(OUT_EBLIF)
+   }
 
 Download all of the following files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
