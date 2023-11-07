@@ -27,7 +27,7 @@ jobs:
         git clone https://github.com/byuccl/spydrnet.git
         cd spydrnet
         git checkout next_release
-        pip install -e spydrnet
+        pip install -e .
         cd ~/spydrnet-tmr
     - name: Run Pytest for SpyDrNet-TMR
       run: |
