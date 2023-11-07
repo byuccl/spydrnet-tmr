@@ -23,7 +23,7 @@ class TestDRCSurfacePins(unittest.TestCase):
         random_value = randint(0,len(examples_list)-1)
         example_to_test = examples_list[random_value]
 
-        self.netlist = sdn.load_example_netlist_by_name(example_to_test)
+        self.netlist = sdn.load_example_netlist_by_name(example_to_test, force_download=True)
         uniquify(self.netlist)
 
         hinstances_to_replicate = list(self.netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))

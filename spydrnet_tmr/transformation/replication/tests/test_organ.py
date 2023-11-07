@@ -43,7 +43,7 @@ class TestOrgan(unittest.TestCase):
         '''
         Generates netlists needed for testing by selecting a random example from a list of small netlists, replicating the design, and composing the netlist.
         '''
-        netlist = sdn.load_example_netlist_by_name(example_to_test)
+        netlist = sdn.load_example_netlist_by_name(example_to_test, force_download=True)
         uniquify(netlist)
 
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))

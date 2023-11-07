@@ -6,7 +6,7 @@ from spydrnet_tmr.f4pga.fix_unconn_nets import connect_unconn_to_dummy
 
 class TestFixUnconnNets(unittest.TestCase):
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("synchronouscounter_nocarry", EBLIF)
+        self.netlist = sdn.load_example_netlist_by_name("synchronouscounter_nocarry", EBLIF, force_download=True)
         self.unconn_pins = list()
         for instance in self.netlist.get_instances():
             for pin in instance.get_pins(selection=Selection.OUTSIDE, filter=lambda x: x.inner_pin.port.direction is sdn.OUT):

@@ -15,7 +15,7 @@ class TestUniquifyNmrProperty(unittest.TestCase):
         random_value = randint(0,len(examples_list)-1)
         example_to_test = examples_list[random_value]
 
-        netlist = sdn.load_example_netlist_by_name(example_to_test)
+        netlist = sdn.load_example_netlist_by_name(example_to_test, force_download=True)
         uniquify(netlist)
 
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))

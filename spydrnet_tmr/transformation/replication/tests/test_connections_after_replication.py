@@ -86,7 +86,7 @@ class TestReplicationUsingDRC(unittest.TestCase):
         '''
         Generates netlists needed for testing by selecting a random example from a list of small netlists, replicating the design, and composing the netlist.
         '''
-        netlist = sdn.load_example_netlist_by_name(example_to_test)
+        netlist = sdn.load_example_netlist_by_name(example_to_test, force_download=True)
 
         uniquify(netlist)
         sdn.compose(netlist,example_to_test + ".edf")

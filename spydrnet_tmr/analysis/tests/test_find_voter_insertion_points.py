@@ -13,7 +13,7 @@ from spydrnet_tmr.support_files.vendor_names import XILINX
 
 class TestVoterInsertionBeforeFF(unittest.TestCase):
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("b13")
+        self.netlist = sdn.load_example_netlist_by_name("b13", force_download=True)
         uniquify(self.netlist)
         hinstances_to_replicate = self.netlist.get_hinstances(
             recursive=True,
@@ -45,7 +45,7 @@ class TestVoterInsertionBeforeFF(unittest.TestCase):
 
 class TestVoterInsertionAfterFF(unittest.TestCase):
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("b13")
+        self.netlist = sdn.load_example_netlist_by_name("b13", force_download=True)
         uniquify(self.netlist)
         hinstances_to_replicate = self.netlist.get_hinstances(
             recursive=True,

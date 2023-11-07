@@ -8,7 +8,7 @@ from spydrnet_tmr import apply_nmr
 
 class TestUpdateConstraints(unittest.TestCase):
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("synchronouscounter_nocarry", EBLIF)
+        self.netlist = sdn.load_example_netlist_by_name("synchronouscounter_nocarry", EBLIF, force_download=True)
         self.instance = next(self.netlist.get_instances(filter=lambda x: self.filter(x)))
         constraint_info = "\"count[0]:U17\""
         try: 

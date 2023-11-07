@@ -14,7 +14,7 @@ class TestDRCCInsertOrgans(unittest.TestCase):
     '''
     def setUp(self):
         example_name = 'b13'
-        netlist = sdn.load_example_netlist_by_name(example_name)
+        netlist = sdn.load_example_netlist_by_name(example_name, force_download=True)
         uniquify(netlist)
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)

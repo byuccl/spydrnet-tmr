@@ -8,7 +8,7 @@ from spydrnet_tmr import apply_nmr
 class TestIdentifyReductionPoints(unittest.TestCase):
 
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name("b13")
+        self.netlist = sdn.load_example_netlist_by_name("b13", force_download=True)
         uniquify(self.netlist)
         hinstances_to_replicate = list(self.netlist.get_hinstances(recursive=True,filter=lambda x: x.item.reference.is_leaf() is True))
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)

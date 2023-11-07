@@ -9,7 +9,7 @@ from collections import deque
 
 class TestFeedbackFolding(unittest.TestCase):
     def test_feedback_folding(self):
-        netlist = sdn.load_example_netlist_by_name("b13")
+        netlist = sdn.load_example_netlist_by_name("b13", force_download=True)
         hports = netlist.get_hports(
             filter=lambda x: x.name not in {"clk", "srst"}
         )

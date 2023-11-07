@@ -66,7 +66,7 @@ class TestOrganInsertion(unittest.TestCase):
 class TestOrganInsertion2(unittest.TestCase):
 
     def setUp(self):
-        self.netlist = sdn.load_example_netlist_by_name('b13')
+        self.netlist = sdn.load_example_netlist_by_name('b13', force_download=True)
         uniquify(self.netlist)
         ignore = ["OBUF",'OUTBUF','VCC']
         self.hinstances_to_replicate = list(self.netlist.get_hinstances(recursive=True, filter=lambda x:(x.item.reference.is_leaf() and not any(ignore_name in x.item.name for ignore_name in ignore))is True))

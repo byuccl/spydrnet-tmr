@@ -22,7 +22,7 @@ class TestDRCApplyNMR(unittest.TestCase):
         self.assertTrue(check_nmr(netlist,[*hinstances_to_replicate, *hports_to_replicate], 3, 'TMR'))
 
     def test_drc_pass_2(self):
-        netlist = sdn.load_example_netlist_by_name('lfsr_zybo')
+        netlist = sdn.load_example_netlist_by_name('lfsr_zybo', force_download=True)
         uniquify(netlist)
         ignore_types = ['OBUF','OUTBUF','segment','anode','VCC','GND']
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.is_leaf() and all(x.item.name not in ignore for ignore in ignore_types)))
@@ -34,7 +34,7 @@ class TestDRCApplyNMR(unittest.TestCase):
         self.assertTrue(check_nmr(netlist,[*hinstances_to_replicate, *hports_to_replicate], 3, 'TMR'),self.example_to_test)
 
     def test_drc_fail(self):
-        netlist = sdn.load_example_netlist_by_name(self.example_to_test)
+        netlist = sdn.load_example_netlist_by_name(self.example_to_test, force_download=True)
         uniquify(netlist)
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
@@ -45,7 +45,7 @@ class TestDRCApplyNMR(unittest.TestCase):
         self.assertFalse(check_nmr(netlist,[], 3, 'TMR'))
 
     def test_drc_fail_2(self):
-        netlist = sdn.load_example_netlist_by_name(self.example_to_test)
+        netlist = sdn.load_example_netlist_by_name(self.example_to_test, force_download=True)
         uniquify(netlist)
         hinstances_to_replicate = list(netlist.get_hinstances(recursive=True, filter=lambda x: x.item.reference.is_leaf() is True))
         instances_to_replicate = list(x.item for x in hinstances_to_replicate)
