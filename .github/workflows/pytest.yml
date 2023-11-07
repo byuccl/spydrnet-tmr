@@ -31,4 +31,4 @@ jobs:
         cd ../spydrnet-tmr
     - name: Run Pytest for SpyDrNet-TMR
       run: |
-        y | pytest -v -s
+        y | pytest -v
