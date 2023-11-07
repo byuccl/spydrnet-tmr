@@ -22,7 +22,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        python -m pip install spydrnet networkx pytest
+        python -m pip install  requests spydrnet networkx pytest
     - name: Run Pytest for SpyDrNet-TMR
       run: |
         pytest -v
