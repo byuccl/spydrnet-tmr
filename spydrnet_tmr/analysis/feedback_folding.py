@@ -5,9 +5,13 @@ import re
 
 def fold_feedback(connectivity_graph, verbose=True):
     '''
-    Analyzes tight feedback in a design.
+    Analyzes feedback in a design. Takes a networkx digraph and returns the following:
+    
+    feedback_hierarchy - frozensets inside frozensets inside frozensets. Feedback hierarchy from large loops down to small loops
+    distances - a dictionary. Keys are frozensets of hinstances in the feedback loop. Item is the distance.
+    working_graph - networkx digraph. The resulting graph after all feedback has been folded down
 
-    :param connectivity_graph:
+    :param connectivity_graph: A networkx digraph created
     '''
     sccs = list(sorted(nx.strongly_connected_components(connectivity_graph), key=len))
     scc_count = len(sccs)
