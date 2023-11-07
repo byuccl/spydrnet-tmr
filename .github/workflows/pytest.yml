@@ -25,4 +25,4 @@ jobs:
         python -m pip install  requests spydrnet networkx pytest
     - name: Run Pytest for SpyDrNet-TMR
       run: |
-        pytest -v
+        y | pytest -v
